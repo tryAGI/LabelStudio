@@ -1,0 +1,71 @@
+
+#nullable enable
+
+namespace LabelStudio
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class AssignmentSettings
+    {
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public int Id { get; set; } = default!;
+
+        /// <summary>
+        /// Automatic / Manual<br/>
+        /// * `auto_distribution` - Label Stream distributes tasks automatically to annotators<br/>
+        /// * `assigned_only` - Label Stream shows tasks only to assigned users
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("label_stream_task_distribution")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.LabelStreamTaskDistributionEnumJsonConverter))]
+        public global::LabelStudio.LabelStreamTaskDistributionEnum? LabelStreamTaskDistribution { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project")]
+        public int? Project { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AssignmentSettings" /> class.
+        /// </summary>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="labelStreamTaskDistribution">
+        /// Automatic / Manual<br/>
+        /// * `auto_distribution` - Label Stream distributes tasks automatically to annotators<br/>
+        /// * `assigned_only` - Label Stream shows tasks only to assigned users
+        /// </param>
+        /// <param name="project"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public AssignmentSettings(
+            global::LabelStudio.LabelStreamTaskDistributionEnum? labelStreamTaskDistribution,
+            int? project,
+            int id = default!)
+        {
+            this.Id = id;
+            this.LabelStreamTaskDistribution = labelStreamTaskDistribution;
+            this.Project = project;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AssignmentSettings" /> class.
+        /// </summary>
+        public AssignmentSettings()
+        {
+        }
+    }
+}

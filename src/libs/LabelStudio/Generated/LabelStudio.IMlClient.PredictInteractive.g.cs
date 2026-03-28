@@ -1,0 +1,45 @@
+#nullable enable
+
+namespace LabelStudio
+{
+    public partial interface IMlClient
+    {
+        /// <summary>
+        /// Request Interactive Annotation<br/>
+        ///         Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a<br/>
+        ///         predicted region based on annotator input. <br/>
+        ///         See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.<br/>
+        ///         
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task PredictInteractiveAsync(
+            int id,
+
+            global::LabelStudio.MLInteractiveAnnotatingRequestRequest request,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Request Interactive Annotation<br/>
+        ///         Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a<br/>
+        ///         predicted region based on annotator input. <br/>
+        ///         See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.<br/>
+        ///         
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="context">
+        /// Context for ML model
+        /// </param>
+        /// <param name="task">
+        /// ID of task to annotate
+        /// </param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task PredictInteractiveAsync(
+            int id,
+            int task,
+            object? context = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

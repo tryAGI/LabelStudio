@@ -1,0 +1,135 @@
+
+#nullable enable
+
+namespace LabelStudio
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class LseExportCreateRequest
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotation_filter_options")]
+        public global::LabelStudio.LseAnnotationFilterOptionsRequest? AnnotationFilterOptions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("converted_formats")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.ConvertedFormatRequest>? ConvertedFormats { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("counters")]
+        public object? Counters { get; set; }
+
+        /// <summary>
+        /// A ModelSerializer that takes additional arguments for<br/>
+        /// "fields", "omit" and "expand" in order to<br/>
+        /// control which fields are displayed, and whether to replace simple<br/>
+        /// values with complex, nested serializations
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
+        public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
+
+        /// <summary>
+        /// Complete or fail time
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("finished_at")]
+        public global::System.DateTime? FinishedAt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("md5")]
+        public string? Md5 { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("serialization_options")]
+        public global::LabelStudio.SerializationOptionsRequest? SerializationOptions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("status")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Status7bfEnumJsonConverter))]
+        public global::LabelStudio.Status7bfEnum? Status { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("task_filter_options")]
+        public global::LabelStudio.LseTaskFilterOptionsRequest? TaskFilterOptions { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        public string? Title { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LseExportCreateRequest" /> class.
+        /// </summary>
+        /// <param name="annotationFilterOptions"></param>
+        /// <param name="convertedFormats"></param>
+        /// <param name="counters"></param>
+        /// <param name="createdBy">
+        /// A ModelSerializer that takes additional arguments for<br/>
+        /// "fields", "omit" and "expand" in order to<br/>
+        /// control which fields are displayed, and whether to replace simple<br/>
+        /// values with complex, nested serializations
+        /// </param>
+        /// <param name="finishedAt">
+        /// Complete or fail time
+        /// </param>
+        /// <param name="md5"></param>
+        /// <param name="serializationOptions"></param>
+        /// <param name="status"></param>
+        /// <param name="taskFilterOptions"></param>
+        /// <param name="title"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public LseExportCreateRequest(
+            global::LabelStudio.LseAnnotationFilterOptionsRequest? annotationFilterOptions,
+            global::System.Collections.Generic.IList<global::LabelStudio.ConvertedFormatRequest>? convertedFormats,
+            object? counters,
+            global::LabelStudio.UserSimpleRequest? createdBy,
+            global::System.DateTime? finishedAt,
+            string? md5,
+            global::LabelStudio.SerializationOptionsRequest? serializationOptions,
+            global::LabelStudio.Status7bfEnum? status,
+            global::LabelStudio.LseTaskFilterOptionsRequest? taskFilterOptions,
+            string? title)
+        {
+            this.AnnotationFilterOptions = annotationFilterOptions;
+            this.ConvertedFormats = convertedFormats;
+            this.Counters = counters;
+            this.CreatedBy = createdBy;
+            this.FinishedAt = finishedAt;
+            this.Md5 = md5;
+            this.SerializationOptions = serializationOptions;
+            this.Status = status;
+            this.TaskFilterOptions = taskFilterOptions;
+            this.Title = title;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LseExportCreateRequest" /> class.
+        /// </summary>
+        public LseExportCreateRequest()
+        {
+        }
+    }
+}

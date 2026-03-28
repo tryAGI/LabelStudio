@@ -1,0 +1,18 @@
+#nullable enable
+
+namespace LabelStudio
+{
+    public partial interface IMlClient
+    {
+        /// <summary>
+        /// Get model versions<br/>
+        /// Get available versions of the model.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiMlVersionsRetrieveResponse> ListModelVersionsAsync(
+            int id,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}
