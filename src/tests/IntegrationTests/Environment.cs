@@ -1,3 +1,4 @@
+using System.Net;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
 
@@ -7,7 +8,6 @@ public sealed class Environment : IAsyncDisposable
 {
     private const string LabelStudioImage = "heartexlabs/label-studio:latest";
     private const ushort LabelStudioPort = 8080;
-    private const string ContainerApiToken = "testtoken1234567890";
     private static readonly TimeSpan StartupTimeout = TimeSpan.FromMinutes(3);
 
     public IContainer? Container { get; init; }
@@ -48,11 +48,13 @@ public sealed class Environment : IAsyncDisposable
             }
             case EnvironmentType.Container:
             {
+                const string email = "test@test.com";
+                const string password = "testpassword123";
+
                 var container = new ContainerBuilder(LabelStudioImage)
                     .WithPortBinding(LabelStudioPort, assignRandomHostPort: true)
-                    .WithEnvironment("LABEL_STUDIO_USERNAME", "test@test.com")
-                    .WithEnvironment("LABEL_STUDIO_PASSWORD", "testpassword123")
-                    .WithEnvironment("LABEL_STUDIO_USER_TOKEN", ContainerApiToken)
+                    .WithEnvironment("LABEL_STUDIO_USERNAME", email)
+                    .WithEnvironment("LABEL_STUDIO_PASSWORD", password)
                     .WithEnvironment("LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK", "true")
                     .WithWaitStrategy(
                         Wait.ForUnixContainer()
@@ -64,12 +66,15 @@ public sealed class Environment : IAsyncDisposable
                 using var cts = new CancellationTokenSource(StartupTimeout);
                 await container.StartAsync(cts.Token);
 
-                var client = new LabelStudioClient(
-                    ContainerApiToken,
-                    baseUri: new UriBuilder(
-                        Uri.UriSchemeHttp,
-                        container.Hostname,
-                        container.GetMappedPublicPort(LabelStudioPort)).Uri);
+                var baseUri = new UriBuilder(
+                    Uri.UriSchemeHttp,
+                    container.Hostname,
+                    container.GetMappedPublicPort(LabelStudioPort)).Uri;
+
+                // Login to get session cookie, then retrieve the API token
+                var apiToken = await GetApiTokenAsync(baseUri, email, password);
+
+                var client = new LabelStudioClient(apiToken, baseUri: baseUri);
 
                 return new Environment
                 {
@@ -80,6 +85,37 @@ public sealed class Environment : IAsyncDisposable
             default:
                 throw new ArgumentOutOfRangeException(nameof(environmentType), environmentType, null);
         }
+    }
+
+    private static async Task<string> GetApiTokenAsync(Uri baseUri, string email, string password)
+    {
+        var cookieContainer = new CookieContainer();
+        using var handler = new HttpClientHandler { CookieContainer = cookieContainer };
+        using var httpClient = new HttpClient(handler) { BaseAddress = baseUri };
+
+        // GET /user/login to get CSRF token cookie
+        await httpClient.GetAsync("/user/login");
+        var csrfToken = cookieContainer.GetCookies(baseUri)["csrftoken"]?.Value ?? "";
+
+        // POST /user/login with credentials
+        var loginContent = new FormUrlEncodedContent(
+        [
+            new KeyValuePair<string, string>("email", email),
+            new KeyValuePair<string, string>("password", password),
+            new KeyValuePair<string, string>("csrfmiddlewaretoken", csrfToken),
+        ]);
+        httpClient.DefaultRequestHeaders.Add("Referer", baseUri.ToString());
+        await httpClient.PostAsync("/user/login", loginContent);
+
+        // GET /api/current-user/token to retrieve the API token
+        var tokenResponse = await httpClient.GetAsync("/api/current-user/token");
+        tokenResponse.EnsureSuccessStatusCode();
+        var tokenJson = await tokenResponse.Content.ReadAsStringAsync();
+
+        // Response is {"token":"<value>"}
+        var tokenDoc = System.Text.Json.JsonDocument.Parse(tokenJson);
+        return tokenDoc.RootElement.GetProperty("token").GetString()
+               ?? throw new InvalidOperationException("Failed to get API token from Label Studio container.");
     }
 
     private static EnvironmentType InferEnvironment()
