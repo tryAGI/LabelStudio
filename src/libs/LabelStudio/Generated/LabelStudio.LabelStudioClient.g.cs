@@ -49,7 +49,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ActivityLogs2Client ActivityLogs2 => new ActivityLogs2Client(HttpClient, authorizations: Authorizations)
+        public ActivityLogsClient ActivityLogs => new ActivityLogsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -67,7 +67,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationHistory2Client AnnotationHistory2 => new AnnotationHistory2Client(HttpClient, authorizations: Authorizations)
+        public AnnotationHistoryClient AnnotationHistory => new AnnotationHistoryClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -94,7 +94,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Annotations2Client Annotations2 => new Annotations2Client(HttpClient, authorizations: Authorizations)
+        public AnnotationsClient Annotations => new AnnotationsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -409,7 +409,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public SessionPolicy2Client SessionPolicy2 => new SessionPolicy2Client(HttpClient, authorizations: Authorizations)
+        public SessionPolicyClient SessionPolicy => new SessionPolicyClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -427,7 +427,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public States2Client States2 => new States2Client(HttpClient, authorizations: Authorizations)
+        public StatesClient States => new StatesClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -562,7 +562,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Users2Client Users2 => new Users2Client(HttpClient, authorizations: Authorizations)
+        public UsersClient Users => new UsersClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -571,7 +571,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Versions2Client Versions2 => new Versions2Client(HttpClient, authorizations: Authorizations)
+        public VersionsClient Versions => new VersionsClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
