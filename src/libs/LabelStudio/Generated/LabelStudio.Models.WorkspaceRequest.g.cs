@@ -51,6 +51,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkspaceRequest" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Workspace Name
+        /// </param>
         /// <param name="color">
         /// Color
         /// </param>
@@ -63,9 +66,6 @@ namespace LabelStudio
         /// <param name="isPersonal">
         /// Workspace is a personal user workspace
         /// </param>
-        /// <param name="title">
-        /// Workspace Name
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -76,11 +76,11 @@ namespace LabelStudio
             bool? isArchived,
             bool? isPersonal)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Color = color;
             this.Description = description;
             this.IsArchived = isArchived;
             this.IsPersonal = isPersonal;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
         }
 
         /// <summary>

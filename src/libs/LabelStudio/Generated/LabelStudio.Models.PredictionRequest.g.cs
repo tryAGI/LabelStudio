@@ -79,6 +79,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="PredictionRequest" /> class.
         /// </summary>
+        /// <param name="result">
+        /// List of prediction results for the task
+        /// </param>
+        /// <param name="task"></param>
         /// <param name="cluster">
         /// Cluster for the current prediction
         /// </param>
@@ -98,13 +102,9 @@ namespace LabelStudio
         /// Array of task IDs of the closest neighbors
         /// </param>
         /// <param name="project"></param>
-        /// <param name="result">
-        /// List of prediction results for the task
-        /// </param>
         /// <param name="score">
         /// Prediction score
         /// </param>
-        /// <param name="task"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -120,8 +120,6 @@ namespace LabelStudio
             int? project,
             double? score)
         {
-            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
-            this.Task = task;
             this.Cluster = cluster;
             this.Mislabeling = mislabeling;
             this.Model = model;
@@ -129,7 +127,9 @@ namespace LabelStudio
             this.ModelVersion = modelVersion;
             this.Neighbors = neighbors;
             this.Project = project;
+            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
             this.Score = score;
+            this.Task = task;
         }
 
         /// <summary>

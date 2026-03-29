@@ -30,8 +30,8 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="FSMTransitionExecuteRequestRequest" /> class.
         /// </summary>
-        /// <param name="transitionData"></param>
         /// <param name="transitionName"></param>
+        /// <param name="transitionData"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -39,8 +39,8 @@ namespace LabelStudio
             string transitionName,
             object? transitionData)
         {
-            this.TransitionName = transitionName ?? throw new global::System.ArgumentNullException(nameof(transitionName));
             this.TransitionData = transitionData;
+            this.TransitionName = transitionName ?? throw new global::System.ArgumentNullException(nameof(transitionName));
         }
 
         /// <summary>

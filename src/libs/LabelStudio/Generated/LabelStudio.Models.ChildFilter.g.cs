@@ -66,23 +66,23 @@ namespace LabelStudio
         /// <param name="column">
         /// Field name
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="index">
-        /// Display order among root filters only
-        /// </param>
         /// <param name="operator">
         /// Filter operator
-        /// </param>
-        /// <param name="parent">
-        /// Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
         /// </param>
         /// <param name="type">
         /// Field type
         /// </param>
+        /// <param name="index">
+        /// Display order among root filters only
+        /// </param>
+        /// <param name="parent">
+        /// Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
+        /// </param>
         /// <param name="value">
         /// Filter value
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -97,11 +97,11 @@ namespace LabelStudio
             int id = default!)
         {
             this.Column = column ?? throw new global::System.ArgumentNullException(nameof(column));
-            this.Operator = @operator ?? throw new global::System.ArgumentNullException(nameof(@operator));
-            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Id = id;
             this.Index = index;
+            this.Operator = @operator ?? throw new global::System.ArgumentNullException(nameof(@operator));
             this.Parent = parent;
+            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Value = value;
         }
 

@@ -103,25 +103,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnotationReview" /> class.
         /// </summary>
-        /// <param name="accepted">
-        /// Accepted or rejected (if false) flag
-        /// </param>
         /// <param name="annotation">
         /// Corresponding annotation
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdBy">
-        /// User who made this review<br/>
-        /// Included only in responses
+        /// <param name="accepted">
+        /// Accepted or rejected (if false) flag
         /// </param>
         /// <param name="fixedAnnotationHistory">
         /// Fixed annotation history item by the reviewer<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="id">
         /// Included only in responses
         /// </param>
         /// <param name="lastAnnotationHistory"></param>
@@ -132,6 +121,17 @@ namespace LabelStudio
         /// <param name="removeFromQueue"></param>
         /// <param name="result"></param>
         /// <param name="startedAt"></param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdBy">
+        /// User who made this review<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="state">
         /// Included only in responses
         /// </param>
@@ -152,8 +152,8 @@ namespace LabelStudio
             int id = default!,
             string state = default!)
         {
-            this.Annotation = annotation;
             this.Accepted = accepted;
+            this.Annotation = annotation;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.FixedAnnotationHistory = fixedAnnotationHistory;

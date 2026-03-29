@@ -114,6 +114,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseTaskRequest" /> class.
         /// </summary>
+        /// <param name="data">
+        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        /// </param>
         /// <param name="allowSkip">
         /// Whether this task can be skipped. Set to False to make task unskippable.
         /// </param>
@@ -125,9 +128,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="commentCount">
         /// Number of comments in the task including all annotations
-        /// </param>
-        /// <param name="data">
-        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
         /// </param>
         /// <param name="fileUpload">
         /// Uploaded file used as data source for this task
@@ -183,11 +183,11 @@ namespace LabelStudio
             int? unresolvedCommentCount,
             int? updatedBy)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.AllowSkip = allowSkip;
             this.CancelledAnnotations = cancelledAnnotations;
             this.CommentAuthors = commentAuthors;
             this.CommentCount = commentCount;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.FileUpload = fileUpload;
             this.InnerId = innerId;
             this.IsLabeled = isLabeled;

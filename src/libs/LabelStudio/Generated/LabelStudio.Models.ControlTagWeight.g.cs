@@ -38,14 +38,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ControlTagWeight" /> class.
         /// </summary>
-        /// <param name="labels">
-        /// Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
-        /// </param>
         /// <param name="overall">
         /// Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
         /// </param>
         /// <param name="type">
         /// Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+        /// </param>
+        /// <param name="labels">
+        /// Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace LabelStudio
             string type,
             global::System.Collections.Generic.Dictionary<string, double>? labels)
         {
+            this.Labels = labels;
             this.Overall = overall;
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
-            this.Labels = labels;
         }
 
         /// <summary>

@@ -45,10 +45,6 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelDistributionStructureDimension" /> class.
         /// </summary>
-        /// <param name="choiceKeys">
-        /// Flat keys in "&lt;from_name&gt;___SEP___&lt;choice&gt;" format for this dimension.<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="choices">
         /// Sorted list of choices observed from config and/or created labels.
         /// </param>
@@ -57,6 +53,10 @@ namespace LabelStudio
         /// </param>
         /// <param name="type">
         /// Result item type for this dimension when available.
+        /// </param>
+        /// <param name="choiceKeys">
+        /// Flat keys in "&lt;from_name&gt;___SEP___&lt;choice&gt;" format for this dimension.<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -67,9 +67,9 @@ namespace LabelStudio
             string? type,
             string choiceKeys = default!)
         {
+            this.ChoiceKeys = choiceKeys;
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.ChoiceKeys = choiceKeys;
             this.Type = type;
         }
 

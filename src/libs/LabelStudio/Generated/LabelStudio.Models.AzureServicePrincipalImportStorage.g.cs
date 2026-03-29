@@ -179,6 +179,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureServicePrincipalImportStorage" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
@@ -191,15 +194,8 @@ namespace LabelStudio
         /// <param name="container">
         /// Azure blob container
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Cloud storage description
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
@@ -221,9 +217,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan
@@ -251,15 +244,22 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
-        /// <param name="type">
-        /// Default Value: azure_spi<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="useBlobUrls">
         /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="userDelegationKey">
         /// User Delegation Key (Backend)
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="type">
+        /// Default Value: azure_spi<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -291,7 +291,6 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Project = project;
             this.AccountName = accountName;
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
@@ -306,6 +305,7 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.Status = status;

@@ -45,10 +45,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSimpleRequest" /> class.
         /// </summary>
+        /// <param name="username"></param>
         /// <param name="email"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="username"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -58,10 +58,10 @@ namespace LabelStudio
             string? firstName,
             string? lastName)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Email = email;
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
         }
 
         /// <summary>

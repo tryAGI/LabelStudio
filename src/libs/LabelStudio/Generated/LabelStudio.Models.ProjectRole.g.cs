@@ -52,9 +52,6 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectRole" /> class.
         /// </summary>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="project"></param>
         /// <param name="role">
         /// * `OW` - Owner<br/>
@@ -66,6 +63,9 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </param>
         /// <param name="user"></param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,10 +75,10 @@ namespace LabelStudio
             int user,
             int id = default!)
         {
+            this.Id = id;
             this.Project = project;
             this.Role = role;
             this.User = user;
-            this.Id = id;
         }
 
         /// <summary>

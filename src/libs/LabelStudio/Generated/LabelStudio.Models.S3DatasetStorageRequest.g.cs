@@ -174,6 +174,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="S3DatasetStorageRequest" /> class.
         /// </summary>
+        /// <param name="dataset">
+        /// A unique integer value identifying this dataset.
+        /// </param>
         /// <param name="awsAccessKeyId">
         /// AWS_ACCESS_KEY_ID
         /// </param>
@@ -188,9 +191,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="bucket">
         /// S3 bucket name
-        /// </param>
-        /// <param name="dataset">
-        /// A unique integer value identifying this dataset.
         /// </param>
         /// <param name="description">
         /// Cloud storage description
@@ -284,12 +284,12 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Dataset = dataset;
             this.AwsAccessKeyId = awsAccessKeyId;
             this.AwsSecretAccessKey = awsSecretAccessKey;
             this.AwsSessionToken = awsSessionToken;
             this.AwsSseKmsKeyId = awsSseKmsKeyId;
             this.Bucket = bucket;
+            this.Dataset = dataset;
             this.Description = description;
             this.GlobPattern = globPattern;
             this.LastSync = lastSync;

@@ -38,10 +38,10 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="FileUpload" /> class.
         /// </summary>
         /// <param name="file"></param>
-        /// <param name="id">
+        /// <param name="size">
         /// Included only in responses
         /// </param>
-        /// <param name="size">
+        /// <param name="id">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER

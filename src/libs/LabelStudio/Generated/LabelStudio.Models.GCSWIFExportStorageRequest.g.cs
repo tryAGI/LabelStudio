@@ -150,6 +150,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="GCSWIFExportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="bucket">
         /// GCS bucket name
         /// </param>
@@ -191,9 +194,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="prefix">
         /// GCS bucket prefix
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="regexFilter">
         /// Cloud storage regex for filtering objects
@@ -244,7 +244,6 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Project = project;
             this.Bucket = bucket;
             this.CanDeleteObjects = canDeleteObjects;
             this.Description = description;
@@ -259,6 +258,7 @@ namespace LabelStudio
             this.LastSyncJob = lastSyncJob;
             this.Meta = meta;
             this.Prefix = prefix;
+            this.Project = project;
             this.RegexFilter = regexFilter;
             this.Status = status;
             this.Synchronizable = synchronizable;

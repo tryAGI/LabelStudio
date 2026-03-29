@@ -47,9 +47,6 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectDuplicateRequest" /> class.
         /// </summary>
-        /// <param name="description">
-        /// Project Description
-        /// </param>
         /// <param name="mode">
         /// What to Duplicate (Project configuration only / Project configuration and tasks)<br/>
         /// * `settings` - Only settings<br/>
@@ -61,6 +58,9 @@ namespace LabelStudio
         /// <param name="workspace">
         /// Destination Workspace
         /// </param>
+        /// <param name="description">
+        /// Project Description
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,10 +70,10 @@ namespace LabelStudio
             int workspace,
             string? description)
         {
+            this.Description = description;
             this.Mode = mode;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Workspace = workspace;
-            this.Description = description;
         }
 
         /// <summary>

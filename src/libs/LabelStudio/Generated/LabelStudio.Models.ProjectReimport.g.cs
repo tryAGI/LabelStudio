@@ -101,9 +101,6 @@ namespace LabelStudio
         /// <param name="fileUploadIds"></param>
         /// <param name="filesAsTasksList"></param>
         /// <param name="foundFormats"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="predictionCount"></param>
         /// <param name="project"></param>
         /// <param name="status">
@@ -113,6 +110,9 @@ namespace LabelStudio
         /// * `completed` - Completed
         /// </param>
         /// <param name="taskCount"></param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

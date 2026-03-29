@@ -158,14 +158,10 @@ namespace LabelStudio
         /// <param name="isLicenseWarning"></param>
         /// <param name="isPromptsExpire"></param>
         /// <param name="isPromptsWarning"></param>
-        /// <param name="licenseExpires"></param>
-        /// <param name="licenseIssued"></param>
-        /// <param name="licenseWarning"></param>
         /// <param name="organizationIsActive"></param>
         /// <param name="projects"></param>
         /// <param name="promptsApiKeysEnabled"></param>
         /// <param name="promptsEnabled"></param>
-        /// <param name="promptsExpire"></param>
         /// <param name="promptsStatus">
         /// * `Enabled` - Enabled<br/>
         /// * `Cloud license per organization disabled` - Cloud license per organization disabled<br/>
@@ -175,10 +171,14 @@ namespace LabelStudio
         /// * `Disabled for this organization [FF]` - Disabled for this organization [FF]<br/>
         /// * `unknown` - unknown
         /// </param>
-        /// <param name="promptsWarning"></param>
         /// <param name="results"></param>
         /// <param name="trialDays"></param>
         /// <param name="users"></param>
+        /// <param name="licenseExpires"></param>
+        /// <param name="licenseIssued"></param>
+        /// <param name="licenseWarning"></param>
+        /// <param name="promptsExpire"></param>
+        /// <param name="promptsWarning"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -209,19 +209,19 @@ namespace LabelStudio
             this.IsLicenseWarning = isLicenseWarning;
             this.IsPromptsExpire = isPromptsExpire;
             this.IsPromptsWarning = isPromptsWarning;
+            this.LicenseExpires = licenseExpires;
+            this.LicenseIssued = licenseIssued;
+            this.LicenseWarning = licenseWarning;
             this.OrganizationIsActive = organizationIsActive;
             this.Projects = projects ?? throw new global::System.ArgumentNullException(nameof(projects));
             this.PromptsApiKeysEnabled = promptsApiKeysEnabled;
             this.PromptsEnabled = promptsEnabled;
+            this.PromptsExpire = promptsExpire;
             this.PromptsStatus = promptsStatus;
+            this.PromptsWarning = promptsWarning;
             this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
             this.TrialDays = trialDays;
             this.Users = users ?? throw new global::System.ArgumentNullException(nameof(users));
-            this.LicenseExpires = licenseExpires;
-            this.LicenseIssued = licenseIssued;
-            this.LicenseWarning = licenseWarning;
-            this.PromptsExpire = promptsExpire;
-            this.PromptsWarning = promptsWarning;
         }
 
         /// <summary>

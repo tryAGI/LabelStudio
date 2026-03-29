@@ -99,12 +99,6 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="LseOrganization" /> class.
         /// </summary>
         /// <param name="billing"></param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
-        /// <param name="customScriptsEnabled">
-        /// Included only in responses
-        /// </param>
         /// <param name="defaultRole">
         /// Default membership role for invited users<br/>
         /// * `OW` - Owner<br/>
@@ -115,9 +109,6 @@ namespace LabelStudio
         /// * `DI` - Deactivated<br/>
         /// * `NO` - Not Activated
         /// </param>
-        /// <param name="emailNotificationSettings">
-        /// Included only in responses
-        /// </param>
         /// <param name="embedDomains">
         /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
         /// </param>
@@ -126,6 +117,15 @@ namespace LabelStudio
         /// </param>
         /// <param name="externalId">
         /// External ID to uniquely identify this organization
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="customScriptsEnabled">
+        /// Included only in responses
+        /// </param>
+        /// <param name="emailNotificationSettings">
+        /// Included only in responses
         /// </param>
         /// <param name="id">
         /// Included only in responses

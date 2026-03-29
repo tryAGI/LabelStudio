@@ -64,11 +64,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="BlueprintList" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Project description
+        /// </param>
+        /// <param name="title">
+        /// Blueprint name. Must be between 3 and 50 characters long.
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
         /// </param>
         /// <param name="id">
         /// Included only in responses
@@ -81,9 +84,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="taskCount">
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Blueprint name. Must be between 3 and 50 characters long.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

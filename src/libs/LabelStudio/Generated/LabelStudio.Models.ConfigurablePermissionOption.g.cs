@@ -57,10 +57,10 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="ConfigurablePermissionOption" /> class.
         /// </summary>
         /// <param name="default"></param>
-        /// <param name="group"></param>
-        /// <param name="label"></param>
         /// <param name="options"></param>
         /// <param name="permission"></param>
+        /// <param name="group"></param>
+        /// <param name="label"></param>
         /// <param name="tooltip"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -74,10 +74,10 @@ namespace LabelStudio
             string? tooltip)
         {
             this.Default = @default ?? throw new global::System.ArgumentNullException(nameof(@default));
-            this.Options = options ?? throw new global::System.ArgumentNullException(nameof(options));
-            this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
             this.Group = group;
             this.Label = label;
+            this.Options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
             this.Tooltip = tooltip;
         }
 

@@ -120,18 +120,16 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivityLog" /> class.
         /// </summary>
-        /// <param name="datetime">
-        /// Included only in responses
-        /// </param>
+        /// <param name="email"></param>
+        /// <param name="requestMethod"></param>
+        /// <param name="requestUrl"></param>
+        /// <param name="responseCode"></param>
+        /// <param name="userId"></param>
         /// <param name="duration">
         /// Duration of response generation in ms
         /// </param>
-        /// <param name="email"></param>
         /// <param name="extraData"></param>
         /// <param name="httpReferer"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="ipAddress"></param>
         /// <param name="organizationId">
         /// Organization id
@@ -139,14 +137,16 @@ namespace LabelStudio
         /// <param name="projectId">
         /// Project id if request has it
         /// </param>
-        /// <param name="requestMethod"></param>
-        /// <param name="requestUrl"></param>
-        /// <param name="responseCode"></param>
         /// <param name="userAgent"></param>
-        /// <param name="userId"></param>
         /// <param name="userSession"></param>
         /// <param name="workspaceOwnerId">
         /// Owner id of workspace where action performed
+        /// </param>
+        /// <param name="datetime">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -169,20 +169,20 @@ namespace LabelStudio
             global::System.DateTime datetime = default!,
             int id = default!)
         {
-            this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
-            this.RequestMethod = requestMethod ?? throw new global::System.ArgumentNullException(nameof(requestMethod));
-            this.RequestUrl = requestUrl ?? throw new global::System.ArgumentNullException(nameof(requestUrl));
-            this.ResponseCode = responseCode ?? throw new global::System.ArgumentNullException(nameof(responseCode));
-            this.UserId = userId;
             this.Datetime = datetime;
             this.Duration = duration;
+            this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.ExtraData = extraData;
             this.HttpReferer = httpReferer;
             this.Id = id;
             this.IpAddress = ipAddress;
             this.OrganizationId = organizationId;
             this.ProjectId = projectId;
+            this.RequestMethod = requestMethod ?? throw new global::System.ArgumentNullException(nameof(requestMethod));
+            this.RequestUrl = requestUrl ?? throw new global::System.ArgumentNullException(nameof(requestUrl));
+            this.ResponseCode = responseCode ?? throw new global::System.ArgumentNullException(nameof(responseCode));
             this.UserAgent = userAgent;
+            this.UserId = userId;
             this.UserSession = userSession;
             this.WorkspaceOwnerId = workspaceOwnerId;
         }

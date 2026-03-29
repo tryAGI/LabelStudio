@@ -105,21 +105,15 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectTemplate" /> class.
         /// </summary>
+        /// <param name="name"></param>
         /// <param name="assignmentSettings">
         /// general dict serialized assignment settings
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
         /// </param>
         /// <param name="createdBy"></param>
         /// <param name="customScript">
         /// custom script (Plugin) for projects created from this template
         /// </param>
         /// <param name="description"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="name"></param>
         /// <param name="organization"></param>
         /// <param name="projectSettings">
         /// general dict serialized project settings
@@ -132,6 +126,12 @@ namespace LabelStudio
         /// </param>
         /// <param name="showUnusedDataColumnsToAnnotators"></param>
         /// <param name="tags"></param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
         /// </param>
@@ -154,13 +154,13 @@ namespace LabelStudio
             int id = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AssignmentSettings = assignmentSettings;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.CustomScript = customScript;
             this.Description = description;
             this.Id = id;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Organization = organization;
             this.ProjectSettings = projectSettings;
             this.RequireCommentOnSkip = requireCommentOnSkip;

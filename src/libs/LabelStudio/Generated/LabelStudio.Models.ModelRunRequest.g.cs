@@ -77,6 +77,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelRunRequest" /> class.
         /// </summary>
+        /// <param name="project"></param>
         /// <param name="jobId">
         /// Job ID for inference job for a ModelRun e.g. Adala job ID
         /// </param>
@@ -87,7 +88,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="organization"></param>
         /// <param name="predictionsUpdatedAt"></param>
-        /// <param name="project"></param>
         /// <param name="projectSubset">
         /// * `All` - All<br/>
         /// * `HasGT` - HasGT<br/>
@@ -110,11 +110,11 @@ namespace LabelStudio
             int? totalPredictions,
             int? totalTasks)
         {
-            this.Project = project;
             this.JobId = jobId;
             this.OnlyMissingPredictions = onlyMissingPredictions;
             this.Organization = organization;
             this.PredictionsUpdatedAt = predictionsUpdatedAt;
+            this.Project = project;
             this.ProjectSubset = projectSubset;
             this.TotalCorrectPredictions = totalCorrectPredictions;
             this.TotalPredictions = totalPredictions;

@@ -38,8 +38,8 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="BatchFailedPredictionsRequestRequest" /> class.
         /// </summary>
         /// <param name="failedPredictions"></param>
-        /// <param name="jobId"></param>
         /// <param name="modelrunId"></param>
+        /// <param name="jobId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,8 +49,8 @@ namespace LabelStudio
             string? jobId)
         {
             this.FailedPredictions = failedPredictions ?? throw new global::System.ArgumentNullException(nameof(failedPredictions));
-            this.ModelrunId = modelrunId;
             this.JobId = jobId;
+            this.ModelrunId = modelrunId;
         }
 
         /// <summary>

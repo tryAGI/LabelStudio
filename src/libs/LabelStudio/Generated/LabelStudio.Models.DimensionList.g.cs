@@ -134,12 +134,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DimensionList" /> class.
         /// </summary>
-        /// <param name="allowedMetricsWithParams">
-        /// Dictionary mapping metric type names to their parameter schemas.<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="controlTag">
         /// Name of the control tag this dimension is extracted from. Set automatically for system dimensions.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="allowedMetricsWithParams">
+        /// Dictionary mapping metric type names to their parameter schemas.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="createdAt">

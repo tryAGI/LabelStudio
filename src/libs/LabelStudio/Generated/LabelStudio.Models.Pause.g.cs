@@ -97,9 +97,13 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Pause" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Timestamp when this pause record was created<br/>
-        /// Included only in responses
+        /// <param name="reason">
+        /// Reason for pausing<br/>
+        /// * `MANUAL` - Manual<br/>
+        /// * `BEHAVIOR_BASED` - Behavior-based<br/>
+        /// * `ANNOTATOR_EVALUATION` - Annotator evaluation<br/>
+        /// * `ANNOTATION_LIMIT` - Annotation limit<br/>
+        /// * `CUSTOM_SCRIPT` - Custom script
         /// </param>
         /// <param name="deletedAt">
         /// Timestamp when this pause record was soft-deleted<br/>
@@ -109,26 +113,8 @@ namespace LabelStudio
         /// User who soft-deleted this pause record<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="pausedBy">
-        /// Included only in responses
-        /// </param>
         /// <param name="project">
         /// Related project for which the pause is set<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="reason">
-        /// Reason for pausing<br/>
-        /// * `MANUAL` - Manual<br/>
-        /// * `BEHAVIOR_BASED` - Behavior-based<br/>
-        /// * `ANNOTATOR_EVALUATION` - Annotator evaluation<br/>
-        /// * `ANNOTATION_LIMIT` - Annotation limit<br/>
-        /// * `CUSTOM_SCRIPT` - Custom script
-        /// </param>
-        /// <param name="updatedAt">
-        /// Timestamp when this pause record was last updated<br/>
         /// Included only in responses
         /// </param>
         /// <param name="user">
@@ -137,6 +123,20 @@ namespace LabelStudio
         /// </param>
         /// <param name="verboseReason">
         /// Detailed description of why the project is paused, will be readable by paused annotators
+        /// </param>
+        /// <param name="createdAt">
+        /// Timestamp when this pause record was created<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="pausedBy">
+        /// Included only in responses
+        /// </param>
+        /// <param name="updatedAt">
+        /// Timestamp when this pause record was last updated<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -153,13 +153,13 @@ namespace LabelStudio
             global::LabelStudio.UserSimple pausedBy = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Reason = reason;
             this.CreatedAt = createdAt;
             this.DeletedAt = deletedAt;
             this.DeletedBy = deletedBy;
             this.Id = id;
             this.PausedBy = pausedBy;
             this.Project = project;
+            this.Reason = reason;
             this.UpdatedAt = updatedAt;
             this.User = user;
             this.VerboseReason = verboseReason;

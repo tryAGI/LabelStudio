@@ -67,14 +67,14 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="LabelDistributionCountsRow" /> class.
         /// </summary>
         /// <param name="choice"></param>
-        /// <param name="choiceKey">
-        /// Included only in responses
-        /// </param>
         /// <param name="dimensionName"></param>
         /// <param name="fromAnnotationsCount"></param>
         /// <param name="fromAnnotationsPercent"></param>
         /// <param name="fromPredictionsCount"></param>
         /// <param name="fromPredictionsPercent"></param>
+        /// <param name="choiceKey">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -88,12 +88,12 @@ namespace LabelStudio
             string choiceKey = default!)
         {
             this.Choice = choice ?? throw new global::System.ArgumentNullException(nameof(choice));
+            this.ChoiceKey = choiceKey;
             this.DimensionName = dimensionName ?? throw new global::System.ArgumentNullException(nameof(dimensionName));
             this.FromAnnotationsCount = fromAnnotationsCount;
             this.FromAnnotationsPercent = fromAnnotationsPercent;
             this.FromPredictionsCount = fromPredictionsCount;
             this.FromPredictionsPercent = fromPredictionsPercent;
-            this.ChoiceKey = choiceKey;
         }
 
         /// <summary>

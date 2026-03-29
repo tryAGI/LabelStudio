@@ -63,6 +63,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelCreateRequest" /> class.
         /// </summary>
+        /// <param name="fromName"></param>
+        /// <param name="project"></param>
+        /// <param name="title">
+        /// Label title
+        /// </param>
+        /// <param name="value">
+        /// Label value
+        /// </param>
         /// <param name="approved">
         /// Status of label
         /// </param>
@@ -71,14 +79,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="description">
         /// Label description
-        /// </param>
-        /// <param name="fromName"></param>
-        /// <param name="project"></param>
-        /// <param name="title">
-        /// Label title
-        /// </param>
-        /// <param name="value">
-        /// Label value
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -92,13 +92,13 @@ namespace LabelStudio
             int? approvedBy,
             string? description)
         {
+            this.Approved = approved;
+            this.ApprovedBy = approvedBy;
+            this.Description = description;
             this.FromName = fromName ?? throw new global::System.ArgumentNullException(nameof(fromName));
             this.Project = project;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
-            this.Approved = approved;
-            this.ApprovedBy = approvedBy;
-            this.Description = description;
         }
 
         /// <summary>

@@ -150,9 +150,8 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskSimple" /> class.
         /// </summary>
-        /// <param name="annotations">
-        /// Default Value: []<br/>
-        /// Included only in responses
+        /// <param name="data">
+        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
         /// </param>
         /// <param name="cancelledAnnotations">
         /// Number of total cancelled annotations for the current task
@@ -163,18 +162,8 @@ namespace LabelStudio
         /// <param name="commentCount">
         /// Number of comments in the task including all annotations
         /// </param>
-        /// <param name="createdAt">
-        /// Time a task was created<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="data">
-        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
-        /// </param>
         /// <param name="fileUpload">
         /// Uploaded file used as data source for this task
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="innerId">
         /// Internal task ID in the project, starts with 1
@@ -191,10 +180,6 @@ namespace LabelStudio
         /// <param name="overlap">
         /// Number of distinct annotators that processed the current task
         /// </param>
-        /// <param name="predictions">
-        /// Default Value: []<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="project">
         /// Project ID for this task
         /// </param>
@@ -207,12 +192,27 @@ namespace LabelStudio
         /// <param name="unresolvedCommentCount">
         /// Number of unresolved comments in the task including all annotations
         /// </param>
+        /// <param name="updatedBy">
+        /// Last annotator or reviewer who updated this task
+        /// </param>
+        /// <param name="annotations">
+        /// Default Value: []<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Time a task was created<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="predictions">
+        /// Default Value: []<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
         /// Last time a task was updated<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="updatedBy">
-        /// Last annotator or reviewer who updated this task
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -239,12 +239,12 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.Prediction> predictions = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Annotations = annotations;
             this.CancelledAnnotations = cancelledAnnotations;
             this.CommentAuthors = commentAuthors;
             this.CommentCount = commentCount;
             this.CreatedAt = createdAt;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.FileUpload = fileUpload;
             this.Id = id;
             this.InnerId = innerId;

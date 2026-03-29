@@ -106,23 +106,19 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyModelVersion" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Included only in responses
+        /// <param name="prompt">
+        /// Prompt to execute
         /// </param>
-        /// <param name="createdBy">
-        /// User who created Dataset<br/>
-        /// Included only in responses
+        /// <param name="providerModelId">
+        /// The model ID to use within the given provider, e.g. gpt-3.5
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
+        /// <param name="title">
+        /// Model name
         /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
         /// Parent model interface ID
-        /// </param>
-        /// <param name="prompt">
-        /// Prompt to execute
         /// </param>
         /// <param name="provider">
         /// The model provider to use e.g. OpenAI<br/>
@@ -134,14 +130,18 @@ namespace LabelStudio
         /// * `Anthropic` - Anthropic<br/>
         /// * `Custom` - Custom
         /// </param>
-        /// <param name="providerModelId">
-        /// The model ID to use within the given provider, e.g. gpt-3.5
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdBy">
+        /// User who created Dataset<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
         /// <param name="score">
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Model name
         /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
@@ -163,17 +163,17 @@ namespace LabelStudio
             string score = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.ProviderModelId = providerModelId ?? throw new global::System.ArgumentNullException(nameof(providerModelId));
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Id = id;
             this.ModelProviderConnection = modelProviderConnection;
             this.Organization = organization;
             this.ParentModel = parentModel;
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Provider = provider;
+            this.ProviderModelId = providerModelId ?? throw new global::System.ArgumentNullException(nameof(providerModelId));
             this.Score = score;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.UpdatedAt = updatedAt;
         }
 

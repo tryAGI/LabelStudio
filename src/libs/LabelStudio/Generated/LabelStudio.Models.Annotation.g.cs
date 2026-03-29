@@ -170,26 +170,11 @@ namespace LabelStudio
         /// Annotation was created in bulk mode
         /// </param>
         /// <param name="completedBy"></param>
-        /// <param name="createdAgo">
-        /// Time delta from creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdUsername">
-        /// Username string<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="draftCreatedAt">
         /// Draft creation time
         /// </param>
         /// <param name="groundTruth">
         /// This annotation is a Ground Truth (ground_truth)
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="importId">
         /// Original annotation ID that was at the import step or NULL if this annotation wasn't imported
@@ -225,21 +210,36 @@ namespace LabelStudio
         /// <param name="result">
         /// List of annotation results for the task
         /// </param>
-        /// <param name="state">
-        /// Included only in responses
-        /// </param>
         /// <param name="task">
         /// Corresponding task for this annotation
-        /// </param>
-        /// <param name="updatedAt">
-        /// Last updated time<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="updatedBy">
         /// Last user who updated this annotation
         /// </param>
         /// <param name="wasCancelled">
         /// User skipped the task
+        /// </param>
+        /// <param name="createdAgo">
+        /// Time delta from creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdUsername">
+        /// Username string<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="state">
+        /// Included only in responses
+        /// </param>
+        /// <param name="updatedAt">
+        /// Last updated time<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -57,17 +57,17 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskEventRequest" /> class.
         /// </summary>
-        /// <param name="annotation">
-        /// Annotation ID associated with this event
-        /// </param>
-        /// <param name="annotationDraftId">
-        /// Draft annotation ID associated with this event
-        /// </param>
         /// <param name="eventKey">
         /// Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
         /// </param>
         /// <param name="eventTime">
         /// Timestamp when the event occurred (frontend time)
+        /// </param>
+        /// <param name="annotation">
+        /// Annotation ID associated with this event
+        /// </param>
+        /// <param name="annotationDraftId">
+        /// Draft annotation ID associated with this event
         /// </param>
         /// <param name="meta">
         /// Additional event metadata (region data, hotkey info, etc.)
@@ -86,10 +86,10 @@ namespace LabelStudio
             object? meta,
             int? review)
         {
-            this.EventKey = eventKey ?? throw new global::System.ArgumentNullException(nameof(eventKey));
-            this.EventTime = eventTime;
             this.Annotation = annotation;
             this.AnnotationDraftId = annotationDraftId;
+            this.EventKey = eventKey ?? throw new global::System.ArgumentNullException(nameof(eventKey));
+            this.EventTime = eventTime;
             this.Meta = meta;
             this.Review = review;
         }

@@ -55,17 +55,17 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelLink" /> class.
         /// </summary>
-        /// <param name="annotationsCount">
-        /// Included only in responses
-        /// </param>
         /// <param name="fromName">
         /// Tag name
+        /// </param>
+        /// <param name="label"></param>
+        /// <param name="project"></param>
+        /// <param name="annotationsCount">
+        /// Included only in responses
         /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="label"></param>
-        /// <param name="project"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -76,11 +76,11 @@ namespace LabelStudio
             int annotationsCount = default!,
             int id = default!)
         {
+            this.AnnotationsCount = annotationsCount;
             this.FromName = fromName ?? throw new global::System.ArgumentNullException(nameof(fromName));
+            this.Id = id;
             this.Label = label;
             this.Project = project;
-            this.AnnotationsCount = annotationsCount;
-            this.Id = id;
         }
 
         /// <summary>

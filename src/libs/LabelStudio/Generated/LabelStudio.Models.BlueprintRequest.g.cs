@@ -54,6 +54,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="BlueprintRequest" /> class.
         /// </summary>
+        /// <param name="project"></param>
         /// <param name="createdBy"></param>
         /// <param name="description">
         /// Project description
@@ -61,7 +62,6 @@ namespace LabelStudio
         /// <param name="labelConfig">
         /// Labeling configuration in XML format
         /// </param>
-        /// <param name="project"></param>
         /// <param name="taskIds">
         /// Included only in requests
         /// </param>
@@ -79,10 +79,10 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int>? taskIds,
             string? title)
         {
-            this.Project = project;
             this.CreatedBy = createdBy;
             this.Description = description;
             this.LabelConfig = labelConfig;
+            this.Project = project;
             this.TaskIds = taskIds;
             this.Title = title;
         }

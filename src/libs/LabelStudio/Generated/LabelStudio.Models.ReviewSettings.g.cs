@@ -128,9 +128,6 @@ namespace LabelStudio
         /// <param name="anonymizeAnnotations">
         /// Hide annotator names from annotations while review
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="instruction">
         /// Instructions
         /// </param>
@@ -143,9 +140,6 @@ namespace LabelStudio
         /// * `requeue` - Requeue<br/>
         /// * `remove` - Remove<br/>
         /// * `flexible` - Flexible
-        /// </param>
-        /// <param name="requeueRejectedTasksToAnnotator">
-        /// Included only in responses
         /// </param>
         /// <param name="requireCommentOnReject">
         /// Reviewers must leave a comment on reject
@@ -177,6 +171,12 @@ namespace LabelStudio
         /// </param>
         /// <param name="showUnusedDataColumnsToReviewers">
         /// Show unused task data columns to reviewers in the Data Manager
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="requeueRejectedTasksToAnnotator">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

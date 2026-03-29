@@ -74,14 +74,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="StateBackfillJobItemResponse" /> class.
         /// </summary>
-        /// <param name="completedAt"></param>
         /// <param name="createdAt"></param>
-        /// <param name="errorMessage"></param>
         /// <param name="jobId"></param>
+        /// <param name="status"></param>
+        /// <param name="completedAt"></param>
+        /// <param name="errorMessage"></param>
         /// <param name="progressData"></param>
         /// <param name="rqJobId"></param>
         /// <param name="startedAt"></param>
-        /// <param name="status"></param>
         /// <param name="triggeredBy"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -97,14 +97,14 @@ namespace LabelStudio
             global::System.DateTime? startedAt,
             global::LabelStudio.StateTriggeredBy? triggeredBy)
         {
-            this.CreatedAt = createdAt;
-            this.JobId = jobId;
-            this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.CompletedAt = completedAt;
+            this.CreatedAt = createdAt;
             this.ErrorMessage = errorMessage;
+            this.JobId = jobId;
             this.ProgressData = progressData;
             this.RqJobId = rqJobId;
             this.StartedAt = startedAt;
+            this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.TriggeredBy = triggeredBy;
         }
 

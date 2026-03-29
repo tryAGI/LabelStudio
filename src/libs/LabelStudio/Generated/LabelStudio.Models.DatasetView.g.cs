@@ -67,16 +67,13 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DatasetView" /> class.
         /// </summary>
-        /// <param name="data">
-        /// Custom view data
-        /// </param>
         /// <param name="dataset">
         /// Dataset ID
         /// </param>
-        /// <param name="filterGroup"></param>
-        /// <param name="id">
-        /// Included only in responses
+        /// <param name="data">
+        /// Custom view data
         /// </param>
+        /// <param name="filterGroup"></param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </param>
@@ -88,6 +85,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="user">
         /// User who made this view
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -102,8 +102,8 @@ namespace LabelStudio
             int? user,
             int id = default!)
         {
-            this.Dataset = dataset;
             this.Data = data;
+            this.Dataset = dataset;
             this.FilterGroup = filterGroup;
             this.Id = id;
             this.Order = order;

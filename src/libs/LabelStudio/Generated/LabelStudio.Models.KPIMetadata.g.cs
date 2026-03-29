@@ -92,17 +92,8 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="KPIMetadata" /> class.
         /// </summary>
-        /// <param name="aggregationMethod">
-        /// Aggregation method for the KPI: count, sum, avg, max, min, or snapshot. Snapshot KPIs show point-in-time counts rather than event totals.
-        /// </param>
         /// <param name="baseClass">
         /// Base class name that the KPI inherits from
-        /// </param>
-        /// <param name="calculationFormula">
-        /// Formula for calculated KPIs defining how to derive the value from component KPIs. Structure: {"type": "ratio|sum|difference|product", "numerator": "kpi_key", "denominator": "kpi_key"}
-        /// </param>
-        /// <param name="dateColumn">
-        /// Database column used for date filtering and aggregation
         /// </param>
         /// <param name="dependsOnKpis">
         /// List of other KPI keys that this KPI depends on
@@ -116,14 +107,23 @@ namespace LabelStudio
         /// <param name="key">
         /// Unique identifier for the KPI
         /// </param>
-        /// <param name="label">
-        /// Human-readable label for the KPI
-        /// </param>
         /// <param name="percentage">
         /// Whether the KPI value is a percentage (DEPRECATED: use unit)
         /// </param>
         /// <param name="unit">
         /// Unit of measurement: seconds, minutes, hours, count, or ratio
+        /// </param>
+        /// <param name="aggregationMethod">
+        /// Aggregation method for the KPI: count, sum, avg, max, min, or snapshot. Snapshot KPIs show point-in-time counts rather than event totals.
+        /// </param>
+        /// <param name="calculationFormula">
+        /// Formula for calculated KPIs defining how to derive the value from component KPIs. Structure: {"type": "ratio|sum|difference|product", "numerator": "kpi_key", "denominator": "kpi_key"}
+        /// </param>
+        /// <param name="dateColumn">
+        /// Database column used for date filtering and aggregation
+        /// </param>
+        /// <param name="label">
+        /// Human-readable label for the KPI
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -141,17 +141,17 @@ namespace LabelStudio
             string? dateColumn,
             string? label)
         {
+            this.AggregationMethod = aggregationMethod;
             this.BaseClass = baseClass ?? throw new global::System.ArgumentNullException(nameof(baseClass));
+            this.CalculationFormula = calculationFormula;
+            this.DateColumn = dateColumn;
             this.DependsOnKpis = dependsOnKpis ?? throw new global::System.ArgumentNullException(nameof(dependsOnKpis));
             this.IsCalculated = isCalculated;
             this.IsLabelType = isLabelType;
             this.Key = key ?? throw new global::System.ArgumentNullException(nameof(key));
+            this.Label = label;
             this.Percentage = percentage;
             this.Unit = unit ?? throw new global::System.ArgumentNullException(nameof(unit));
-            this.AggregationMethod = aggregationMethod;
-            this.CalculationFormula = calculationFormula;
-            this.DateColumn = dateColumn;
-            this.Label = label;
         }
 
         /// <summary>

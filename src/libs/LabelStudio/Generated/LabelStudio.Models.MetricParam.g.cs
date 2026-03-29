@@ -53,13 +53,13 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="MetricParam" /> class.
         /// </summary>
-        /// <param name="allowed">
-        /// Included only in responses
-        /// </param>
         /// <param name="metricName">
         /// Evaluation metric chosen for this project
         /// </param>
         /// <param name="metricParams"></param>
+        /// <param name="allowed">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

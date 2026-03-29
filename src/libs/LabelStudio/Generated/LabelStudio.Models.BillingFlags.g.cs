@@ -202,7 +202,6 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="BillingFlags" /> class.
         /// </summary>
-        /// <param name="activatedAt"></param>
         /// <param name="allowActivityLog"></param>
         /// <param name="allowAi"></param>
         /// <param name="allowAskAi"></param>
@@ -221,13 +220,14 @@ namespace LabelStudio
         /// <param name="disableProjectImports"></param>
         /// <param name="earlyAdopter"></param>
         /// <param name="emailConfigured"></param>
-        /// <param name="embedDomains"></param>
         /// <param name="embedEnabled"></param>
-        /// <param name="embedSettings"></param>
         /// <param name="manualRoleManagement"></param>
         /// <param name="manualWorkspaceManagement"></param>
         /// <param name="secureMode"></param>
         /// <param name="storagePersistence"></param>
+        /// <param name="activatedAt"></param>
+        /// <param name="embedDomains"></param>
+        /// <param name="embedSettings"></param>
         /// <param name="whiteLabelId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -261,6 +261,7 @@ namespace LabelStudio
             object? embedSettings,
             string? whiteLabelId)
         {
+            this.ActivatedAt = activatedAt;
             this.AllowActivityLog = allowActivityLog;
             this.AllowAi = allowAi;
             this.AllowAskAi = allowAskAi;
@@ -279,14 +280,13 @@ namespace LabelStudio
             this.DisableProjectImports = disableProjectImports;
             this.EarlyAdopter = earlyAdopter;
             this.EmailConfigured = emailConfigured;
+            this.EmbedDomains = embedDomains;
             this.EmbedEnabled = embedEnabled;
+            this.EmbedSettings = embedSettings;
             this.ManualRoleManagement = manualRoleManagement;
             this.ManualWorkspaceManagement = manualWorkspaceManagement;
             this.SecureMode = secureMode;
             this.StoragePersistence = storagePersistence;
-            this.ActivatedAt = activatedAt;
-            this.EmbedDomains = embedDomains;
-            this.EmbedSettings = embedSettings;
             this.WhiteLabelId = whiteLabelId;
         }
 

@@ -141,6 +141,15 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseTaskSerializerForAnnotators" /> class.
         /// </summary>
+        /// <param name="data">
+        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        /// </param>
+        /// <param name="cancelledAnnotations"></param>
+        /// <param name="draftExists"></param>
+        /// <param name="predictionsScore"></param>
+        /// <param name="reviewsRejected"></param>
+        /// <param name="totalAnnotations"></param>
+        /// <param name="totalPredictions"></param>
         /// <param name="annotations">
         /// Default Value: []<br/>
         /// Included only in responses
@@ -148,7 +157,6 @@ namespace LabelStudio
         /// <param name="annotationsResults">
         /// Included only in responses
         /// </param>
-        /// <param name="cancelledAnnotations"></param>
         /// <param name="commentCount">
         /// Included only in responses
         /// </param>
@@ -159,10 +167,6 @@ namespace LabelStudio
         /// Time a task was created<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="data">
-        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
-        /// </param>
-        /// <param name="draftExists"></param>
         /// <param name="drafts">
         /// Drafts for this task<br/>
         /// Included only in responses
@@ -177,13 +181,9 @@ namespace LabelStudio
         /// <param name="predictionsResults">
         /// Included only in responses
         /// </param>
-        /// <param name="predictionsScore"></param>
-        /// <param name="reviewsRejected"></param>
         /// <param name="state">
         /// Included only in responses
         /// </param>
-        /// <param name="totalAnnotations"></param>
-        /// <param name="totalPredictions"></param>
         /// <param name="unresolvedCommentCount">
         /// Included only in responses
         /// </param>
@@ -210,13 +210,13 @@ namespace LabelStudio
             string state = default!,
             string unresolvedCommentCount = default!)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Annotations = annotations;
             this.AnnotationsResults = annotationsResults;
             this.CancelledAnnotations = cancelledAnnotations;
             this.CommentCount = commentCount;
             this.Comments = comments;
             this.CreatedAt = createdAt;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.DraftExists = draftExists;
             this.Drafts = drafts;
             this.Id = id;

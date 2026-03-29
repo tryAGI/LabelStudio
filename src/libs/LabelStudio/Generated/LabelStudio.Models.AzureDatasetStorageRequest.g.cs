@@ -150,6 +150,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureDatasetStorageRequest" /> class.
         /// </summary>
+        /// <param name="dataset">
+        /// A unique integer value identifying this dataset.
+        /// </param>
         /// <param name="accountKey">
         /// Azure Blob account key
         /// </param>
@@ -158,9 +161,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="container">
         /// Azure blob container
-        /// </param>
-        /// <param name="dataset">
-        /// A unique integer value identifying this dataset.
         /// </param>
         /// <param name="description">
         /// Cloud storage description
@@ -244,10 +244,10 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Dataset = dataset;
             this.AccountKey = accountKey;
             this.AccountName = accountName;
             this.Container = container;
+            this.Dataset = dataset;
             this.Description = description;
             this.GlobPattern = globPattern;
             this.LastSync = lastSync;

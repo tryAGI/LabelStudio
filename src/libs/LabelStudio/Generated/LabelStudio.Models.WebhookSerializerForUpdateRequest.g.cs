@@ -55,6 +55,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhookSerializerForUpdateRequest" /> class.
         /// </summary>
+        /// <param name="url">
+        /// URL of webhook
+        /// </param>
         /// <param name="actions">
         /// Default Value: []
         /// </param>
@@ -70,9 +73,6 @@ namespace LabelStudio
         /// <param name="sendPayload">
         /// If value is False send only action
         /// </param>
-        /// <param name="url">
-        /// URL of webhook
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,12 +84,12 @@ namespace LabelStudio
             bool? sendForAllActions,
             bool? sendPayload)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Actions = actions;
             this.Headers = headers;
             this.IsActive = isActive;
             this.SendForAllActions = sendForAllActions;
             this.SendPayload = sendPayload;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>

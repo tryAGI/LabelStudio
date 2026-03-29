@@ -142,15 +142,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseUser" /> class.
         /// </summary>
+        /// <param name="username"></param>
         /// <param name="activeOrganization"></param>
-        /// <param name="activeOrganizationMeta">
-        /// Included only in responses
-        /// </param>
         /// <param name="allowNewsletters">
         /// Allow sending newsletters to user
-        /// </param>
-        /// <param name="avatar">
-        /// Included only in responses
         /// </param>
         /// <param name="customHotkeys">
         /// Custom keyboard shortcuts configuration for the user interface
@@ -158,6 +153,14 @@ namespace LabelStudio
         /// <param name="dateJoined"></param>
         /// <param name="email"></param>
         /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="phone"></param>
+        /// <param name="activeOrganizationMeta">
+        /// Included only in responses
+        /// </param>
+        /// <param name="avatar">
+        /// Included only in responses
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -168,7 +171,6 @@ namespace LabelStudio
         /// <param name="lastActivity">
         /// Included only in responses
         /// </param>
-        /// <param name="lastName"></param>
         /// <param name="lseFields">
         /// Included only in responses
         /// </param>
@@ -178,8 +180,6 @@ namespace LabelStudio
         /// <param name="pause">
         /// Included only in responses
         /// </param>
-        /// <param name="phone"></param>
-        /// <param name="username"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -202,7 +202,6 @@ namespace LabelStudio
             global::LabelStudio.OrganizationMembership organizationMembership = default!,
             string pause = default!)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.ActiveOrganization = activeOrganization;
             this.ActiveOrganizationMeta = activeOrganizationMeta;
             this.AllowNewsletters = allowNewsletters;
@@ -219,6 +218,7 @@ namespace LabelStudio
             this.OrganizationMembership = organizationMembership;
             this.Pause = pause;
             this.Phone = phone;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
         }
 
         /// <summary>

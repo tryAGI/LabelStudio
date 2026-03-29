@@ -59,16 +59,16 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSimple" /> class.
         /// </summary>
+        /// <param name="username"></param>
+        /// <param name="email"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         /// <param name="avatar">
         /// Included only in responses
         /// </param>
-        /// <param name="email"></param>
-        /// <param name="firstName"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="lastName"></param>
-        /// <param name="username"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,12 +80,12 @@ namespace LabelStudio
             string avatar = default!,
             int id = default!)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Avatar = avatar;
             this.Email = email;
             this.FirstName = firstName;
             this.Id = id;
             this.LastName = lastName;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
         }
 
         /// <summary>

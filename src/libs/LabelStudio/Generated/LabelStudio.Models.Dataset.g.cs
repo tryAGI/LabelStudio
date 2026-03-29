@@ -83,12 +83,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Dataset" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Dataset title
+        /// </param>
         /// <param name="columns">
         /// All data columns found in Dataset tasks
-        /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// User who created Dataset
@@ -96,20 +95,21 @@ namespace LabelStudio
         /// <param name="description">
         /// Dataset description
         /// </param>
+        /// <param name="organization"></param>
+        /// <param name="totalEntities"></param>
+        /// <param name="vectorDbDatasetName">
+        /// Dataset name for weaviate schema
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="organization"></param>
-        /// <param name="title">
-        /// Dataset title
-        /// </param>
-        /// <param name="totalEntities"></param>
         /// <param name="updatedAt">
         /// Last updated time<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="vectorDbDatasetName">
-        /// Dataset name for weaviate schema
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -126,13 +126,13 @@ namespace LabelStudio
             int id = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Columns = columns;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
             this.Id = id;
             this.Organization = organization;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.TotalEntities = totalEntities;
             this.UpdatedAt = updatedAt;
             this.VectorDbDatasetName = vectorDbDatasetName;

@@ -31,10 +31,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleOrganizationMemberTag" /> class.
         /// </summary>
+        /// <param name="label"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="label"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -42,8 +42,8 @@ namespace LabelStudio
             string label,
             int id = default!)
         {
-            this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Id = id;
+            this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
         }
 
         /// <summary>

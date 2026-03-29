@@ -30,11 +30,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="MLInteractiveAnnotatingRequestRequest" /> class.
         /// </summary>
-        /// <param name="context">
-        /// Context for ML model
-        /// </param>
         /// <param name="task">
         /// ID of task to annotate
+        /// </param>
+        /// <param name="context">
+        /// Context for ML model
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace LabelStudio
             int task,
             object? context)
         {
-            this.Task = task;
             this.Context = context;
+            this.Task = task;
         }
 
         /// <summary>

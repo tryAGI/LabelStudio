@@ -37,9 +37,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSubsetItem" /> class.
         /// </summary>
-        /// <param name="columnsSchema"></param>
         /// <param name="count"></param>
         /// <param name="subset"></param>
+        /// <param name="columnsSchema"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -48,9 +48,9 @@ namespace LabelStudio
             string subset,
             global::System.Collections.Generic.IList<object>? columnsSchema)
         {
+            this.ColumnsSchema = columnsSchema;
             this.Count = count;
             this.Subset = subset ?? throw new global::System.ArgumentNullException(nameof(subset));
-            this.ColumnsSchema = columnsSchema;
         }
 
         /// <summary>

@@ -107,11 +107,22 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelCreate" /> class.
         /// </summary>
+        /// <param name="fromName"></param>
+        /// <param name="project"></param>
+        /// <param name="title">
+        /// Label title
+        /// </param>
+        /// <param name="value">
+        /// Label value
+        /// </param>
         /// <param name="approved">
         /// Status of label
         /// </param>
         /// <param name="approvedBy">
         /// User who approved this label
+        /// </param>
+        /// <param name="description">
+        /// Label description
         /// </param>
         /// <param name="createdAt">
         /// Time of label creation<br/>
@@ -120,29 +131,18 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Included only in responses
         /// </param>
-        /// <param name="description">
-        /// Label description
-        /// </param>
-        /// <param name="fromName"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
         /// <param name="organization">
         /// Included only in responses
         /// </param>
-        /// <param name="project"></param>
         /// <param name="projects">
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Label title
         /// </param>
         /// <param name="updatedAt">
         /// Time of label modification<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="value">
-        /// Label value
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -162,19 +162,19 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int> projects = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.FromName = fromName ?? throw new global::System.ArgumentNullException(nameof(fromName));
-            this.Project = project;
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
-            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
             this.Approved = approved;
             this.ApprovedBy = approvedBy;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
+            this.FromName = fromName ?? throw new global::System.ArgumentNullException(nameof(fromName));
             this.Id = id;
             this.Organization = organization;
+            this.Project = project;
             this.Projects = projects;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.UpdatedAt = updatedAt;
+            this.Value = value ?? throw new global::System.ArgumentNullException(nameof(value));
         }
 
         /// <summary>

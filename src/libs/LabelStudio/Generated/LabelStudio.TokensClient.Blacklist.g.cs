@@ -105,13 +105,13 @@ namespace LabelStudio
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext) as string;
+                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                     }
                     else
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_404 = global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext) as string;
+                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)

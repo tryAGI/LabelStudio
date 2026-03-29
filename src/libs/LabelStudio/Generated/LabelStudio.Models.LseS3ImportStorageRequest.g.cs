@@ -181,6 +181,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseS3ImportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="roleArn">
+        /// AWS RoleArn
+        /// </param>
         /// <param name="awsAccessKeyId">
         /// AWS_ACCESS_KEY_ID
         /// </param>
@@ -224,9 +230,6 @@ namespace LabelStudio
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
         /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
-        /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan over the bucket content
         /// </param>
@@ -235,9 +238,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="regionName">
         /// AWS Region
-        /// </param>
-        /// <param name="roleArn">
-        /// AWS RoleArn
         /// </param>
         /// <param name="s3Endpoint">
         /// S3 Endpoint
@@ -293,8 +293,6 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Project = project;
-            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.AwsAccessKeyId = awsAccessKeyId;
             this.AwsSecretAccessKey = awsSecretAccessKey;
             this.AwsSessionToken = awsSessionToken;
@@ -310,9 +308,11 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.RegionName = regionName;
+            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.S3Endpoint = s3Endpoint;
             this.Status = status;
             this.Synchronizable = synchronizable;

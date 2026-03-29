@@ -179,6 +179,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureDatasetStorage" /> class.
         /// </summary>
+        /// <param name="dataset">
+        /// A unique integer value identifying this dataset.
+        /// </param>
         /// <param name="accountKey">
         /// Azure Blob account key
         /// </param>
@@ -188,21 +191,11 @@ namespace LabelStudio
         /// <param name="container">
         /// Azure blob container
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="dataset">
-        /// A unique integer value identifying this dataset.
-        /// </param>
         /// <param name="description">
         /// Cloud storage description
         /// </param>
         /// <param name="globPattern">
         /// Glob pattern for syncing from bucket
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="jobId">
         /// Included only in responses
@@ -254,12 +247,19 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="type">
         /// Default Value: azure<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -291,11 +291,11 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Dataset = dataset;
             this.AccountKey = accountKey;
             this.AccountName = accountName;
             this.Container = container;
             this.CreatedAt = createdAt;
+            this.Dataset = dataset;
             this.Description = description;
             this.GlobPattern = globPattern;
             this.Id = id;

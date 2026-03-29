@@ -37,9 +37,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchPredictionsRequestRequest" /> class.
         /// </summary>
-        /// <param name="jobId"></param>
         /// <param name="modelrunId"></param>
         /// <param name="results"></param>
+        /// <param name="jobId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -48,9 +48,9 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<object> results,
             string? jobId)
         {
+            this.JobId = jobId;
             this.ModelrunId = modelrunId;
             this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
-            this.JobId = jobId;
         }
 
         /// <summary>

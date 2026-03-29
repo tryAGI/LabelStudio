@@ -60,11 +60,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DatasetViewRequest" /> class.
         /// </summary>
-        /// <param name="data">
-        /// Custom view data
-        /// </param>
         /// <param name="dataset">
         /// Dataset ID
+        /// </param>
+        /// <param name="data">
+        /// Custom view data
         /// </param>
         /// <param name="filterGroup"></param>
         /// <param name="order">
@@ -91,8 +91,8 @@ namespace LabelStudio
             object? selectedItems,
             int? user)
         {
-            this.Dataset = dataset;
             this.Data = data;
+            this.Dataset = dataset;
             this.FilterGroup = filterGroup;
             this.Order = order;
             this.Ordering = ordering;

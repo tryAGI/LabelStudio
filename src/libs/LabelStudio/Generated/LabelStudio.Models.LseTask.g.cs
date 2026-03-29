@@ -336,14 +336,53 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseTask" /> class.
         /// </summary>
+        /// <param name="data">
+        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        /// </param>
+        /// <param name="allowSkip">
+        /// Whether this task can be skipped. Set to False to make task unskippable.
+        /// </param>
+        /// <param name="avgLeadTime"></param>
+        /// <param name="cancelledAnnotations"></param>
+        /// <param name="commentCount">
+        /// Number of comments in the task including all annotations
+        /// </param>
+        /// <param name="completedAt"></param>
+        /// <param name="draftExists"></param>
+        /// <param name="groundTruth"></param>
+        /// <param name="innerId"></param>
+        /// <param name="isLabeled">
+        /// True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
+        /// </param>
+        /// <param name="lastCommentUpdatedAt">
+        /// When the last comment was updated
+        /// </param>
+        /// <param name="meta">
+        /// Meta is user imported (uploaded) data and can be useful as input for an ML Backend for embeddings, advanced vectors, and other info. It is passed to ML during training/predicting steps.
+        /// </param>
+        /// <param name="overlap">
+        /// Number of distinct annotators that processed the current task
+        /// </param>
+        /// <param name="precomputedAgreement">
+        /// Average agreement score for the task
+        /// </param>
+        /// <param name="predictionsScore"></param>
+        /// <param name="project">
+        /// Project ID for this task
+        /// </param>
+        /// <param name="reviewed"></param>
+        /// <param name="reviewsAccepted"></param>
+        /// <param name="reviewsRejected"></param>
+        /// <param name="totalAnnotations"></param>
+        /// <param name="totalPredictions"></param>
+        /// <param name="unresolvedCommentCount">
+        /// Number of unresolved comments in the task including all annotations
+        /// </param>
         /// <param name="agreement">
         /// Included only in responses
         /// </param>
         /// <param name="agreementSelected">
         /// Included only in responses
-        /// </param>
-        /// <param name="allowSkip">
-        /// Whether this task can be skipped. Set to False to make task unskippable.
         /// </param>
         /// <param name="annotationTime">
         /// Calculate total annotation time for this task from MetricInTimeBucket records.<br/>
@@ -367,29 +406,19 @@ namespace LabelStudio
         /// The annotators_count is calculated as the number of users with annotations (can be repeated, so same as the number of annotations) + the number of assignees without annotations.<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="avgLeadTime"></param>
-        /// <param name="cancelledAnnotations"></param>
         /// <param name="commentAuthors">
         /// Included only in responses
         /// </param>
         /// <param name="commentAuthorsCount">
         /// Included only in responses
         /// </param>
-        /// <param name="commentCount">
-        /// Number of comments in the task including all annotations
-        /// </param>
         /// <param name="comments">
         /// Included only in responses
         /// </param>
-        /// <param name="completedAt"></param>
         /// <param name="createdAt">
         /// Time a task was created<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="data">
-        /// User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
-        /// </param>
-        /// <param name="draftExists"></param>
         /// <param name="drafts">
         /// Drafts for this task<br/>
         /// Included only in responses
@@ -397,25 +426,8 @@ namespace LabelStudio
         /// <param name="fileUpload">
         /// Included only in responses
         /// </param>
-        /// <param name="groundTruth"></param>
         /// <param name="id">
         /// Included only in responses
-        /// </param>
-        /// <param name="innerId"></param>
-        /// <param name="isLabeled">
-        /// True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
-        /// </param>
-        /// <param name="lastCommentUpdatedAt">
-        /// When the last comment was updated
-        /// </param>
-        /// <param name="meta">
-        /// Meta is user imported (uploaded) data and can be useful as input for an ML Backend for embeddings, advanced vectors, and other info. It is passed to ML during training/predicting steps.
-        /// </param>
-        /// <param name="overlap">
-        /// Number of distinct annotators that processed the current task
-        /// </param>
-        /// <param name="precomputedAgreement">
-        /// Average agreement score for the task
         /// </param>
         /// <param name="predictions">
         /// Predictions for this task<br/>
@@ -427,34 +439,22 @@ namespace LabelStudio
         /// <param name="predictionsResults">
         /// Included only in responses
         /// </param>
-        /// <param name="predictionsScore"></param>
-        /// <param name="project">
-        /// Project ID for this task
-        /// </param>
         /// <param name="reviewTime">
         /// Calculate total review time for this task from MetricInTimeBucket records.<br/>
         /// Returns time in seconds.<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="reviewed"></param>
         /// <param name="reviewers">
         /// Included only in responses
         /// </param>
         /// <param name="reviewersCount">
         /// Included only in responses
         /// </param>
-        /// <param name="reviewsAccepted"></param>
-        /// <param name="reviewsRejected"></param>
         /// <param name="state">
         /// Included only in responses
         /// </param>
         /// <param name="storageFilename">
         /// Included only in responses
-        /// </param>
-        /// <param name="totalAnnotations"></param>
-        /// <param name="totalPredictions"></param>
-        /// <param name="unresolvedCommentCount">
-        /// Number of unresolved comments in the task including all annotations
         /// </param>
         /// <param name="updatedAt">
         /// Last time a task was updated<br/>
@@ -516,7 +516,6 @@ namespace LabelStudio
             global::System.DateTime updatedAt = default!,
             global::System.Collections.Generic.IList<object> updatedBy = default!)
         {
-            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Agreement = agreement;
             this.AgreementSelected = agreementSelected;
             this.AllowSkip = allowSkip;
@@ -534,6 +533,7 @@ namespace LabelStudio
             this.Comments = comments;
             this.CompletedAt = completedAt;
             this.CreatedAt = createdAt;
+            this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.DraftExists = draftExists;
             this.Drafts = drafts;
             this.FileUpload = fileUpload;

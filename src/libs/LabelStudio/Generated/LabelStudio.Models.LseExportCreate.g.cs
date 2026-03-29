@@ -99,10 +99,6 @@ namespace LabelStudio
         /// <param name="annotationFilterOptions"></param>
         /// <param name="convertedFormats"></param>
         /// <param name="counters"></param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="createdBy">
         /// A ModelSerializer that takes additional arguments for<br/>
         /// "fields", "omit" and "expand" in order to<br/>
@@ -112,14 +108,18 @@ namespace LabelStudio
         /// <param name="finishedAt">
         /// Complete or fail time
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="md5"></param>
         /// <param name="serializationOptions"></param>
         /// <param name="status"></param>
         /// <param name="taskFilterOptions"></param>
         /// <param name="title"></param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

@@ -49,13 +49,13 @@ namespace LabelStudio
         /// <param name="count">
         /// Example: 123
         /// </param>
+        /// <param name="results"></param>
         /// <param name="next">
         /// Example: http://api.example.org/accounts/?page=4
         /// </param>
         /// <param name="previous">
         /// Example: http://api.example.org/accounts/?page=2
         /// </param>
-        /// <param name="results"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -66,9 +66,9 @@ namespace LabelStudio
             string? previous)
         {
             this.Count = count;
-            this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
             this.Next = next;
             this.Previous = previous;
+            this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
         }
 
         /// <summary>
