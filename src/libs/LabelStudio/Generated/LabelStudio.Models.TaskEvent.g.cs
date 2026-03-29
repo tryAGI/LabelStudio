@@ -100,8 +100,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskEvent" /> class.
         /// </summary>
-        /// <param name="actor">
-        /// Included only in responses
+        /// <param name="eventKey">
+        /// Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
+        /// </param>
+        /// <param name="eventTime">
+        /// Timestamp when the event occurred (frontend time)
         /// </param>
         /// <param name="annotation">
         /// Annotation ID associated with this event
@@ -109,29 +112,26 @@ namespace LabelStudio
         /// <param name="annotationDraftId">
         /// Draft annotation ID associated with this event
         /// </param>
+        /// <param name="meta">
+        /// Additional event metadata (region data, hotkey info, etc.)
+        /// </param>
+        /// <param name="review">
+        /// Review ID associated with this event
+        /// </param>
+        /// <param name="actor">
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
-        /// <param name="eventKey">
-        /// Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
-        /// </param>
-        /// <param name="eventTime">
-        /// Timestamp when the event occurred (frontend time)
-        /// </param>
         /// <param name="id">
         /// Included only in responses
-        /// </param>
-        /// <param name="meta">
-        /// Additional event metadata (region data, hotkey info, etc.)
         /// </param>
         /// <param name="organization">
         /// Included only in responses
         /// </param>
         /// <param name="project">
         /// Included only in responses
-        /// </param>
-        /// <param name="review">
-        /// Review ID associated with this event
         /// </param>
         /// <param name="task">
         /// Task this event is associated with<br/>
@@ -154,12 +154,12 @@ namespace LabelStudio
             int project = default!,
             int task = default!)
         {
-            this.EventKey = eventKey ?? throw new global::System.ArgumentNullException(nameof(eventKey));
-            this.EventTime = eventTime;
             this.Actor = actor;
             this.Annotation = annotation;
             this.AnnotationDraftId = annotationDraftId;
             this.CreatedAt = createdAt;
+            this.EventKey = eventKey ?? throw new global::System.ArgumentNullException(nameof(eventKey));
+            this.EventTime = eventTime;
             this.Id = id;
             this.Meta = meta;
             this.Organization = organization;

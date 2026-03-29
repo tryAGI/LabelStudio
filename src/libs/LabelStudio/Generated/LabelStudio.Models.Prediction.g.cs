@@ -108,18 +108,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Prediction" /> class.
         /// </summary>
+        /// <param name="result">
+        /// List of prediction results for the task
+        /// </param>
+        /// <param name="task"></param>
         /// <param name="cluster">
         /// Cluster for the current prediction
-        /// </param>
-        /// <param name="createdAgo">
-        /// Delta time from creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="mislabeling">
         /// Related task mislabeling score
@@ -137,13 +131,19 @@ namespace LabelStudio
         /// Array of task IDs of the closest neighbors
         /// </param>
         /// <param name="project"></param>
-        /// <param name="result">
-        /// List of prediction results for the task
-        /// </param>
         /// <param name="score">
         /// Prediction score
         /// </param>
-        /// <param name="task"></param>
+        /// <param name="createdAgo">
+        /// Delta time from creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
         /// </param>
@@ -166,8 +166,6 @@ namespace LabelStudio
             int id = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
-            this.Task = task;
             this.Cluster = cluster;
             this.CreatedAgo = createdAgo;
             this.CreatedAt = createdAt;
@@ -178,7 +176,9 @@ namespace LabelStudio
             this.ModelVersion = modelVersion;
             this.Neighbors = neighbors;
             this.Project = project;
+            this.Result = result ?? throw new global::System.ArgumentNullException(nameof(result));
             this.Score = score;
+            this.Task = task;
             this.UpdatedAt = updatedAt;
         }
 

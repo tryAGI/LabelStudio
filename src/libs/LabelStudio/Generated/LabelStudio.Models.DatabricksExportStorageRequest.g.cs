@@ -191,6 +191,21 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DatabricksExportStorageRequest" /> class.
         /// </summary>
+        /// <param name="catalog">
+        /// UC catalog name
+        /// </param>
+        /// <param name="host">
+        /// Databricks workspace base URL (https://...)
+        /// </param>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="schema">
+        /// UC schema name
+        /// </param>
+        /// <param name="volume">
+        /// UC volume name
+        /// </param>
         /// <param name="authType">
         /// Authentication method: PAT, Databricks SP, or Azure AD SP<br/>
         /// * `pat` - Personal Access Token<br/>
@@ -201,9 +216,6 @@ namespace LabelStudio
         /// <param name="canDeleteObjects">
         /// Deletion from storage enabled
         /// </param>
-        /// <param name="catalog">
-        /// UC catalog name
-        /// </param>
         /// <param name="clientId">
         /// Service principal client/application ID (required for SP modes)
         /// </param>
@@ -213,9 +225,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="description">
         /// Cloud storage description
-        /// </param>
-        /// <param name="host">
-        /// Databricks workspace base URL (https://...)
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
@@ -232,16 +241,10 @@ namespace LabelStudio
         /// <param name="prefix">
         /// Export path prefix under the volume
         /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
-        /// </param>
         /// <param name="regexFilter">
         /// Regex for filtering objects
         /// </param>
         /// <param name="requestTimeoutS"></param>
-        /// <param name="schema">
-        /// UC schema name
-        /// </param>
         /// <param name="status">
         /// * `initialized` - Initialized<br/>
         /// * `queued` - Queued<br/>
@@ -272,9 +275,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="verifyTls">
         /// Verify TLS certificates
-        /// </param>
-        /// <param name="volume">
-        /// UC volume name
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -307,23 +307,22 @@ namespace LabelStudio
             bool? useBlobUrls,
             bool? verifyTls)
         {
-            this.Catalog = catalog ?? throw new global::System.ArgumentNullException(nameof(catalog));
-            this.Host = host ?? throw new global::System.ArgumentNullException(nameof(host));
-            this.Project = project;
-            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
-            this.Volume = volume ?? throw new global::System.ArgumentNullException(nameof(volume));
             this.AuthType = authType;
             this.CanDeleteObjects = canDeleteObjects;
+            this.Catalog = catalog ?? throw new global::System.ArgumentNullException(nameof(catalog));
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
             this.Description = description;
+            this.Host = host ?? throw new global::System.ArgumentNullException(nameof(host));
             this.LastSync = lastSync;
             this.LastSyncCount = lastSyncCount;
             this.LastSyncJob = lastSyncJob;
             this.Meta = meta;
             this.Prefix = prefix;
+            this.Project = project;
             this.RegexFilter = regexFilter;
             this.RequestTimeoutS = requestTimeoutS;
+            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
             this.Status = status;
             this.StreamChunkBytes = streamChunkBytes;
             this.Synchronizable = synchronizable;
@@ -333,6 +332,7 @@ namespace LabelStudio
             this.Traceback = traceback;
             this.UseBlobUrls = useBlobUrls;
             this.VerifyTls = verifyTls;
+            this.Volume = volume ?? throw new global::System.ArgumentNullException(nameof(volume));
         }
 
         /// <summary>

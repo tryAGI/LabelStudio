@@ -39,15 +39,15 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AssignmentSettings" /> class.
         /// </summary>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="labelStreamTaskDistribution">
         /// Automatic / Manual<br/>
         /// * `auto_distribution` - Label Stream distributes tasks automatically to annotators<br/>
         /// * `assigned_only` - Label Stream shows tasks only to assigned users
         /// </param>
         /// <param name="project"></param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

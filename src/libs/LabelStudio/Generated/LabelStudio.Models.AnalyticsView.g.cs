@@ -69,15 +69,15 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsView" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
+        /// <param name="name"></param>
         /// <param name="dashboardType">
         /// * `overview` - Overview<br/>
         /// * `member_performance` - Member Performance
         /// </param>
         /// <param name="filters"></param>
-        /// <param name="name"></param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
         /// <param name="ownerId">
         /// Included only in responses
         /// </param>
@@ -99,10 +99,10 @@ namespace LabelStudio
             global::System.DateTime updatedAt = default!,
             global::System.Guid uuid = default!)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.CreatedAt = createdAt;
             this.DashboardType = dashboardType;
             this.Filters = filters;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.OwnerId = ownerId;
             this.UpdatedAt = updatedAt;
             this.Uuid = uuid;

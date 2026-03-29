@@ -65,11 +65,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnotationReviewRequest" /> class.
         /// </summary>
-        /// <param name="accepted">
-        /// Accepted or rejected (if false) flag
-        /// </param>
         /// <param name="annotation">
         /// Corresponding annotation
+        /// </param>
+        /// <param name="accepted">
+        /// Accepted or rejected (if false) flag
         /// </param>
         /// <param name="comment">
         /// Included only in requests
@@ -90,8 +90,8 @@ namespace LabelStudio
             object? result,
             global::System.DateTime? startedAt)
         {
-            this.Annotation = annotation;
             this.Accepted = accepted;
+            this.Annotation = annotation;
             this.Comment = comment;
             this.LastAnnotationHistory = lastAnnotationHistory;
             this.RemoveFromQueue = removeFromQueue;

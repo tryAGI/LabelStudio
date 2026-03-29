@@ -90,24 +90,17 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Webhook" /> class.
         /// </summary>
+        /// <param name="url">
+        /// URL of webhook
+        /// </param>
         /// <param name="actions">
         /// Default Value: []
-        /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="headers">
         /// Key Value Json of headers
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="isActive">
         /// If value is False the webhook is disabled
-        /// </param>
-        /// <param name="organization">
-        /// Included only in responses
         /// </param>
         /// <param name="project"></param>
         /// <param name="sendForAllActions">
@@ -116,12 +109,19 @@ namespace LabelStudio
         /// <param name="sendPayload">
         /// If value is False send only action
         /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
         /// Last update time<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="url">
-        /// URL of webhook
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -139,7 +139,6 @@ namespace LabelStudio
             int organization = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Actions = actions;
             this.CreatedAt = createdAt;
             this.Headers = headers;
@@ -150,6 +149,7 @@ namespace LabelStudio
             this.SendForAllActions = sendForAllActions;
             this.SendPayload = sendPayload;
             this.UpdatedAt = updatedAt;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>

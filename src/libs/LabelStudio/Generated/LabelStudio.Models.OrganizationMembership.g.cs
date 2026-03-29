@@ -39,6 +39,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationMembership" /> class.
         /// </summary>
+        /// <param name="role"></param>
         /// <param name="active">
         /// Included only in responses
         /// </param>
@@ -46,7 +47,6 @@ namespace LabelStudio
         /// Organization ID<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="role"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,9 +55,9 @@ namespace LabelStudio
             string active = default!,
             int organizationId = default!)
         {
-            this.Role = role ?? throw new global::System.ArgumentNullException(nameof(role));
             this.Active = active;
             this.OrganizationId = organizationId;
+            this.Role = role ?? throw new global::System.ArgumentNullException(nameof(role));
         }
 
         /// <summary>

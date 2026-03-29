@@ -69,27 +69,27 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Filter" /> class.
         /// </summary>
-        /// <param name="childFilter"></param>
         /// <param name="column">
         /// Field name
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="index">
-        /// Display order among root filters only
         /// </param>
         /// <param name="operator">
         /// Filter operator
         /// </param>
-        /// <param name="parent">
-        /// Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
-        /// </param>
         /// <param name="type">
         /// Field type
         /// </param>
+        /// <param name="childFilter"></param>
+        /// <param name="index">
+        /// Display order among root filters only
+        /// </param>
+        /// <param name="parent">
+        /// Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
+        /// </param>
         /// <param name="value">
         /// Filter value
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -104,13 +104,13 @@ namespace LabelStudio
             object? value,
             int id = default!)
         {
-            this.Column = column ?? throw new global::System.ArgumentNullException(nameof(column));
-            this.Operator = @operator ?? throw new global::System.ArgumentNullException(nameof(@operator));
-            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.ChildFilter = childFilter;
+            this.Column = column ?? throw new global::System.ArgumentNullException(nameof(column));
             this.Id = id;
             this.Index = index;
+            this.Operator = @operator ?? throw new global::System.ArgumentNullException(nameof(@operator));
             this.Parent = parent;
+            this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Value = value;
         }
 

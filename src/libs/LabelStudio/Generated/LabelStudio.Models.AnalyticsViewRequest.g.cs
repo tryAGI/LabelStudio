@@ -41,12 +41,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsViewRequest" /> class.
         /// </summary>
+        /// <param name="name"></param>
         /// <param name="dashboardType">
         /// * `overview` - Overview<br/>
         /// * `member_performance` - Member Performance
         /// </param>
         /// <param name="filters"></param>
-        /// <param name="name"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -55,9 +55,9 @@ namespace LabelStudio
             global::LabelStudio.DashboardTypeEnum? dashboardType,
             object? filters)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DashboardType = dashboardType;
             this.Filters = filters;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
         }
 
         /// <summary>

@@ -126,20 +126,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="SamlSettings" /> class.
         /// </summary>
-        /// <param name="acsUrl">
-        /// Included only in responses
-        /// </param>
         /// <param name="domain">
         /// Organization web domain or domains; use comma separated list with no spaces for multiple. Example:labelstud.io,humansignal.comIMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD
         /// </param>
         /// <param name="idpProvider">
         /// Identity Provider preset key (e.g. okta, azure, google, custom)
-        /// </param>
-        /// <param name="loginUrl">
-        /// Included only in responses
-        /// </param>
-        /// <param name="logoutUrl">
-        /// Included only in responses
         /// </param>
         /// <param name="mappingEmail">
         /// Mapping attributes: user email from SAML request
@@ -159,12 +150,6 @@ namespace LabelStudio
         /// <param name="metadataXml">
         /// Metadata XML file
         /// </param>
-        /// <param name="metadataXmlUrl">
-        /// Included only in responses
-        /// </param>
-        /// <param name="nameidFormat">
-        /// Included only in responses
-        /// </param>
         /// <param name="projectsGroups">
         /// Projects to groups mapping
         /// </param>
@@ -174,6 +159,21 @@ namespace LabelStudio
         /// <param name="token"></param>
         /// <param name="workspacesGroups">
         /// Workspaces to groups mapping
+        /// </param>
+        /// <param name="acsUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="loginUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="logoutUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="metadataXmlUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="nameidFormat">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

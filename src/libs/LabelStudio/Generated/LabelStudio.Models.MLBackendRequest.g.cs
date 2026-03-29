@@ -110,6 +110,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="MLBackendRequest" /> class.
         /// </summary>
+        /// <param name="project"></param>
+        /// <param name="url">
+        /// URL for the machine learning model server
+        /// </param>
         /// <param name="authMethod">
         /// * `NONE` - None<br/>
         /// * `BASIC_AUTH` - Basic Auth
@@ -138,7 +142,6 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Current model version associated with this machine learning backend
         /// </param>
-        /// <param name="project"></param>
         /// <param name="state">
         /// * `CO` - Connected<br/>
         /// * `DI` - Disconnected<br/>
@@ -151,9 +154,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="title">
         /// Name of the machine learning backend
-        /// </param>
-        /// <param name="url">
-        /// URL for the machine learning model server
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -174,8 +174,6 @@ namespace LabelStudio
             double? timeout,
             string? title)
         {
-            this.Project = project;
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.AuthMethod = authMethod;
             this.AutoUpdate = autoUpdate;
             this.BasicAuthPass = basicAuthPass;
@@ -185,9 +183,11 @@ namespace LabelStudio
             this.ExtraParams = extraParams;
             this.IsInteractive = isInteractive;
             this.ModelVersion = modelVersion;
+            this.Project = project;
             this.State = state;
             this.Timeout = timeout;
             this.Title = title;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>

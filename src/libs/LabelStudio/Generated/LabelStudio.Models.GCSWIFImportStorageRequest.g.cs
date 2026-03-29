@@ -162,6 +162,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="GCSWIFImportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="bucket">
         /// GCS bucket name
         /// </param>
@@ -206,9 +209,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan over the bucket content
@@ -264,7 +264,6 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Project = project;
             this.Bucket = bucket;
             this.Description = description;
             this.GoogleApplicationCredentials = googleApplicationCredentials;
@@ -280,6 +279,7 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.Status = status;

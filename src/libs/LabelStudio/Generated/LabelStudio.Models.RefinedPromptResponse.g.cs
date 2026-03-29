@@ -60,11 +60,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="RefinedPromptResponse" /> class.
         /// </summary>
-        /// <param name="previousVersion">
-        /// Previous version of the prompt
-        /// </param>
         /// <param name="prompt">
         /// The refined prompt text
+        /// </param>
+        /// <param name="previousVersion">
+        /// Previous version of the prompt
         /// </param>
         /// <param name="reasoning">
         /// Reasoning behind the refinement
@@ -93,8 +93,8 @@ namespace LabelStudio
             string? title,
             string? totalCost)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.PreviousVersion = previousVersion;
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Reasoning = reasoning;
             this.RefinementJobId = refinementJobId;
             this.RefinementStatus = refinementStatus;

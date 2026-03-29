@@ -76,29 +76,29 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationPermission" /> class.
         /// </summary>
-        /// <param name="default">
-        /// Included only in responses
-        /// </param>
+        /// <param name="permission"></param>
         /// <param name="group">
         /// Included only in responses
         /// </param>
-        /// <param name="id">
+        /// <param name="label">
         /// Included only in responses
         /// </param>
-        /// <param name="label">
+        /// <param name="roles">
+        /// Organization roles
+        /// </param>
+        /// <param name="tooltip">
+        /// Included only in responses
+        /// </param>
+        /// <param name="default">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
         /// Included only in responses
         /// </param>
         /// <param name="options">
         /// Included only in responses
         /// </param>
         /// <param name="organization">
-        /// Included only in responses
-        /// </param>
-        /// <param name="permission"></param>
-        /// <param name="roles">
-        /// Organization roles
-        /// </param>
-        /// <param name="tooltip">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -115,13 +115,13 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.Options165Enum> options = default!,
             int organization = default!)
         {
-            this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
             this.Default = @default;
             this.Group = group;
             this.Id = id;
             this.Label = label;
             this.Options = options;
             this.Organization = organization;
+            this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
             this.Roles = roles;
             this.Tooltip = tooltip;
         }

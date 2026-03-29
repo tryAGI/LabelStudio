@@ -156,6 +156,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureServicePrincipalImportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
@@ -191,9 +194,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan
@@ -254,7 +254,6 @@ namespace LabelStudio
             bool? useBlobUrls,
             string? userDelegationKey)
         {
-            this.Project = project;
             this.AccountName = accountName;
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
@@ -267,6 +266,7 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.Status = status;

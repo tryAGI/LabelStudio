@@ -212,6 +212,21 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DatabricksImportStorage" /> class.
         /// </summary>
+        /// <param name="catalog">
+        /// UC catalog name
+        /// </param>
+        /// <param name="host">
+        /// Databricks workspace base URL (https://...)
+        /// </param>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="schema">
+        /// UC schema name
+        /// </param>
+        /// <param name="volume">
+        /// UC volume name
+        /// </param>
         /// <param name="authType">
         /// Authentication method: PAT, Databricks SP, or Azure AD SP<br/>
         /// * `pat` - Personal Access Token<br/>
@@ -219,24 +234,11 @@ namespace LabelStudio
         /// * `azure_ad_sp` - Azure AD Service Principal<br/>
         /// Default Value: pat
         /// </param>
-        /// <param name="catalog">
-        /// UC catalog name
-        /// </param>
         /// <param name="clientId">
         /// Service principal client/application ID (required for SP modes)
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Cloud storage description
-        /// </param>
-        /// <param name="host">
-        /// Databricks workspace base URL (https://...)
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
@@ -259,9 +261,6 @@ namespace LabelStudio
         /// <param name="presignTtl">
         /// Unused for Databricks; kept for compatibility
         /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
-        /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan
         /// </param>
@@ -269,9 +268,6 @@ namespace LabelStudio
         /// Regex for filtering objects
         /// </param>
         /// <param name="requestTimeoutS"></param>
-        /// <param name="schema">
-        /// UC schema name
-        /// </param>
         /// <param name="status">
         /// * `initialized` - Initialized<br/>
         /// * `queued` - Queued<br/>
@@ -293,18 +289,22 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
-        /// <param name="type">
-        /// Default Value: databricks<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="useBlobUrls">
         /// Generate blob URLs in tasks
         /// </param>
         /// <param name="verifyTls">
         /// Verify TLS certificates
         /// </param>
-        /// <param name="volume">
-        /// UC volume name
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="type">
+        /// Default Value: databricks<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -340,15 +340,12 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Catalog = catalog ?? throw new global::System.ArgumentNullException(nameof(catalog));
-            this.Host = host ?? throw new global::System.ArgumentNullException(nameof(host));
-            this.Project = project;
-            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
-            this.Volume = volume ?? throw new global::System.ArgumentNullException(nameof(volume));
             this.AuthType = authType;
+            this.Catalog = catalog ?? throw new global::System.ArgumentNullException(nameof(catalog));
             this.ClientId = clientId;
             this.CreatedAt = createdAt;
             this.Description = description;
+            this.Host = host ?? throw new global::System.ArgumentNullException(nameof(host));
             this.Id = id;
             this.LastSync = lastSync;
             this.LastSyncCount = lastSyncCount;
@@ -357,9 +354,11 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.RequestTimeoutS = requestTimeoutS;
+            this.Schema = schema ?? throw new global::System.ArgumentNullException(nameof(schema));
             this.Status = status;
             this.StreamChunkBytes = streamChunkBytes;
             this.Synchronizable = synchronizable;
@@ -369,6 +368,7 @@ namespace LabelStudio
             this.Type = type;
             this.UseBlobUrls = useBlobUrls;
             this.VerifyTls = verifyTls;
+            this.Volume = volume ?? throw new global::System.ArgumentNullException(nameof(volume));
         }
 
         /// <summary>

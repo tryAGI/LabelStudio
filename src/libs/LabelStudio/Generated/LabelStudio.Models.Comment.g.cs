@@ -119,18 +119,7 @@ namespace LabelStudio
         /// <param name="classifications">
         /// Classifications applied by a reviewer or annotator
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdBy">
-        /// User who made this comment<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="draft"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="isResolved">
         /// True if the comment is resolved
         /// </param>
@@ -144,14 +133,25 @@ namespace LabelStudio
         /// Resolving time<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="state">
-        /// Included only in responses
-        /// </param>
         /// <param name="task">
         /// Included only in responses
         /// </param>
         /// <param name="text">
         /// Reviewer or annotator comment
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdBy">
+        /// User who made this comment<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="state">
+        /// Included only in responses
         /// </param>
         /// <param name="updatedAt">
         /// Last updated time<br/>

@@ -71,6 +71,18 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="StateModel" /> class.
         /// </summary>
+        /// <param name="previousState">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reason">
+        /// Included only in responses
+        /// </param>
+        /// <param name="transitionName">
+        /// Included only in responses
+        /// </param>
+        /// <param name="triggeredBy">
+        /// Included only in responses
+        /// </param>
         /// <param name="contextData">
         /// Included only in responses
         /// </param>
@@ -80,19 +92,7 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="previousState">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reason">
-        /// Included only in responses
-        /// </param>
         /// <param name="state">
-        /// Included only in responses
-        /// </param>
-        /// <param name="transitionName">
-        /// Included only in responses
-        /// </param>
-        /// <param name="triggeredBy">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER

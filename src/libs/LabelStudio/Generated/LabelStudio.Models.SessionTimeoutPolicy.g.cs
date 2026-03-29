@@ -43,14 +43,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="SessionTimeoutPolicy" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="maxSessionAge">
         /// Number of minutes that a session can be active before needing to re-login
         /// </param>
         /// <param name="maxTimeBetweenActivity">
         /// Number of minutes that a session stays active without any activity
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
         /// </param>
         /// <param name="updatedAt">
         /// Included only in responses

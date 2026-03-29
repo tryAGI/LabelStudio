@@ -67,6 +67,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelInterfaceRequest" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Model name
+        /// </param>
         /// <param name="associatedProjects"></param>
         /// <param name="createdBy">
         /// User who created Dataset
@@ -79,9 +82,6 @@ namespace LabelStudio
         /// <param name="outputClasses"></param>
         /// <param name="skillName">
         /// Default Value: TextClassification
-        /// </param>
-        /// <param name="title">
-        /// Model name
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -96,7 +96,6 @@ namespace LabelStudio
             object? outputClasses,
             global::LabelStudio.SkillNameEnum? skillName)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AssociatedProjects = associatedProjects;
             this.CreatedBy = createdBy;
             this.Description = description;
@@ -104,6 +103,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.OutputClasses = outputClasses;
             this.SkillName = skillName;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
         }
 
         /// <summary>

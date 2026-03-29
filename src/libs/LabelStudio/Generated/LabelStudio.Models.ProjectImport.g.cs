@@ -165,9 +165,6 @@ namespace LabelStudio
         /// Complete or fail time
         /// </param>
         /// <param name="foundFormats"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="preannotatedFromFields"></param>
         /// <param name="predictionCount"></param>
         /// <param name="project"></param>
@@ -186,6 +183,9 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="url"></param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

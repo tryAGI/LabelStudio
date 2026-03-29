@@ -67,27 +67,27 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="View" /> class.
         /// </summary>
+        /// <param name="project">
+        /// Project ID
+        /// </param>
         /// <param name="data">
         /// Custom view data
         /// </param>
         /// <param name="filterGroup"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </param>
         /// <param name="ordering">
         /// Ordering parameters
         /// </param>
-        /// <param name="project">
-        /// Project ID
-        /// </param>
         /// <param name="selectedItems">
         /// Selected items
         /// </param>
         /// <param name="user">
         /// User who made this view
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -102,12 +102,12 @@ namespace LabelStudio
             int? user,
             int id = default!)
         {
-            this.Project = project;
             this.Data = data;
             this.FilterGroup = filterGroup;
             this.Id = id;
             this.Order = order;
             this.Ordering = ordering;
+            this.Project = project;
             this.SelectedItems = selectedItems;
             this.User = user;
         }

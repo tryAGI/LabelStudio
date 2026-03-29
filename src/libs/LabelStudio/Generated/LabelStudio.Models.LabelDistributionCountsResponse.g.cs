@@ -37,11 +37,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelDistributionCountsResponse" /> class.
         /// </summary>
+        /// <param name="results"></param>
+        /// <param name="totals"></param>
         /// <param name="nextOffset">
         /// Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
         /// </param>
-        /// <param name="results"></param>
-        /// <param name="totals"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -50,9 +50,9 @@ namespace LabelStudio
             global::LabelStudio.LabelDistributionCountsTotals totals,
             int? nextOffset)
         {
+            this.NextOffset = nextOffset;
             this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
             this.Totals = totals ?? throw new global::System.ArgumentNullException(nameof(totals));
-            this.NextOffset = nextOffset;
         }
 
         /// <summary>

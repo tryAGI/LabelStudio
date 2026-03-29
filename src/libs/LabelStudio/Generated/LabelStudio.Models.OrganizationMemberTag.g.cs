@@ -66,6 +66,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationMemberTag" /> class.
         /// </summary>
+        /// <param name="label">
+        /// Label
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -74,9 +77,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="id">
         /// Included only in responses
-        /// </param>
-        /// <param name="label">
-        /// Label
         /// </param>
         /// <param name="memberCount">
         /// Included only in responses
@@ -99,10 +99,10 @@ namespace LabelStudio
             int organization = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Id = id;
+            this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.MemberCount = memberCount;
             this.Organization = organization;
             this.UpdatedAt = updatedAt;

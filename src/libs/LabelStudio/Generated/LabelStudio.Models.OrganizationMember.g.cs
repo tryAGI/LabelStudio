@@ -65,26 +65,26 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationMember" /> class.
         /// </summary>
+        /// <param name="organization">
+        /// Organization ID
+        /// </param>
+        /// <param name="user">
+        /// User ID
+        /// </param>
+        /// <param name="contributedToProjects">
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdProjects">
+        /// Included only in responses
+        /// </param>
         /// <param name="annotationsCount">
         /// Included only in responses
         /// </param>
         /// <param name="contributedProjectsCount">
         /// Included only in responses
         /// </param>
-        /// <param name="contributedToProjects">
-        /// Included only in responses
-        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
-        /// </param>
-        /// <param name="createdProjects">
-        /// Included only in responses
-        /// </param>
-        /// <param name="organization">
-        /// Organization ID
-        /// </param>
-        /// <param name="user">
-        /// User ID
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -98,13 +98,13 @@ namespace LabelStudio
             int contributedProjectsCount = default!,
             global::System.DateTime createdAt = default!)
         {
-            this.Organization = organization;
-            this.User = user;
             this.AnnotationsCount = annotationsCount;
             this.ContributedProjectsCount = contributedProjectsCount;
             this.ContributedToProjects = contributedToProjects;
             this.CreatedAt = createdAt;
             this.CreatedProjects = createdProjects;
+            this.Organization = organization;
+            this.User = user;
         }
 
         /// <summary>

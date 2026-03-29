@@ -88,23 +88,8 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="KPIDetailResponse" /> class.
         /// </summary>
-        /// <param name="byProject">
-        /// Project-segmented data (compact format with parallel arrays)
-        /// </param>
-        /// <param name="byUser">
-        /// User-segmented data (compact format with parallel arrays)
-        /// </param>
         /// <param name="kpiKey">
         /// KPI identifier
-        /// </param>
-        /// <param name="kpiLabel">
-        /// Human-readable KPI label
-        /// </param>
-        /// <param name="matrix">
-        /// 2D matrix (time × user) in compact format
-        /// </param>
-        /// <param name="projectMatrix">
-        /// 2D matrix (time × project) in compact format
         /// </param>
         /// <param name="segmentation">
         /// Type of segmentation applied<br/>
@@ -115,14 +100,29 @@ namespace LabelStudio
         /// * `matrix` - matrix<br/>
         /// * `project_matrix` - project_matrix
         /// </param>
+        /// <param name="unit">
+        /// Unit of measurement: seconds, minutes, hours, count, or ratio
+        /// </param>
+        /// <param name="byProject">
+        /// Project-segmented data (compact format with parallel arrays)
+        /// </param>
+        /// <param name="byUser">
+        /// User-segmented data (compact format with parallel arrays)
+        /// </param>
+        /// <param name="kpiLabel">
+        /// Human-readable KPI label
+        /// </param>
+        /// <param name="matrix">
+        /// 2D matrix (time × user) in compact format
+        /// </param>
+        /// <param name="projectMatrix">
+        /// 2D matrix (time × project) in compact format
+        /// </param>
         /// <param name="timeSeries">
         /// Time-segmented data (compact format with parallel arrays)
         /// </param>
         /// <param name="total">
         /// Total value (no segmentation)
-        /// </param>
-        /// <param name="unit">
-        /// Unit of measurement: seconds, minutes, hours, count, or ratio
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -139,16 +139,16 @@ namespace LabelStudio
             global::LabelStudio.KPITimeSegment? timeSeries,
             global::LabelStudio.KPIValue? total)
         {
-            this.KpiKey = kpiKey ?? throw new global::System.ArgumentNullException(nameof(kpiKey));
-            this.Segmentation = segmentation;
-            this.Unit = unit ?? throw new global::System.ArgumentNullException(nameof(unit));
             this.ByProject = byProject;
             this.ByUser = byUser;
+            this.KpiKey = kpiKey ?? throw new global::System.ArgumentNullException(nameof(kpiKey));
             this.KpiLabel = kpiLabel;
             this.Matrix = matrix;
             this.ProjectMatrix = projectMatrix;
+            this.Segmentation = segmentation;
             this.TimeSeries = timeSeries;
             this.Total = total;
+            this.Unit = unit ?? throw new global::System.ArgumentNullException(nameof(unit));
         }
 
         /// <summary>

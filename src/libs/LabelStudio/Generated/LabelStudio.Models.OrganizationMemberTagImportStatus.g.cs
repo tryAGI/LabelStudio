@@ -66,13 +66,7 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="OrganizationMemberTagImportStatus" /> class.
         /// </summary>
         /// <param name="assignmentsCreated"></param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="finishedAt"></param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="status">
         /// * `created` - Created<br/>
         /// * `in_progress` - In Progress<br/>
@@ -81,6 +75,12 @@ namespace LabelStudio
         /// </param>
         /// <param name="tagsCreated"></param>
         /// <param name="usersSkipped"></param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

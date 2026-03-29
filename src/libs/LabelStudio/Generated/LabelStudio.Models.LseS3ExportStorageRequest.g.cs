@@ -169,6 +169,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseS3ExportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="roleArn">
+        /// AWS RoleArn
+        /// </param>
         /// <param name="awsAccessKeyId">
         /// AWS_ACCESS_KEY_ID
         /// </param>
@@ -209,17 +215,11 @@ namespace LabelStudio
         /// <param name="prefix">
         /// S3 bucket prefix
         /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
-        /// </param>
         /// <param name="regexFilter">
         /// Cloud storage regex for filtering objects
         /// </param>
         /// <param name="regionName">
         /// AWS Region
-        /// </param>
-        /// <param name="roleArn">
-        /// AWS RoleArn
         /// </param>
         /// <param name="s3Endpoint">
         /// S3 Endpoint
@@ -273,8 +273,6 @@ namespace LabelStudio
             string? traceback,
             bool? useBlobUrls)
         {
-            this.Project = project;
-            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.AwsAccessKeyId = awsAccessKeyId;
             this.AwsSecretAccessKey = awsSecretAccessKey;
             this.AwsSessionToken = awsSessionToken;
@@ -289,8 +287,10 @@ namespace LabelStudio
             this.LegacyAuth = legacyAuth;
             this.Meta = meta;
             this.Prefix = prefix;
+            this.Project = project;
             this.RegexFilter = regexFilter;
             this.RegionName = regionName;
+            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.S3Endpoint = s3Endpoint;
             this.Status = status;
             this.Synchronizable = synchronizable;

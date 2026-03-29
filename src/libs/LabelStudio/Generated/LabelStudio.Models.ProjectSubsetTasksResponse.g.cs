@@ -42,12 +42,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectSubsetTasksResponse" /> class.
         /// </summary>
+        /// <param name="taskResultList"></param>
         /// <param name="nextCursor"></param>
         /// <param name="previousCursor"></param>
         /// <param name="taskCount">
         /// Present only when include_total=true
         /// </param>
-        /// <param name="taskResultList"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -57,10 +57,10 @@ namespace LabelStudio
             string? previousCursor,
             int? taskCount)
         {
-            this.TaskResultList = taskResultList ?? throw new global::System.ArgumentNullException(nameof(taskResultList));
             this.NextCursor = nextCursor;
             this.PreviousCursor = previousCursor;
             this.TaskCount = taskCount;
+            this.TaskResultList = taskResultList ?? throw new global::System.ArgumentNullException(nameof(taskResultList));
         }
 
         /// <summary>

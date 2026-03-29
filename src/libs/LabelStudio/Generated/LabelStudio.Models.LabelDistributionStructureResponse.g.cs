@@ -32,11 +32,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LabelDistributionStructureResponse" /> class.
         /// </summary>
+        /// <param name="dimensions"></param>
         /// <param name="choiceKeys">
         /// All project choice keys in stable order, joined with "___PIPE___" when passed as query param.<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="dimensions"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -44,8 +44,8 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.LabelDistributionStructureDimension> dimensions,
             string choiceKeys = default!)
         {
-            this.Dimensions = dimensions ?? throw new global::System.ArgumentNullException(nameof(dimensions));
             this.ChoiceKeys = choiceKeys;
+            this.Dimensions = dimensions ?? throw new global::System.ArgumentNullException(nameof(dimensions));
         }
 
         /// <summary>

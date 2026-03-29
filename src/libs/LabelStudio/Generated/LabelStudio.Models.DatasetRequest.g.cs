@@ -60,6 +60,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DatasetRequest" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Dataset title
+        /// </param>
         /// <param name="columns">
         /// All data columns found in Dataset tasks
         /// </param>
@@ -70,9 +73,6 @@ namespace LabelStudio
         /// Dataset description
         /// </param>
         /// <param name="organization"></param>
-        /// <param name="title">
-        /// Dataset title
-        /// </param>
         /// <param name="totalEntities"></param>
         /// <param name="vectorDbDatasetName">
         /// Dataset name for weaviate schema
@@ -89,11 +89,11 @@ namespace LabelStudio
             int? totalEntities,
             string? vectorDbDatasetName)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Columns = columns;
             this.CreatedBy = createdBy;
             this.Description = description;
             this.Organization = organization;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.TotalEntities = totalEntities;
             this.VectorDbDatasetName = vectorDbDatasetName;
         }

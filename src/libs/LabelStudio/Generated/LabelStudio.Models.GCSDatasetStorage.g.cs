@@ -179,15 +179,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="GCSDatasetStorage" /> class.
         /// </summary>
-        /// <param name="bucket">
-        /// GCS bucket name
-        /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="dataset">
         /// A unique integer value identifying this dataset.
+        /// </param>
+        /// <param name="bucket">
+        /// GCS bucket name
         /// </param>
         /// <param name="description">
         /// Cloud storage description
@@ -200,9 +196,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="googleProjectId">
         /// Google project ID
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="jobId">
         /// Included only in responses
@@ -254,12 +247,19 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="type">
         /// Default Value: gcs<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -291,9 +291,9 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Dataset = dataset;
             this.Bucket = bucket;
             this.CreatedAt = createdAt;
+            this.Dataset = dataset;
             this.Description = description;
             this.GlobPattern = globPattern;
             this.GoogleApplicationCredentials = googleApplicationCredentials;

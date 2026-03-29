@@ -149,6 +149,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureBlobExportStorage" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="accountKey">
         /// Azure Blob account key
         /// </param>
@@ -161,15 +164,8 @@ namespace LabelStudio
         /// <param name="container">
         /// Azure blob container
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Cloud storage description
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
@@ -185,9 +181,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="prefix">
         /// Azure blob prefix name
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="regexFilter">
         /// Cloud storage regex for filtering objects
@@ -209,12 +202,19 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="type">
         /// Default Value: azure<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -241,7 +241,6 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Project = project;
             this.AccountKey = accountKey;
             this.AccountName = accountName;
             this.CanDeleteObjects = canDeleteObjects;
@@ -254,6 +253,7 @@ namespace LabelStudio
             this.LastSyncJob = lastSyncJob;
             this.Meta = meta;
             this.Prefix = prefix;
+            this.Project = project;
             this.RegexFilter = regexFilter;
             this.Status = status;
             this.Synchronizable = synchronizable;

@@ -74,6 +74,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DimensionRequest" /> class.
         /// </summary>
+        /// <param name="name">
+        /// Unique identifier for this dimension within the project
+        /// </param>
         /// <param name="description">
         /// Human-readable description of what this dimension represents
         /// </param>
@@ -95,9 +98,6 @@ namespace LabelStudio
         /// <param name="metricType">
         /// Strategy for comparing dimension values across annotators
         /// </param>
-        /// <param name="name">
-        /// Unique identifier for this dimension within the project
-        /// </param>
         /// <param name="order">
         /// Display order within the project
         /// </param>
@@ -115,7 +115,6 @@ namespace LabelStudio
             string? metricType,
             int? order)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description;
             this.ExtractionMethod = extractionMethod;
             this.ExtractionMethodParams = extractionMethodParams;
@@ -123,6 +122,7 @@ namespace LabelStudio
             this.IsUserDefined = isUserDefined;
             this.MetricParams = metricParams;
             this.MetricType = metricType;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Order = order;
         }
 

@@ -123,6 +123,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseProjectCounts" /> class.
         /// </summary>
+        /// <param name="numTasksWithAnnotations">
+        /// Included only in responses
+        /// </param>
+        /// <param name="usefulAnnotationNumber">
+        /// Included only in responses
+        /// </param>
         /// <param name="finishedTaskNumber">
         /// Included only in responses
         /// </param>
@@ -131,9 +137,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="numTasksWithAnnotations">
         /// Included only in responses
         /// </param>
         /// <param name="queueDone">
@@ -165,9 +168,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="totalPredictionsNumber">
-        /// Included only in responses
-        /// </param>
-        /// <param name="usefulAnnotationNumber">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER

@@ -123,17 +123,11 @@ namespace LabelStudio
         /// <param name="commentId">
         /// Comment id sent with result
         /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="createdBy">
         /// Created by user id
         /// </param>
         /// <param name="draftId">
         /// Corresponding draft for this historical annotation
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="leadTime">
         /// How much time it took to annotate the task
@@ -155,6 +149,12 @@ namespace LabelStudio
         /// </param>
         /// <param name="taskId">
         /// Task id
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

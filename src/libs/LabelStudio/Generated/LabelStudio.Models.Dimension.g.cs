@@ -125,15 +125,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Dimension" /> class.
         /// </summary>
-        /// <param name="allowedMetricsWithParams">
-        /// Dictionary mapping metric type names to their parameter schemas.<br/>
-        /// Included only in responses
+        /// <param name="name">
+        /// Unique identifier for this dimension within the project
         /// </param>
         /// <param name="controlTag">
         /// Name of the control tag this dimension is extracted from. Set automatically for system dimensions.<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdAt">
         /// Included only in responses
         /// </param>
         /// <param name="createdBy">
@@ -149,9 +145,6 @@ namespace LabelStudio
         /// <param name="extractionMethodParams">
         /// Parameters specific to the extraction method. See metrics.py for available extraction methods and their parameters.
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="isActive">
         /// Whether this dimension is used in agreement calculations.
         /// </param>
@@ -164,11 +157,18 @@ namespace LabelStudio
         /// <param name="metricType">
         /// Strategy for comparing dimension values across annotators
         /// </param>
-        /// <param name="name">
-        /// Unique identifier for this dimension within the project
-        /// </param>
         /// <param name="order">
         /// Display order within the project
+        /// </param>
+        /// <param name="allowedMetricsWithParams">
+        /// Dictionary mapping metric type names to their parameter schemas.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
         /// <param name="project">
         /// Project this dimension belongs to<br/>
@@ -198,7 +198,6 @@ namespace LabelStudio
             int project = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AllowedMetricsWithParams = allowedMetricsWithParams;
             this.ControlTag = controlTag;
             this.CreatedAt = createdAt;
@@ -211,6 +210,7 @@ namespace LabelStudio
             this.IsUserDefined = isUserDefined;
             this.MetricParams = metricParams;
             this.MetricType = metricType;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Order = order;
             this.Project = project;
             this.UpdatedAt = updatedAt;

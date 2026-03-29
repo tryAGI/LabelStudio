@@ -30,11 +30,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportConvertRequest" /> class.
         /// </summary>
-        /// <param name="downloadResources">
-        /// Download resources in converter.
-        /// </param>
         /// <param name="exportType">
         /// Export file format.
+        /// </param>
+        /// <param name="downloadResources">
+        /// Download resources in converter.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -43,8 +43,8 @@ namespace LabelStudio
             string exportType,
             bool? downloadResources)
         {
-            this.ExportType = exportType ?? throw new global::System.ArgumentNullException(nameof(exportType));
             this.DownloadResources = downloadResources;
+            this.ExportType = exportType ?? throw new global::System.ArgumentNullException(nameof(exportType));
         }
 
         /// <summary>

@@ -92,15 +92,8 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="AgreementV2BackfillJob" /> class.
         /// </summary>
         /// <param name="completedAt"></param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="errorMessage">
         /// Error message if job failed
-        /// </param>
-        /// <param name="jobId">
-        /// Database ID of the backfill job<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="progressData">
         /// JSON data tracking job progress (matrices_created, errors, etc.)
@@ -121,6 +114,13 @@ namespace LabelStudio
         /// * `RUNNING` - Running<br/>
         /// * `COMPLETED` - Completed<br/>
         /// * `FAILED` - Failed
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="jobId">
+        /// Database ID of the backfill job<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="triggeredBy">
         /// User who triggered the backfill<br/>

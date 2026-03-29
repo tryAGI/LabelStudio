@@ -90,6 +90,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectTemplateRequest" /> class.
         /// </summary>
+        /// <param name="name"></param>
         /// <param name="assignmentSettings">
         /// general dict serialized assignment settings
         /// </param>
@@ -98,7 +99,6 @@ namespace LabelStudio
         /// custom script (Plugin) for projects created from this template
         /// </param>
         /// <param name="description"></param>
-        /// <param name="name"></param>
         /// <param name="organization"></param>
         /// <param name="projectId">
         /// Included only in requests
@@ -131,11 +131,11 @@ namespace LabelStudio
             bool? showUnusedDataColumnsToAnnotators,
             object? tags)
         {
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AssignmentSettings = assignmentSettings;
             this.CreatedBy = createdBy;
             this.CustomScript = customScript;
             this.Description = description;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Organization = organization;
             this.ProjectId = projectId;
             this.ProjectSettings = projectSettings;

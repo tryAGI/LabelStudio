@@ -85,20 +85,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Workspace" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Workspace Name
+        /// </param>
         /// <param name="color">
         /// Color
         /// </param>
-        /// <param name="createdBy">
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdByUser">
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Workspace description
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="isArchived">
         /// Workspace is archived
@@ -106,14 +100,20 @@ namespace LabelStudio
         /// <param name="isPersonal">
         /// Workspace is a personal user workspace
         /// </param>
-        /// <param name="membership">
-        /// Included only in responses
-        /// </param>
         /// <param name="projectsCount">
         /// Included only in responses
         /// </param>
-        /// <param name="title">
-        /// Workspace Name
+        /// <param name="createdBy">
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdByUser">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="membership">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -130,7 +130,6 @@ namespace LabelStudio
             int id = default!,
             string membership = default!)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Color = color;
             this.CreatedBy = createdBy;
             this.CreatedByUser = createdByUser;
@@ -140,6 +139,7 @@ namespace LabelStudio
             this.IsPersonal = isPersonal;
             this.Membership = membership;
             this.ProjectsCount = projectsCount;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
         }
 
         /// <summary>

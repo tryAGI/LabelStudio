@@ -144,6 +144,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureServicePrincipalExportStorageRequest" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
@@ -176,9 +179,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="prefix">
         /// Azure blob prefix name
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="regexFilter">
         /// Cloud storage regex for filtering objects
@@ -234,7 +234,6 @@ namespace LabelStudio
             bool? useBlobUrls,
             string? userDelegationKey)
         {
-            this.Project = project;
             this.AccountName = accountName;
             this.CanDeleteObjects = canDeleteObjects;
             this.ClientId = clientId;
@@ -246,6 +245,7 @@ namespace LabelStudio
             this.LastSyncJob = lastSyncJob;
             this.Meta = meta;
             this.Prefix = prefix;
+            this.Project = project;
             this.RegexFilter = regexFilter;
             this.Status = status;
             this.Synchronizable = synchronizable;

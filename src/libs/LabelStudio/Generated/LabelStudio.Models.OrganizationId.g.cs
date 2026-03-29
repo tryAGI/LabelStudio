@@ -45,6 +45,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationId" /> class.
         /// </summary>
+        /// <param name="title"></param>
         /// <param name="contactInfo"></param>
         /// <param name="createdAt">
         /// Included only in responses
@@ -52,7 +53,6 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="title"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,10 +62,10 @@ namespace LabelStudio
             global::System.DateTime createdAt = default!,
             int id = default!)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.ContactInfo = contactInfo;
             this.CreatedAt = createdAt;
             this.Id = id;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
         }
 
         /// <summary>

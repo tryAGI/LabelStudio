@@ -139,6 +139,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="MLBackend" /> class.
         /// </summary>
+        /// <param name="project"></param>
+        /// <param name="url">
+        /// URL for the machine learning model server
+        /// </param>
         /// <param name="authMethod">
         /// * `NONE` - None<br/>
         /// * `BASIC_AUTH` - Basic Auth
@@ -146,14 +150,8 @@ namespace LabelStudio
         /// <param name="autoUpdate">
         /// If false, model version is set by the user, if true - getting latest version from backend.
         /// </param>
-        /// <param name="basicAuthPassIsSet">
-        /// Included only in responses
-        /// </param>
         /// <param name="basicAuthUser">
         /// HTTP Basic Auth user
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
         /// </param>
         /// <param name="description">
         /// Description for the machine learning backend
@@ -164,18 +162,11 @@ namespace LabelStudio
         /// <param name="extraParams">
         /// Any extra parameters passed to the ML Backend during the setup
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="isInteractive">
         /// Used to interactively annotate tasks. If true, model returns one list with results
         /// </param>
         /// <param name="modelVersion">
         /// Current model version associated with this machine learning backend
-        /// </param>
-        /// <param name="project"></param>
-        /// <param name="readableState">
-        /// Included only in responses
         /// </param>
         /// <param name="state">
         /// * `CO` - Connected<br/>
@@ -190,11 +181,20 @@ namespace LabelStudio
         /// <param name="title">
         /// Name of the machine learning backend
         /// </param>
-        /// <param name="updatedAt">
+        /// <param name="basicAuthPassIsSet">
         /// Included only in responses
         /// </param>
-        /// <param name="url">
-        /// URL for the machine learning model server
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="readableState">
+        /// Included only in responses
+        /// </param>
+        /// <param name="updatedAt">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -219,8 +219,6 @@ namespace LabelStudio
             string readableState = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Project = project;
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.AuthMethod = authMethod;
             this.AutoUpdate = autoUpdate;
             this.BasicAuthPassIsSet = basicAuthPassIsSet;
@@ -232,11 +230,13 @@ namespace LabelStudio
             this.Id = id;
             this.IsInteractive = isInteractive;
             this.ModelVersion = modelVersion;
+            this.Project = project;
             this.ReadableState = readableState;
             this.State = state;
             this.Timeout = timeout;
             this.Title = title;
             this.UpdatedAt = updatedAt;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>

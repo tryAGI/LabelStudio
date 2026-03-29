@@ -178,12 +178,6 @@ namespace LabelStudio
         /// <param name="cachedAvailableModels">
         /// List of available models from the provider
         /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
-        /// <param name="createdBy">
-        /// Included only in responses
-        /// </param>
         /// <param name="deploymentName">
         /// Azure OpenAI deployment name
         /// </param>
@@ -196,15 +190,8 @@ namespace LabelStudio
         /// <param name="googleProjectId">
         /// Google project ID
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="isInternal">
         /// Whether the model provider connection is internal, not visible to the user
-        /// </param>
-        /// <param name="modelParams">
-        /// JSON schema for the model parameters available for the provider<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="organization">
         /// Included only in responses
@@ -222,6 +209,19 @@ namespace LabelStudio
         /// * `Organization` - Organization<br/>
         /// * `User` - User<br/>
         /// * `Model` - Model
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdBy">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="modelParams">
+        /// JSON schema for the model parameters available for the provider<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="updatedAt">
         /// Included only in responses

@@ -54,9 +54,6 @@ namespace LabelStudio
         /// <param name="emails">
         /// Email addresses
         /// </param>
-        /// <param name="projects">
-        /// Project IDs to grant access to
-        /// </param>
         /// <param name="role">
         /// Organization role<br/>
         /// * `OW` - Owner<br/>
@@ -66,6 +63,9 @@ namespace LabelStudio
         /// * `AN` - Annotator<br/>
         /// * `DI` - Deactivated<br/>
         /// * `NO` - Not Activated
+        /// </param>
+        /// <param name="projects">
+        /// Project IDs to grant access to
         /// </param>
         /// <param name="workspaces">
         /// Workspace IDs to grant access to
@@ -80,8 +80,8 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int>? workspaces)
         {
             this.Emails = emails ?? throw new global::System.ArgumentNullException(nameof(emails));
-            this.Role = role;
             this.Projects = projects;
+            this.Role = role;
             this.Workspaces = workspaces;
         }
 

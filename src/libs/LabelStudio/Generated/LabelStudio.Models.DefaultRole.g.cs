@@ -92,6 +92,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRole" /> class.
         /// </summary>
+        /// <param name="organization">
+        /// A unique integer value identifying this organization.
+        /// </param>
         /// <param name="annotatorReviewerFirewallEnabledAt">
         /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
         /// </param>
@@ -124,9 +127,6 @@ namespace LabelStudio
         /// <param name="labelStreamNavigationDisabledAt">
         /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
         /// </param>
-        /// <param name="organization">
-        /// A unique integer value identifying this organization.
-        /// </param>
         /// <param name="readOnlyQuickViewEnabledAt">
         /// Set to current time to prevent creating or editing annotations in quick view.
         /// </param>
@@ -146,7 +146,6 @@ namespace LabelStudio
             global::System.DateTime? labelStreamNavigationDisabledAt,
             global::System.DateTime? readOnlyQuickViewEnabledAt)
         {
-            this.Organization = organization;
             this.AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt;
             this.CustomScriptsEnabledAt = customScriptsEnabledAt;
             this.DefaultRole1 = defaultRole1;
@@ -156,6 +155,7 @@ namespace LabelStudio
             this.ExternalId = externalId;
             this.ExtraDataOnActivityLogs = extraDataOnActivityLogs;
             this.LabelStreamNavigationDisabledAt = labelStreamNavigationDisabledAt;
+            this.Organization = organization;
             this.ReadOnlyQuickViewEnabledAt = readOnlyQuickViewEnabledAt;
         }
 

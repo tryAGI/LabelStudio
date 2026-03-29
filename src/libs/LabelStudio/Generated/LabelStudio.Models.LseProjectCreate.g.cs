@@ -338,19 +338,8 @@ namespace LabelStudio
         /// Enable annotator evaluation for the project
         /// </param>
         /// <param name="color"></param>
-        /// <param name="configHasControlTags">
-        /// Flag to detect is project ready for labeling<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="configSuitableForBulkAnnotation">
-        /// Flag to detect is project ready for bulk annotation<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="controlWeights">
         /// Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// Project owner
@@ -366,17 +355,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="expertInstruction">
         /// Labeling instructions in HTML format
-        /// </param>
-        /// <param name="finishedTaskNumber">
-        /// Finished tasks<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="groundTruthNumber">
-        /// Honeypot annotation number in project<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
@@ -396,24 +374,10 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
-        /// <param name="numTasksWithAnnotations">
-        /// Tasks with annotations count<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="organization"></param>
         /// <param name="overlapCohortPercentage"></param>
-        /// <param name="parsedLabelConfig">
-        /// JSON-formatted labeling configuration<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="pinnedAt">
         /// Pinned date and time
-        /// </param>
-        /// <param name="queueDone">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueTotal">
-        /// Included only in responses
         /// </param>
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
@@ -433,6 +397,54 @@ namespace LabelStudio
         /// Show a skip button in interface and allow annotators to skip the task
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="taskDataLogin">
+        /// Task data credentials: login
+        /// </param>
+        /// <param name="taskDataPassword">
+        /// Task data credentials: password
+        /// </param>
+        /// <param name="title">
+        /// Project Title
+        /// </param>
+        /// <param name="workspace">
+        /// In Workspace
+        /// </param>
+        /// <param name="configHasControlTags">
+        /// Flag to detect is project ready for labeling<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="configSuitableForBulkAnnotation">
+        /// Flag to detect is project ready for bulk annotation<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="finishedTaskNumber">
+        /// Finished tasks<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="groundTruthNumber">
+        /// Honeypot annotation number in project<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="numTasksWithAnnotations">
+        /// Tasks with annotations count<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="parsedLabelConfig">
+        /// JSON-formatted labeling configuration<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueDone">
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueTotal">
+        /// Included only in responses
+        /// </param>
         /// <param name="skippedAnnotationsNumber">
         /// Skipped by collaborators annotation number in project<br/>
         /// Included only in responses
@@ -444,18 +456,9 @@ namespace LabelStudio
         /// <param name="state">
         /// Included only in responses
         /// </param>
-        /// <param name="taskDataLogin">
-        /// Task data credentials: login
-        /// </param>
-        /// <param name="taskDataPassword">
-        /// Task data credentials: password
-        /// </param>
         /// <param name="taskNumber">
         /// Total task number in project<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Project Title
         /// </param>
         /// <param name="totalAnnotationsNumber">
         /// Total annotations number in project including skipped_annotations_number and ground_truth_number.<br/>
@@ -468,9 +471,6 @@ namespace LabelStudio
         /// <param name="usefulAnnotationNumber">
         /// Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="workspace">
-        /// In Workspace
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

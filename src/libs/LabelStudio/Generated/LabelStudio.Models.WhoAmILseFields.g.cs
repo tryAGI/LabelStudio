@@ -115,16 +115,7 @@ namespace LabelStudio
         /// <param name="activeOrganizationExternalId">
         /// Included only in responses
         /// </param>
-        /// <param name="emailNotificationSettings">
-        /// Included only in responses
-        /// </param>
         /// <param name="inviteActivated"></param>
-        /// <param name="inviteExpired">
-        /// Included only in responses
-        /// </param>
-        /// <param name="inviteExpiredAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="invitedAt"></param>
         /// <param name="invitedBy"></param>
         /// <param name="onboardingState">
@@ -144,6 +135,15 @@ namespace LabelStudio
         /// <param name="trialLicenseEnterprise"></param>
         /// <param name="trialModelsInProduction"></param>
         /// <param name="trialRole"></param>
+        /// <param name="emailNotificationSettings">
+        /// Included only in responses
+        /// </param>
+        /// <param name="inviteExpired">
+        /// Included only in responses
+        /// </param>
+        /// <param name="inviteExpiredAt">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

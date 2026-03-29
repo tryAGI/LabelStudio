@@ -521,6 +521,8 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseProject" /> class.
         /// </summary>
+        /// <param name="assignmentSettings"></param>
+        /// <param name="reviewSettings"></param>
         /// <param name="agreementMethodology">
         /// Methodology (Consensus / Pairwise Averaging)<br/>
         /// * `consensus` - Consensus<br/>
@@ -555,24 +557,12 @@ namespace LabelStudio
         /// Onboarding Evaluation: Required tasks<br/>
         /// Default Value: 0
         /// </param>
-        /// <param name="assignmentSettings"></param>
         /// <param name="color">
         /// Color
         /// </param>
         /// <param name="commentClassificationConfig"></param>
-        /// <param name="configHasControlTags">
-        /// Flag to detect is project ready for labeling<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="configSuitableForBulkAnnotation">
-        /// Flag to detect is project ready for bulk annotation<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="controlWeights">
         /// Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// Project owner
@@ -602,20 +592,6 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Instructions
         /// </param>
-        /// <param name="finishedTaskNumber">
-        /// Finished tasks<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="groundTruthNumber">
-        /// Honeypot annotation number in project<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="isDimensionsEnabled">
-        /// Included only in responses
-        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -631,12 +607,6 @@ namespace LabelStudio
         /// <param name="maximumAnnotations">
         /// Annotations per task
         /// </param>
-        /// <param name="members">
-        /// Included only in responses
-        /// </param>
-        /// <param name="membersCount">
-        /// Included only in responses
-        /// </param>
         /// <param name="minAnnotationsToStartTraining">
         /// Minimum number of completed tasks after which model training is started
         /// </param>
@@ -650,10 +620,6 @@ namespace LabelStudio
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
         /// </param>
-        /// <param name="parsedLabelConfig">
-        /// JSON-formatted labeling configuration<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="pauseOnFailedAnnotatorEvaluation">
         /// Pause annotator on failed evaluation<br/>
         /// Default Value: false
@@ -661,28 +627,12 @@ namespace LabelStudio
         /// <param name="pinnedAt">
         /// Pinned date and time
         /// </param>
-        /// <param name="prompts">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueDone">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueLeft">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueTotal">
-        /// Included only in responses
-        /// </param>
         /// <param name="requireCommentOnSkip">
         /// Require comment to skip<br/>
         /// Default Value: false
         /// </param>
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
-        /// </param>
-        /// <param name="reviewSettings"></param>
-        /// <param name="reviewerQueueTotal">
-        /// Included only in responses
         /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
@@ -704,6 +654,69 @@ namespace LabelStudio
         /// Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="strictTaskOverlap">
+        /// Enforce strict overlap limit<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="taskDataLogin">
+        /// Login
+        /// </param>
+        /// <param name="taskDataPassword">
+        /// Password
+        /// </param>
+        /// <param name="title">
+        /// Project Name
+        /// </param>
+        /// <param name="configHasControlTags">
+        /// Flag to detect is project ready for labeling<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="configSuitableForBulkAnnotation">
+        /// Flag to detect is project ready for bulk annotation<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="finishedTaskNumber">
+        /// Finished tasks<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="groundTruthNumber">
+        /// Honeypot annotation number in project<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="isDimensionsEnabled">
+        /// Included only in responses
+        /// </param>
+        /// <param name="members">
+        /// Included only in responses
+        /// </param>
+        /// <param name="membersCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="parsedLabelConfig">
+        /// JSON-formatted labeling configuration<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="prompts">
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueDone">
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueLeft">
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueTotal">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewerQueueTotal">
+        /// Included only in responses
+        /// </param>
         /// <param name="skippedAnnotationsNumber">
         /// Skipped by collaborators annotation number in project<br/>
         /// Included only in responses
@@ -715,22 +728,9 @@ namespace LabelStudio
         /// <param name="state">
         /// Included only in responses
         /// </param>
-        /// <param name="strictTaskOverlap">
-        /// Enforce strict overlap limit<br/>
-        /// Default Value: true
-        /// </param>
-        /// <param name="taskDataLogin">
-        /// Login
-        /// </param>
-        /// <param name="taskDataPassword">
-        /// Password
-        /// </param>
         /// <param name="taskNumber">
         /// Total task number in project<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Project Name
         /// </param>
         /// <param name="totalAnnotationsNumber">
         /// Total annotations number in project including skipped_annotations_number and ground_truth_number.<br/>
@@ -829,8 +829,6 @@ namespace LabelStudio
             string workspace = default!,
             string workspaceTitle = default!)
         {
-            this.AssignmentSettings = assignmentSettings ?? throw new global::System.ArgumentNullException(nameof(assignmentSettings));
-            this.ReviewSettings = reviewSettings ?? throw new global::System.ArgumentNullException(nameof(reviewSettings));
             this.AgreementMethodology = agreementMethodology;
             this.AgreementThreshold = agreementThreshold;
             this.AnnotationLimitCount = annotationLimitCount;
@@ -840,6 +838,7 @@ namespace LabelStudio
             this.AnnotatorEvaluationMinimumScore = annotatorEvaluationMinimumScore;
             this.AnnotatorEvaluationMinimumTasks = annotatorEvaluationMinimumTasks;
             this.AnnotatorEvaluationOnboardingTasks = annotatorEvaluationOnboardingTasks;
+            this.AssignmentSettings = assignmentSettings ?? throw new global::System.ArgumentNullException(nameof(assignmentSettings));
             this.Color = color;
             this.CommentClassificationConfig = commentClassificationConfig;
             this.ConfigHasControlTags = configHasControlTags;
@@ -881,6 +880,7 @@ namespace LabelStudio
             this.QueueTotal = queueTotal;
             this.RequireCommentOnSkip = requireCommentOnSkip;
             this.RevealPreannotationsInteractively = revealPreannotationsInteractively;
+            this.ReviewSettings = reviewSettings ?? throw new global::System.ArgumentNullException(nameof(reviewSettings));
             this.ReviewerQueueTotal = reviewerQueueTotal;
             this.Sampling = sampling;
             this.ShowAnnotationHistory = showAnnotationHistory;

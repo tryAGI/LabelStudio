@@ -88,11 +88,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelInterfaceSerializerGET" /> class.
         /// </summary>
+        /// <param name="title">
+        /// Model name
+        /// </param>
         /// <param name="associatedProjects">
         /// Default Value: []
-        /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// User who created Dataset
@@ -100,17 +100,17 @@ namespace LabelStudio
         /// <param name="description">
         /// Model description
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="inputFields"></param>
         /// <param name="organization"></param>
         /// <param name="outputClasses"></param>
         /// <param name="skillName">
         /// Default Value: TextClassification
         /// </param>
-        /// <param name="title">
-        /// Model name
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
@@ -131,7 +131,6 @@ namespace LabelStudio
             int id = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.AssociatedProjects = associatedProjects;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
@@ -141,6 +140,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.OutputClasses = outputClasses;
             this.SkillName = skillName;
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.UpdatedAt = updatedAt;
         }
 

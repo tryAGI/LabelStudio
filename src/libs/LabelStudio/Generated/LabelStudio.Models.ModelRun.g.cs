@@ -116,39 +116,39 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelRun" /> class.
         /// </summary>
+        /// <param name="project"></param>
         /// <param name="completedAt">
         /// Included only in responses
         /// </param>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
         /// <param name="createdBy">
-        /// Included only in responses
-        /// </param>
-        /// <param name="id">
         /// Included only in responses
         /// </param>
         /// <param name="jobId">
         /// Job ID for inference job for a ModelRun e.g. Adala job ID
         /// </param>
         /// <param name="organization"></param>
-        /// <param name="parentModel">
-        /// Included only in responses
-        /// </param>
         /// <param name="predictionsUpdatedAt"></param>
-        /// <param name="project"></param>
         /// <param name="projectSubset">
         /// * `All` - All<br/>
         /// * `HasGT` - HasGT<br/>
         /// * `Sample` - Sample
         /// </param>
-        /// <param name="status">
-        /// Included only in responses
-        /// </param>
         /// <param name="totalCorrectPredictions"></param>
         /// <param name="totalPredictions"></param>
         /// <param name="totalTasks"></param>
         /// <param name="triggeredAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
+        /// <param name="parentModel">
+        /// Included only in responses
+        /// </param>
+        /// <param name="status">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -171,7 +171,6 @@ namespace LabelStudio
             int parentModel = default!,
             global::LabelStudio.ModelRunStatusEnum status = default!)
         {
-            this.Project = project;
             this.CompletedAt = completedAt;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
@@ -180,6 +179,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.ParentModel = parentModel;
             this.PredictionsUpdatedAt = predictionsUpdatedAt;
+            this.Project = project;
             this.ProjectSubset = projectSubset;
             this.Status = status;
             this.TotalCorrectPredictions = totalCorrectPredictions;

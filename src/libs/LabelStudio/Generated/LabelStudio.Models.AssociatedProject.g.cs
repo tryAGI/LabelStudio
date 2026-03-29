@@ -33,11 +33,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AssociatedProject" /> class.
         /// </summary>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="title">
         /// Project name. Must be between 3 and 50 characters long.
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

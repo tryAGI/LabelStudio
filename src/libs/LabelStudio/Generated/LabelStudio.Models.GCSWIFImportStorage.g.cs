@@ -185,12 +185,11 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="GCSWIFImportStorage" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
         /// <param name="bucket">
         /// GCS bucket name
-        /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
         /// </param>
         /// <param name="description">
         /// Cloud storage description
@@ -213,9 +212,6 @@ namespace LabelStudio
         /// <param name="googleWifProviderId">
         /// Google WIF provider ID
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
         /// </param>
@@ -236,9 +232,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
-        /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan over the bucket content
@@ -263,12 +256,19 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="type">
         /// Default Value: gcswif<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -301,7 +301,6 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Project = project;
             this.Bucket = bucket;
             this.CreatedAt = createdAt;
             this.Description = description;
@@ -319,6 +318,7 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.Status = status;

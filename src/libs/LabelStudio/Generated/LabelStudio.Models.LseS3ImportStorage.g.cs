@@ -204,6 +204,12 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseS3ImportStorage" /> class.
         /// </summary>
+        /// <param name="project">
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="roleArn">
+        /// AWS RoleArn
+        /// </param>
         /// <param name="awsAccessKeyId">
         /// AWS_ACCESS_KEY_ID
         /// </param>
@@ -219,18 +225,11 @@ namespace LabelStudio
         /// <param name="bucket">
         /// S3 bucket name
         /// </param>
-        /// <param name="createdAt">
-        /// Creation time<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="description">
         /// Cloud storage description
         /// </param>
         /// <param name="externalId">
         /// AWS ExternalId
-        /// </param>
-        /// <param name="id">
-        /// Included only in responses
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
@@ -254,9 +253,6 @@ namespace LabelStudio
         /// <param name="presignTtl">
         /// Presigned URLs TTL (in minutes)
         /// </param>
-        /// <param name="project">
-        /// A unique integer value identifying this project.
-        /// </param>
         /// <param name="recursiveScan">
         /// Perform recursive scan over the bucket content
         /// </param>
@@ -265,9 +261,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="regionName">
         /// AWS Region
-        /// </param>
-        /// <param name="roleArn">
-        /// AWS RoleArn
         /// </param>
         /// <param name="s3Endpoint">
         /// S3 Endpoint
@@ -289,12 +282,19 @@ namespace LabelStudio
         /// <param name="traceback">
         /// Traceback report for the last failed sync
         /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
+        /// </param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="type">
         /// Default Value: s3s<br/>
         /// Included only in responses
-        /// </param>
-        /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -330,8 +330,6 @@ namespace LabelStudio
             int id = default!,
             string type = default!)
         {
-            this.Project = project;
-            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.AwsAccessKeyId = awsAccessKeyId;
             this.AwsSecretAccessKey = awsSecretAccessKey;
             this.AwsSessionToken = awsSessionToken;
@@ -349,9 +347,11 @@ namespace LabelStudio
             this.Prefix = prefix;
             this.Presign = presign;
             this.PresignTtl = presignTtl;
+            this.Project = project;
             this.RecursiveScan = recursiveScan;
             this.RegexFilter = regexFilter;
             this.RegionName = regionName;
+            this.RoleArn = roleArn ?? throw new global::System.ArgumentNullException(nameof(roleArn));
             this.S3Endpoint = s3Endpoint;
             this.Status = status;
             this.Synchronizable = synchronizable;

@@ -90,20 +90,23 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Blueprint" /> class.
         /// </summary>
-        /// <param name="createdAt">
-        /// Included only in responses
-        /// </param>
+        /// <param name="project"></param>
         /// <param name="createdBy"></param>
         /// <param name="description">
         /// Project description
         /// </param>
-        /// <param name="id">
-        /// Included only in responses
-        /// </param>
         /// <param name="labelConfig">
         /// Labeling configuration in XML format
         /// </param>
-        /// <param name="project"></param>
+        /// <param name="title">
+        /// Blueprint name. Must be between 3 and 50 characters long.
+        /// </param>
+        /// <param name="createdAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="id">
+        /// Included only in responses
+        /// </param>
         /// <param name="shareId">
         /// Included only in responses
         /// </param>
@@ -112,9 +115,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="taskCount">
         /// Included only in responses
-        /// </param>
-        /// <param name="title">
-        /// Blueprint name. Must be between 3 and 50 characters long.
         /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
@@ -135,12 +135,12 @@ namespace LabelStudio
             string taskCount = default!,
             global::System.DateTime updatedAt = default!)
         {
-            this.Project = project;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
             this.Id = id;
             this.LabelConfig = labelConfig;
+            this.Project = project;
             this.ShareId = shareId;
             this.ShortUrl = shortUrl;
             this.TaskCount = taskCount;

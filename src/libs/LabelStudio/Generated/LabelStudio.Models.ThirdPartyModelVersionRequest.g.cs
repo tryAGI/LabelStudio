@@ -70,13 +70,19 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyModelVersionRequest" /> class.
         /// </summary>
+        /// <param name="prompt">
+        /// Prompt to execute
+        /// </param>
+        /// <param name="providerModelId">
+        /// The model ID to use within the given provider, e.g. gpt-3.5
+        /// </param>
+        /// <param name="title">
+        /// Model name
+        /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
         /// Parent model interface ID
-        /// </param>
-        /// <param name="prompt">
-        /// Prompt to execute
         /// </param>
         /// <param name="provider">
         /// The model provider to use e.g. OpenAI<br/>
@@ -87,12 +93,6 @@ namespace LabelStudio
         /// * `Gemini` - Gemini<br/>
         /// * `Anthropic` - Anthropic<br/>
         /// * `Custom` - Custom
-        /// </param>
-        /// <param name="providerModelId">
-        /// The model ID to use within the given provider, e.g. gpt-3.5
-        /// </param>
-        /// <param name="title">
-        /// Model name
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -106,13 +106,13 @@ namespace LabelStudio
             int? parentModel,
             global::LabelStudio.ProviderEnum? provider)
         {
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.ProviderModelId = providerModelId ?? throw new global::System.ArgumentNullException(nameof(providerModelId));
-            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.ModelProviderConnection = modelProviderConnection;
             this.Organization = organization;
             this.ParentModel = parentModel;
+            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.Provider = provider;
+            this.ProviderModelId = providerModelId ?? throw new global::System.ArgumentNullException(nameof(providerModelId));
+            this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
         }
 
         /// <summary>

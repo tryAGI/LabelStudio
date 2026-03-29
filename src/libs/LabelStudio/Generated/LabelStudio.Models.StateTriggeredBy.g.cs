@@ -44,8 +44,8 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="StateTriggeredBy" /> class.
         /// </summary>
         /// <param name="email"></param>
-        /// <param name="firstName"></param>
         /// <param name="id"></param>
+        /// <param name="firstName"></param>
         /// <param name="lastName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -57,8 +57,8 @@ namespace LabelStudio
             string? lastName)
         {
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
-            this.Id = id;
             this.FirstName = firstName;
+            this.Id = id;
             this.LastName = lastName;
         }
 

@@ -70,6 +70,14 @@ namespace LabelStudio
         /// <param name="assignee">
         /// Assigned user
         /// </param>
+        /// <param name="task">
+        /// Assigned task
+        /// </param>
+        /// <param name="type">
+        /// Type of assignment: Annotate|Review<br/>
+        /// * `AN` - Annotate<br/>
+        /// * `RE` - Review
+        /// </param>
         /// <param name="createdAt">
         /// Time of assignment<br/>
         /// Included only in responses
@@ -79,14 +87,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="state">
         /// Included only in responses
-        /// </param>
-        /// <param name="task">
-        /// Assigned task
-        /// </param>
-        /// <param name="type">
-        /// Type of assignment: Annotate|Review<br/>
-        /// * `AN` - Annotate<br/>
-        /// * `RE` - Review
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -100,10 +100,10 @@ namespace LabelStudio
             string state = default!)
         {
             this.Assignee = assignee;
-            this.Task = task;
             this.CreatedAt = createdAt;
             this.Id = id;
             this.State = state;
+            this.Task = task;
             this.Type = type;
         }
 

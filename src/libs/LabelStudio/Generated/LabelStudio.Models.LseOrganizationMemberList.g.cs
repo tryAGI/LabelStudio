@@ -75,8 +75,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseOrganizationMemberList" /> class.
         /// </summary>
-        /// <param name="concurrency">
-        /// Included only in responses
+        /// <param name="organization">
+        /// Organization ID
+        /// </param>
+        /// <param name="user">
+        /// A ModelSerializer that takes additional arguments for<br/>
+        /// "fields", "omit" and "expand" in order to<br/>
+        /// control which fields are displayed, and whether to replace simple<br/>
+        /// values with complex, nested serializations
         /// </param>
         /// <param name="contributedToProjects">
         /// Included only in responses
@@ -84,23 +90,17 @@ namespace LabelStudio
         /// <param name="createdProjects">
         /// Included only in responses
         /// </param>
-        /// <param name="id">
+        /// <param name="concurrency">
         /// Included only in responses
         /// </param>
-        /// <param name="organization">
-        /// Organization ID
+        /// <param name="id">
+        /// Included only in responses
         /// </param>
         /// <param name="role">
         /// Included only in responses
         /// </param>
         /// <param name="tags">
         /// Included only in responses
-        /// </param>
-        /// <param name="user">
-        /// A ModelSerializer that takes additional arguments for<br/>
-        /// "fields", "omit" and "expand" in order to<br/>
-        /// control which fields are displayed, and whether to replace simple<br/>
-        /// values with complex, nested serializations
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -115,14 +115,14 @@ namespace LabelStudio
             string role = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
         {
-            this.Organization = organization;
-            this.User = user ?? throw new global::System.ArgumentNullException(nameof(user));
             this.Concurrency = concurrency;
             this.ContributedToProjects = contributedToProjects;
             this.CreatedProjects = createdProjects;
             this.Id = id;
+            this.Organization = organization;
             this.Role = role;
             this.Tags = tags;
+            this.User = user ?? throw new global::System.ArgumentNullException(nameof(user));
         }
 
         /// <summary>
