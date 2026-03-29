@@ -48,7 +48,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ActivityLogs2Client ActivityLogs2 { get; }
+        public ActivityLogsClient ActivityLogs { get; }
 
         /// <summary>
         /// 
@@ -58,7 +58,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationHistory2Client AnnotationHistory2 { get; }
+        public AnnotationHistoryClient AnnotationHistory { get; }
 
         /// <summary>
         /// 
@@ -73,7 +73,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Annotations2Client Annotations2 { get; }
+        public AnnotationsClient Annotations { get; }
 
         /// <summary>
         /// 
@@ -248,7 +248,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public SessionPolicy2Client SessionPolicy2 { get; }
+        public SessionPolicyClient SessionPolicy { get; }
 
         /// <summary>
         /// 
@@ -258,7 +258,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public States2Client States2 { get; }
+        public StatesClient States { get; }
 
         /// <summary>
         /// 
@@ -333,12 +333,12 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Users2Client Users2 { get; }
+        public UsersClient Users { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Versions2Client Versions2 { get; }
+        public VersionsClient Versions { get; }
 
         /// <summary>
         /// 

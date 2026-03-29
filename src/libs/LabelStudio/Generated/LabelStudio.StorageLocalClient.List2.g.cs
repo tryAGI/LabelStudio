@@ -48,7 +48,7 @@ namespace LabelStudio
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("ordering", ordering)
-                .AddRequiredParameter("project", project.ToString()) 
+                .AddRequiredParameter("project", project.ToString()!) 
                 ; 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
