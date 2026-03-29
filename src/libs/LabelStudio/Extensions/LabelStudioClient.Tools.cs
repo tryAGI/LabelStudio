@@ -141,7 +141,7 @@ public static class LabelStudioToolExtensions
             {
                 var result = JsonSerializer.Deserialize<List<object>>(resultJson);
 
-                var response = await client.Annotations2.CreateAsync(
+                var response = await client.Annotations.CreateAsync(
                     id: taskId,
                     result: result,
                     cancellationToken: cancellationToken).ConfigureAwait(false);

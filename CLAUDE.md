@@ -44,13 +44,13 @@ The API is organized into sub-clients:
 - `client.Projects2.CreateAsync(...)` — Create a project
 - `client.Tasks2.List2Async(...)` — List tasks in a project
 - `client.Tasks2.GetAsync(...)` — Get task details
-- `client.Annotations2.CreateAsync(...)` — Create an annotation
-- `client.Annotations2.ListAsync(...)` — List annotations for a task
+- `client.Annotations.CreateAsync(...)` — Create an annotation
+- `client.Annotations.ListAsync(...)` — List annotations for a task
 - `client.Ml.ListAsync(...)` — List ML backends
 - `client.Webhooks.ListAsync(...)` — List webhooks
 - `client.StorageS3.*` / `client.StorageGcs.*` / `client.StorageAzure.*` — Cloud storage
 - `client.Organizations.*` — Organization management
-- `client.Users2.*` — User management
+- `client.Users.*` — User management
 - `client.Export.*` — Data export
 - `client.Import.*` — Data import
 - `client.Views.*` — Data manager views
