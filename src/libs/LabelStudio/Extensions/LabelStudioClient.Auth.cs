@@ -4,17 +4,18 @@ namespace LabelStudio;
 
 public partial class LabelStudioClient
 {
-#pragma warning disable CA1822 // Mark members as static
-    partial void PrepareRequest(
-        global::System.Net.Http.HttpClient client,
-        global::System.Net.Http.HttpRequestMessage request)
+    partial void Authorized(
+        global::System.Net.Http.HttpClient client)
     {
-        // Label Studio uses "Token <key>" prefix instead of "Bearer <key>"
-        if (request.Headers.Authorization is { Scheme: "Bearer", Parameter: { } apiKey })
+        // Label Studio uses "Token <key>" prefix instead of "Bearer <key>".
+        // Set auth on DefaultRequestHeaders so all sub-clients inherit it,
+        // and clear Authorizations to prevent per-request Bearer override.
+        var bearer = Authorizations.Find(a => a is { Type: "Http", Name: "Bearer" });
+        if (bearer?.Value is { } apiKey)
         {
-            request.Headers.Authorization =
+            client.DefaultRequestHeaders.Authorization =
                 new global::System.Net.Http.Headers.AuthenticationHeaderValue("Token", apiKey);
+            Authorizations.Clear();
         }
     }
-#pragma warning restore CA1822 // Mark members as static
 }
