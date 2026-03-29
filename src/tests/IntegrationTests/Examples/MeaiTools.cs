@@ -15,8 +15,7 @@ public partial class Tests
     [TestMethod]
     public void Example_CreateMeaiTools()
     {
-        //// Create an authenticated Label Studio client.
-        using var client = GetAuthenticatedClient();
+        var client = Client;
 
         //// Create AIFunction tools for use with any IChatClient.
         var listProjectsTool = client.AsListProjectsTool();

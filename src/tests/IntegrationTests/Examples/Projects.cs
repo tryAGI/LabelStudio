@@ -13,8 +13,7 @@ public partial class Tests
     [TestMethod]
     public async Task Example_ListProjects()
     {
-        //// Create an authenticated Label Studio client.
-        using var client = GetAuthenticatedClient();
+        var client = Client;
 
         //// List all labeling projects.
         var projects = await client.Projects2.ListAsync(
@@ -28,8 +27,7 @@ public partial class Tests
     [TestMethod]
     public async Task Example_GetProject()
     {
-        //// Create an authenticated Label Studio client.
-        using var client = GetAuthenticatedClient();
+        var client = Client;
 
         //// First list projects to get a valid ID.
         var projects = await client.Projects2.ListAsync(
