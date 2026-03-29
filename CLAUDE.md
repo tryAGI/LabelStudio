@@ -12,6 +12,12 @@ dotnet build LabelStudio.slnx
 dotnet test src/tests/IntegrationTests/
 ```
 
+### Test Modes (Testcontainers)
+
+Tests use Testcontainers with automatic environment detection:
+- **Debug builds** (`dotnet test`): Connect to local instance at `localhost:8080` (requires `LABEL_STUDIO_API_KEY`)
+- **Release/CI builds** (`dotnet test -c Release`): Automatically spin up `heartexlabs/label-studio` Docker container with preset API token (3-minute startup timeout)
+
 ## Auth
 
 Token-based auth (`Authorization: Token <api_key>`):
@@ -29,7 +35,8 @@ The SDK converts Bearer auth to Label Studio's `Token` scheme via a `PrepareRequ
 - `src/libs/LabelStudio/Generated/` — **Never edit** — auto-generated code (~2695 files)
 - `src/libs/LabelStudio/Extensions/LabelStudioClient.Auth.cs` — PrepareRequest hook: `Bearer → Token`
 - `src/libs/LabelStudio/Extensions/LabelStudioClient.Tools.cs` — MEAI AIFunction tools
-- `src/tests/IntegrationTests/Tests.cs` — Test helper with token auth
+- `src/tests/IntegrationTests/Environment.cs` — Testcontainers setup (Docker in CI, localhost in debug)
+- `src/tests/IntegrationTests/Tests.cs` — Assembly-level init/cleanup
 - `src/tests/IntegrationTests/Examples/` — Example tests (also generate docs)
 
 ## Spec Notes
