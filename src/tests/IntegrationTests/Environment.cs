@@ -1,4 +1,6 @@
 using System.Net;
+using System.Text;
+using System.Text.Json;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
 
@@ -71,7 +73,9 @@ public sealed class Environment : IAsyncDisposable
                     container.Hostname,
                     container.GetMappedPublicPort(LabelStudioPort)).Uri;
 
-                // Login to get session cookie, then retrieve the API token
+                // Login to get session cookie, then retrieve an API token.
+                // Prefer a personal access token because legacy tokens may be
+                // disabled at the organization level.
                 var apiToken = await GetApiTokenAsync(baseUri, email, password);
 
                 var client = new LabelStudioClient(apiToken, baseUri: baseUri);
@@ -107,15 +111,104 @@ public sealed class Environment : IAsyncDisposable
         httpClient.DefaultRequestHeaders.Add("Referer", baseUri.ToString());
         await httpClient.PostAsync("/user/login", loginContent);
 
-        // GET /api/current-user/token to retrieve the API token
+        var personalAccessToken = await TryCreatePersonalAccessTokenAsync(httpClient, cookieContainer, baseUri);
+        if (!string.IsNullOrWhiteSpace(personalAccessToken))
+        {
+            return personalAccessToken;
+        }
+
+        // Fallback for older Label Studio versions that only expose the legacy token endpoint.
         var tokenResponse = await httpClient.GetAsync("/api/current-user/token");
         tokenResponse.EnsureSuccessStatusCode();
         var tokenJson = await tokenResponse.Content.ReadAsStringAsync();
-
-        // Response is {"token":"<value>"}
-        var tokenDoc = System.Text.Json.JsonDocument.Parse(tokenJson);
-        return tokenDoc.RootElement.GetProperty("token").GetString()
+        return ExtractToken(tokenJson)
                ?? throw new InvalidOperationException("Failed to get API token from Label Studio container.");
+    }
+
+    private static async Task<string?> TryCreatePersonalAccessTokenAsync(
+        HttpClient httpClient,
+        CookieContainer cookieContainer,
+        Uri baseUri)
+    {
+        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/token/")
+        {
+            Content = new StringContent("{}", Encoding.UTF8, "application/json"),
+        };
+        request.Headers.TryAddWithoutValidation("Referer", baseUri.ToString());
+
+        var csrfToken = cookieContainer.GetCookies(baseUri)["csrftoken"]?.Value;
+        if (!string.IsNullOrWhiteSpace(csrfToken))
+        {
+            request.Headers.TryAddWithoutValidation("X-CSRFToken", csrfToken);
+        }
+
+        using var response = await httpClient.SendAsync(request);
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
+        var content = await response.Content.ReadAsStringAsync();
+        var refreshToken = ExtractToken(content);
+        if (string.IsNullOrWhiteSpace(refreshToken))
+        {
+            return null;
+        }
+
+        return await TryExchangeRefreshTokenAsync(httpClient, refreshToken) ?? refreshToken;
+    }
+
+    private static async Task<string?> TryExchangeRefreshTokenAsync(HttpClient httpClient, string refreshToken)
+    {
+        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/token/refresh/")
+        {
+            Content = new StringContent(
+                JsonSerializer.Serialize(new Dictionary<string, string>
+                {
+                    ["refresh"] = refreshToken,
+                }),
+                Encoding.UTF8,
+                "application/json"),
+        };
+
+        using var response = await httpClient.SendAsync(request);
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
+        var content = await response.Content.ReadAsStringAsync();
+        using var tokenDoc = JsonDocument.Parse(content);
+        return tokenDoc.RootElement.TryGetProperty("access", out var accessElement)
+            ? accessElement.GetString()
+            : null;
+    }
+
+    private static string? ExtractToken(string content)
+    {
+        using var tokenDoc = JsonDocument.Parse(content);
+        var root = tokenDoc.RootElement;
+
+        if (root.TryGetProperty("token", out var tokenElement))
+        {
+            return tokenElement.GetString();
+        }
+
+        if (root.TryGetProperty("detail", out var detailElement))
+        {
+            var detail = detailElement.GetString();
+            if (!string.IsNullOrWhiteSpace(detail))
+            {
+                var parts = detail.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var tokenIndex = Array.IndexOf(parts, "Token");
+                if (tokenIndex >= 0 && tokenIndex + 1 < parts.Length)
+                {
+                    return parts[tokenIndex + 1];
+                }
+            }
+        }
+
+        return null;
     }
 
     private static EnvironmentType InferEnvironment()
