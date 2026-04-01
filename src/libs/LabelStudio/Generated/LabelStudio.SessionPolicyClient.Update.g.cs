@@ -197,7 +197,6 @@ namespace LabelStudio
             int? maxTimeBetweenActivity = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.PatchedSessionTimeoutPolicyRequest
             {
                 MaxSessionAge = maxSessionAge,

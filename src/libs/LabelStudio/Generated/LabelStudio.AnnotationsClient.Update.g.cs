@@ -231,7 +231,6 @@ namespace LabelStudio
             bool? wasCancelled = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiAnnotationsPartialUpdateRequest
             {
                 CompletedBy = completedBy,

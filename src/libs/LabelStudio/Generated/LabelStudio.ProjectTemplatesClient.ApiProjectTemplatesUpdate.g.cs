@@ -245,7 +245,6 @@ namespace LabelStudio
             object? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ProjectTemplateRequest
             {
                 AssignmentSettings = assignmentSettings,

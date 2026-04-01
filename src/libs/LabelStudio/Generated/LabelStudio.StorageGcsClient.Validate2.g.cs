@@ -225,7 +225,6 @@ namespace LabelStudio
             bool? useBlobUrls = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiStoragesGcsValidateCreateRequest
             {
                 Bucket = bucket,

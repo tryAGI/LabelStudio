@@ -211,7 +211,6 @@ namespace LabelStudio
             int user,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ProjectMemberRequest
             {
                 User = user,

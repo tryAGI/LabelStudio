@@ -272,7 +272,6 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectMemberBulkAssignRolesRequest>? roles = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ProjectMemberBulkAssignRequest
             {
                 All = all,

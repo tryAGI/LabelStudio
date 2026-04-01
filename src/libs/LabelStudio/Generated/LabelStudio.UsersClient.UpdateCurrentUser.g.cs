@@ -237,7 +237,6 @@ namespace LabelStudio
             string? username = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.PatchedLseUserSerializerUpdateRequest
             {
                 ActiveOrganization = activeOrganization,

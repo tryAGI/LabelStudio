@@ -227,7 +227,6 @@ namespace LabelStudio
             string? description = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ProjectDuplicateRequest
             {
                 Description = description,

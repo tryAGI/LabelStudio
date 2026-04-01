@@ -226,7 +226,6 @@ namespace LabelStudio
             string? title = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiStoragesExportRedisCreateRequest
             {
                 CanDeleteObjects = canDeleteObjects,

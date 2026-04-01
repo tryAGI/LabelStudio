@@ -217,7 +217,6 @@ namespace LabelStudio
             int? workspace = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.WorkspaceMemberCreateRequest
             {
                 User = user,
