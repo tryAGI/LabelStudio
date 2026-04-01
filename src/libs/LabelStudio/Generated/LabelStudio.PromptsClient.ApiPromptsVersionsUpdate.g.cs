@@ -248,6 +248,7 @@ namespace LabelStudio
             global::LabelStudio.ProviderEnum? provider = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.ThirdPartyModelVersionRequest
             {
                 ModelProviderConnection = modelProviderConnection,

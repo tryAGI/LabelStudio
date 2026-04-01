@@ -225,6 +225,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int> users,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request
             {
                 Type = type,

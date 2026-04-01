@@ -218,6 +218,7 @@ namespace LabelStudio
             string? jobId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.BatchPredictionsRequestRequest
             {
                 JobId = jobId,

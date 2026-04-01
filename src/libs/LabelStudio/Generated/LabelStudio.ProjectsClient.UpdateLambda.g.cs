@@ -239,6 +239,7 @@ namespace LabelStudio
             string? role = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.AWSCustomFunctionUpdateRequest
             {
                 Code = code,

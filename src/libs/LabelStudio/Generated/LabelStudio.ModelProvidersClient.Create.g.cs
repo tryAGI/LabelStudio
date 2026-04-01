@@ -260,6 +260,7 @@ namespace LabelStudio
             global::LabelStudio.ScopeEnum? scope = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.ModelProviderConnectionRequest
             {
                 ApiKey = apiKey,

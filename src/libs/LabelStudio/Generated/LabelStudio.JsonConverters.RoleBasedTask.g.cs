@@ -265,19 +265,19 @@ namespace LabelStudio.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTask), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTask?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTask).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Lse, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Lse!, typeInfo);
             }
             else if (value.IsLseSerializerForReviewers)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTaskSerializerForReviewers), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTaskSerializerForReviewers?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTaskSerializerForReviewers).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LseSerializerForReviewers, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LseSerializerForReviewers!, typeInfo);
             }
             else if (value.IsLseSerializerForAnnotators)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTaskSerializerForAnnotators), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTaskSerializerForAnnotators?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTaskSerializerForAnnotators).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LseSerializerForAnnotators, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.LseSerializerForAnnotators!, typeInfo);
             }
         }
     }
