@@ -213,7 +213,6 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ScimSettingsUpdateRequest
             {
                 ProjectsGroups = projectsGroups,

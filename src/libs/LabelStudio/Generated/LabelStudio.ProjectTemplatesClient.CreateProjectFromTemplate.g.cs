@@ -221,7 +221,6 @@ namespace LabelStudio
             string? description = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest
             {
                 Description = description,

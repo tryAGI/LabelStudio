@@ -215,7 +215,6 @@ namespace LabelStudio
             global::LabelStudio.OneOf<global::LabelStudio.ApiDmActionsCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiDmActionsCreateRequestSelectedItemsAllTrue>? selectedItems = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiDmActionsCreateRequest
             {
                 Filters = filters,

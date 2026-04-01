@@ -245,7 +245,6 @@ namespace LabelStudio
             int? totalTasks = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ModelRunRequest
             {
                 JobId = jobId,

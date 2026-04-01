@@ -219,7 +219,6 @@ namespace LabelStudio
             string? metricName = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.MetricParamUpdateRequest
             {
                 AdditionalParams = additionalParams,

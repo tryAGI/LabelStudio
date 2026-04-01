@@ -208,7 +208,6 @@ namespace LabelStudio
             int? task = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiPredictionsCreateRequest
             {
                 ModelVersion = modelVersion,

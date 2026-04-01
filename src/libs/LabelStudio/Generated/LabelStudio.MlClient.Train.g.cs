@@ -232,7 +232,6 @@ namespace LabelStudio
             bool? useGroundTruth = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.ApiMlTrainCreateRequest
             {
                 UseGroundTruth = useGroundTruth,

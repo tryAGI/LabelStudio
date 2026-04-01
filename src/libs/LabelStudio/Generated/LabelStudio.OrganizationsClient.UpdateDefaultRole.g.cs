@@ -258,7 +258,6 @@ namespace LabelStudio
             global::System.DateTime? readOnlyQuickViewEnabledAt = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.PatchedDefaultRoleRequest
             {
                 AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt,

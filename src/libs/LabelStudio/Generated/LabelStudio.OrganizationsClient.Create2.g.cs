@@ -281,7 +281,6 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? roles = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.OrganizationPermissionRequest
             {
                 Permission = permission,

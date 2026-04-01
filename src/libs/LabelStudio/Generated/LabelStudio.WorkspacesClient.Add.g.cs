@@ -198,7 +198,6 @@ namespace LabelStudio
             int project,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.WorkspaceProjectsRequest
             {
                 Project = project,

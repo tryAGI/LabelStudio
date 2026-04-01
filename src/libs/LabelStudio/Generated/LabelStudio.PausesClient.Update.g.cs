@@ -238,7 +238,6 @@ namespace LabelStudio
             string? verboseReason = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.PatchedPauseRequest
             {
                 Reason = reason,

@@ -229,7 +229,6 @@ namespace LabelStudio
             string refresh,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::LabelStudio.LSAPITokenRotateRequest
             {
                 Refresh = refresh,
