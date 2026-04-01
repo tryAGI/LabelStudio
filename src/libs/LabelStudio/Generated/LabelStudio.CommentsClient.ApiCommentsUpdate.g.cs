@@ -240,6 +240,7 @@ namespace LabelStudio
             string? text = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::LabelStudio.CommentRequest
             {
                 Annotation = annotation,
