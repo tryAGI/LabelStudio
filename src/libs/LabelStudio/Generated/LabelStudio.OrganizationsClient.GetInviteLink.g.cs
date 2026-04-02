@@ -135,7 +135,7 @@ namespace LabelStudio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::LabelStudio.OrganizationInvite.FromJson(__content, JsonSerializerContext) ??
+                        global::LabelStudio.OrganizationInvite.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -166,7 +166,7 @@ namespace LabelStudio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::LabelStudio.OrganizationInvite.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::LabelStudio.OrganizationInvite.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
