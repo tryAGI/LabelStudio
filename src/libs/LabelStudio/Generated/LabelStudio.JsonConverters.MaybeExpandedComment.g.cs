@@ -61,8 +61,8 @@ namespace LabelStudio.JsonConverters
             if (__score0 > __bestScore) { __bestScore = __score0; __bestIndex = 0; }
             if (__score1 > __bestScore) { __bestScore = __score1; __bestIndex = 1; }
 
-            global::LabelStudio.Comment? value1 = default;
-            global::LabelStudio.CommentSerializerWithExpandedUser? value2 = default;
+            global::LabelStudio.Comment? comment = default;
+            global::LabelStudio.CommentSerializerWithExpandedUser? serializerWithUser = default;
             if (__bestIndex >= 0)
             {
                 if (__bestIndex == 0)
@@ -71,7 +71,7 @@ namespace LabelStudio.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.Comment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.Comment> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.Comment).Name}");
-                        value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        comment = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -86,7 +86,7 @@ namespace LabelStudio.JsonConverters
                     {
                         var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.CommentSerializerWithExpandedUser), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.CommentSerializerWithExpandedUser> ??
                                        throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.CommentSerializerWithExpandedUser).Name}");
-                        value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                        serializerWithUser = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                     }
                     catch (global::System.Text.Json.JsonException)
                     {
@@ -97,13 +97,13 @@ namespace LabelStudio.JsonConverters
                 }
             }
 
-            if (value1 == null && value2 == null)
+            if (comment == null && serializerWithUser == null)
             {
                 try
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.Comment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.Comment> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.Comment).Name}");
-                    value1 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    comment = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -116,7 +116,7 @@ namespace LabelStudio.JsonConverters
                 {
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.CommentSerializerWithExpandedUser), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.CommentSerializerWithExpandedUser> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.CommentSerializerWithExpandedUser).Name}");
-                    value2 = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
+                    serializerWithUser = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
                 }
                 catch (global::System.Text.Json.JsonException)
                 {
@@ -127,9 +127,9 @@ namespace LabelStudio.JsonConverters
             }
 
             var __value = new global::LabelStudio.MaybeExpandedComment(
-                value1,
+                comment,
 
-                value2
+                serializerWithUser
                 );
 
             return __value;
@@ -144,17 +144,17 @@ namespace LabelStudio.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsValue1)
+            if (value.IsComment)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.Comment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.Comment?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.Comment).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value1!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Comment!, typeInfo);
             }
-            else if (value.IsValue2)
+            else if (value.IsSerializerWithUser)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.CommentSerializerWithExpandedUser), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.CommentSerializerWithExpandedUser?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.CommentSerializerWithExpandedUser).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SerializerWithUser!, typeInfo);
             }
         }
     }
