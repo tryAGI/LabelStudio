@@ -72,7 +72,7 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -122,7 +122,7 @@ namespace LabelStudio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::LabelStudio.WebhookSerializerForUpdate.FromJson(__content, JsonSerializerOptions) ??
+                        global::LabelStudio.WebhookSerializerForUpdate.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -152,7 +152,7 @@ namespace LabelStudio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::LabelStudio.WebhookSerializerForUpdate.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::LabelStudio.WebhookSerializerForUpdate.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

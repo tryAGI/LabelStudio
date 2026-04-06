@@ -185,7 +185,7 @@ namespace LabelStudio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::LabelStudio.PaginatedStateModelList.FromJson(__content, JsonSerializerOptions) ??
+                        global::LabelStudio.PaginatedStateModelList.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -215,7 +215,7 @@ namespace LabelStudio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::LabelStudio.PaginatedStateModelList.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::LabelStudio.PaginatedStateModelList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

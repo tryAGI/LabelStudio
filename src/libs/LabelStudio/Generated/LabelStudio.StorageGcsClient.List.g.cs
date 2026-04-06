@@ -118,7 +118,7 @@ namespace LabelStudio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::System.Text.Json.JsonSerializer.Deserialize<global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>?>(__content, JsonSerializerOptions) ??
+                        (global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>), JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -148,7 +148,7 @@ namespace LabelStudio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::System.Text.Json.JsonSerializer.DeserializeAsync<global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>?>(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        (global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>), JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
