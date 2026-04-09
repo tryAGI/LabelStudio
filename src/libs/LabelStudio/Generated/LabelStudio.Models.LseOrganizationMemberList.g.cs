@@ -53,6 +53,13 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("role_source")]
+        public string RoleSource { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         public global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> Tags { get; set; } = default!;
 
@@ -99,6 +106,9 @@ namespace LabelStudio
         /// <param name="role">
         /// Included only in responses
         /// </param>
+        /// <param name="roleSource">
+        /// Included only in responses
+        /// </param>
         /// <param name="tags">
         /// Included only in responses
         /// </param>
@@ -113,6 +123,7 @@ namespace LabelStudio
             string concurrency = default!,
             int id = default!,
             string role = default!,
+            string roleSource = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
         {
             this.Concurrency = concurrency;
@@ -121,6 +132,7 @@ namespace LabelStudio
             this.Id = id;
             this.Organization = organization;
             this.Role = role;
+            this.RoleSource = roleSource;
             this.Tags = tags;
             this.User = user ?? throw new global::System.ArgumentNullException(nameof(user));
         }

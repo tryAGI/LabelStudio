@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class UsersClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_GetHotkeysSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetHotkeysSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_GetHotkeysSecurityRequirement0,
+            };
         partial void PrepareGetHotkeysArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGetHotkeysRequest(
@@ -33,9 +52,15 @@ namespace LabelStudio
             PrepareGetHotkeysArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetHotkeysSecurityRequirements,
+                operationName: "GetHotkeysAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/current-user/hotkeys/",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -45,7 +70,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

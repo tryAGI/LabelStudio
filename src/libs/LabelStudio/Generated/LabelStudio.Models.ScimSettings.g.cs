@@ -9,22 +9,22 @@ namespace LabelStudio
     public sealed partial class ScimSettings
     {
         /// <summary>
-        /// Projects to groups mapping
+        /// Projects to Groups Mapping. List of objects with project_id, group, role.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("projects_groups")]
-        public object? ProjectsGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? ProjectsGroups { get; set; }
 
         /// <summary>
-        /// Roles to groups mapping
+        /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("roles_groups")]
-        public object? RolesGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? RolesGroups { get; set; }
 
         /// <summary>
-        /// Workspaces to groups mapping
+        /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspaces_groups")]
-        public object? WorkspacesGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? WorkspacesGroups { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -36,21 +36,21 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="ScimSettings" /> class.
         /// </summary>
         /// <param name="projectsGroups">
-        /// Projects to groups mapping
+        /// Projects to Groups Mapping. List of objects with project_id, group, role.
         /// </param>
         /// <param name="rolesGroups">
-        /// Roles to groups mapping
+        /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
         /// <param name="workspacesGroups">
-        /// Workspaces to groups mapping
+        /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ScimSettings(
-            object? projectsGroups,
-            object? rolesGroups,
-            object? workspacesGroups)
+            global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? projectsGroups,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups)
         {
             this.ProjectsGroups = projectsGroups;
             this.RolesGroups = rolesGroups;

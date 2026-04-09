@@ -5,13 +5,34 @@ namespace LabelStudio
 {
     public partial class ProjectsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_RemoveSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_RemoveSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_RemoveSecurityRequirement0,
+            };
         partial void PrepareRemoveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
+            ref int id,
+            ref int? user);
         partial void PrepareRemoveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
+            int id,
+            int? user);
         partial void ProcessRemoveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,24 +45,36 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Remove a member from a specific project.
+        /// Remove a member from a specific project. Pass the member ID via the `user` query parameter. For backward compatibility, a JSON body with `user` is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="user"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task RemoveAsync(
             int id,
+            int? user = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareRemoveArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                user: ref user);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_RemoveSecurityRequirements,
+                operationName: "RemoveAsync");
 
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/members/",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("user", user?.ToString()) 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -51,7 +84,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -73,7 +106,8 @@ namespace LabelStudio
             PrepareRemoveRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                id: id);
+                id: id,
+                user: user);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

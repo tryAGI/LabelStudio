@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class StatsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_LabelDistributionCountsSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_LabelDistributionCountsSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_LabelDistributionCountsSecurityRequirement0,
+            };
         partial void PrepareLabelDistributionCountsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? choiceKeys,
@@ -61,6 +80,12 @@ namespace LabelStudio
                 limit: ref limit,
                 offset: ref offset);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_LabelDistributionCountsSecurityRequirements,
+                operationName: "LabelDistributionCountsAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/stats/label-distribution/counts",
                 baseUri: HttpClient.BaseAddress); 
@@ -68,7 +93,7 @@ namespace LabelStudio
                 .AddOptionalParameter("choice_keys", choiceKeys)
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("offset", offset?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -78,7 +103,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -9,10 +9,10 @@ namespace LabelStudio
     public sealed partial class LseProjectParamsRequest
     {
         /// <summary>
-        /// user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}
+        /// User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotator_params")]
-        public object? AnnotatorParams { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, double>? AnnotatorParams { get; set; }
 
         /// <summary>
         /// If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
@@ -30,7 +30,7 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="LseProjectParamsRequest" /> class.
         /// </summary>
         /// <param name="annotatorParams">
-        /// user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}
+        /// User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].
         /// </param>
         /// <param name="useKappa">
         /// If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
@@ -39,7 +39,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseProjectParamsRequest(
-            object? annotatorParams,
+            global::System.Collections.Generic.Dictionary<string, double>? annotatorParams,
             bool? useKappa)
         {
             this.AnnotatorParams = annotatorParams;

@@ -12,13 +12,15 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Remove a project from a specific workspace.
+        /// Remove a project from a specific workspace. Pass the project ID via the `project` query parameter. For backward compatibility, a JSON body with `project` is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="project"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task RemoveAsync(
             int id,
+            int? project = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

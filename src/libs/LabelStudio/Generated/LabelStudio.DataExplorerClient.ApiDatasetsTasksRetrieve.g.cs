@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class DataExplorerClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiDatasetsTasksRetrieveSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiDatasetsTasksRetrieveSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ApiDatasetsTasksRetrieveSecurityRequirement0,
+            };
         partial void PrepareApiDatasetsTasksRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? dataset,
@@ -64,6 +83,12 @@ namespace LabelStudio
                 pageSize: ref pageSize,
                 view: ref view);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ApiDatasetsTasksRetrieveSecurityRequirements,
+                operationName: "ApiDatasetsTasksRetrieveAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/datasets/tasks",
                 baseUri: HttpClient.BaseAddress); 
@@ -74,7 +99,7 @@ namespace LabelStudio
                 .AddOptionalParameter("page", page?.ToString())
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("view", view?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -84,7 +109,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

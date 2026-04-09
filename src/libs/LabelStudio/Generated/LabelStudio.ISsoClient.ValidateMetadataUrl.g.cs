@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Validate a SAML metadata URL by fetching it and checking whether it returns valid XML, without saving any settings.
+        /// Validate a SAML metadata URL by fetching it and checking for valid XML, without saving.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -29,7 +29,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Validate a SAML metadata URL by fetching it and checking whether it returns valid XML, without saving any settings.
+        /// Validate a SAML metadata URL by fetching it and checking for valid XML, without saving.
         /// </summary>
         /// <param name="metadataUrl"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -13,7 +13,7 @@ namespace LabelStudio
         /// <summary>
         /// Label Studio
         /// </summary>
-        public const string DefaultBaseUrl = "http://localhost:8000";
+        public const string DefaultBaseUrl = "http://localhost:8000/";
 
         private bool _disposeHttpClient = true;
 
@@ -482,6 +482,15 @@ namespace LabelStudio
         /// 
         /// </summary>
         public StorageGcsClient StorageGcs => new StorageGcsClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public StorageGcsSaClient StorageGcsSa => new StorageGcsSaClient(HttpClient, authorizations: Authorizations)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,

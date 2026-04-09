@@ -50,6 +50,13 @@ namespace LabelStudio
         public object? EmbedSettings { get; set; }
 
         /// <summary>
+        /// ReactCode settings<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("react_code_settings")]
+        public object? ReactCodeSettings { get; set; }
+
+        /// <summary>
         /// Organization name<br/>
         /// Included only in requests
         /// </summary>
@@ -89,6 +96,10 @@ namespace LabelStudio
         /// Public Verification Key and Public Verification Algorithms configuration<br/>
         /// Included only in requests
         /// </param>
+        /// <param name="reactCodeSettings">
+        /// ReactCode settings<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="title">
         /// Organization name<br/>
         /// Included only in requests
@@ -104,6 +115,7 @@ namespace LabelStudio
             object? emailNotificationSettings,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? embedDomains,
             object? embedSettings,
+            object? reactCodeSettings,
             string? title,
             string? token)
         {
@@ -113,6 +125,7 @@ namespace LabelStudio
             this.EmailNotificationSettings = emailNotificationSettings;
             this.EmbedDomains = embedDomains;
             this.EmbedSettings = embedSettings;
+            this.ReactCodeSettings = reactCodeSettings;
             this.Title = title;
             this.Token = token;
         }

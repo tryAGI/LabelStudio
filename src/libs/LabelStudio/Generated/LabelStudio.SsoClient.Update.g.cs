@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class SsoClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UpdateSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UpdateSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_UpdateSecurityRequirement0,
+            };
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::LabelStudio.SamlSettingsUpdateRequest request);
@@ -47,9 +66,15 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_UpdateSecurityRequirements,
+                operationName: "UpdateAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/saml/settings",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -59,7 +84,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -201,6 +226,9 @@ namespace LabelStudio
         /// <param name="idpProvider">
         /// Identity Provider preset key (e.g. okta, azure, google, custom)
         /// </param>
+        /// <param name="manualRoleManagement">
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        /// </param>
         /// <param name="mappingEmail">
         /// Mapping attributes: user email from SAML request
         /// </param>
@@ -233,6 +261,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.SamlSettingsUpdate> UpdateAsync(
             string? domain = default,
             string? idpProvider = default,
+            bool? manualRoleManagement = default,
             string? mappingEmail = default,
             string? mappingFirstName = default,
             string? mappingGroups = default,
@@ -248,6 +277,7 @@ namespace LabelStudio
             {
                 Domain = domain,
                 IdpProvider = idpProvider,
+                ManualRoleManagement = manualRoleManagement,
                 MappingEmail = mappingEmail,
                 MappingFirstName = mappingFirstName,
                 MappingGroups = mappingGroups,

@@ -12,13 +12,23 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unassign workspace members in bulk. Allows the same request body as bulk assign.
+        /// Unassign workspace members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional paginated-list filters (`search`, `ids`). For backward compatibility, a JSON body with bulk fields is still accepted.
         /// </summary>
+        /// <param name="all"></param>
+        /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="included"></param>
+        /// <param name="search"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiWorkspacesMembershipsBulkDestroyResponse> Delete3Async(
             int id,
+            bool? all = default,
+            string? excluded = default,
+            string? ids = default,
+            string? included = default,
+            string? search = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

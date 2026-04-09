@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class StorageLocalClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ValidateSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ValidateSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ValidateSecurityRequirement0,
+            };
         partial void PrepareValidateArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::LabelStudio.ApiStoragesExportLocalfilesValidateCreateRequest request);
@@ -36,9 +55,15 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ValidateSecurityRequirements,
+                operationName: "ValidateAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/storages/export/localfiles/validate",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -48,7 +73,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -14,7 +14,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("choice_keys")]
-        public string ChoiceKeys { get; set; } = default!;
+        public global::System.Collections.Generic.IList<string> ChoiceKeys { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -42,7 +42,7 @@ namespace LabelStudio
 #endif
         public LabelDistributionStructureResponse(
             global::System.Collections.Generic.IList<global::LabelStudio.LabelDistributionStructureDimension> dimensions,
-            string choiceKeys = default!)
+            global::System.Collections.Generic.IList<string> choiceKeys = default!)
         {
             this.ChoiceKeys = choiceKeys;
             this.Dimensions = dimensions ?? throw new global::System.ArgumentNullException(nameof(dimensions));

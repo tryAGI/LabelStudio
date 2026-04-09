@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class AwsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_LogsSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_LogsSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_LogsSecurityRequirement0,
+            };
         partial void PrepareLogsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? endDate,
@@ -61,6 +80,12 @@ namespace LabelStudio
                 limit: ref limit,
                 startDate: ref startDate);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_LogsSecurityRequirements,
+                operationName: "LogsAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/aws-custom-function-logs",
                 baseUri: HttpClient.BaseAddress); 
@@ -68,7 +93,7 @@ namespace LabelStudio
                 .AddOptionalParameter("end_date", endDate)
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("start_date", startDate) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -78,7 +103,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

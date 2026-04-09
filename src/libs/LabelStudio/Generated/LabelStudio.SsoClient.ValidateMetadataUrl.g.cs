@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class SsoClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ValidateMetadataUrlSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ValidateMetadataUrlSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ValidateMetadataUrlSecurityRequirement0,
+            };
         partial void PrepareValidateMetadataUrlArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::LabelStudio.ValidateSamlMetadataUrlRequestRequest request);
@@ -29,7 +48,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Validate a SAML metadata URL by fetching it and checking whether it returns valid XML, without saving any settings.
+        /// Validate a SAML metadata URL by fetching it and checking for valid XML, without saving.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -47,9 +66,15 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 request: request);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ValidateMetadataUrlSecurityRequirements,
+                operationName: "ValidateMetadataUrlAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/saml/settings/validate-metadata-url",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -59,7 +84,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -193,7 +218,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Validate a SAML metadata URL by fetching it and checking whether it returns valid XML, without saving any settings.
+        /// Validate a SAML metadata URL by fetching it and checking for valid XML, without saving.
         /// </summary>
         /// <param name="metadataUrl"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

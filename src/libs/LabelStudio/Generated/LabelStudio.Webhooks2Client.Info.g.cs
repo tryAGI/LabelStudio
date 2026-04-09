@@ -5,6 +5,34 @@ namespace LabelStudio
 {
     public partial class Webhooks2Client
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_InfoSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_InfoSecurityRequirement1 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                { 
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_InfoSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_InfoSecurityRequirement0,
+                s_InfoSecurityRequirement1,
+            };
         partial void PrepareInfoArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? organizationOnly);
@@ -38,12 +66,18 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 organizationOnly: ref organizationOnly);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_InfoSecurityRequirements,
+                operationName: "InfoAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/webhooks/info/",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("organization-only", organizationOnly?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -53,7 +87,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

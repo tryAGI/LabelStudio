@@ -5,13 +5,42 @@ namespace LabelStudio
 {
     public partial class WorkspacesClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Delete3SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Delete3SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_Delete3SecurityRequirement0,
+            };
         partial void PrepareDelete3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
+            ref bool? all,
+            ref string? excluded,
+            ref int id,
+            ref string? ids,
+            ref string? included,
+            ref string? search);
         partial void PrepareDelete3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
+            bool? all,
+            string? excluded,
+            int id,
+            string? ids,
+            string? included,
+            string? search);
         partial void ProcessDelete3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -29,24 +58,52 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unassign workspace members in bulk. Allows the same request body as bulk assign.
+        /// Unassign workspace members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional paginated-list filters (`search`, `ids`). For backward compatibility, a JSON body with bulk fields is still accepted.
         /// </summary>
+        /// <param name="all"></param>
+        /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="included"></param>
+        /// <param name="search"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiWorkspacesMembershipsBulkDestroyResponse> Delete3Async(
             int id,
+            bool? all = default,
+            string? excluded = default,
+            string? ids = default,
+            string? included = default,
+            string? search = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete3Arguments(
                 httpClient: HttpClient,
-                id: ref id);
+                all: ref all,
+                excluded: ref excluded,
+                id: ref id,
+                ids: ref ids,
+                included: ref included,
+                search: ref search);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_Delete3SecurityRequirements,
+                operationName: "Delete3Async");
 
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/workspaces/{id}/memberships/bulk/",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("all", all?.ToString().ToLowerInvariant())
+                .AddOptionalParameter("excluded", excluded)
+                .AddOptionalParameter("ids", ids)
+                .AddOptionalParameter("included", included)
+                .AddOptionalParameter("search", search) 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -56,7 +113,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -78,7 +135,12 @@ namespace LabelStudio
             PrepareDelete3Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                id: id);
+                all: all,
+                excluded: excluded,
+                id: id,
+                ids: ids,
+                included: included,
+                search: search);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

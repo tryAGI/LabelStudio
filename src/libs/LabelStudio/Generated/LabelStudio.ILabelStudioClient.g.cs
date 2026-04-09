@@ -293,6 +293,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public StorageGcsSaClient StorageGcsSa { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public StorageGcsWifClient StorageGcsWif { get; }
 
         /// <summary>

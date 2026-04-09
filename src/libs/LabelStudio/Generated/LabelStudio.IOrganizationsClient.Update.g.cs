@@ -52,6 +52,10 @@ namespace LabelStudio
         /// Public Verification Key and Public Verification Algorithms configuration<br/>
         /// Included only in requests
         /// </param>
+        /// <param name="reactCodeSettings">
+        /// ReactCode settings<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="title">
         /// Organization name<br/>
         /// Included only in requests
@@ -65,6 +69,7 @@ namespace LabelStudio
             object? emailNotificationSettings,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? embedDomains,
             object? embedSettings,
+            object? reactCodeSettings,
             string? title,
             string? contactInfo = default,
             int? createdBy = default,

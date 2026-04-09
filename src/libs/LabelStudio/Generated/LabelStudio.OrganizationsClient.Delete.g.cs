@@ -5,13 +5,34 @@ namespace LabelStudio
 {
     public partial class OrganizationsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DeleteSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DeleteSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_DeleteSecurityRequirement0,
+            };
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
+            ref int id,
+            ref string? ids);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
+            int id,
+            string? ids);
         partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -29,24 +50,36 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple member tags from the organization in bulk. Allows the same request body as bulk create.
+        /// Delete multiple member tags from the organization in bulk. Pass tag IDs via the `ids` query parameter (comma-separated or repeated). For backward compatibility, a JSON body with `ids` is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiOrganizationsMemberTagsBulkDestroyResponse> DeleteAsync(
             int id,
+            string? ids = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDeleteArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                ids: ref ids);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteSecurityRequirements,
+                operationName: "DeleteAsync");
 
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/organizations/{id}/member-tags/bulk",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("ids", ids) 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -56,7 +89,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -78,7 +111,8 @@ namespace LabelStudio
             PrepareDeleteRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                id: id);
+                id: id,
+                ids: ids);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

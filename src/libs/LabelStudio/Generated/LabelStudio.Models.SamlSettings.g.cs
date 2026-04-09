@@ -13,9 +13,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("acs_url")]
-        public string AcsUrl { get; set; } = default!;
+        public string? AcsUrl { get; set; }
 
         /// <summary>
         /// Organization web domain or domains; use comma separated list with no spaces for multiple. Example:labelstud.io,humansignal.comIMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD
@@ -32,16 +31,20 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("login_url")]
-        public string LoginUrl { get; set; } = default!;
+        public string? LoginUrl { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("logout_url")]
-        public string LogoutUrl { get; set; } = default!;
+        public string? LogoutUrl { get; set; }
+
+        /// <summary>
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("manual_role_management")]
+        public bool? ManualRoleManagement { get; set; }
 
         /// <summary>
         /// Mapping attributes: user email from SAML request
@@ -82,9 +85,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata_xml_url")]
-        public string MetadataXmlUrl { get; set; } = default!;
+        public string? MetadataXmlUrl { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -94,16 +96,16 @@ namespace LabelStudio
         public string NameidFormat { get; set; } = default!;
 
         /// <summary>
-        /// Projects to groups mapping
+        /// Projects to Groups Mapping. List of objects with project_id, group, role.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("projects_groups")]
-        public object? ProjectsGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? ProjectsGroups { get; set; }
 
         /// <summary>
-        /// Roles to groups mapping
+        /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("roles_groups")]
-        public object? RolesGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? RolesGroups { get; set; }
 
         /// <summary>
         /// 
@@ -112,10 +114,10 @@ namespace LabelStudio
         public string? Token { get; set; }
 
         /// <summary>
-        /// Workspaces to groups mapping
+        /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspaces_groups")]
-        public object? WorkspacesGroups { get; set; }
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? WorkspacesGroups { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -126,11 +128,23 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="SamlSettings" /> class.
         /// </summary>
+        /// <param name="acsUrl">
+        /// Included only in responses
+        /// </param>
         /// <param name="domain">
         /// Organization web domain or domains; use comma separated list with no spaces for multiple. Example:labelstud.io,humansignal.comIMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD
         /// </param>
         /// <param name="idpProvider">
         /// Identity Provider preset key (e.g. okta, azure, google, custom)
+        /// </param>
+        /// <param name="loginUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="logoutUrl">
+        /// Included only in responses
+        /// </param>
+        /// <param name="manualRoleManagement">
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
         /// </param>
         /// <param name="mappingEmail">
         /// Mapping attributes: user email from SAML request
@@ -150,27 +164,18 @@ namespace LabelStudio
         /// <param name="metadataXml">
         /// Metadata XML file
         /// </param>
+        /// <param name="metadataXmlUrl">
+        /// Included only in responses
+        /// </param>
         /// <param name="projectsGroups">
-        /// Projects to groups mapping
+        /// Projects to Groups Mapping. List of objects with project_id, group, role.
         /// </param>
         /// <param name="rolesGroups">
-        /// Roles to groups mapping
+        /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
         /// <param name="token"></param>
         /// <param name="workspacesGroups">
-        /// Workspaces to groups mapping
-        /// </param>
-        /// <param name="acsUrl">
-        /// Included only in responses
-        /// </param>
-        /// <param name="loginUrl">
-        /// Included only in responses
-        /// </param>
-        /// <param name="logoutUrl">
-        /// Included only in responses
-        /// </param>
-        /// <param name="metadataXmlUrl">
-        /// Included only in responses
+        /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
         /// <param name="nameidFormat">
         /// Included only in responses
@@ -179,22 +184,23 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SamlSettings(
+            string? acsUrl,
             string? domain,
             string? idpProvider,
+            string? loginUrl,
+            string? logoutUrl,
+            bool? manualRoleManagement,
             string? mappingEmail,
             string? mappingFirstName,
             string? mappingGroups,
             string? mappingLastName,
             string? metadataUrl,
             string? metadataXml,
-            object? projectsGroups,
-            object? rolesGroups,
+            string? metadataXmlUrl,
+            global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? projectsGroups,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups,
             string? token,
-            object? workspacesGroups,
-            string acsUrl = default!,
-            string loginUrl = default!,
-            string logoutUrl = default!,
-            string metadataXmlUrl = default!,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups,
             string nameidFormat = default!)
         {
             this.AcsUrl = acsUrl;
@@ -202,6 +208,7 @@ namespace LabelStudio
             this.IdpProvider = idpProvider;
             this.LoginUrl = loginUrl;
             this.LogoutUrl = logoutUrl;
+            this.ManualRoleManagement = manualRoleManagement;
             this.MappingEmail = mappingEmail;
             this.MappingFirstName = mappingFirstName;
             this.MappingGroups = mappingGroups;

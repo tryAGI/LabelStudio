@@ -12,7 +12,7 @@ namespace LabelStudio
         /// <summary>
         /// Label Studio
         /// </summary>
-        public const string DefaultBaseUrl = "http://localhost:8000";
+        public const string DefaultBaseUrl = "http://localhost:8000/";
 
         private bool _disposeHttpClient = true;
 

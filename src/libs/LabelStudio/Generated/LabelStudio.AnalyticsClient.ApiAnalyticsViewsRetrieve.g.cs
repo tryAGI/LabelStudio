@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class AnalyticsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiAnalyticsViewsRetrieveSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiAnalyticsViewsRetrieveSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ApiAnalyticsViewsRetrieveSecurityRequirement0,
+            };
         partial void PrepareApiAnalyticsViewsRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid uuid);
@@ -48,9 +67,15 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 uuid: ref uuid);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ApiAnalyticsViewsRetrieveSecurityRequirements,
+                operationName: "ApiAnalyticsViewsRetrieveAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/analytics/views/{uuid}/",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -60,7 +85,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

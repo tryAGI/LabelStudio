@@ -21,6 +21,12 @@ namespace LabelStudio
         public string? IdpProvider { get; set; }
 
         /// <summary>
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("manual_role_management")]
+        public bool? ManualRoleManagement { get; set; }
+
+        /// <summary>
         /// Mapping attributes: user email from SAML request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mapping_email")]
@@ -89,6 +95,9 @@ namespace LabelStudio
         /// <param name="idpProvider">
         /// Identity Provider preset key (e.g. okta, azure, google, custom)
         /// </param>
+        /// <param name="manualRoleManagement">
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        /// </param>
         /// <param name="mappingEmail">
         /// Mapping attributes: user email from SAML request
         /// </param>
@@ -122,6 +131,7 @@ namespace LabelStudio
         public SamlSettingsUpdateRequest(
             string? domain,
             string? idpProvider,
+            bool? manualRoleManagement,
             string? mappingEmail,
             string? mappingFirstName,
             string? mappingGroups,
@@ -134,6 +144,7 @@ namespace LabelStudio
         {
             this.Domain = domain;
             this.IdpProvider = idpProvider;
+            this.ManualRoleManagement = manualRoleManagement;
             this.MappingEmail = mappingEmail;
             this.MappingFirstName = mappingFirstName;
             this.MappingGroups = mappingGroups;

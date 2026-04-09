@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class ProjectsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Create2SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Create2SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_Create2SecurityRequirement0,
+            };
         partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
@@ -52,9 +71,15 @@ namespace LabelStudio
                 id: ref id,
                 request: request);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_Create2SecurityRequirements,
+                operationName: "Create2Async");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/project-extra-params/",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -64,7 +89,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -203,7 +228,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="annotatorParams">
-        /// user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}
+        /// User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].
         /// </param>
         /// <param name="useKappa">
         /// If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
@@ -212,7 +237,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectParams> Create2Async(
             int id,
-            object? annotatorParams = default,
+            global::System.Collections.Generic.Dictionary<string, double>? annotatorParams = default,
             bool? useKappa = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

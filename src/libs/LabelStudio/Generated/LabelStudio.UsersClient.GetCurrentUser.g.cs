@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class UsersClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_GetCurrentUserSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetCurrentUserSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_GetCurrentUserSecurityRequirement0,
+            };
         partial void PrepareGetCurrentUserArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGetCurrentUserRequest(
@@ -39,9 +58,15 @@ namespace LabelStudio
             PrepareGetCurrentUserArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetCurrentUserSecurityRequirements,
+                operationName: "GetCurrentUserAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/current-user",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -51,7 +76,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
