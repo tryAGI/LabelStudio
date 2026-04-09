@@ -37,6 +37,9 @@ namespace LabelStudio
         /// <param name="idpProvider">
         /// Identity Provider preset key (e.g. okta, azure, google, custom)
         /// </param>
+        /// <param name="manualRoleManagement">
+        /// Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        /// </param>
         /// <param name="mappingEmail">
         /// Mapping attributes: user email from SAML request
         /// </param>
@@ -69,6 +72,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.SamlSettingsUpdate> UpdateAsync(
             string? domain = default,
             string? idpProvider = default,
+            bool? manualRoleManagement = default,
             string? mappingEmail = default,
             string? mappingFirstName = default,
             string? mappingGroups = default,

@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class OrganizationsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_List3SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_List3SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_List3SecurityRequirement0,
+            };
         partial void PrepareList3Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? contributedToProjects,
@@ -15,6 +34,7 @@ namespace LabelStudio
             ref int? page,
             ref int? pageSize,
             ref string? role,
+            ref global::LabelStudio.ApiOrganizationsMembershipsListScope? scope,
             ref string? search,
             ref string? tags);
         partial void PrepareList3Request(
@@ -28,6 +48,7 @@ namespace LabelStudio
             int? page,
             int? pageSize,
             string? role,
+            global::LabelStudio.ApiOrganizationsMembershipsListScope? scope,
             string? search,
             string? tags);
         partial void ProcessList3Response(
@@ -57,6 +78,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="role"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -70,6 +92,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? role = default,
+            global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -86,8 +109,15 @@ namespace LabelStudio
                 page: ref page,
                 pageSize: ref pageSize,
                 role: ref role,
+                scope: ref scope,
                 search: ref search,
                 tags: ref tags);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_List3SecurityRequirements,
+                operationName: "List3Async");
 
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/organizations/{id}/memberships",
@@ -100,9 +130,10 @@ namespace LabelStudio
                 .AddOptionalParameter("page", page?.ToString())
                 .AddOptionalParameter("page_size", pageSize?.ToString())
                 .AddOptionalParameter("role", role)
+                .AddOptionalParameter("scope", scope?.ToValueString())
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("tags", tags) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -112,7 +143,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -142,6 +173,7 @@ namespace LabelStudio
                 page: page,
                 pageSize: pageSize,
                 role: role,
+                scope: scope,
                 search: search,
                 tags: tags);
 

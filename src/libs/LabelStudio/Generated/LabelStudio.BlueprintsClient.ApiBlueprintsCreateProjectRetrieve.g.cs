@@ -5,6 +5,19 @@ namespace LabelStudio
 {
     public partial class BlueprintsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiBlueprintsCreateProjectRetrieveSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                { 
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiBlueprintsCreateProjectRetrieveSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ApiBlueprintsCreateProjectRetrieveSecurityRequirement0,
+            };
         partial void PrepareApiBlueprintsCreateProjectRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string shareId);
@@ -33,9 +46,15 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 shareId: ref shareId);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ApiBlueprintsCreateProjectRetrieveSecurityRequirements,
+                operationName: "ApiBlueprintsCreateProjectRetrieveAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/blueprints/{shareId}/create-project",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -44,22 +63,6 @@ namespace LabelStudio
             __httpRequest.Version = global::System.Net.HttpVersion.Version11;
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
-
-            foreach (var __authorization in Authorizations)
-            {
-                if (__authorization.Type == "Http" ||
-                    __authorization.Type == "OAuth2")
-                {
-                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
-                        scheme: __authorization.Name,
-                        parameter: __authorization.Value);
-                }
-                else if (__authorization.Type == "ApiKey" &&
-                         __authorization.Location == "Header")
-                {
-                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                }
-            }
 
             PrepareRequest(
                 client: HttpClient,

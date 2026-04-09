@@ -22,6 +22,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="role"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -35,6 +36,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? role = default,
+            global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
             global::System.Threading.CancellationToken cancellationToken = default);

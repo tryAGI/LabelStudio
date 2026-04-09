@@ -12,9 +12,12 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unassign project members in bulk. Allows the same request body as bulk assign.
+        /// Unassign project members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional member filters (`search`, `role`, `tags`, `last_activity__gte`, `last_activity__lte`). For backward compatibility, a JSON body with bulk fields is still accepted.
         /// </summary>
+        /// <param name="all"></param>
+        /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="role"></param>
@@ -24,6 +27,9 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsMembersBulkDestroyResponse> Delete2Async(
             int id,
+            bool? all = default,
+            string? excluded = default,
+            string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,

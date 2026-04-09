@@ -12,13 +12,15 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Remove a specific member by ID from a workspace. This endpoint expects an object like `{"user_id": 123}`.
+        /// Remove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task Delete2Async(
             int id,
+            int? userId = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

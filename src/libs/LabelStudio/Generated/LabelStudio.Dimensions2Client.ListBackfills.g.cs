@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class Dimensions2Client
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ListBackfillsSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ListBackfillsSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ListBackfillsSecurityRequirement0,
+            };
         partial void PrepareListBackfillsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? status);
@@ -44,12 +63,18 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 status: ref status);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListBackfillsSecurityRequirements,
+                operationName: "ListBackfillsAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/dimensions/backfill/jobs/",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("status", status) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -59,7 +84,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

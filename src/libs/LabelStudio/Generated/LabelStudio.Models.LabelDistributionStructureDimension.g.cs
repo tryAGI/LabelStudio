@@ -14,7 +14,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("choice_keys")]
-        public string ChoiceKeys { get; set; } = default!;
+        public global::System.Collections.Generic.IList<string> ChoiceKeys { get; set; } = default!;
 
         /// <summary>
         /// Sorted list of choices observed from config and/or created labels.
@@ -65,7 +65,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<string> choices,
             string name,
             string? type,
-            string choiceKeys = default!)
+            global::System.Collections.Generic.IList<string> choiceKeys = default!)
         {
             this.ChoiceKeys = choiceKeys;
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));

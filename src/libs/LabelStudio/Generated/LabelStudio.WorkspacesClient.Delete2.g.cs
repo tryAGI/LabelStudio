@@ -5,13 +5,34 @@ namespace LabelStudio
 {
     public partial class WorkspacesClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Delete2SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Delete2SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_Delete2SecurityRequirement0,
+            };
         partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
+            ref int id,
+            ref int? userId);
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
+            int id,
+            int? userId);
         partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -24,24 +45,36 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Remove a specific member by ID from a workspace. This endpoint expects an object like `{"user_id": 123}`.
+        /// Remove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="userId"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task Delete2Async(
             int id,
+            int? userId = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareDelete2Arguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                userId: ref userId);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_Delete2SecurityRequirements,
+                operationName: "Delete2Async");
 
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/workspaces/{id}/memberships/",
                 baseUri: HttpClient.BaseAddress); 
+            __pathBuilder
+                .AddOptionalParameter("user_id", userId?.ToString()) 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -51,7 +84,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -73,7 +106,8 @@ namespace LabelStudio
             PrepareDelete2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
-                id: id);
+                id: id,
+                userId: userId);
 
             using var __response = await HttpClient.SendAsync(
                 request: __httpRequest,

@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class Prompts2Client
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_List2SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_List2SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_List2SecurityRequirement0,
+            };
         partial void PrepareList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? ordering);
@@ -38,12 +57,18 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 ordering: ref ordering);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_List2SecurityRequirements,
+                operationName: "List2Async");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/prompts/",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("ordering", ordering) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -53,7 +78,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

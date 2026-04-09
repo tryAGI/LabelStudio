@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class MlClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_PredictAllTasksSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_PredictAllTasksSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_PredictAllTasksSecurityRequirement0,
+            };
         partial void PreparePredictAllTasksArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? batchSize,
@@ -46,12 +65,18 @@ namespace LabelStudio
                 batchSize: ref batchSize,
                 id: ref id);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_PredictAllTasksSecurityRequirements,
+                operationName: "PredictAllTasksAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/ml/{id}/predict",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("batch_size", batchSize?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -61,7 +86,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

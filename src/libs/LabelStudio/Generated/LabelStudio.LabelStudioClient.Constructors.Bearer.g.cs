@@ -6,6 +6,7 @@ namespace LabelStudio
     public sealed partial class LabelStudioClient
     {
         /// <inheritdoc cref="LabelStudioClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::LabelStudio.EndPointAuthorization}?, bool)"/>
+
         public LabelStudioClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

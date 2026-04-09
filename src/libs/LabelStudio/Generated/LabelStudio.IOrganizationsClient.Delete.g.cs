@@ -12,13 +12,15 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple member tags from the organization in bulk. Allows the same request body as bulk create.
+        /// Delete multiple member tags from the organization in bulk. Pass tag IDs via the `ids` query parameter (comma-separated or repeated). For backward compatibility, a JSON body with `ids` is still accepted.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiOrganizationsMemberTagsBulkDestroyResponse> DeleteAsync(
             int id,
+            string? ids = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

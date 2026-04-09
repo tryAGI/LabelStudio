@@ -79,6 +79,13 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("react_code_settings")]
+        public string ReactCodeSettings { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string Title { get; set; } = default!;
 
@@ -130,6 +137,9 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
+        /// <param name="reactCodeSettings">
+        /// Included only in responses
+        /// </param>
         /// <param name="title">
         /// Included only in responses
         /// </param>
@@ -149,6 +159,7 @@ namespace LabelStudio
             string customScriptsEnabled = default!,
             string emailNotificationSettings = default!,
             int id = default!,
+            string reactCodeSettings = default!,
             string title = default!,
             string token = default!)
         {
@@ -161,6 +172,7 @@ namespace LabelStudio
             this.EmbedSettings = embedSettings;
             this.ExternalId = externalId;
             this.Id = id;
+            this.ReactCodeSettings = reactCodeSettings;
             this.Title = title;
             this.Token = token;
         }

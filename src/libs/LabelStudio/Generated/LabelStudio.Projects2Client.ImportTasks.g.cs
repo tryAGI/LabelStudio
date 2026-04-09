@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class Projects2Client
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ImportTasksSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ImportTasksSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ImportTasksSecurityRequirement0,
+            };
         partial void PrepareImportTasksArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? commitToProject,
@@ -114,6 +133,12 @@ namespace LabelStudio
                 returnTaskIds: ref returnTaskIds,
                 request: request);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ImportTasksSecurityRequirements,
+                operationName: "ImportTasksAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/import",
                 baseUri: HttpClient.BaseAddress); 
@@ -121,7 +146,7 @@ namespace LabelStudio
                 .AddOptionalParameter("commit_to_project", commitToProject?.ToString().ToLowerInvariant())
                 .AddOptionalParameter("preannotated_from_fields", preannotatedFromFields, delimiter: ",", explode: true)
                 .AddOptionalParameter("return_task_ids", returnTaskIds?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -131,7 +156,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

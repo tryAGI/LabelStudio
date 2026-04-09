@@ -906,6 +906,9 @@ paths:
                   summary: response
                   value:
                     completed_by: 1
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
+                    created_username: ''
                     ground_truth: false
                     id: 1
                     lead_time: 10
@@ -926,7 +929,9 @@ paths:
                           width: 50
                           x: 20
                           y: 30
+                    state: CREATED
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
                     updated_by: 1
                     was_cancelled: false
               schema:
@@ -1028,6 +1033,9 @@ paths:
                   summary: response
                   value:
                     completed_by: 1
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
+                    created_username: ''
                     ground_truth: false
                     id: 1
                     lead_time: 10
@@ -1048,7 +1056,9 @@ paths:
                           width: 50
                           x: 20
                           y: 30
+                    state: CREATED
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
                     updated_by: 1
                     was_cancelled: false
               schema:
@@ -1126,7 +1136,9 @@ paths:
                       allow_data_credentials: true
                       allow_invite_people: true
                       allow_invite_project_experts: true
+                      allow_nda: false
                       allow_organization_webhooks: true
+                      allow_reviewing: true
                       allow_sso: false
                       allow_storage_proxy: true
                       automax_enabled: true
@@ -1135,6 +1147,7 @@ paths:
                       disable_members_page: false
                       disable_project_imports: false
                       early_adopter: false
+                      email_configured: true
                       embed_domains:
                         - domain: http://localhost:3000
                         - domain: https://example.com
@@ -1195,7 +1208,9 @@ paths:
                       allow_data_credentials: true
                       allow_invite_people: true
                       allow_invite_project_experts: true
+                      allow_nda: true
                       allow_organization_webhooks: true
+                      allow_reviewing: true
                       allow_sso: true
                       allow_storage_proxy: true
                       automax_enabled: true
@@ -1204,6 +1219,7 @@ paths:
                       disable_members_page: false
                       disable_project_imports: false
                       early_adopter: true
+                      email_configured: true
                       embed_domains:
                         - domain: http://localhost:3000
                         - domain: https://example.com
@@ -1264,7 +1280,9 @@ paths:
                       allow_data_credentials: false
                       allow_invite_people: true
                       allow_invite_project_experts: true
+                      allow_nda: false
                       allow_organization_webhooks: false
+                      allow_reviewing: true
                       allow_sso: true
                       allow_storage_proxy: true
                       automax_enabled: true
@@ -1273,6 +1291,7 @@ paths:
                       disable_members_page: false
                       disable_project_imports: false
                       early_adopter: true
+                      email_configured: true
                       embed_domains:
                         - domain: http://localhost:3000
                         - domain: https://purple-zoos-flash.loca.lt
@@ -6670,7 +6689,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Delete multiple member tags from the organization in bulk. Allows the same request body as bulk create.
+        Delete multiple member tags from the organization in bulk. Pass tag IDs via the `ids` query parameter (comma-separated or repeated). For backward compatibility, a JSON body with `ids` is still accepted.
       operationId: api_organizations_member_tags_bulk_destroy
       parameters:
         - description: A unique integer value identifying this organization.
@@ -6679,10 +6698,30 @@ paths:
           required: true
           schema:
             type: integer
+        - description: Tag IDs to delete. Accepts comma-separated values (e.g., `1,2`) or repeated params.
+          in: query
+          name: ids
+          schema:
+            type: string
       responses:
         '200':
           content:
             application/json:
+              examples:
+                LegacySDKUsage(supported):
+                  description: |-
+                    Backward-compatible legacy call with DELETE body: ls.organizations.member_tags.bulk.delete(
+                        id=123,
+                        request_options={'additional_body_parameters': {'ids': [1, 2]}},
+                    )
+                  summary: Legacy SDK usage (supported)
+                SDKUsage:
+                  description: |-
+                    SDK call example using DELETE query params: ls.organizations.member_tags.bulk.delete(
+                        id=123,
+                        ids=[1, 2],
+                    )
+                  summary: SDK usage
               schema:
                 properties:
                   deleted:
@@ -7086,6 +7125,14 @@ paths:
           in: query
           name: role
           schema:
+            type: string
+        - description: Member visibility scope. `accessible` (default) limits Managers to members in their projects/workspaces. `all` returns all organization members. Only affects Manager role.
+          in: query
+          name: scope
+          schema:
+            enum:
+              - accessible
+              - all
             type: string
         - description: A search term.
           in: query
@@ -7658,26 +7705,30 @@ paths:
                 Response:
                   summary: response
                   value:
-                    - - id: 1
-                        model_version: yolo-v8
-                        result:
-                          - from_name: bboxes
-                            image_rotation: 0
-                            original_height: 1080
-                            original_width: 1920
-                            to_name: image
-                            type: rectanglelabels
-                            value:
-                              height: 60
-                              rotation: 0
-                              values:
-                                rectanglelabels:
-                                  - Person
-                              width: 50
-                              x: 20
-                              y: 30
-                        score: 0.95
-                        task: 1
+                    - created_ago: ''
+                      created_at: '2024-06-18T23:45:46.048490Z'
+                      id: 1
+                      model_version: yolo-v8
+                      project: 1
+                      result:
+                        - from_name: bboxes
+                          image_rotation: 0
+                          original_height: 1080
+                          original_width: 1920
+                          to_name: image
+                          type: rectanglelabels
+                          value:
+                            height: 60
+                            rotation: 0
+                            values:
+                              rectanglelabels:
+                                - Person
+                            width: 50
+                            x: 20
+                            y: 30
+                      score: 0.95
+                      task: 1
+                      updated_at: '2024-06-18T23:45:46.048538Z'
               schema:
                 items:
                   $ref: '#/components/schemas/Prediction'
@@ -7760,8 +7811,11 @@ paths:
                 Response:
                   summary: response
                   value:
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
                     id: 1
                     model_version: yolo-v8
+                    project: 1
                     result:
                       - from_name: bboxes
                         image_rotation: 0
@@ -7780,6 +7834,7 @@ paths:
                           y: 30
                     score: 0.95
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
               schema:
                 $ref: '#/components/schemas/Prediction'
           description: Created prediction
@@ -7833,8 +7888,11 @@ paths:
                 Response:
                   summary: response
                   value:
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
                     id: 1
                     model_version: yolo-v8
+                    project: 1
                     result:
                       - from_name: bboxes
                         image_rotation: 0
@@ -7853,6 +7911,7 @@ paths:
                           y: 30
                     score: 0.95
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
               schema:
                 $ref: '#/components/schemas/Prediction'
           description: Prediction details
@@ -7940,8 +7999,11 @@ paths:
                 Response:
                   summary: response
                   value:
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
                     id: 1
                     model_version: yolo-v8
+                    project: 1
                     result:
                       - from_name: bboxes
                         image_rotation: 0
@@ -7960,6 +8022,7 @@ paths:
                           y: 30
                     score: 0.95
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
               schema:
                 $ref: '#/components/schemas/Prediction'
           description: Updated prediction
@@ -8047,8 +8110,11 @@ paths:
                 Response:
                   summary: response
                   value:
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
                     id: 1
                     model_version: yolo-v8
+                    project: 1
                     result:
                       - from_name: bboxes
                         image_rotation: 0
@@ -8067,6 +8133,7 @@ paths:
                           y: 30
                     score: 0.95
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
               schema:
                 $ref: '#/components/schemas/Prediction'
           description: Updated prediction
@@ -9043,6 +9110,159 @@ paths:
         - metrics
         - custom
       x-fern-sdk-method-name: check_function
+  /api/projects/{id}/custom-function:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get the custom metric function code for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting.
+      operationId: api_projects_custom_function_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                  status:
+                    enum:
+                      - NotDeployed
+                      - Active
+                      - Pending
+                      - Failed
+                      - NotFound
+                      - Error
+                    type: string
+                required:
+                  - code
+                  - status
+                type: object
+          description: Function code and deployment status
+      security:
+        - Token: []
+      summary: ✨ Get custom metric code
+      tags:
+        - Projects
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - projects
+        - metrics
+        - custom
+      x-fern-sdk-method-name: get_function
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create or update the custom metric function for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting.
+      operationId: api_projects_custom_function_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFunctionCodeRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomFunctionCodeRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomFunctionCodeRequestRequest'
+        required: true
+      responses:
+        '200':
+          description: Updated successfully
+        '202':
+          description: Accepted, activation pending
+        '204':
+          description: No changes applied
+        '500':
+          description: Error updating function
+      security:
+        - Token: []
+      summary: ✨ Deploy custom metric function
+      tags:
+        - Projects
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - projects
+        - metrics
+        - custom
+      x-fern-sdk-method-name: deploy_function
+  /api/projects/{id}/custom-function-logs:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get execution logs for the custom metric function. The server routes to the active cloud provider based on the CUSTOM_METRIC_PROVIDER setting.
+      operationId: api_projects_custom_function_logs_retrieve
+      parameters:
+        - description: End date for log filtering in format %Y-%m-%d
+          in: query
+          name: end_date
+          schema:
+            type: string
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+        - description: Limit the number of logs to return
+          in: query
+          name: limit
+          schema:
+            default: 100
+            type: integer
+        - description: Start date for log filtering in format %Y-%m-%d
+          in: query
+          name: start_date
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                title: Function logs
+                type: object
+          description: List of function execution logs
+      security:
+        - Token: []
+      summary: ✨ Get custom metric function logs
+      tags:
+        - Projects
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - projects
+        - metrics
+        - custom
+      x-fern-sdk-method-name: get_function_logs
   /api/projects/{id}/dashboard:
     get:
       deprecated: true
@@ -9544,6 +9764,106 @@ paths:
       x-fern-sdk-group-name:
         - files
       x-fern-sdk-method-name: list
+  /api/projects/{id}/gcp-custom-function:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get the GCP Cloud Function code for the custom metric configured for this project.
+      operationId: api_projects_gcp_custom_function_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    type: string
+                  status:
+                    enum:
+                      - NotDeployed
+                      - Active
+                      - Pending
+                      - Failed
+                      - NotFound
+                      - Error
+                    type: string
+                required:
+                  - code
+                  - status
+                type: object
+          description: Cloud Function code and deployment status
+      security:
+        - Token: []
+      summary: ✨ Get GCP custom metric code
+      tags:
+        - Projects
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - projects
+        - metrics
+        - custom
+      x-fern-sdk-method-name: get_gcp_function
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create or update the GCP Cloud Function used for custom metrics in this project.
+      operationId: api_projects_gcp_custom_function_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: Updated successfully
+        '202':
+          description: Accepted, activation pending
+        '204':
+          description: No changes applied
+        '500':
+          description: Error updating function
+      security:
+        - Token: []
+      summary: ✨ Update GCP custom metric Cloud Function
+      tags:
+        - Projects
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - projects
+        - metrics
+        - custom
+      x-fern-sdk-method-name: update_gcp_function
   /api/projects/{id}/import:
     post:
       description: "\n            Import data as labeling tasks in bulk using this API endpoint. You can use this API endpoint to import multiple tasks.\n            One POST request is limited at 250K tasks and 200 MB.\n\n            **Note:** Imported data is verified against a project *label_config* and must\n            include all variables that were used in the *label_config*. For example,\n            if the label configuration has a *$text* variable, then each item in a data object\n            must include a \"text\" field.\n            <br>\n\n            ## Async Import Behavior\n            <hr style=\"opacity:0.3\">\n\n            **For non-Community editions, this endpoint processes imports asynchronously.**\n            \n            - The POST request **can fail** for invalid parameters, malformed request body, or other request-level validation errors.\n            - However, **data validation errors** that occur during import processing are handled asynchronously and will not cause the POST request to fail.\n            - Upon successful request validation, a response is returned: `{\"import\": <import_id>}`\n            - Use the returned `import_id` to poll the GET `/api/projects/{project_id}/imports/{import_id}` endpoint to check the import status and see any data validation errors.\n            - Data-level errors and import failures will only be visible in the GET request response.\n\n            For Community edition, imports are processed synchronously and return task counts immediately.\n            <br>\n\n            ## POST requests\n            <hr style=\"opacity:0.3\">\n\n            There are three possible ways to import tasks with this endpoint:\n\n            ### 1. **POST with data**\n            Send JSON tasks as POST data. Only JSON is supported for POSTing files directly.\n            Update this example to specify your authorization token and Label Studio instance host, then run the following from\n            the command line.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' --data '[{\"text\": \"Some text 1\"}, {\"text\": \"Some text 2\"}]'\n            ```\n\n            ### 2. **POST with files**\n            Send tasks as files. You can attach multiple files with different names.\n\n            - **JSON**: text files in JavaScript object notation format\n            - **CSV**: text files with tables in Comma Separated Values format\n            - **TSV**: text files with tables in Tab Separated Value format\n            - **TXT**: simple text files are similar to CSV with one column and no header, supported for projects with one source only\n\n            Update this example to specify your authorization token, Label Studio instance host, and file name and path,\n            then run the following from the command line:\n\n            ```bash\n            curl -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' -F 'file=@path/to/my_file.csv'\n            ```\n\n            ### 3. **POST with URL**\n            You can also provide a URL to a file with labeling tasks. Supported file formats are the same as in option 2.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' \\\n            --data '[{\"url\": \"http://example.com/test1.csv\"}, {\"url\": \"http://example.com/test2.csv\"}]'\n            ```\n\n            <br>\n        "
@@ -9759,12 +10079,17 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Remove a member from a specific project.
+        Remove a member from a specific project. Pass the member ID via the `user` query parameter. For backward compatibility, a JSON body with `user` is still accepted.
       operationId: api_projects_members_destroy
       parameters:
         - in: path
           name: id
           required: true
+          schema:
+            type: integer
+        - description: User ID to remove from the project. Optional for backward compatibility with DELETE body.
+          in: query
+          name: user
           schema:
             type: integer
       responses:
@@ -9874,14 +10199,29 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Unassign project members in bulk. Allows the same request body as bulk assign.
+        Unassign project members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional member filters (`search`, `role`, `tags`, `last_activity__gte`, `last_activity__lte`). For backward compatibility, a JSON body with bulk fields is still accepted.
       operationId: api_projects_members_bulk_destroy
       parameters:
+        - description: Apply unassignment to all currently matched project members.
+          in: query
+          name: all
+          schema:
+            type: boolean
+        - description: Comma-separated list of user IDs to keep assigned when `all=true`.
+          in: query
+          name: excluded
+          schema:
+            type: string
         - in: path
           name: id
           required: true
           schema:
             type: integer
+        - description: Comma-separated list of user IDs to unassign when `all=false`.
+          in: query
+          name: included
+          schema:
+            type: string
         - description: Filter by last activity (ISO 8601 formatted date). Only when all=True.
           in: query
           name: last_activity__gte
@@ -9911,6 +10251,22 @@ paths:
         '200':
           content:
             application/json:
+              examples:
+                LegacySDKUsage(supported):
+                  description: |-
+                    Backward-compatible legacy call with DELETE body: ls.projects.members.bulk.delete(
+                        id=123,
+                        request_options={'additional_body_parameters': {'all': False, 'included': [456, 789]}},
+                    )
+                  summary: Legacy SDK usage (supported)
+                SDKUsage:
+                  description: |-
+                    SDK call example using DELETE query params: ls.projects.members.bulk.delete(
+                        id=123,
+                        all_=False,
+                        included=[456, 789],
+                    )
+                  summary: SDK usage
               schema:
                 properties:
                   unassignments:
@@ -10430,8 +10786,8 @@ paths:
                 summary: payload format for annotator_params
                 value:
                   annotator_params:
-                    123: 1.0
-                    456: 0.75
+                    '123': 1.0
+                    '456': 0.75
                   use_kappa: true
             schema:
               $ref: '#/components/schemas/LseProjectParamsRequest'
@@ -13708,6 +14064,20 @@ paths:
                 Response:
                   summary: response
                   value:
+                    acs_url: http://localhost:8000/saml/saml-token-example/acs
+                    domain: example.com
+                    idp_provider: null
+                    login_url: http://localhost:8000/saml/saml-token-example/login
+                    logout_url: http://localhost:8000/saml/saml-token-example/logout
+                    manual_role_management: null
+                    mapping_email: Email
+                    mapping_first_name: FirstName
+                    mapping_groups: Groups
+                    mapping_last_name: LastName
+                    metadata_url: ''
+                    metadata_xml: ''
+                    metadata_xml_url: null
+                    nameid_format: urn:oasis:names:tc:SAML:2.0:nameid-format:transient
                     projects_groups:
                       - group: groups_test
                         project_id: 42
@@ -13715,6 +14085,7 @@ paths:
                     roles_groups:
                       - - Administrator
                         - groups_test
+                    token: saml-token-example
                     workspaces_groups:
                       - - Default workspace
                         - groups_test
@@ -13808,7 +14179,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Validate a SAML metadata URL by fetching it and checking whether it returns valid XML, without saving any settings.
+        Validate a SAML metadata URL by fetching it and checking for valid XML, without saving.
       operationId: api_saml_settings_validate_metadata_url_create
       requestBody:
         content:
@@ -16014,6 +16385,272 @@ paths:
         - export_storage
         - gcs
       x-fern-sdk-method-name: sync
+  /api/storages/export/gcs_sa:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get a list of all GCS export storage connections set up with SA Impersonation.
+      operationId: api_storages_export_gcs_sa_list
+      parameters:
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: Project ID
+          in: query
+          name: project
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GCSSAExportStorage'
+                type: array
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get all GCS SA export storages
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: list
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create a GCS export storage connection with SA Impersonation to store annotations.
+      operationId: api_storages_export_gcs_sa_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAExportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Create GCS export storage with SA Impersonation
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: create
+  /api/storages/export/gcs_sa/validate:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Validate a specific GCS export storage connection set up with SA Impersonation.
+      operationId: api_storages_export_gcs_sa_validate_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GCSSAExportStorageRequest'
+        required: true
+      responses:
+        '200':
+          description: Validation successful
+      security:
+        - Token: []
+      summary: ✨ Validate GCS SA export storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: validate
+  /api/storages/export/gcs_sa/{id}:
+    delete:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Delete a specific GCS export storage connection set up with SA Impersonation.
+      operationId: api_storages_export_gcs_sa_destroy
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Delete GCS SA export storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: delete
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get a specific GCS export storage connection set up with SA Impersonation.
+      operationId: api_storages_export_gcs_sa_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAExportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get GCS SA export storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: get
+    patch:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Update a specific GCS export storage connection set up with SA Impersonation.
+      operationId: api_storages_export_gcs_sa_partial_update
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAExportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAExportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAExportStorageRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAExportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Update GCS SA export storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: update
+  /api/storages/export/gcs_sa/{id}/sync:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Sync annotations to a GCS SA export storage.
+      operationId: api_storages_export_gcs_sa_sync_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAExportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Sync GCS SA export storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - export_storage
+        - gcs_sa
+      x-fern-sdk-method-name: sync
   /api/storages/export/gcswif:
     get:
       description: |-
@@ -17770,6 +18407,272 @@ paths:
       x-fern-sdk-group-name:
         - import_storage
         - gcs
+      x-fern-sdk-method-name: sync
+  /api/storages/gcs_sa/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get list of all GCS import storage connections set up with Service Account Impersonation.
+      operationId: api_storages_gcs_sa_list
+      parameters:
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: Project ID
+          in: query
+          name: project
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/GCSSAImportStorage'
+                type: array
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get all GCS SA import storages
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: list
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create GCS import storage with Service Account Impersonation.
+      operationId: api_storages_gcs_sa_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAImportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Create GCS import storage with SA Impersonation
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: create
+  /api/storages/gcs_sa/validate:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Validate a specific GCS import storage connection set up with SA Impersonation.
+      operationId: api_storages_gcs_sa_validate_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/GCSSAImportStorageRequest'
+        required: true
+      responses:
+        '200':
+          description: Validation successful
+      security:
+        - Token: []
+      summary: ✨ Validate GCS SA import storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: validate
+  /api/storages/gcs_sa/{id}:
+    delete:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Delete a specific GCS import storage connection set up with SA Impersonation.
+      operationId: api_storages_gcs_sa_destroy
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Delete GCS SA import storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: delete
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get a specific GCS import storage connection set up with SA Impersonation.
+      operationId: api_storages_gcs_sa_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAImportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get GCS SA import storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: get
+    patch:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Update a specific GCS import storage connection set up with SA Impersonation.
+      operationId: api_storages_gcs_sa_partial_update
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAImportStorageRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAImportStorageRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSSAImportStorageRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAImportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Update GCS SA import storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
+      x-fern-sdk-method-name: update
+  /api/storages/gcs_sa/{id}/sync:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Sync tasks from a GCS import storage connection set up with SA Impersonation.
+      operationId: api_storages_gcs_sa_sync_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSSAImportStorage'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Sync GCS SA import storage
+      tags:
+        - 'Storage: GCS SA'
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name:
+        - import_storage
+        - gcs_sa
       x-fern-sdk-method-name: sync
   /api/storages/gcswif/:
     get:
@@ -19528,30 +20431,35 @@ paths:
                 Response:
                   summary: response
                   value:
-                    - - completed_by: 1
-                        ground_truth: false
-                        id: 1
-                        lead_time: 10
-                        project: 1
-                        result:
-                          - from_name: bboxes
-                            image_rotation: 0
-                            original_height: 1080
-                            original_width: 1920
-                            to_name: image
-                            type: rectanglelabels
-                            value:
-                              height: 60
-                              rotation: 0
-                              values:
-                                rectanglelabels:
-                                  - Person
-                              width: 50
-                              x: 20
-                              y: 30
-                        task: 1
-                        updated_by: 1
-                        was_cancelled: false
+                    - completed_by: 1
+                      created_ago: ''
+                      created_at: '2024-06-18T23:45:46.048490Z'
+                      created_username: ''
+                      ground_truth: false
+                      id: 1
+                      lead_time: 10
+                      project: 1
+                      result:
+                        - from_name: bboxes
+                          image_rotation: 0
+                          original_height: 1080
+                          original_width: 1920
+                          to_name: image
+                          type: rectanglelabels
+                          value:
+                            height: 60
+                            rotation: 0
+                            values:
+                              rectanglelabels:
+                                - Person
+                            width: 50
+                            x: 20
+                            y: 30
+                      state: CREATED
+                      task: 1
+                      updated_at: '2024-06-18T23:45:46.048538Z'
+                      updated_by: 1
+                      was_cancelled: false
               schema:
                 items:
                   $ref: '#/components/schemas/Annotation'
@@ -19654,6 +20562,9 @@ paths:
                   summary: response
                   value:
                     completed_by: 1
+                    created_ago: ''
+                    created_at: '2024-06-18T23:45:46.048490Z'
+                    created_username: ''
                     ground_truth: false
                     id: 1
                     lead_time: 10
@@ -19674,7 +20585,9 @@ paths:
                           width: 50
                           x: 20
                           y: 30
+                    state: CREATED
                     task: 1
+                    updated_at: '2024-06-18T23:45:46.048538Z'
                     updated_by: 1
                     was_cancelled: false
               schema:
@@ -20750,12 +21663,17 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Remove a specific member by ID from a workspace. This endpoint expects an object like `{"user_id": 123}`.
+        Remove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted.
       operationId: api_workspaces_memberships_destroy
       parameters:
         - in: path
           name: id
           required: true
+          schema:
+            type: integer
+        - description: User ID to remove from the workspace.
+          in: query
+          name: user_id
           schema:
             type: integer
       responses:
@@ -20863,18 +21781,59 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Unassign workspace members in bulk. Allows the same request body as bulk assign.
+        Unassign workspace members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional paginated-list filters (`search`, `ids`). For backward compatibility, a JSON body with bulk fields is still accepted.
       operationId: api_workspaces_memberships_bulk_destroy
       parameters:
+        - description: Apply unassignment to all currently matched workspace members.
+          in: query
+          name: all
+          schema:
+            type: boolean
+        - description: Comma-separated list of user IDs to keep assigned when `all=true`.
+          in: query
+          name: excluded
+          schema:
+            type: string
         - in: path
           name: id
           required: true
           schema:
             type: integer
+        - description: Comma-separated list of user IDs to filter matched members.
+          in: query
+          name: ids
+          schema:
+            type: string
+        - description: Comma-separated list of user IDs to unassign when `all=false`.
+          in: query
+          name: included
+          schema:
+            type: string
+        - description: Search term for filtering matched members by name or email.
+          in: query
+          name: search
+          schema:
+            type: string
       responses:
         '200':
           content:
             application/json:
+              examples:
+                LegacySDKUsage(supported):
+                  description: |-
+                    Backward-compatible legacy call with DELETE body: ls.workspaces.members.bulk.delete(
+                        id=123,
+                        request_options={'additional_body_parameters': {'all': False, 'included': [456, 789]}},
+                    )
+                  summary: Legacy SDK usage (supported)
+                SDKUsage:
+                  description: |-
+                    SDK call example using DELETE query params: ls.workspaces.members.bulk.delete(
+                        id=123,
+                        all_=False,
+                        included=[456, 789],
+                    )
+                  summary: SDK usage
               schema:
                 properties:
                   unassignments:
@@ -21014,12 +21973,17 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Remove a project from a specific workspace.
+        Remove a project from a specific workspace. Pass the project ID via the `project` query parameter. For backward compatibility, a JSON body with `project` is still accepted.
       operationId: api_workspaces_projects_destroy
       parameters:
         - in: path
           name: id
           required: true
+          schema:
+            type: integer
+        - description: Project ID to remove from the workspace.
+          in: query
+          name: project
           schema:
             type: integer
       responses:
@@ -24001,6 +24965,14 @@ components:
         - limit
         - reached
       type: object
+    CustomFunctionCodeRequestRequest:
+      properties:
+        code:
+          minLength: 1
+          type: string
+      required:
+        - code
+      type: object
     DashboardTypeEnum:
       description: |-
         * `overview` - Overview
@@ -24711,6 +25683,10 @@ components:
         organization:
           description: A unique integer value identifying this organization.
           type: integer
+        react_code_settings:
+          description: 'ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}'
+          nullable: true
+          title: ReactCode settings
         read_only_quick_view_enabled_at:
           description: Set to current time to prevent creating or editing annotations in quick view.
           format: date-time
@@ -25190,6 +26166,24 @@ components:
       enum:
         - only
         - exclude
+    GCPCustomFunctionUpdateRequest:
+      description: Serializer for updating GCP Cloud Function custom metric.
+      properties:
+        code:
+          description: The Python code for the custom metric function.
+          minLength: 1
+          type: string
+        project:
+          description: The GCP project ID. Uses default if not provided.
+          nullable: true
+          type: string
+        region:
+          description: The GCP region for the Cloud Function. Uses default if not provided.
+          nullable: true
+          type: string
+      required:
+        - code
+      type: object
     GCSDatasetStorage:
       properties:
         bucket:
@@ -25566,6 +26560,340 @@ components:
         - id
         - project
         - type
+      type: object
+    GCSSAExportStorage:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        can_delete_objects:
+          description: Deletion from storage enabled
+          nullable: true
+          type: boolean
+        created_at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        id:
+          readOnly: true
+          type: integer
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        type:
+          default: gcs_sa
+          readOnly: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      required:
+        - created_at
+        - id
+        - project
+        - type
+      type: object
+    GCSSAExportStorageRequest:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        can_delete_objects:
+          description: Deletion from storage enabled
+          nullable: true
+          type: boolean
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      required:
+        - project
+      type: object
+    GCSSAImportStorage:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        created_at:
+          description: Creation time
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        id:
+          readOnly: true
+          type: integer
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        presign:
+          default: true
+          type: boolean
+        presign_ttl:
+          description: Presigned URLs TTL (in minutes)
+          maximum: 32767
+          minimum: 0
+          type: integer
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        recursive_scan:
+          description: Perform recursive scan over the bucket content
+          nullable: true
+          type: boolean
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        type:
+          default: gcs_sa
+          readOnly: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      required:
+        - created_at
+        - id
+        - project
+        - type
+      type: object
+    GCSSAImportStorageRequest:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        presign:
+          default: true
+          type: boolean
+        presign_ttl:
+          description: Presigned URLs TTL (in minutes)
+          maximum: 32767
+          minimum: 0
+          type: integer
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        recursive_scan:
+          description: Perform recursive scan over the bucket content
+          nullable: true
+          type: boolean
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      required:
+        - project
       type: object
     GCSWIFExportStorage:
       properties:
@@ -26005,7 +27333,9 @@ components:
           minimum: -2147483648
           type: integer
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         file_upload:
           description: Uploaded file used as data source for this task
           nullable: true
@@ -26709,8 +28039,10 @@ components:
       properties:
         choice_keys:
           description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
+          items:
+            type: string
           readOnly: true
-          type: string
+          type: array
         choices:
           description: Sorted list of choices observed from config and/or created labels.
           items:
@@ -26731,8 +28063,10 @@ components:
       properties:
         choice_keys:
           description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
+          items:
+            type: string
           readOnly: true
-          type: string
+          type: array
         dimensions:
           items:
             $ref: '#/components/schemas/LabelDistributionStructureDimension'
@@ -27255,6 +28589,9 @@ components:
         id:
           readOnly: true
           type: integer
+        react_code_settings:
+          readOnly: true
+          type: string
         title:
           readOnly: true
           type: string
@@ -27267,6 +28604,7 @@ components:
         - custom_scripts_enabled
         - email_notification_settings
         - id
+        - react_code_settings
         - title
         - token
       type: object
@@ -27315,6 +28653,9 @@ components:
         role:
           readOnly: true
           type: string
+        role_source:
+          readOnly: true
+          type: string
         tags:
           items:
             $ref: '#/components/schemas/SimpleOrganizationMemberTag'
@@ -27329,6 +28670,7 @@ components:
         - id
         - organization
         - role
+        - role_source
         - tags
         - user
       type: object
@@ -28074,8 +29416,14 @@ components:
     LseProjectParams:
       properties:
         annotator_params:
-          description: 'user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}'
+          additionalProperties:
+            format: double
+            maximum: 1
+            minimum: 0
+            type: number
+          description: 'User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].'
           nullable: true
+          type: object
         use_kappa:
           description: If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
           type: boolean
@@ -28083,8 +29431,14 @@ components:
     LseProjectParamsRequest:
       properties:
         annotator_params:
-          description: 'user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}'
+          additionalProperties:
+            format: double
+            maximum: 1
+            minimum: 0
+            type: number
+          description: 'User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].'
           nullable: true
+          type: object
         use_kappa:
           description: If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
           type: boolean
@@ -29264,7 +30618,9 @@ components:
           readOnly: true
           type: string
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         draft_exists:
           type: boolean
         drafts:
@@ -29573,7 +30929,9 @@ components:
           minimum: -2147483648
           type: integer
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         file_upload:
           description: Uploaded file used as data source for this task
           nullable: true
@@ -29651,7 +31009,9 @@ components:
           readOnly: true
           type: string
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         draft_exists:
           type: boolean
         drafts:
@@ -29824,7 +31184,9 @@ components:
           readOnly: true
           type: string
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         draft_exists:
           type: boolean
         drafts:
@@ -32294,6 +33656,10 @@ components:
         organization:
           description: A unique integer value identifying this organization.
           type: integer
+        react_code_settings:
+          description: 'ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}'
+          nullable: true
+          title: ReactCode settings
         read_only_quick_view_enabled_at:
           description: Set to current time to prevent creating or editing annotations in quick view.
           format: date-time
@@ -32421,6 +33787,154 @@ components:
         synchronizable:
           default: true
           type: boolean
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      type: object
+    PatchedGCSSAExportStorageRequest:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        can_delete_objects:
+          description: Deletion from storage enabled
+          nullable: true
+          type: boolean
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
+        title:
+          description: Cloud storage title
+          maxLength: 256
+          nullable: true
+          type: string
+        traceback:
+          description: Traceback report for the last failed sync
+          nullable: true
+          type: string
+        use_blob_urls:
+          description: Interpret objects as BLOBs and generate URLs
+          type: boolean
+      type: object
+    PatchedGCSSAImportStorageRequest:
+      properties:
+        bucket:
+          description: GCS bucket name
+          nullable: true
+          type: string
+        description:
+          description: Cloud storage description
+          nullable: true
+          type: string
+        google_project_id:
+          description: Google project ID
+          nullable: true
+          type: string
+        last_sync:
+          description: Last sync finished time
+          format: date-time
+          nullable: true
+          type: string
+        last_sync_count:
+          description: Count of tasks synced last time
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        last_sync_job:
+          description: Last sync job ID
+          maxLength: 256
+          nullable: true
+          type: string
+        meta:
+          description: Meta and debug information about storage processes
+          nullable: true
+        prefix:
+          description: GCS bucket prefix
+          nullable: true
+          type: string
+        presign:
+          default: true
+          type: boolean
+        presign_ttl:
+          description: Presigned URLs TTL (in minutes)
+          maximum: 32767
+          minimum: 0
+          type: integer
+        project:
+          description: A unique integer value identifying this project.
+          type: integer
+        recursive_scan:
+          description: Perform recursive scan over the bucket content
+          nullable: true
+          type: boolean
+        regex_filter:
+          description: Cloud storage regex for filtering objects
+          nullable: true
+          type: string
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          default: true
+          type: boolean
+        target_service_account_email:
+          description: Service account email to impersonate for GCS access
+          nullable: true
+          type: string
         title:
           description: Cloud storage title
           maxLength: 256
@@ -32705,6 +34219,10 @@ components:
           writeOnly: true
         embed_settings:
           description: Public Verification Key and Public Verification Algorithms configuration
+          nullable: true
+          writeOnly: true
+        react_code_settings:
+          description: ReactCode settings
           nullable: true
           writeOnly: true
         title:
@@ -33154,7 +34672,9 @@ components:
           format: date-time
           type: string
         data:
+          additionalProperties: {}
           description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+          type: object
         draft_exists:
           type: boolean
         ground_truth:
@@ -35472,6 +36992,7 @@ components:
         that are needed for IdP configuration.
       properties:
         acs_url:
+          nullable: true
           readOnly: true
           type: string
         domain:
@@ -35486,11 +37007,17 @@ components:
           title: Identity provider
           type: string
         login_url:
+          nullable: true
           readOnly: true
           type: string
         logout_url:
+          nullable: true
           readOnly: true
           type: string
+        manual_role_management:
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+          nullable: true
+          type: boolean
         mapping_email:
           description: 'Mapping attributes: user email from SAML request'
           maxLength: 1024
@@ -35524,23 +37051,37 @@ components:
           description: Metadata XML file
           type: string
         metadata_xml_url:
+          nullable: true
           readOnly: true
           type: string
         nameid_format:
           readOnly: true
           type: string
         projects_groups:
-          description: Projects to groups mapping
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
           nullable: true
+          type: array
         roles_groups:
-          description: Roles to groups mapping
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+          items:
+            items:
+              type: string
+            type: array
           nullable: true
+          type: array
         token:
           maxLength: 256
           type: string
         workspaces_groups:
-          description: Workspaces to groups mapping
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+          items:
+            items:
+              type: string
+            type: array
           nullable: true
+          type: array
       required:
         - acs_url
         - login_url
@@ -35562,6 +37103,10 @@ components:
           nullable: true
           title: Identity provider
           type: string
+        manual_role_management:
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+          nullable: true
+          type: boolean
         mapping_email:
           description: 'Mapping attributes: user email from SAML request'
           maxLength: 1024
@@ -35628,6 +37173,10 @@ components:
           nullable: true
           title: Identity provider
           type: string
+        manual_role_management:
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+          nullable: true
+          type: boolean
         mapping_email:
           description: 'Mapping attributes: user email from SAML request'
           maxLength: 1024
@@ -35695,14 +37244,27 @@ components:
     ScimSettings:
       properties:
         projects_groups:
-          description: Projects to groups mapping
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
           nullable: true
+          type: array
         roles_groups:
-          description: Roles to groups mapping
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+          items:
+            items:
+              type: string
+            type: array
           nullable: true
+          type: array
         workspaces_groups:
-          description: Workspaces to groups mapping
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+          items:
+            items:
+              type: string
+            type: array
           nullable: true
+          type: array
       type: object
     ScimSettingsUpdate:
       properties:

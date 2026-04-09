@@ -35,7 +35,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="annotatorParams">
-        /// user ID and user weight in score calculation. Format {user_id[int]: weight[Float[0..1]]}
+        /// User ID and user weight in score calculation. Format {user_id: weight} with weight in [0..1].
         /// </param>
         /// <param name="useKappa">
         /// If categorical variables are used in labeling (e.g. choices), Cohen's Kappa statistic is computed to measure inter-rater reliability instead of basic agreement
@@ -44,7 +44,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectParams> Create2Async(
             int id,
-            object? annotatorParams = default,
+            global::System.Collections.Generic.Dictionary<string, double>? annotatorParams = default,
             bool? useKappa = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

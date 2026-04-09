@@ -5,6 +5,25 @@ namespace LabelStudio
 {
     public partial class ViewsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DeleteAllSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DeleteAllSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_DeleteAllSecurityRequirement0,
+            };
         partial void PrepareDeleteAllArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int project);
@@ -33,12 +52,18 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 project: ref project);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteAllSecurityRequirements,
+                operationName: "DeleteAllAsync");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: "/api/dm/views/reset/",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("project", project.ToString()!) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -48,7 +73,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

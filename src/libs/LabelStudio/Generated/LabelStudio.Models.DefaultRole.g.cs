@@ -78,6 +78,12 @@ namespace LabelStudio
         public required int Organization { get; set; }
 
         /// <summary>
+        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("react_code_settings")]
+        public object? ReactCodeSettings { get; set; }
+
+        /// <summary>
         /// Set to current time to prevent creating or editing annotations in quick view.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("read_only_quick_view_enabled_at")]
@@ -127,6 +133,9 @@ namespace LabelStudio
         /// <param name="labelStreamNavigationDisabledAt">
         /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
         /// </param>
+        /// <param name="reactCodeSettings">
+        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
+        /// </param>
         /// <param name="readOnlyQuickViewEnabledAt">
         /// Set to current time to prevent creating or editing annotations in quick view.
         /// </param>
@@ -144,6 +153,7 @@ namespace LabelStudio
             string? externalId,
             bool? extraDataOnActivityLogs,
             global::System.DateTime? labelStreamNavigationDisabledAt,
+            object? reactCodeSettings,
             global::System.DateTime? readOnlyQuickViewEnabledAt)
         {
             this.AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt;
@@ -156,6 +166,7 @@ namespace LabelStudio
             this.ExtraDataOnActivityLogs = extraDataOnActivityLogs;
             this.LabelStreamNavigationDisabledAt = labelStreamNavigationDisabledAt;
             this.Organization = organization;
+            this.ReactCodeSettings = reactCodeSettings;
             this.ReadOnlyQuickViewEnabledAt = readOnlyQuickViewEnabledAt;
         }
 

@@ -5,9 +5,31 @@ namespace LabelStudio
 {
     public partial class ProjectsClient
     {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Delete2SecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Delete2SecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_Delete2SecurityRequirement0,
+            };
         partial void PrepareDelete2Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? all,
+            ref string? excluded,
             ref int id,
+            ref string? included,
             ref string? lastActivityGte,
             ref string? lastActivityLte,
             ref string? role,
@@ -16,7 +38,10 @@ namespace LabelStudio
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? all,
+            string? excluded,
             int id,
+            string? included,
             string? lastActivityGte,
             string? lastActivityLte,
             string? role,
@@ -39,9 +64,12 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unassign project members in bulk. Allows the same request body as bulk assign.
+        /// Unassign project members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional member filters (`search`, `role`, `tags`, `last_activity__gte`, `last_activity__lte`). For backward compatibility, a JSON body with bulk fields is still accepted.
         /// </summary>
+        /// <param name="all"></param>
+        /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="role"></param>
@@ -51,6 +79,9 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsMembersBulkDestroyResponse> Delete2Async(
             int id,
+            bool? all = default,
+            string? excluded = default,
+            string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
@@ -62,23 +93,35 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareDelete2Arguments(
                 httpClient: HttpClient,
+                all: ref all,
+                excluded: ref excluded,
                 id: ref id,
+                included: ref included,
                 lastActivityGte: ref lastActivityGte,
                 lastActivityLte: ref lastActivityLte,
                 role: ref role,
                 search: ref search,
                 tags: ref tags);
 
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_Delete2SecurityRequirements,
+                operationName: "Delete2Async");
+
             var __pathBuilder = new global::LabelStudio.PathBuilder(
                 path: $"/api/projects/{id}/members/bulk/",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
+                .AddOptionalParameter("all", all?.ToString().ToLowerInvariant())
+                .AddOptionalParameter("excluded", excluded)
+                .AddOptionalParameter("included", included)
                 .AddOptionalParameter("last_activity__gte", lastActivityGte)
                 .AddOptionalParameter("last_activity__lte", lastActivityLte)
                 .AddOptionalParameter("role", role)
                 .AddOptionalParameter("search", search)
                 .AddOptionalParameter("tags", tags) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -88,7 +131,7 @@ namespace LabelStudio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
@@ -110,7 +153,10 @@ namespace LabelStudio
             PrepareDelete2Request(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
+                all: all,
+                excluded: excluded,
                 id: id,
+                included: included,
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
                 role: role,

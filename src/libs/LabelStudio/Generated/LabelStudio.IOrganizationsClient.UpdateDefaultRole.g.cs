@@ -69,6 +69,9 @@ namespace LabelStudio
         /// <param name="organization">
         /// A unique integer value identifying this organization.
         /// </param>
+        /// <param name="reactCodeSettings">
+        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
+        /// </param>
         /// <param name="readOnlyQuickViewEnabledAt">
         /// Set to current time to prevent creating or editing annotations in quick view.
         /// </param>
@@ -86,6 +89,7 @@ namespace LabelStudio
             bool? extraDataOnActivityLogs = default,
             global::System.DateTime? labelStreamNavigationDisabledAt = default,
             int? organization = default,
+            object? reactCodeSettings = default,
             global::System.DateTime? readOnlyQuickViewEnabledAt = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

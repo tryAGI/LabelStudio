@@ -281,6 +281,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiOrganizationsMembershipsListScopeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiOrganizationsMembershipsListScopeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiProjectsTasksAssigneesDestroyTypeJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsTasksAssigneesDestroyTypeNullableJsonConverter),
@@ -300,6 +304,14 @@ namespace LabelStudio
             typeof(global::LabelStudio.JsonConverters.ApiProjectsAwsCustomFunctionRetrieveResponseStatusJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsAwsCustomFunctionRetrieveResponseStatusNullableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsCustomFunctionRetrieveResponseStatusJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsCustomFunctionRetrieveResponseStatusNullableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsGcpCustomFunctionRetrieveResponseStatusJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsGcpCustomFunctionRetrieveResponseStatusNullableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.MaybeExpandedCommentJsonConverter),
 
@@ -439,6 +451,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ConvertedFormat))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.Status7bfEnum), TypeInfoPropertyName = "Status7bfEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ConvertedFormatRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CustomFunctionCodeRequestRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksExportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksExportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksImportStorage))]
@@ -471,10 +484,15 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.FilterRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.FilterRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.FinishedEnum), TypeInfoPropertyName = "FinishedEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCPCustomFunctionUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSDatasetStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSDatasetStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSExportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSImportStorage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSSAExportStorage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSSAExportStorageRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSSAImportStorage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSSAImportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSWIFExportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSWIFExportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.GCSWIFImportStorage))]
@@ -669,6 +687,8 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedDimensionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedFileUploadRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedGCSDatasetStorageRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedGCSSAExportStorageRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedGCSSAImportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedGCSWIFExportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedGCSWIFImportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedHotkeysRequest))]
@@ -735,9 +755,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.S3ExportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.S3ImportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SamlSettings))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SamlSettingsUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SamlSettingsUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SamlSettingsUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroupRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ScimSettings))]
@@ -899,6 +919,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiUsersPartialUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiActivityLogsListMethod), TypeInfoPropertyName = "ApiActivityLogsListMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiDmActionsCreateId), TypeInfoPropertyName = "ApiDmActionsCreateId2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiOrganizationsMembershipsListScope), TypeInfoPropertyName = "ApiOrganizationsMembershipsListScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType), TypeInfoPropertyName = "ApiProjectsTasksAssigneesDestroyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType), TypeInfoPropertyName = "ApiPromptsCompatibleProjectsListProjectType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiPromptsVersionsInferenceRunsListProjectSubset), TypeInfoPropertyName = "ApiPromptsVersionsInferenceRunsListProjectSubset2")]
@@ -944,11 +965,15 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.UserSimple>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponseStatus), TypeInfoPropertyName = "ApiProjectsAwsCustomFunctionRetrieveResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsCustomFunctionRetrieveResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsCustomFunctionRetrieveResponseStatus), TypeInfoPropertyName = "ApiProjectsCustomFunctionRetrieveResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsDashboardRetrieveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsDuplicateCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.Export>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsExportsConvertCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.FileUpload>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsGcpCustomFunctionRetrieveResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsGcpCustomFunctionRetrieveResponseStatus), TypeInfoPropertyName = "ApiProjectsGcpCustomFunctionRetrieveResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsImportCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsImportPredictionsCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsMembersBulkDestroyResponse))]
@@ -995,6 +1020,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.AzureServicePrincipalExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.DatabricksExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSExportStorage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSSAExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSWIFExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.LocalFilesExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.RedisExportStorage>))]
@@ -1003,6 +1029,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ApiStoragesExportTypesRetrieveResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiStoragesExportTypesRetrieveResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSImportStorage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSSAImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.GCSWIFImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.LocalFilesImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.RedisImportStorage>))]
@@ -1152,6 +1179,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AzureServicePrincipalExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DatabricksExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSExportStorage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSSAExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSWIFExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LocalFilesExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.RedisExportStorage>))]
@@ -1159,6 +1187,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LseS3ExportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiStoragesExportTypesRetrieveResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSImportStorage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSSAImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSWIFImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LocalFilesImportStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.RedisImportStorage>))]
