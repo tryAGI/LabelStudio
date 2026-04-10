@@ -19,11 +19,13 @@ namespace LabelStudio
         /// * update / destroy — owner-only
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AnalyticsView> ApiAnalyticsViewsCreateAsync(
 
             global::LabelStudio.AnalyticsViewRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// CRUD endpoints for per-user analytics saved views.<br/>
@@ -45,12 +47,14 @@ namespace LabelStudio
         /// </param>
         /// <param name="filters"></param>
         /// <param name="name"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AnalyticsView> ApiAnalyticsViewsCreateAsync(
             string name,
             global::LabelStudio.DashboardTypeEnum? dashboardType = default,
             object? filters = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -9,11 +9,13 @@ namespace LabelStudio
         /// Create a new blueprint
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Blueprint> CreateAsync(
 
             global::LabelStudio.BlueprintRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create blueprint<br/>
@@ -33,6 +35,7 @@ namespace LabelStudio
         /// <param name="title">
         /// Blueprint name. Must be between 3 and 50 characters long.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Blueprint> CreateAsync(
@@ -42,6 +45,7 @@ namespace LabelStudio
             string? description = default,
             string? labelConfig = default,
             string? title = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

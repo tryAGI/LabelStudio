@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiOrganizationsMemberTagsBulkCreateResponse> PostAsync(
             int id,
 
             global::LabelStudio.OrganizationMemberTagBulkCreateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Bulk create organization member tags<br/>
@@ -37,11 +39,13 @@ namespace LabelStudio
         /// <param name="labels">
         /// List of tag labels to create.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiOrganizationsMemberTagsBulkCreateResponse> PostAsync(
             int id,
             global::System.Collections.Generic.IList<string> labels,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

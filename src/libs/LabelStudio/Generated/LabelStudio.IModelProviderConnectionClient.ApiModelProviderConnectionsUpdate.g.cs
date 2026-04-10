@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ModelProviderConnection> ApiModelProviderConnectionsUpdateAsync(
             string id,
 
             global::LabelStudio.ModelProviderConnectionRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Put model provider connection<br/>
@@ -81,6 +83,7 @@ namespace LabelStudio
         /// * `User` - User<br/>
         /// * `Model` - Model
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ModelProviderConnection> ApiModelProviderConnectionsUpdateAsync(
@@ -97,6 +100,7 @@ namespace LabelStudio
             bool? isInternal = default,
             global::LabelStudio.ProviderEnum? provider = default,
             global::LabelStudio.ScopeEnum? scope = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

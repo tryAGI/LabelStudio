@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="expandCreatedBy"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> CreateAsync(
 
             global::LabelStudio.CommentRequest request,
             bool? expandCreatedBy = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Create comment<br/>
@@ -48,6 +50,7 @@ namespace LabelStudio
         /// <param name="text">
         /// Reviewer or annotator comment
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> CreateAsync(
@@ -58,6 +61,7 @@ namespace LabelStudio
             bool? isResolved = default,
             object? regionRef = default,
             string? text = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

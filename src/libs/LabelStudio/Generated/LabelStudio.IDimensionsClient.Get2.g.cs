@@ -18,6 +18,7 @@ namespace LabelStudio
         /// <param name="projectPk"></param>
         /// <param name="selection"></param>
         /// <param name="taskPk"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.TaskAgreementMatrixResponse> Get2Async(
@@ -25,6 +26,7 @@ namespace LabelStudio
             global::LabelStudio.AgreementSelectionRequest selection,
             int taskPk,
             int? dimension = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -15,11 +15,13 @@ namespace LabelStudio
         /// Validate a specific Azure import storage connection that was set up with Service Principal authentication.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task ValidateAsync(
 
             global::LabelStudio.AzureServicePrincipalImportStorageRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Validate Azure SPI import storage<br/>
@@ -102,6 +104,7 @@ namespace LabelStudio
         /// <param name="userDelegationKey">
         /// User Delegation Key (Backend)
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task ValidateAsync(
@@ -127,6 +130,7 @@ namespace LabelStudio
             string? traceback = default,
             bool? useBlobUrls = default,
             string? userDelegationKey = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

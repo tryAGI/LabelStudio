@@ -15,11 +15,13 @@ namespace LabelStudio
         /// Create an S3 export storage connection with IAM role access to store annotations.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseS3ExportStorage> CreateAsync(
 
             global::LabelStudio.LseS3ExportStorageRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Create export storage<br/>
@@ -106,6 +108,7 @@ namespace LabelStudio
         /// <param name="useBlobUrls">
         /// Interpret objects as BLOBs and generate URLs
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseS3ExportStorage> CreateAsync(
@@ -133,6 +136,7 @@ namespace LabelStudio
             string? title = default,
             string? traceback = default,
             bool? useBlobUrls = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

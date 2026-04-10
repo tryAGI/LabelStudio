@@ -17,6 +17,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="projectPk"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Dimension> ApiProjectsDimensionsUpdateAsync(
@@ -24,6 +25,7 @@ namespace LabelStudio
             int projectPk,
 
             global::LabelStudio.DimensionRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Put dimension<br/>
@@ -64,6 +66,7 @@ namespace LabelStudio
         /// <param name="order">
         /// Display order within the project
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Dimension> ApiProjectsDimensionsUpdateAsync(
@@ -78,6 +81,7 @@ namespace LabelStudio
             object? metricParams = default,
             string? metricType = default,
             int? order = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

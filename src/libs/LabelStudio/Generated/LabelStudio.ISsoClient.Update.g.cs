@@ -15,11 +15,13 @@ namespace LabelStudio
         /// Update SAML2 settings for the currently active organization.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.SamlSettingsUpdate> UpdateAsync(
 
             global::LabelStudio.SamlSettingsUpdateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Update SAML2 Settings<br/>
@@ -67,6 +69,7 @@ namespace LabelStudio
         /// <param name="workspacesGroups">
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.SamlSettingsUpdate> UpdateAsync(
@@ -82,6 +85,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroupRequest>? projectsGroups = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
