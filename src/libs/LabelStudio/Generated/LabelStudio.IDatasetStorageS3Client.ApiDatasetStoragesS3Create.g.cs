@@ -9,11 +9,13 @@ namespace LabelStudio
         /// Create a new S3 import storage connection.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.S3DatasetStorage> ApiDatasetStoragesS3CreateAsync(
 
             global::LabelStudio.S3DatasetStorageRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create import storage<br/>
@@ -99,6 +101,7 @@ namespace LabelStudio
         /// <param name="useBlobUrls">
         /// Interpret objects as BLOBs and generate URLs
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.S3DatasetStorage> ApiDatasetStoragesS3CreateAsync(
@@ -127,6 +130,7 @@ namespace LabelStudio
             string? title = default,
             string? traceback = default,
             bool? useBlobUrls = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

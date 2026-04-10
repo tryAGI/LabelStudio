@@ -15,10 +15,12 @@ namespace LabelStudio
         /// Retrieve Agreement V2 backfill jobs for the authenticated user's active organization, ordered by most-recently created first. Supports page / page_size query params (default 50 per page, max 500). Requires administrator or owner role and the Agreement V2 feature flag.
         /// </summary>
         /// <param name="status"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.AgreementV2BackfillJob>> ListBackfillsAsync(
             string? status = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

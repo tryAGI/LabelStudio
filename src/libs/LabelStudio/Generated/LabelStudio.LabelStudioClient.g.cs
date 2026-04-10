@@ -31,6 +31,9 @@ namespace LabelStudio
 #if DEBUG
             = true;
 #endif
+
+        /// <inheritdoc/>
+        public global::LabelStudio.AutoSDKClientOptions Options { get; }
         /// <summary>
         /// 
         /// </summary>
@@ -40,7 +43,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ActionsClient Actions => new ActionsClient(HttpClient, authorizations: Authorizations)
+        public ActionsClient Actions => new ActionsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -49,7 +52,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ActivityLogsClient ActivityLogs => new ActivityLogsClient(HttpClient, authorizations: Authorizations)
+        public ActivityLogsClient ActivityLogs => new ActivityLogsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -58,7 +61,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnalyticsClient Analytics => new AnalyticsClient(HttpClient, authorizations: Authorizations)
+        public AnalyticsClient Analytics => new AnalyticsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -67,7 +70,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationHistoryClient AnnotationHistory => new AnnotationHistoryClient(HttpClient, authorizations: Authorizations)
+        public AnnotationHistoryClient AnnotationHistory => new AnnotationHistoryClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -76,7 +79,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationReviewsClient AnnotationReviews => new AnnotationReviewsClient(HttpClient, authorizations: Authorizations)
+        public AnnotationReviewsClient AnnotationReviews => new AnnotationReviewsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -85,7 +88,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationReviews2Client AnnotationReviews2 => new AnnotationReviews2Client(HttpClient, authorizations: Authorizations)
+        public AnnotationReviews2Client AnnotationReviews2 => new AnnotationReviews2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -94,7 +97,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AnnotationsClient Annotations => new AnnotationsClient(HttpClient, authorizations: Authorizations)
+        public AnnotationsClient Annotations => new AnnotationsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -103,7 +106,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public AwsClient Aws => new AwsClient(HttpClient, authorizations: Authorizations)
+        public AwsClient Aws => new AwsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -112,7 +115,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public BillingClient Billing => new BillingClient(HttpClient, authorizations: Authorizations)
+        public BillingClient Billing => new BillingClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -121,7 +124,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public BlueprintsClient Blueprints => new BlueprintsClient(HttpClient, authorizations: Authorizations)
+        public BlueprintsClient Blueprints => new BlueprintsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -130,7 +133,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Blueprints2Client Blueprints2 => new Blueprints2Client(HttpClient, authorizations: Authorizations)
+        public Blueprints2Client Blueprints2 => new Blueprints2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -139,7 +142,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public CommentsClient Comments => new CommentsClient(HttpClient, authorizations: Authorizations)
+        public CommentsClient Comments => new CommentsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -148,7 +151,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Comments2Client Comments2 => new Comments2Client(HttpClient, authorizations: Authorizations)
+        public Comments2Client Comments2 => new Comments2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -157,7 +160,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DataExplorerClient DataExplorer => new DataExplorerClient(HttpClient, authorizations: Authorizations)
+        public DataExplorerClient DataExplorer => new DataExplorerClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -166,7 +169,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DataManagerClient DataManager => new DataManagerClient(HttpClient, authorizations: Authorizations)
+        public DataManagerClient DataManager => new DataManagerClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -175,7 +178,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DatasetStorageAzureClient DatasetStorageAzure => new DatasetStorageAzureClient(HttpClient, authorizations: Authorizations)
+        public DatasetStorageAzureClient DatasetStorageAzure => new DatasetStorageAzureClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -184,7 +187,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DatasetStorageGcsClient DatasetStorageGcs => new DatasetStorageGcsClient(HttpClient, authorizations: Authorizations)
+        public DatasetStorageGcsClient DatasetStorageGcs => new DatasetStorageGcsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -193,7 +196,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DatasetStorageS3Client DatasetStorageS3 => new DatasetStorageS3Client(HttpClient, authorizations: Authorizations)
+        public DatasetStorageS3Client DatasetStorageS3 => new DatasetStorageS3Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -202,7 +205,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DatasetsClient Datasets => new DatasetsClient(HttpClient, authorizations: Authorizations)
+        public DatasetsClient Datasets => new DatasetsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -211,7 +214,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public DimensionsClient Dimensions => new DimensionsClient(HttpClient, authorizations: Authorizations)
+        public DimensionsClient Dimensions => new DimensionsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -220,7 +223,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Dimensions2Client Dimensions2 => new Dimensions2Client(HttpClient, authorizations: Authorizations)
+        public Dimensions2Client Dimensions2 => new Dimensions2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -229,7 +232,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ExportClient Export => new ExportClient(HttpClient, authorizations: Authorizations)
+        public ExportClient Export => new ExportClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -238,7 +241,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ImportClient Import => new ImportClient(HttpClient, authorizations: Authorizations)
+        public ImportClient Import => new ImportClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -247,7 +250,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public JwtSettingsClient JwtSettings => new JwtSettingsClient(HttpClient, authorizations: Authorizations)
+        public JwtSettingsClient JwtSettings => new JwtSettingsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -256,7 +259,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public LabelsClient Labels => new LabelsClient(HttpClient, authorizations: Authorizations)
+        public LabelsClient Labels => new LabelsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -265,7 +268,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Labels2Client Labels2 => new Labels2Client(HttpClient, authorizations: Authorizations)
+        public Labels2Client Labels2 => new Labels2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -274,7 +277,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public LlmClient Llm => new LlmClient(HttpClient, authorizations: Authorizations)
+        public LlmClient Llm => new LlmClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -283,7 +286,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public MlClient Ml => new MlClient(HttpClient, authorizations: Authorizations)
+        public MlClient Ml => new MlClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -292,7 +295,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ModelProviderConnectionClient ModelProviderConnection => new ModelProviderConnectionClient(HttpClient, authorizations: Authorizations)
+        public ModelProviderConnectionClient ModelProviderConnection => new ModelProviderConnectionClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -301,7 +304,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ModelProvidersClient ModelProviders => new ModelProvidersClient(HttpClient, authorizations: Authorizations)
+        public ModelProvidersClient ModelProviders => new ModelProvidersClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -310,7 +313,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public OrganizationsClient Organizations => new OrganizationsClient(HttpClient, authorizations: Authorizations)
+        public OrganizationsClient Organizations => new OrganizationsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -319,7 +322,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Organizations2Client Organizations2 => new Organizations2Client(HttpClient, authorizations: Authorizations)
+        public Organizations2Client Organizations2 => new Organizations2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -328,7 +331,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public PausesClient Pauses => new PausesClient(HttpClient, authorizations: Authorizations)
+        public PausesClient Pauses => new PausesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -337,7 +340,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public PredictionsClient Predictions => new PredictionsClient(HttpClient, authorizations: Authorizations)
+        public PredictionsClient Predictions => new PredictionsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -346,7 +349,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Predictions2Client Predictions2 => new Predictions2Client(HttpClient, authorizations: Authorizations)
+        public Predictions2Client Predictions2 => new Predictions2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -355,7 +358,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ProjectRolesClient ProjectRoles => new ProjectRolesClient(HttpClient, authorizations: Authorizations)
+        public ProjectRolesClient ProjectRoles => new ProjectRolesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -364,7 +367,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ProjectTemplatesClient ProjectTemplates => new ProjectTemplatesClient(HttpClient, authorizations: Authorizations)
+        public ProjectTemplatesClient ProjectTemplates => new ProjectTemplatesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -373,7 +376,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ProjectsClient Projects => new ProjectsClient(HttpClient, authorizations: Authorizations)
+        public ProjectsClient Projects => new ProjectsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -382,7 +385,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Projects2Client Projects2 => new Projects2Client(HttpClient, authorizations: Authorizations)
+        public Projects2Client Projects2 => new Projects2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -391,7 +394,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public PromptsClient Prompts => new PromptsClient(HttpClient, authorizations: Authorizations)
+        public PromptsClient Prompts => new PromptsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -400,7 +403,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Prompts2Client Prompts2 => new Prompts2Client(HttpClient, authorizations: Authorizations)
+        public Prompts2Client Prompts2 => new Prompts2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -409,7 +412,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public SessionPolicyClient SessionPolicy => new SessionPolicyClient(HttpClient, authorizations: Authorizations)
+        public SessionPolicyClient SessionPolicy => new SessionPolicyClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -418,7 +421,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public SsoClient Sso => new SsoClient(HttpClient, authorizations: Authorizations)
+        public SsoClient Sso => new SsoClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -427,7 +430,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StatesClient States => new StatesClient(HttpClient, authorizations: Authorizations)
+        public StatesClient States => new StatesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -436,7 +439,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StatsClient Stats => new StatsClient(HttpClient, authorizations: Authorizations)
+        public StatsClient Stats => new StatsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -445,7 +448,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageClient Storage => new StorageClient(HttpClient, authorizations: Authorizations)
+        public StorageClient Storage => new StorageClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -454,7 +457,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageAzureClient StorageAzure => new StorageAzureClient(HttpClient, authorizations: Authorizations)
+        public StorageAzureClient StorageAzure => new StorageAzureClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -463,7 +466,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageAzureSpiClient StorageAzureSpi => new StorageAzureSpiClient(HttpClient, authorizations: Authorizations)
+        public StorageAzureSpiClient StorageAzureSpi => new StorageAzureSpiClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -472,7 +475,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageDatabricksFilesClient StorageDatabricksFiles => new StorageDatabricksFilesClient(HttpClient, authorizations: Authorizations)
+        public StorageDatabricksFilesClient StorageDatabricksFiles => new StorageDatabricksFilesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -481,7 +484,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageGcsClient StorageGcs => new StorageGcsClient(HttpClient, authorizations: Authorizations)
+        public StorageGcsClient StorageGcs => new StorageGcsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -490,7 +493,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageGcsSaClient StorageGcsSa => new StorageGcsSaClient(HttpClient, authorizations: Authorizations)
+        public StorageGcsSaClient StorageGcsSa => new StorageGcsSaClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -499,7 +502,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageGcsWifClient StorageGcsWif => new StorageGcsWifClient(HttpClient, authorizations: Authorizations)
+        public StorageGcsWifClient StorageGcsWif => new StorageGcsWifClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -508,7 +511,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageLocalClient StorageLocal => new StorageLocalClient(HttpClient, authorizations: Authorizations)
+        public StorageLocalClient StorageLocal => new StorageLocalClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -517,7 +520,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageRedisClient StorageRedis => new StorageRedisClient(HttpClient, authorizations: Authorizations)
+        public StorageRedisClient StorageRedis => new StorageRedisClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -526,7 +529,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageS3Client StorageS3 => new StorageS3Client(HttpClient, authorizations: Authorizations)
+        public StorageS3Client StorageS3 => new StorageS3Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -535,7 +538,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public StorageS3RolesClient StorageS3Roles => new StorageS3RolesClient(HttpClient, authorizations: Authorizations)
+        public StorageS3RolesClient StorageS3Roles => new StorageS3RolesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -544,7 +547,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public TasksClient Tasks => new TasksClient(HttpClient, authorizations: Authorizations)
+        public TasksClient Tasks => new TasksClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -553,7 +556,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Tasks2Client Tasks2 => new Tasks2Client(HttpClient, authorizations: Authorizations)
+        public Tasks2Client Tasks2 => new Tasks2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -562,7 +565,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public TokensClient Tokens => new TokensClient(HttpClient, authorizations: Authorizations)
+        public TokensClient Tokens => new TokensClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -571,7 +574,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public UsersClient Users => new UsersClient(HttpClient, authorizations: Authorizations)
+        public UsersClient Users => new UsersClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -580,7 +583,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public VersionsClient Versions => new VersionsClient(HttpClient, authorizations: Authorizations)
+        public VersionsClient Versions => new VersionsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -589,7 +592,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public ViewsClient Views => new ViewsClient(HttpClient, authorizations: Authorizations)
+        public ViewsClient Views => new ViewsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -598,7 +601,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, authorizations: Authorizations)
+        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -607,7 +610,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Webhooks2Client Webhooks2 => new Webhooks2Client(HttpClient, authorizations: Authorizations)
+        public Webhooks2Client Webhooks2 => new Webhooks2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -616,7 +619,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public WorkspacesClient Workspaces => new WorkspacesClient(HttpClient, authorizations: Authorizations)
+        public WorkspacesClient Workspaces => new WorkspacesClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -625,7 +628,7 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        public Workspaces2Client Workspaces2 => new Workspaces2Client(HttpClient, authorizations: Authorizations)
+        public Workspaces2Client Workspaces2 => new Workspaces2Client(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -644,11 +647,37 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::LabelStudio.EndPointAuthorization>? authorizations = null,
+            bool disposeHttpClient = true) : this(
+                httpClient,
+                baseUri,
+                authorizations,
+                options: null,
+                disposeHttpClient: disposeHttpClient)
+        {
+        }
+
+        /// <summary>
+        /// Creates a new instance of the LabelStudioClient.
+        /// If no httpClient is provided, a new one will be created.
+        /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance. If not provided, a new one will be created.</param>
+        /// <param name="baseUri">The base URL for the API. If not provided, the default baseUri from OpenAPI spec will be used.</param>
+        /// <param name="authorizations">The authorizations to use for the requests.</param>
+        /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
+        /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
+        public LabelStudioClient(
+            global::System.Net.Http.HttpClient? httpClient = null,
+            global::System.Uri? baseUri = null,
+            global::System.Collections.Generic.List<global::LabelStudio.EndPointAuthorization>? authorizations = null,
+            global::LabelStudio.AutoSDKClientOptions? options = null,
             bool disposeHttpClient = true)
         {
+
             HttpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             HttpClient.BaseAddress ??= baseUri ?? new global::System.Uri(DefaultBaseUrl);
             Authorizations = authorizations ?? new global::System.Collections.Generic.List<global::LabelStudio.EndPointAuthorization>();
+            Options = options ?? new global::LabelStudio.AutoSDKClientOptions();
             _disposeHttpClient = disposeHttpClient;
 
             Initialized(HttpClient);

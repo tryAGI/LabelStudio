@@ -25,6 +25,7 @@ namespace LabelStudio
             Authorizations.Add(new global::LabelStudio.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "Token",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,

@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AzureServicePrincipalExportStorage> Update2Async(
             int id,
 
             global::LabelStudio.PatchedAzureServicePrincipalExportStorageRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Update Azure SPI export storage<br/>
@@ -99,6 +101,7 @@ namespace LabelStudio
         /// <param name="userDelegationKey">
         /// User Delegation Key (Backend)
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AzureServicePrincipalExportStorage> Update2Async(
@@ -123,6 +126,7 @@ namespace LabelStudio
             string? traceback = default,
             bool? useBlobUrls = default,
             string? userDelegationKey = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

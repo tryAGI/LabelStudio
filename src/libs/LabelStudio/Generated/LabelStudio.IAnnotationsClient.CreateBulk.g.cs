@@ -9,11 +9,13 @@ namespace LabelStudio
         /// Create multiple annotations at once
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ApiAnnotationsBulkCreateResponseItem>> CreateBulkAsync(
 
             global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Bulk create annotations<br/>
@@ -77,6 +79,7 @@ namespace LabelStudio
         /// <param name="wasCancelled">
         /// User skipped the task
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ApiAnnotationsBulkCreateResponseItem>> CreateBulkAsync(
@@ -98,6 +101,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int>? tasks = default,
             int? updatedBy = default,
             bool? wasCancelled = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="numPredictions"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.BatchPredictions> BatchPredictionsAsync(
 
             global::LabelStudio.BatchPredictionsRequestRequest request,
             int? numPredictions = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Create batch predictions<br/>
@@ -37,6 +39,7 @@ namespace LabelStudio
         /// <param name="jobId"></param>
         /// <param name="modelrunId"></param>
         /// <param name="results"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.BatchPredictions> BatchPredictionsAsync(
@@ -44,6 +47,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<object> results,
             int? numPredictions = default,
             string? jobId = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

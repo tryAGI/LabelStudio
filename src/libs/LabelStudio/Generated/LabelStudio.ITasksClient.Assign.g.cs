@@ -17,6 +17,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="taskPk"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.TaskAssignment> AssignAsync(
@@ -24,6 +25,7 @@ namespace LabelStudio
             int taskPk,
 
             global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Create task assignee<br/>
@@ -43,6 +45,7 @@ namespace LabelStudio
         /// <param name="users">
         /// List of user IDs to assign
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.TaskAssignment> AssignAsync(
@@ -50,6 +53,7 @@ namespace LabelStudio
             int taskPk,
             global::LabelStudio.ApiProjectsTasksAssigneesCreate2RequestType type,
             global::System.Collections.Generic.IList<int> users,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

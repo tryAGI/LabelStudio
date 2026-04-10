@@ -16,12 +16,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ProjectTemplate> UpdateAsync(
             int id,
 
             global::LabelStudio.PatchedProjectTemplateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// ✨ Update a project template<br/>
@@ -58,6 +60,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="showUnusedDataColumnsToAnnotators"></param>
         /// <param name="tags"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ProjectTemplate> UpdateAsync(
@@ -74,6 +77,7 @@ namespace LabelStudio
             object? reviewSettings = default,
             bool? showUnusedDataColumnsToAnnotators = default,
             object? tags = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
