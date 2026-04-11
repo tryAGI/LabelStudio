@@ -1,0 +1,301 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Post actions",
+      "Slug": "api-dm-actions-create",
+      "Description": "Perform a Data Manager action with the selected tasks and filters. Note: More complex actions require additional parameters in the request body. Call \u0060GET api/actions?project=\u003Cid\u003E\u0060 to explore them. \u003Cbr\u003EExample: \u0060GET api/actions?id=delete_tasks\u0026project=1\u0060",
+      "Language": "http",
+      "Code": "### Post actions\n# @name api_dm_actions_create\nPOST {{host}}/api/dm/actions/?id=delete_annotators\u0026project={{project}}\u0026view={{view}}\nAuthorization: Bearer {{token}}\nContent-Type: application/json\n\n{\n  \u0022filters\u0022: {\n    \u0022conjunction\u0022: \u0022or\u0022,\n    \u0022items\u0022: [\n      {\n        \u0022filter\u0022: \u0022filter:tasks:id\u0022,\n        \u0022operator\u0022: \u0022greater\u0022,\n        \u0022type\u0022: \u0022Number\u0022,\n        \u0022value\u0022: 123\n      }\n    ]\n  },\n  \u0022ordering\u0022: [\n    \u0022tasks:total_annotations\u0022\n  ],\n  \u0022selectedItems\u0022: {\n    \u0022all\u0022: true,\n    \u0022excluded\u0022: [\n      124,\n      125,\n      126\n    ]\n  }\n}\n\n## Responses\n# 200\n# Description: Action performed successfully",
+      "Format": "http",
+      "OperationId": "api_dm_actions_create",
+      "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Get actions",
+      "Slug": "api-dm-actions-retrieve",
+      "Description": "Retrieve all the registered actions with descriptions that data manager can use.",
+      "Language": "http",
+      "Code": "### Get actions\n# @name api_dm_actions_retrieve\nGET {{host}}/api/dm/actions/?project={{project}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Actions retrieved successfully\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_dm_actions_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 3,
+      "Title": "Create annotation",
+      "Slug": "api-tasks-annotations-create",
+      "Description": "Add annotations to a task like an annotator does. The content of the result field depends on your\n        labeling configuration. For example, send the following data as part of your POST\n        request to send an empty annotation with the ID of the user who completed the task:\n\n        \u0060\u0060\u0060json\n        {\n        \u0022result\u0022: {},\n        \u0022was_cancelled\u0022: true,\n        \u0022ground_truth\u0022: true,\n        \u0022lead_time\u0022: 0,\n        \u0022task\u0022: 0\n        \u0022completed_by\u0022: 123\n        }\n        \u0060\u0060\u0060",
+      "Language": "http",
+      "Code": "### Create annotation\n# @name api_tasks_annotations_create\nPOST {{host}}/api/tasks/{{id}}/annotations/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022ground_truth\u0022: true,\n  \u0022result\u0022: [\n    {\n      \u0022from_name\u0022: \u0022bboxes\u0022,\n      \u0022image_rotation\u0022: 0,\n      \u0022original_height\u0022: 1080,\n      \u0022original_width\u0022: 1920,\n      \u0022to_name\u0022: \u0022image\u0022,\n      \u0022type\u0022: \u0022rectanglelabels\u0022,\n      \u0022value\u0022: {\n        \u0022height\u0022: 60,\n        \u0022rotation\u0022: 0,\n        \u0022values\u0022: {\n          \u0022rectanglelabels\u0022: [\n            \u0022Person\u0022\n          ]\n        },\n        \u0022width\u0022: 50,\n        \u0022x\u0022: 20,\n        \u0022y\u0022: 30\n      }\n    }\n  ],\n  \u0022was_cancelled\u0022: false\n}\n\n## Responses\n# 201\n# Description: Created annotation\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_tasks_annotations_create",
+      "Setup": null
+    },
+    {
+      "Order": 4,
+      "Title": "Get annotation by its ID",
+      "Slug": "api-annotations-retrieve",
+      "Description": "Retrieve a specific annotation for a task using the annotation result ID.",
+      "Language": "http",
+      "Code": "### Get annotation by its ID\n# @name api_annotations_retrieve\nGET {{host}}/api/annotations/{{id}}/\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Retrieved annotation\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_annotations_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 5,
+      "Title": "Get all task annotations",
+      "Slug": "api-tasks-annotations-list",
+      "Description": "List all annotations for a task.",
+      "Language": "http",
+      "Code": "### Get all task annotations\n# @name api_tasks_annotations_list\nGET {{host}}/api/tasks/{{id}}/annotations/?ordering={{ordering}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Annotation\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_tasks_annotations_list",
+      "Setup": null
+    },
+    {
+      "Order": 6,
+      "Title": "Update annotation",
+      "Slug": "api-annotations-partial-update",
+      "Description": "Update existing attributes on an annotation.",
+      "Language": "http",
+      "Code": "### Update annotation\n# @name api_annotations_partial_update\nPATCH {{host}}/api/annotations/{{id}}/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022ground_truth\u0022: true,\n  \u0022result\u0022: [\n    {\n      \u0022from_name\u0022: \u0022bboxes\u0022,\n      \u0022image_rotation\u0022: 0,\n      \u0022original_height\u0022: 1080,\n      \u0022original_width\u0022: 1920,\n      \u0022to_name\u0022: \u0022image\u0022,\n      \u0022type\u0022: \u0022rectanglelabels\u0022,\n      \u0022value\u0022: {\n        \u0022height\u0022: 60,\n        \u0022rotation\u0022: 0,\n        \u0022values\u0022: {\n          \u0022rectanglelabels\u0022: [\n            \u0022Person\u0022\n          ]\n        },\n        \u0022width\u0022: 50,\n        \u0022x\u0022: 20,\n        \u0022y\u0022: 30\n      }\n    }\n  ],\n  \u0022was_cancelled\u0022: false\n}\n\n## Responses\n# 200\n# Description: Updated annotation\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_annotations_partial_update",
+      "Setup": null
+    },
+    {
+      "Order": 7,
+      "Title": "\u2728 Get billing info",
+      "Slug": "api-billing-info-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nRetrieve billing checks and feature flags for the active organization.",
+      "Language": "csharp",
+      "Code": "using var client = new LabelStudioClient(apiKey);\nvar response = await client.Billing.InfoAsync();\n\n// Example response:\n// {\n//   \u0022billing_checks\u0022: {\n//     \u0022export_storages\u0022: {\n//       \u0022count\u0022: 0,\n//       \u0022limit\u0022: 0,\n//       \u0022reached\u0022: false\n//     },\n//     \u0022import_storages\u0022: {\n//       \u0022count\u0022: 0,\n//       \u0022limit\u0022: 0,\n//       \u0022reached\u0022: false\n//     },\n//     \u0022is_license_expired\u0022: false,\n//     \u0022is_license_warning\u0022: false,\n//     \u0022is_prompts_expire\u0022: false,\n//     \u0022is_prompts_warning\u0022: false,\n//     \u0022license_expires\u0022: \u00222025-01-01\u0022,\n//     \u0022license_issued\u0022: \u00222023-01-01\u0022,\n//     \u0022license_warning\u0022: \u00222024-12-01\u0022,\n//     \u0022organization_is_active\u0022: true,\n//     \u0022projects\u0022: {\n//       \u0022count\u0022: 3,\n//       \u0022limit\u0022: 50,\n//       \u0022reached\u0022: false\n//     },\n//     \u0022prompts_api_keys_enabled\u0022: true,\n//     \u0022prompts_enabled\u0022: true,\n//     \u0022prompts_expire\u0022: \u00222024-12-31\u0022,\n//     \u0022prompts_status\u0022: \u0022Enabled\u0022,\n//     \u0022prompts_warning\u0022: \u0022openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464\u0022,\n//     \u0022results\u0022: {\n//       \u0022count\u0022: 100,\n//       \u0022limit\u0022: 1000,\n//       \u0022reached\u0022: false\n//     },\n//     \u0022trial_days\u0022: 14,\n//     \u0022users\u0022: {\n//       \u0022count\u0022: 5,\n//       \u0022limit\u0022: 10,\n//       \u0022reached\u0022: false,\n//       \u0022total\u0022: 6\n//     }\n//   },\n//   \u0022billing_flags\u0022: {\n//     \u0022activated_at\u0022: \u00222023-01-01T00:00:00Z\u0022,\n//     \u0022allow_activity_log\u0022: true,\n//     \u0022allow_ai\u0022: true,\n//     \u0022allow_ask_ai\u0022: true,\n//     \u0022allow_data_credentials\u0022: true,\n//     \u0022allow_invite_people\u0022: true,\n//     \u0022allow_invite_project_experts\u0022: true,\n//     \u0022allow_nda\u0022: false,\n//     \u0022allow_organization_webhooks\u0022: true,\n//     \u0022allow_reviewing\u0022: true,\n//     \u0022allow_sso\u0022: false,\n//     \u0022allow_storage_proxy\u0022: true,\n//     \u0022automax_enabled\u0022: true,\n//     \u0022automax_token_exists\u0022: false,\n//     \u0022cloud_instance\u0022: true,\n//     \u0022disable_members_page\u0022: false,\n//     \u0022disable_project_imports\u0022: false,\n//     \u0022early_adopter\u0022: false,\n//     \u0022email_configured\u0022: true,\n//     \u0022embed_domains\u0022: [\n//       {\n//         \u0022domain\u0022: \u0022http://localhost:3000\u0022\n//       },\n//       {\n//         \u0022domain\u0022: \u0022https://example.com\u0022\n//       }\n//     ],\n//     \u0022embed_enabled\u0022: false,\n//     \u0022embed_settings\u0022: {\n//       \u0022public_verify_alg\u0022: [\n//         \u0022RS256\u0022\n//       ],\n//       \u0022public_verify_key\u0022: \u0022....\u0022\n//     },\n//     \u0022manual_role_management\u0022: false,\n//     \u0022manual_workspace_management\u0022: false,\n//     \u0022secure_mode\u0022: false,\n//     \u0022storage_persistence\u0022: true,\n//     \u0022white_label_id\u0022: \u0022openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464\u0022\n//   }\n// }",
+      "Format": "sdk",
+      "OperationId": "api_billing_info_retrieve",
+      "Setup": "This example assumes \u0060using LabelStudio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 8,
+      "Title": "\u2728 Get task agreement matrix",
+      "Slug": "api-projects-tasks-agreement-matrix-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nReturns a pairwise agreement matrix between selected participants for a single task, averaged across all active dimensions or a single specified dimension.",
+      "Language": "http",
+      "Code": "### \u2728 Get task agreement matrix\n# @name api_projects_tasks_agreement_matrix_retrieve\nGET {{host}}/api/projects/{{project_pk}}/tasks/{{task_pk}}/agreement-matrix?dimension={{dimension}}\u0026selection={{selection}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_projects_tasks_agreement_matrix_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 9,
+      "Title": "Test prediction",
+      "Slug": "api-ml-predict-test-create",
+      "Description": "After you add an ML backend, call this API with the ML backend ID to run a test prediction on specific task data",
+      "Language": "http",
+      "Code": "### Test prediction\n# @name api_ml_predict_test_create\nPOST {{host}}/api/ml/{{id}}/predict/test\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022auth_method\u0022: \u0022NONE\u0022,\n  \u0022auto_update\u0022: true,\n  \u0022basic_auth_pass\u0022: \u0022string\u0022,\n  \u0022basic_auth_user\u0022: \u0022string\u0022,\n  \u0022description\u0022: \u0022string\u0022,\n  \u0022error_message\u0022: \u0022string\u0022,\n  \u0022extra_params\u0022: \u0022string\u0022,\n  \u0022is_interactive\u0022: true,\n  \u0022model_version\u0022: \u0022string\u0022,\n  \u0022project\u0022: 0,\n  \u0022state\u0022: \u0022CO\u0022,\n  \u0022timeout\u0022: 0,\n  \u0022title\u0022: \u0022string\u0022,\n  \u0022url\u0022: \u0022string\u0022\n}\n\n## Responses\n# 200\n# Description: Predicting has successfully started.\n# 500\n# Description: Predicting error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_ml_predict_test_create",
+      "Setup": null
+    },
+    {
+      "Order": 10,
+      "Title": "Train",
+      "Slug": "api-ml-train-create",
+      "Description": "After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).",
+      "Language": "http",
+      "Code": "### Train\n# @name api_ml_train_create\nPOST {{host}}/api/ml/{{id}}/train\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022use_ground_truth\u0022: true\n}\n\n## Responses\n# 200\n# Description: Training has successfully started.\n# 500\n# Description: Training error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_ml_train_create",
+      "Setup": null
+    },
+    {
+      "Order": 11,
+      "Title": "\u2728 Bulk delete organization member tags",
+      "Slug": "api-organizations-member-tags-bulk-destroy",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nDelete multiple member tags from the organization in bulk. Pass tag IDs via the \u0060ids\u0060 query parameter (comma-separated or repeated). For backward compatibility, a JSON body with \u0060ids\u0060 is still accepted.",
+      "Language": "csharp",
+      "Code": "using var client = new LabelStudioClient(apiKey);\nvar response = await client.AnnotationHistory.DeleteAsync();",
+      "Format": "sdk",
+      "OperationId": "api_organizations_member_tags_bulk_destroy",
+      "Setup": "This example assumes \u0060using LabelStudio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 12,
+      "Title": "Put prediction",
+      "Slug": "api-predictions-update",
+      "Description": "Overwrite prediction data by prediction ID.",
+      "Language": "http",
+      "Code": "### Put prediction\n# @name api_predictions_update\nPUT {{host}}/api/predictions/{{id}}/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022model_version\u0022: \u0022yolo-v8\u0022,\n  \u0022result\u0022: [\n    {\n      \u0022from_name\u0022: \u0022bboxes\u0022,\n      \u0022image_rotation\u0022: 0,\n      \u0022original_height\u0022: 1080,\n      \u0022original_width\u0022: 1920,\n      \u0022to_name\u0022: \u0022image\u0022,\n      \u0022type\u0022: \u0022rectanglelabels\u0022,\n      \u0022value\u0022: {\n        \u0022height\u0022: 60,\n        \u0022rotation\u0022: 0,\n        \u0022values\u0022: {\n          \u0022rectanglelabels\u0022: [\n            \u0022Person\u0022\n          ]\n        },\n        \u0022width\u0022: 50,\n        \u0022x\u0022: 20,\n        \u0022y\u0022: 30\n      }\n    }\n  ],\n  \u0022score\u0022: 0.95\n}\n\n## Responses\n# 200\n# Description: Updated prediction\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_predictions_update",
+      "Setup": null
+    },
+    {
+      "Order": 13,
+      "Title": "Create prediction",
+      "Slug": "api-predictions-create",
+      "Description": "Create a prediction for a specific task.",
+      "Language": "http",
+      "Code": "### Create prediction\n# @name api_predictions_create\nPOST {{host}}/api/predictions/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022model_version\u0022: \u0022yolo-v8\u0022,\n  \u0022result\u0022: [\n    {\n      \u0022from_name\u0022: \u0022bboxes\u0022,\n      \u0022image_rotation\u0022: 0,\n      \u0022original_height\u0022: 1080,\n      \u0022original_width\u0022: 1920,\n      \u0022to_name\u0022: \u0022image\u0022,\n      \u0022type\u0022: \u0022rectanglelabels\u0022,\n      \u0022value\u0022: {\n        \u0022height\u0022: 60,\n        \u0022rotation\u0022: 0,\n        \u0022values\u0022: {\n          \u0022rectanglelabels\u0022: [\n            \u0022Person\u0022\n          ]\n        },\n        \u0022width\u0022: 50,\n        \u0022x\u0022: 20,\n        \u0022y\u0022: 30\n      }\n    }\n  ],\n  \u0022score\u0022: 0.95\n}\n\n## Responses\n# 201\n# Description: Created prediction\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_predictions_create",
+      "Setup": null
+    },
+    {
+      "Order": 14,
+      "Title": "Get prediction details",
+      "Slug": "api-predictions-retrieve",
+      "Description": "Get details about a specific prediction by its ID.",
+      "Language": "http",
+      "Code": "### Get prediction details\n# @name api_predictions_retrieve\nGET {{host}}/api/predictions/{{id}}/\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Prediction details\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_predictions_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 15,
+      "Title": "List predictions",
+      "Slug": "api-predictions-list",
+      "Description": "List all predictions and their IDs.",
+      "Language": "http",
+      "Code": "### List predictions\n# @name api_predictions_list\nGET {{host}}/api/predictions/?project={{project}}\u0026task={{task}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Predictions list\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_predictions_list",
+      "Setup": null
+    },
+    {
+      "Order": 16,
+      "Title": "Update prediction",
+      "Slug": "api-predictions-partial-update",
+      "Description": "Update prediction data by prediction ID.",
+      "Language": "http",
+      "Code": "### Update prediction\n# @name api_predictions_partial_update\nPATCH {{host}}/api/predictions/{{id}}/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022model_version\u0022: \u0022yolo-v8\u0022,\n  \u0022result\u0022: [\n    {\n      \u0022from_name\u0022: \u0022bboxes\u0022,\n      \u0022image_rotation\u0022: 0,\n      \u0022original_height\u0022: 1080,\n      \u0022original_width\u0022: 1920,\n      \u0022to_name\u0022: \u0022image\u0022,\n      \u0022type\u0022: \u0022rectanglelabels\u0022,\n      \u0022value\u0022: {\n        \u0022height\u0022: 60,\n        \u0022rotation\u0022: 0,\n        \u0022values\u0022: {\n          \u0022rectanglelabels\u0022: [\n            \u0022Person\u0022\n          ]\n        },\n        \u0022width\u0022: 50,\n        \u0022x\u0022: 20,\n        \u0022y\u0022: 30\n      }\n    }\n  ],\n  \u0022score\u0022: 0.95\n}\n\n## Responses\n# 200\n# Description: Updated prediction\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_predictions_partial_update",
+      "Setup": null
+    },
+    {
+      "Order": 17,
+      "Title": "\u2728 Create annotator weights for statistics",
+      "Slug": "api-projects-project-extra-params-create",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nCreate annotator weights to be used in the annotation statistics for a project, such as when calculating kappa metrics for inter-annotator agreement. Affects dashboard-members stats, but old and unused.",
+      "Language": "http",
+      "Code": "### \u2728 Create annotator weights for statistics\n# @name api_projects_project_extra_params_create\nPOST {{host}}/api/projects/{{id}}/project-extra-params/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022annotator_params\u0022: {\n    \u0022123\u0022: 1.0,\n    \u0022456\u0022: 0.75\n  },\n  \u0022use_kappa\u0022: true\n}\n\n## Responses\n# 200\n# Description: Annotator weights created/updated\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_projects_project_extra_params_create",
+      "Setup": null
+    },
+    {
+      "Order": 18,
+      "Title": "\u2728 Bulk unassign project members",
+      "Slug": "api-projects-members-bulk-destroy",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nUnassign project members in bulk. Pass selector fields via query parameters (\u0060all\u0060, \u0060included\u0060, \u0060excluded\u0060) and optional member filters (\u0060search\u0060, \u0060role\u0060, \u0060tags\u0060, \u0060last_activity__gte\u0060, \u0060last_activity__lte\u0060). For backward compatibility, a JSON body with bulk fields is still accepted.",
+      "Language": "csharp",
+      "Code": "using var client = new LabelStudioClient(apiKey);\nvar response = await client.AnnotationHistory.DeleteAsync();",
+      "Format": "sdk",
+      "OperationId": "api_projects_members_bulk_destroy",
+      "Setup": "This example assumes \u0060using LabelStudio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 19,
+      "Title": "\u2728 Retrieve SAML2 Settings",
+      "Slug": "api-saml-settings-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nRetrieve SAML2 settings for the currently active organization.",
+      "Language": "http",
+      "Code": "### \u2728 Retrieve SAML2 Settings\n# @name api_saml_settings_retrieve\nGET {{host}}/api/saml/settings\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_saml_settings_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 20,
+      "Title": "\u2728 Retrieve SCIM Settings",
+      "Slug": "api-scim-settings-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nRetrieve SCIM settings for the currently active organization.",
+      "Language": "http",
+      "Code": "### \u2728 Retrieve SCIM Settings\n# @name api_scim_settings_retrieve\nGET {{host}}/api/scim/settings\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_scim_settings_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 21,
+      "Title": "\u2728 Update SAML2 Settings",
+      "Slug": "api-saml-settings-create",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nUpdate SAML2 settings for the currently active organization.",
+      "Language": "http",
+      "Code": "### \u2728 Update SAML2 Settings\n# @name api_saml_settings_create\nPOST {{host}}/api/saml/settings\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022projects_groups\u0022: [\n    {\n      \u0022group\u0022: \u0022groups_test\u0022,\n      \u0022project_id\u0022: 42,\n      \u0022role\u0022: \u0022Inherit\u0022\n    }\n  ],\n  \u0022roles_groups\u0022: [\n    [\n      \u0022Administrator\u0022,\n      \u0022groups_test\u0022\n    ]\n  ],\n  \u0022workspaces_groups\u0022: [\n    [\n      \u0022Default workspace\u0022,\n      \u0022groups_test\u0022\n    ]\n  ]\n}\n\n## Responses\n# 201\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_saml_settings_create",
+      "Setup": null
+    },
+    {
+      "Order": 22,
+      "Title": "\u2728 Update SCIM Settings",
+      "Slug": "api-scim-settings-create",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nUpdate SCIM settings for the currently active organization.",
+      "Language": "http",
+      "Code": "### \u2728 Update SCIM Settings\n# @name api_scim_settings_create\nPOST {{host}}/api/scim/settings\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022projects_groups\u0022: [\n    {\n      \u0022group\u0022: \u0022groups_test\u0022,\n      \u0022project_id\u0022: 42,\n      \u0022role\u0022: \u0022Inherit\u0022\n    }\n  ],\n  \u0022roles_groups\u0022: [\n    [\n      \u0022Administrator\u0022,\n      \u0022groups_test\u0022\n    ]\n  ],\n  \u0022workspaces_groups\u0022: [\n    [\n      \u0022Default workspace\u0022,\n      \u0022groups_test\u0022\n    ]\n  ]\n}\n\n## Responses\n# 201\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_scim_settings_create",
+      "Setup": null
+    },
+    {
+      "Order": 23,
+      "Title": "\u2728 Get Inter-Annotator Agreement matrix",
+      "Slug": "api-projects-stats-iaa-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nGet Inter-Annotator Agreement (IAA) matrix for a project, showing agreement between all annotators.",
+      "Language": "http",
+      "Code": "### \u2728 Get Inter-Annotator Agreement matrix\n# @name api_projects_stats_IAA_retrieve\nGET {{host}}/api/projects/{{id}}/stats/IAA?expand={{expand}}\u0026per_label=false\u0026std=false\u0026task={{task}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Inter-Annotator Agreement matrix\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_projects_stats_IAA_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 24,
+      "Title": "\u2728 Get label distribution counts",
+      "Slug": "api-projects-stats-label-distribution-counts-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nReturns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (\u0060limit\u0060, \u0060offset\u0060) or targeted fetches via explicit \u0060choice_keys\u0060.",
+      "Language": "http",
+      "Code": "### \u2728 Get label distribution counts\n# @name api_projects_stats_label_distribution_counts_retrieve\nGET {{host}}/api/projects/{{id}}/stats/label-distribution/counts?choice_keys={{choice_keys}}\u0026limit={{limit}}\u0026offset=0\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Label distribution counts\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_projects_stats_label_distribution_counts_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 25,
+      "Title": "\u2728 Get label distribution structure",
+      "Slug": "api-projects-stats-label-distribution-structure-retrieve",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nReturns dimensions and flattened \u0060choice_keys\u0060 for a project. Use this response to drive paginated or targeted calls to the label distribution counts endpoint.",
+      "Language": "http",
+      "Code": "### \u2728 Get label distribution structure\n# @name api_projects_stats_label_distribution_structure_retrieve\nGET {{host}}/api/projects/{{id}}/stats/label-distribution/structure\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Label distribution structure\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_projects_stats_label_distribution_structure_retrieve",
+      "Setup": null
+    },
+    {
+      "Order": 26,
+      "Title": "Create a new task",
+      "Slug": "api-tasks-create",
+      "Description": "Create a new task",
+      "Language": "http",
+      "Code": "### Create a new task\n# @name api_tasks_create\nPOST {{host}}/api/tasks/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022data\u0022: {\n    \u0022image\u0022: \u0022https://example.com/image.jpg\u0022,\n    \u0022text\u0022: \u0022Hello, world!\u0022\n  },\n  \u0022project\u0022: 1\n}\n\n## Responses\n# 201\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "api_tasks_create",
+      "Setup": null
+    },
+    {
+      "Order": 27,
+      "Title": "\u2728 Bulk unassign workspace members",
+      "Slug": "api-workspaces-memberships-bulk-destroy",
+      "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nUnassign workspace members in bulk. Pass selector fields via query parameters (\u0060all\u0060, \u0060included\u0060, \u0060excluded\u0060) and optional paginated-list filters (\u0060search\u0060, \u0060ids\u0060). For backward compatibility, a JSON body with bulk fields is still accepted.",
+      "Language": "csharp",
+      "Code": "using var client = new LabelStudioClient(apiKey);\nvar response = await client.AnnotationHistory.DeleteAsync();",
+      "Format": "sdk",
+      "OperationId": "api_workspaces_memberships_bulk_destroy",
+      "Setup": "This example assumes \u0060using LabelStudio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    }
+  ]
+}
