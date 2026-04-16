@@ -9,6 +9,12 @@ namespace LabelStudio
     public sealed partial class ThirdPartyModelVersionRequest
     {
         /// <summary>
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_few_shot_examples")]
+        public int? MaxFewShotExamples { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_provider_connection")]
@@ -79,6 +85,9 @@ namespace LabelStudio
         /// <param name="title">
         /// Model name
         /// </param>
+        /// <param name="maxFewShotExamples">
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
@@ -101,11 +110,13 @@ namespace LabelStudio
             string prompt,
             string providerModelId,
             string title,
+            int? maxFewShotExamples,
             int? modelProviderConnection,
             int? organization,
             int? parentModel,
             global::LabelStudio.ProviderEnum? provider)
         {
+            this.MaxFewShotExamples = maxFewShotExamples;
             this.ModelProviderConnection = modelProviderConnection;
             this.Organization = organization;
             this.ParentModel = parentModel;

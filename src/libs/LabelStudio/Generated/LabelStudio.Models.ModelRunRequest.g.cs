@@ -9,6 +9,12 @@ namespace LabelStudio
     public sealed partial class ModelRunRequest
     {
         /// <summary>
+        /// DM filter group for Filtered subset. Stored for display/re-run purposes.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("filters_json")]
+        public object? FiltersJson { get; set; }
+
+        /// <summary>
         /// Job ID for inference job for a ModelRun e.g. Adala job ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("job_id")]
@@ -44,11 +50,18 @@ namespace LabelStudio
         /// <summary>
         /// * `All` - All<br/>
         /// * `HasGT` - HasGT<br/>
-        /// * `Sample` - Sample
+        /// * `Sample` - Sample<br/>
+        /// * `Custom` - Custom
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_subset")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSubsetEnumJsonConverter))]
         public global::LabelStudio.ProjectSubsetEnum? ProjectSubset { get; set; }
+
+        /// <summary>
+        /// Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sample_subset_size")]
+        public int? SampleSubsetSize { get; set; }
 
         /// <summary>
         /// 
@@ -78,6 +91,9 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="ModelRunRequest" /> class.
         /// </summary>
         /// <param name="project"></param>
+        /// <param name="filtersJson">
+        /// DM filter group for Filtered subset. Stored for display/re-run purposes.
+        /// </param>
         /// <param name="jobId">
         /// Job ID for inference job for a ModelRun e.g. Adala job ID
         /// </param>
@@ -91,7 +107,11 @@ namespace LabelStudio
         /// <param name="projectSubset">
         /// * `All` - All<br/>
         /// * `HasGT` - HasGT<br/>
-        /// * `Sample` - Sample
+        /// * `Sample` - Sample<br/>
+        /// * `Custom` - Custom
+        /// </param>
+        /// <param name="sampleSubsetSize">
+        /// Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
         /// </param>
         /// <param name="totalCorrectPredictions"></param>
         /// <param name="totalPredictions"></param>
@@ -101,21 +121,25 @@ namespace LabelStudio
 #endif
         public ModelRunRequest(
             int project,
+            object? filtersJson,
             string? jobId,
             bool? onlyMissingPredictions,
             int? organization,
             global::System.DateTime? predictionsUpdatedAt,
             global::LabelStudio.ProjectSubsetEnum? projectSubset,
+            int? sampleSubsetSize,
             int? totalCorrectPredictions,
             int? totalPredictions,
             int? totalTasks)
         {
+            this.FiltersJson = filtersJson;
             this.JobId = jobId;
             this.OnlyMissingPredictions = onlyMissingPredictions;
             this.Organization = organization;
             this.PredictionsUpdatedAt = predictionsUpdatedAt;
             this.Project = project;
             this.ProjectSubset = projectSubset;
+            this.SampleSubsetSize = sampleSubsetSize;
             this.TotalCorrectPredictions = totalCorrectPredictions;
             this.TotalPredictions = totalPredictions;
             this.TotalTasks = totalTasks;

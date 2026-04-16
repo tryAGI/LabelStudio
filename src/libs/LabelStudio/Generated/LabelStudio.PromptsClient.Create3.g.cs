@@ -417,6 +417,9 @@ namespace LabelStudio
         /// </summary>
         /// <param name="promptId"></param>
         /// <param name="versionId"></param>
+        /// <param name="filtersJson">
+        /// DM filter group for Filtered subset. Stored for display/re-run purposes.
+        /// </param>
         /// <param name="jobId">
         /// Job ID for inference job for a ModelRun e.g. Adala job ID
         /// </param>
@@ -431,7 +434,11 @@ namespace LabelStudio
         /// <param name="projectSubset">
         /// * `All` - All<br/>
         /// * `HasGT` - HasGT<br/>
-        /// * `Sample` - Sample
+        /// * `Sample` - Sample<br/>
+        /// * `Custom` - Custom
+        /// </param>
+        /// <param name="sampleSubsetSize">
+        /// Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
         /// </param>
         /// <param name="totalCorrectPredictions"></param>
         /// <param name="totalPredictions"></param>
@@ -444,10 +451,12 @@ namespace LabelStudio
             int versionId,
             bool onlyMissingPredictions,
             int project,
+            object? filtersJson = default,
             string? jobId = default,
             int? organization = default,
             global::System.DateTime? predictionsUpdatedAt = default,
             global::LabelStudio.ProjectSubsetEnum? projectSubset = default,
+            int? sampleSubsetSize = default,
             int? totalCorrectPredictions = default,
             int? totalPredictions = default,
             int? totalTasks = default,
@@ -456,12 +465,14 @@ namespace LabelStudio
         {
             var __request = new global::LabelStudio.ModelRunRequest
             {
+                FiltersJson = filtersJson,
                 JobId = jobId,
                 OnlyMissingPredictions = onlyMissingPredictions,
                 Organization = organization,
                 PredictionsUpdatedAt = predictionsUpdatedAt,
                 Project = project,
                 ProjectSubset = projectSubset,
+                SampleSubsetSize = sampleSubsetSize,
                 TotalCorrectPredictions = totalCorrectPredictions,
                 TotalPredictions = totalPredictions,
                 TotalTasks = totalTasks,

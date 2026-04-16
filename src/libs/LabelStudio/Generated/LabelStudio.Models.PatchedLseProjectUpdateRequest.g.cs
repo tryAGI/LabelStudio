@@ -104,6 +104,24 @@ namespace LabelStudio
         public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
+        public string? CustomInterfaceCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
+        public string? CustomInterfaceCompiled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
+        public object? CustomInterfaceParams { get; set; }
+
+        /// <summary>
         /// Plugins
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_script")]
@@ -138,6 +156,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expert_instruction")]
         public string? ExpertInstruction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
+        public object? InputSchema { get; set; }
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -283,6 +307,18 @@ namespace LabelStudio
         public global::LabelStudio.SkipQueueEnum? SkipQueue { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
+        public int? SourceInterfaceId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_version")]
+        public int? SourceInterfaceVersion { get; set; }
+
+        /// <summary>
         /// Enforce strict overlap limit<br/>
         /// Default Value: true
         /// </summary>
@@ -306,6 +342,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_custom_interface")]
+        public bool? UseCustomInterface { get; set; }
 
         /// <summary>
         /// Workspace
@@ -367,6 +409,9 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Project owner
         /// </param>
+        /// <param name="customInterfaceCode"></param>
+        /// <param name="customInterfaceCompiled"></param>
+        /// <param name="customInterfaceParams"></param>
         /// <param name="customScript">
         /// Plugins
         /// </param>
@@ -385,6 +430,7 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Instructions
         /// </param>
+        /// <param name="inputSchema"></param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -445,6 +491,8 @@ namespace LabelStudio
         /// Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="sourceInterfaceVersion"></param>
         /// <param name="strictTaskOverlap">
         /// Enforce strict overlap limit<br/>
         /// Default Value: true
@@ -457,6 +505,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="title">
         /// Project Name
+        /// </param>
+        /// <param name="useCustomInterface">
+        /// Default Value: false
         /// </param>
         /// <param name="workspace">
         /// Workspace
@@ -479,12 +530,16 @@ namespace LabelStudio
             string? commentClassificationConfig,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeightRequest>? controlWeights,
             global::LabelStudio.UserSimpleRequest? createdBy,
+            string? customInterfaceCode,
+            string? customInterfaceCompiled,
+            object? customInterfaceParams,
             string? customScript,
             int? customTaskLockTtl,
             string? description,
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
+            object? inputSchema,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -507,10 +562,13 @@ namespace LabelStudio
             bool? showSkipButton,
             bool? showUnusedDataColumnsToAnnotators,
             global::LabelStudio.SkipQueueEnum? skipQueue,
+            int? sourceInterfaceId,
+            int? sourceInterfaceVersion,
             bool? strictTaskOverlap,
             string? taskDataLogin,
             string? taskDataPassword,
             string? title,
+            bool? useCustomInterface,
             int? workspace)
         {
             this.AgreementMethodology = agreementMethodology;
@@ -527,12 +585,16 @@ namespace LabelStudio
             this.CommentClassificationConfig = commentClassificationConfig;
             this.ControlWeights = controlWeights;
             this.CreatedBy = createdBy;
+            this.CustomInterfaceCode = customInterfaceCode;
+            this.CustomInterfaceCompiled = customInterfaceCompiled;
+            this.CustomInterfaceParams = customInterfaceParams;
             this.CustomScript = customScript;
             this.CustomTaskLockTtl = customTaskLockTtl;
             this.Description = description;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
+            this.InputSchema = inputSchema;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
             this.LabelConfig = labelConfig;
@@ -555,10 +617,13 @@ namespace LabelStudio
             this.ShowSkipButton = showSkipButton;
             this.ShowUnusedDataColumnsToAnnotators = showUnusedDataColumnsToAnnotators;
             this.SkipQueue = skipQueue;
+            this.SourceInterfaceId = sourceInterfaceId;
+            this.SourceInterfaceVersion = sourceInterfaceVersion;
             this.StrictTaskOverlap = strictTaskOverlap;
             this.TaskDataLogin = taskDataLogin;
             this.TaskDataPassword = taskDataPassword;
             this.Title = title;
+            this.UseCustomInterface = useCustomInterface;
             this.Workspace = workspace;
         }
 

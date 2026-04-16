@@ -429,7 +429,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsDuplicateCreateResponse> DuplicateAsync(
             int id,
-            global::LabelStudio.ModeEnum mode,
+            global::LabelStudio.ProjectDuplicateModeEnum mode,
             string title,
             int workspace,
             string? description = default,

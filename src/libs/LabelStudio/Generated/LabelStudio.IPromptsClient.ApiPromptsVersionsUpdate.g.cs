@@ -39,6 +39,9 @@ namespace LabelStudio
         /// </summary>
         /// <param name="promptId"></param>
         /// <param name="versionId"></param>
+        /// <param name="maxFewShotExamples">
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
@@ -72,6 +75,7 @@ namespace LabelStudio
             string prompt,
             string providerModelId,
             string title,
+            int? maxFewShotExamples = default,
             int? modelProviderConnection = default,
             int? organization = default,
             int? parentModel = default,

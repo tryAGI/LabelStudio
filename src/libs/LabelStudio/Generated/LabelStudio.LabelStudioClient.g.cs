@@ -250,6 +250,15 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public InterfacesClient Interfaces => new InterfacesClient(HttpClient, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public JwtSettingsClient JwtSettings => new JwtSettingsClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,

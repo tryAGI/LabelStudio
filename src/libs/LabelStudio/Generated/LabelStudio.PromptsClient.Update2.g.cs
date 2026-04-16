@@ -417,6 +417,9 @@ namespace LabelStudio
         /// </summary>
         /// <param name="promptId"></param>
         /// <param name="versionId"></param>
+        /// <param name="maxFewShotExamples">
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
@@ -447,6 +450,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ThirdPartyModelVersion> Update2Async(
             int promptId,
             int versionId,
+            int? maxFewShotExamples = default,
             int? modelProviderConnection = default,
             int? organization = default,
             int? parentModel = default,
@@ -459,6 +463,7 @@ namespace LabelStudio
         {
             var __request = new global::LabelStudio.PatchedThirdPartyModelVersionRequest
             {
+                MaxFewShotExamples = maxFewShotExamples,
                 ModelProviderConnection = modelProviderConnection,
                 Organization = organization,
                 ParentModel = parentModel,

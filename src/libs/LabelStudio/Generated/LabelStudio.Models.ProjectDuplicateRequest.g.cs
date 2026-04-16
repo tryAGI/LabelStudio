@@ -20,9 +20,9 @@ namespace LabelStudio
         /// * `settings,data` - Settings and tasks
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ModeEnumJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectDuplicateModeEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.ModeEnum Mode { get; set; }
+        public required global::LabelStudio.ProjectDuplicateModeEnum Mode { get; set; }
 
         /// <summary>
         /// Project Name
@@ -65,7 +65,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ProjectDuplicateRequest(
-            global::LabelStudio.ModeEnum mode,
+            global::LabelStudio.ProjectDuplicateModeEnum mode,
             string title,
             int workspace,
             string? description)

@@ -6,7 +6,8 @@ namespace LabelStudio
     /// <summary>
     /// * `All` - All<br/>
     /// * `HasGT` - HasGT<br/>
-    /// * `Sample` - Sample
+    /// * `Sample` - Sample<br/>
+    /// * `Custom` - Custom
     /// </summary>
     public enum ProjectSubsetEnum
     {
@@ -14,6 +15,10 @@ namespace LabelStudio
         /// 
         /// </summary>
         All,
+        /// <summary>
+        /// 
+        /// </summary>
+        Custom,
         /// <summary>
         /// 
         /// </summary>
@@ -37,6 +42,7 @@ namespace LabelStudio
             return value switch
             {
                 ProjectSubsetEnum.All => "All",
+                ProjectSubsetEnum.Custom => "Custom",
                 ProjectSubsetEnum.HasGT => "HasGT",
                 ProjectSubsetEnum.Sample => "Sample",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -50,6 +56,7 @@ namespace LabelStudio
             return value switch
             {
                 "All" => ProjectSubsetEnum.All,
+                "Custom" => ProjectSubsetEnum.Custom,
                 "HasGT" => ProjectSubsetEnum.HasGT,
                 "Sample" => ProjectSubsetEnum.Sample,
                 _ => null,

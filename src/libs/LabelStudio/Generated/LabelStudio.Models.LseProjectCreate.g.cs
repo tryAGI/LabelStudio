@@ -59,6 +59,24 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple? CreatedBy { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
+        public string? CustomInterfaceCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
+        public string? CustomInterfaceCompiled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
+        public object? CustomInterfaceParams { get; set; }
+
+        /// <summary>
         /// Project Description
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -104,6 +122,12 @@ namespace LabelStudio
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public int Id { get; set; } = default!;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
+        public object? InputSchema { get; set; }
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -255,6 +279,18 @@ namespace LabelStudio
         public int SkippedAnnotationsNumber { get; set; } = default!;
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
+        public int? SourceInterfaceId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_version")]
+        public int? SourceInterfaceVersion { get; set; }
+
+        /// <summary>
         /// Start model training after any annotations are submitted or updated<br/>
         /// Included only in responses
         /// </summary>
@@ -312,6 +348,12 @@ namespace LabelStudio
         public int TotalPredictionsNumber { get; set; } = default!;
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_custom_interface")]
+        public bool? UseCustomInterface { get; set; }
+
+        /// <summary>
         /// Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number<br/>
         /// Included only in responses
         /// </summary>
@@ -344,6 +386,9 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Project owner
         /// </param>
+        /// <param name="customInterfaceCode"></param>
+        /// <param name="customInterfaceCompiled"></param>
+        /// <param name="customInterfaceParams"></param>
         /// <param name="description">
         /// Project Description
         /// </param>
@@ -356,6 +401,7 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Labeling instructions in HTML format
         /// </param>
+        /// <param name="inputSchema"></param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -397,6 +443,8 @@ namespace LabelStudio
         /// Show a skip button in interface and allow annotators to skip the task
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="sourceInterfaceVersion"></param>
         /// <param name="taskDataLogin">
         /// Task data credentials: login
         /// </param>
@@ -405,6 +453,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="title">
         /// Project Title
+        /// </param>
+        /// <param name="useCustomInterface">
+        /// Default Value: false
         /// </param>
         /// <param name="workspace">
         /// In Workspace
@@ -480,10 +531,14 @@ namespace LabelStudio
             string? color,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeight>? controlWeights,
             global::LabelStudio.UserSimple? createdBy,
+            string? customInterfaceCode,
+            string? customInterfaceCompiled,
+            object? customInterfaceParams,
             string? description,
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
+            object? inputSchema,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -501,9 +556,12 @@ namespace LabelStudio
             bool? showOverlapFirst,
             bool? showSkipButton,
             global::LabelStudio.SkipQueueEnum? skipQueue,
+            int? sourceInterfaceId,
+            int? sourceInterfaceVersion,
             string? taskDataLogin,
             string? taskDataPassword,
             string? title,
+            bool? useCustomInterface,
             int? workspace,
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
@@ -530,6 +588,9 @@ namespace LabelStudio
             this.ControlWeights = controlWeights;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
+            this.CustomInterfaceCode = customInterfaceCode;
+            this.CustomInterfaceCompiled = customInterfaceCompiled;
+            this.CustomInterfaceParams = customInterfaceParams;
             this.Description = description;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
@@ -537,6 +598,7 @@ namespace LabelStudio
             this.FinishedTaskNumber = finishedTaskNumber;
             this.GroundTruthNumber = groundTruthNumber;
             this.Id = id;
+            this.InputSchema = inputSchema;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
             this.LabelConfig = labelConfig;
@@ -559,6 +621,8 @@ namespace LabelStudio
             this.ShowSkipButton = showSkipButton;
             this.SkipQueue = skipQueue;
             this.SkippedAnnotationsNumber = skippedAnnotationsNumber;
+            this.SourceInterfaceId = sourceInterfaceId;
+            this.SourceInterfaceVersion = sourceInterfaceVersion;
             this.StartTrainingOnAnnotationUpdate = startTrainingOnAnnotationUpdate;
             this.State = state;
             this.TaskDataLogin = taskDataLogin;
@@ -567,6 +631,7 @@ namespace LabelStudio
             this.Title = title;
             this.TotalAnnotationsNumber = totalAnnotationsNumber;
             this.TotalPredictionsNumber = totalPredictionsNumber;
+            this.UseCustomInterface = useCustomInterface;
             this.UsefulAnnotationNumber = usefulAnnotationNumber;
             this.Workspace = workspace;
         }
