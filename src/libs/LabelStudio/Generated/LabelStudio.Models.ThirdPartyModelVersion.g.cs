@@ -31,6 +31,19 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_few_shot_examples")]
+        public int? MaxFewShotExamples { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_display_name")]
+        public string ModelDisplayName { get; set; } = default!;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_provider_connection")]
@@ -115,6 +128,9 @@ namespace LabelStudio
         /// <param name="title">
         /// Model name
         /// </param>
+        /// <param name="maxFewShotExamples">
+        /// Max number of few-shot examples to include in prompts. 0 = disabled.
+        /// </param>
         /// <param name="modelProviderConnection"></param>
         /// <param name="organization"></param>
         /// <param name="parentModel">
@@ -140,6 +156,9 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
+        /// <param name="modelDisplayName">
+        /// Included only in responses
+        /// </param>
         /// <param name="score">
         /// Included only in responses
         /// </param>
@@ -153,6 +172,7 @@ namespace LabelStudio
             string prompt,
             string providerModelId,
             string title,
+            int? maxFewShotExamples,
             int? modelProviderConnection,
             int? organization,
             int? parentModel,
@@ -160,12 +180,15 @@ namespace LabelStudio
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
+            string modelDisplayName = default!,
             string score = default!,
             global::System.DateTime updatedAt = default!)
         {
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Id = id;
+            this.MaxFewShotExamples = maxFewShotExamples;
+            this.ModelDisplayName = modelDisplayName;
             this.ModelProviderConnection = modelProviderConnection;
             this.Organization = organization;
             this.ParentModel = parentModel;

@@ -3,10 +3,10 @@
 namespace LabelStudio.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class ModeEnumJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::LabelStudio.ModeEnum>
+    public sealed class ReEvaluateModeEnumJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::LabelStudio.ReEvaluateModeEnum>
     {
         /// <inheritdoc />
-        public override global::LabelStudio.ModeEnum Read(
+        public override global::LabelStudio.ReEvaluateModeEnum Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace LabelStudio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::LabelStudio.ModeEnumExtensions.ToEnum(stringValue) ?? default;
+                        return global::LabelStudio.ReEvaluateModeEnumExtensions.ToEnum(stringValue) ?? default;
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace LabelStudio.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::LabelStudio.ModeEnum)numValue;
+                    return (global::LabelStudio.ReEvaluateModeEnum)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::LabelStudio.ModeEnum);
+                    return default(global::LabelStudio.ReEvaluateModeEnum);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,12 @@ namespace LabelStudio.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::LabelStudio.ModeEnum value,
+            global::LabelStudio.ReEvaluateModeEnum value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::LabelStudio.ModeEnumExtensions.ToValueString(value));
+            writer.WriteStringValue(global::LabelStudio.ReEvaluateModeEnumExtensions.ToValueString(value));
         }
     }
 }

@@ -163,6 +163,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public InterfacesClient Interfaces { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public JwtSettingsClient JwtSettings { get; }
 
         /// <summary>

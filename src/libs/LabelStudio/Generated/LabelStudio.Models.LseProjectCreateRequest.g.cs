@@ -36,6 +36,24 @@ namespace LabelStudio
         public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
+        public string? CustomInterfaceCode { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
+        public string? CustomInterfaceCompiled { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
+        public object? CustomInterfaceParams { get; set; }
+
+        /// <summary>
         /// Project Description
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
@@ -58,6 +76,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expert_instruction")]
         public string? ExpertInstruction { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
+        public object? InputSchema { get; set; }
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -171,6 +195,18 @@ namespace LabelStudio
         public global::LabelStudio.SkipQueueEnum? SkipQueue { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
+        public int? SourceInterfaceId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_version")]
+        public int? SourceInterfaceVersion { get; set; }
+
+        /// <summary>
         /// Task data credentials: login
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("task_data_login")]
@@ -187,6 +223,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
+
+        /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("use_custom_interface")]
+        public bool? UseCustomInterface { get; set; }
 
         /// <summary>
         /// In Workspace
@@ -213,6 +255,9 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Project owner
         /// </param>
+        /// <param name="customInterfaceCode"></param>
+        /// <param name="customInterfaceCompiled"></param>
+        /// <param name="customInterfaceParams"></param>
         /// <param name="description">
         /// Project Description
         /// </param>
@@ -225,6 +270,7 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Labeling instructions in HTML format
         /// </param>
+        /// <param name="inputSchema"></param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -266,6 +312,8 @@ namespace LabelStudio
         /// Show a skip button in interface and allow annotators to skip the task
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="sourceInterfaceVersion"></param>
         /// <param name="taskDataLogin">
         /// Task data credentials: login
         /// </param>
@@ -274,6 +322,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="title">
         /// Project Title
+        /// </param>
+        /// <param name="useCustomInterface">
+        /// Default Value: false
         /// </param>
         /// <param name="workspace">
         /// In Workspace
@@ -286,10 +337,14 @@ namespace LabelStudio
             string? color,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeightRequest>? controlWeights,
             global::LabelStudio.UserSimpleRequest? createdBy,
+            string? customInterfaceCode,
+            string? customInterfaceCompiled,
+            object? customInterfaceParams,
             string? description,
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
+            object? inputSchema,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -307,19 +362,26 @@ namespace LabelStudio
             bool? showOverlapFirst,
             bool? showSkipButton,
             global::LabelStudio.SkipQueueEnum? skipQueue,
+            int? sourceInterfaceId,
+            int? sourceInterfaceVersion,
             string? taskDataLogin,
             string? taskDataPassword,
             string? title,
+            bool? useCustomInterface,
             int? workspace)
         {
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
             this.Color = color;
             this.ControlWeights = controlWeights;
             this.CreatedBy = createdBy;
+            this.CustomInterfaceCode = customInterfaceCode;
+            this.CustomInterfaceCompiled = customInterfaceCompiled;
+            this.CustomInterfaceParams = customInterfaceParams;
             this.Description = description;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
+            this.InputSchema = inputSchema;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
             this.LabelConfig = labelConfig;
@@ -337,9 +399,12 @@ namespace LabelStudio
             this.ShowOverlapFirst = showOverlapFirst;
             this.ShowSkipButton = showSkipButton;
             this.SkipQueue = skipQueue;
+            this.SourceInterfaceId = sourceInterfaceId;
+            this.SourceInterfaceVersion = sourceInterfaceVersion;
             this.TaskDataLogin = taskDataLogin;
             this.TaskDataPassword = taskDataPassword;
             this.Title = title;
+            this.UseCustomInterface = useCustomInterface;
             this.Workspace = workspace;
         }
 

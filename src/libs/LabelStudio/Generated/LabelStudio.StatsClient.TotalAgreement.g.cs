@@ -52,7 +52,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         /// Overall or per-label total agreement across the project.<br/>
-        /// NOTE: due to an open issue in Fern, SDK clients will raise ApiError upon handling a 204 response. As a workaround, wrap call to this function in a try-except block.
+        /// NOTE: when this endpoint returns 204 No Content, SDK clients return None.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="perLabel"></param>

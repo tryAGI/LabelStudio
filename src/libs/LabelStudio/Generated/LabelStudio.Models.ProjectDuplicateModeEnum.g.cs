@@ -7,7 +7,7 @@ namespace LabelStudio
     /// * `settings` - Only settings<br/>
     /// * `settings,data` - Settings and tasks
     /// </summary>
-    public enum ModeEnum
+    public enum ProjectDuplicateModeEnum
     {
         /// <summary>
         /// 
@@ -22,29 +22,29 @@ namespace LabelStudio
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class ModeEnumExtensions
+    public static class ProjectDuplicateModeEnumExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this ModeEnum value)
+        public static string ToValueString(this ProjectDuplicateModeEnum value)
         {
             return value switch
             {
-                ModeEnum.Settings => "settings",
-                ModeEnum.Settings_data => "settings,data",
+                ProjectDuplicateModeEnum.Settings => "settings",
+                ProjectDuplicateModeEnum.Settings_data => "settings,data",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static ModeEnum? ToEnum(string value)
+        public static ProjectDuplicateModeEnum? ToEnum(string value)
         {
             return value switch
             {
-                "settings" => ModeEnum.Settings,
-                "settings,data" => ModeEnum.Settings_data,
+                "settings" => ProjectDuplicateModeEnum.Settings,
+                "settings,data" => ProjectDuplicateModeEnum.Settings_data,
                 _ => null,
             };
         }

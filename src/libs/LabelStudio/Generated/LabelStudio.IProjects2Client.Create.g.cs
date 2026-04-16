@@ -33,6 +33,9 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Project owner
         /// </param>
+        /// <param name="customInterfaceCode"></param>
+        /// <param name="customInterfaceCompiled"></param>
+        /// <param name="customInterfaceParams"></param>
         /// <param name="description">
         /// Project Description
         /// </param>
@@ -45,6 +48,7 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Labeling instructions in HTML format
         /// </param>
+        /// <param name="inputSchema"></param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -86,6 +90,8 @@ namespace LabelStudio
         /// Show a skip button in interface and allow annotators to skip the task
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="sourceInterfaceVersion"></param>
         /// <param name="taskDataLogin">
         /// Task data credentials: login
         /// </param>
@@ -94,6 +100,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="title">
         /// Project Title
+        /// </param>
+        /// <param name="useCustomInterface">
+        /// Default Value: false
         /// </param>
         /// <param name="workspace">
         /// In Workspace
@@ -106,10 +115,14 @@ namespace LabelStudio
             string? color = default,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeightRequest>? controlWeights = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,
+            string? customInterfaceCode = default,
+            string? customInterfaceCompiled = default,
+            object? customInterfaceParams = default,
             string? description = default,
             bool? enableEmptyAnnotation = default,
             bool? evaluatePredictionsAutomatically = default,
             string? expertInstruction = default,
+            object? inputSchema = default,
             bool? isDraft = default,
             bool? isPublished = default,
             string? labelConfig = default,
@@ -127,9 +140,12 @@ namespace LabelStudio
             bool? showOverlapFirst = default,
             bool? showSkipButton = default,
             global::LabelStudio.SkipQueueEnum? skipQueue = default,
+            int? sourceInterfaceId = default,
+            int? sourceInterfaceVersion = default,
             string? taskDataLogin = default,
             string? taskDataPassword = default,
             string? title = default,
+            bool? useCustomInterface = default,
             int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
