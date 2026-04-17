@@ -134,6 +134,13 @@ namespace LabelStudio
         public string? Phone { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("social_accounts")]
+        public global::System.Collections.Generic.IList<object> SocialAccounts { get; set; } = default!;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
@@ -190,6 +197,9 @@ namespace LabelStudio
         /// <param name="permissions">
         /// Included only in responses
         /// </param>
+        /// <param name="socialAccounts">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -211,7 +221,8 @@ namespace LabelStudio
             global::LabelStudio.WhoAmILseFields lseFields = default!,
             global::LabelStudio.OrganizationMembership organizationMembership = default!,
             string pause = default!,
-            global::System.Collections.Generic.IList<string> permissions = default!)
+            global::System.Collections.Generic.IList<string> permissions = default!,
+            global::System.Collections.Generic.IList<object> socialAccounts = default!)
         {
             this.ActiveOrganization = activeOrganization;
             this.ActiveOrganizationMeta = activeOrganizationMeta;
@@ -230,6 +241,7 @@ namespace LabelStudio
             this.Pause = pause;
             this.Permissions = permissions;
             this.Phone = phone;
+            this.SocialAccounts = socialAccounts;
             this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
         }
 
