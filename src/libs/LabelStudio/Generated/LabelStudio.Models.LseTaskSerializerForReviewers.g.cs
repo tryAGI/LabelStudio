@@ -59,12 +59,12 @@ namespace LabelStudio
         public string AnnotationsResults { get; set; } = default!;
 
         /// <summary>
-        /// Annotators IDs who annotated this task<br/>
+        /// Who annotated this task; each item includes user_id plus minimal profile fields for Data Manager display.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotators")]
-        public global::System.Collections.Generic.IList<int> Annotators { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Annotators { get; set; } = default!;
 
         /// <summary>
         /// The annotators_count is calculated as the number of users with annotations (can be repeated, so same as the number of annotations) + the number of assignees without annotations.<br/>
@@ -399,7 +399,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="annotators">
-        /// Annotators IDs who annotated this task<br/>
+        /// Who annotated this task; each item includes user_id plus minimal profile fields for Data Manager display.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="annotatorsCount">
@@ -496,7 +496,7 @@ namespace LabelStudio
             string annotations = default!,
             string annotationsIds = default!,
             string annotationsResults = default!,
-            global::System.Collections.Generic.IList<int> annotators = default!,
+            global::System.Collections.Generic.IList<object> annotators = default!,
             int annotatorsCount = default!,
             global::System.Collections.Generic.IList<object> commentAuthors = default!,
             int commentAuthorsCount = default!,
