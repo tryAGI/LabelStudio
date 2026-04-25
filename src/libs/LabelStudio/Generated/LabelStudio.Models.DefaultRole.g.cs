@@ -15,6 +15,12 @@ namespace LabelStudio
         public global::System.DateTime? AnnotatorReviewerFirewallEnabledAt { get; set; }
 
         /// <summary>
+        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interfaces_enabled")]
+        public bool? CustomInterfacesEnabled { get; set; }
+
+        /// <summary>
         /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_scripts_enabled_at")]
@@ -47,6 +53,12 @@ namespace LabelStudio
         public object? EmbedDomains { get; set; }
 
         /// <summary>
+        /// Enable embed functionality for this organization
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("embed_enabled")]
+        public bool? EmbedEnabled { get; set; }
+
+        /// <summary>
         /// Embed settings for this organization
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embed_settings")]
@@ -63,6 +75,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_data_on_activity_logs")]
         public bool? ExtraDataOnActivityLogs { get; set; }
+
+        /// <summary>
+        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interface_settings")]
+        public object? InterfaceSettings { get; set; }
 
         /// <summary>
         /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
@@ -104,6 +122,9 @@ namespace LabelStudio
         /// <param name="annotatorReviewerFirewallEnabledAt">
         /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
         /// </param>
+        /// <param name="customInterfacesEnabled">
+        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
+        /// </param>
         /// <param name="customScriptsEnabledAt">
         /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
         /// </param>
@@ -123,6 +144,9 @@ namespace LabelStudio
         /// <param name="embedDomains">
         /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
         /// </param>
+        /// <param name="embedEnabled">
+        /// Enable embed functionality for this organization
+        /// </param>
         /// <param name="embedSettings">
         /// Embed settings for this organization
         /// </param>
@@ -130,6 +154,9 @@ namespace LabelStudio
         /// External ID to uniquely identify this organization
         /// </param>
         /// <param name="extraDataOnActivityLogs"></param>
+        /// <param name="interfaceSettings">
+        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
+        /// </param>
         /// <param name="labelStreamNavigationDisabledAt">
         /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
         /// </param>
@@ -145,25 +172,31 @@ namespace LabelStudio
         public DefaultRole(
             int organization,
             global::System.DateTime? annotatorReviewerFirewallEnabledAt,
+            bool? customInterfacesEnabled,
             global::System.DateTime? customScriptsEnabledAt,
             global::LabelStudio.Role9e7Enum? defaultRole1,
             object? emailNotificationSettings,
             object? embedDomains,
+            bool? embedEnabled,
             object? embedSettings,
             string? externalId,
             bool? extraDataOnActivityLogs,
+            object? interfaceSettings,
             global::System.DateTime? labelStreamNavigationDisabledAt,
             object? reactCodeSettings,
             global::System.DateTime? readOnlyQuickViewEnabledAt)
         {
             this.AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt;
+            this.CustomInterfacesEnabled = customInterfacesEnabled;
             this.CustomScriptsEnabledAt = customScriptsEnabledAt;
             this.DefaultRole1 = defaultRole1;
             this.EmailNotificationSettings = emailNotificationSettings;
             this.EmbedDomains = embedDomains;
+            this.EmbedEnabled = embedEnabled;
             this.EmbedSettings = embedSettings;
             this.ExternalId = externalId;
             this.ExtraDataOnActivityLogs = extraDataOnActivityLogs;
+            this.InterfaceSettings = interfaceSettings;
             this.LabelStreamNavigationDisabledAt = labelStreamNavigationDisabledAt;
             this.Organization = organization;
             this.ReactCodeSettings = reactCodeSettings;
