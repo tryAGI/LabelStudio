@@ -413,6 +413,9 @@ namespace LabelStudio
         /// <param name="annotatorReviewerFirewallEnabledAt">
         /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
         /// </param>
+        /// <param name="customInterfacesEnabled">
+        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
+        /// </param>
         /// <param name="customScriptsEnabledAt">
         /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
         /// </param>
@@ -432,6 +435,9 @@ namespace LabelStudio
         /// <param name="embedDomains">
         /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
         /// </param>
+        /// <param name="embedEnabled">
+        /// Enable embed functionality for this organization
+        /// </param>
         /// <param name="embedSettings">
         /// Embed settings for this organization
         /// </param>
@@ -439,6 +445,9 @@ namespace LabelStudio
         /// External ID to uniquely identify this organization
         /// </param>
         /// <param name="extraDataOnActivityLogs"></param>
+        /// <param name="interfaceSettings">
+        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
+        /// </param>
         /// <param name="labelStreamNavigationDisabledAt">
         /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
         /// </param>
@@ -457,13 +466,16 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.DefaultRole> UpdateDefaultRoleAsync(
             int id,
             global::System.DateTime? annotatorReviewerFirewallEnabledAt = default,
+            bool? customInterfacesEnabled = default,
             global::System.DateTime? customScriptsEnabledAt = default,
             global::LabelStudio.Role9e7Enum? defaultRole = default,
             object? emailNotificationSettings = default,
             object? embedDomains = default,
+            bool? embedEnabled = default,
             object? embedSettings = default,
             string? externalId = default,
             bool? extraDataOnActivityLogs = default,
+            object? interfaceSettings = default,
             global::System.DateTime? labelStreamNavigationDisabledAt = default,
             int? organization = default,
             object? reactCodeSettings = default,
@@ -474,13 +486,16 @@ namespace LabelStudio
             var __request = new global::LabelStudio.PatchedDefaultRoleRequest
             {
                 AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt,
+                CustomInterfacesEnabled = customInterfacesEnabled,
                 CustomScriptsEnabledAt = customScriptsEnabledAt,
                 DefaultRole = defaultRole,
                 EmailNotificationSettings = emailNotificationSettings,
                 EmbedDomains = embedDomains,
+                EmbedEnabled = embedEnabled,
                 EmbedSettings = embedSettings,
                 ExternalId = externalId,
                 ExtraDataOnActivityLogs = extraDataOnActivityLogs,
+                InterfaceSettings = interfaceSettings,
                 LabelStreamNavigationDisabledAt = labelStreamNavigationDisabledAt,
                 Organization = organization,
                 ReactCodeSettings = reactCodeSettings,
