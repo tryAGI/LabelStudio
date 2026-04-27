@@ -27,11 +27,15 @@ namespace LabelStudio
             };
         partial void PrepareList2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? ordering);
+            ref string? ordering,
+            ref int? page,
+            ref string? search);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? ordering);
+            string? ordering,
+            int? page,
+            string? search);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,11 +50,15 @@ namespace LabelStudio
         /// List all prompts.
         /// </summary>
         /// <param name="ordering"></param>
+        /// <param name="page"></param>
+        /// <param name="search"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ModelInterfaceSerializerGET>> List2Async(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedModelInterfaceSerializerGETList> List2Async(
             string? ordering = default,
+            int? page = default,
+            string? search = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -58,7 +66,9 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareList2Arguments(
                 httpClient: HttpClient,
-                ordering: ref ordering);
+                ordering: ref ordering,
+                page: ref page,
+                search: ref search);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -86,7 +96,9 @@ namespace LabelStudio
                                 path: "/api/prompts/",
                                 baseUri: HttpClient.BaseAddress); 
                             __pathBuilder
-                                .AddOptionalParameter("ordering", ordering) 
+                                .AddOptionalParameter("ordering", ordering)
+                                .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("search", search) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -128,7 +140,9 @@ namespace LabelStudio
                 PrepareList2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    ordering: ordering);
+                    ordering: ordering,
+                    page: page,
+                    search: search);
 
                 return __httpRequest;
             }
@@ -312,7 +326,7 @@ namespace LabelStudio
                                     __response.EnsureSuccessStatusCode();
 
                                     return
-                                        (global::System.Collections.Generic.IList<global::LabelStudio.ModelInterfaceSerializerGET>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ModelInterfaceSerializerGET>), JsonSerializerContext) ??
+                                        global::LabelStudio.PaginatedModelInterfaceSerializerGETList.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                 }
                                 catch (global::System.Exception __ex)
@@ -342,7 +356,7 @@ namespace LabelStudio
                                     ).ConfigureAwait(false);
 
                                     return
-                                        (global::System.Collections.Generic.IList<global::LabelStudio.ModelInterfaceSerializerGET>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ModelInterfaceSerializerGET>), JsonSerializerContext).ConfigureAwait(false) ??
+                                        await global::LabelStudio.PaginatedModelInterfaceSerializerGETList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                 }
                                 catch (global::System.Exception __ex)
