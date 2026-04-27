@@ -17,6 +17,12 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("best_score")]
+        public double? BestScore { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         public global::System.DateTime CreatedAt { get; set; } = default!;
@@ -59,6 +65,14 @@ namespace LabelStudio
         public object? OutputClasses { get; set; }
 
         /// <summary>
+        /// Default Value: 0<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("runs_count")]
+        public int RunsCount { get; set; } = default!;
+
+        /// <summary>
         /// Default Value: TextClassification
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skill_name")]
@@ -80,6 +94,14 @@ namespace LabelStudio
         public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
+        /// Default Value: 0<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("versions_count")]
+        public int VersionsCount { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -93,6 +115,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="associatedProjects">
         /// Default Value: []
+        /// </param>
+        /// <param name="bestScore">
+        /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// User who created Dataset
@@ -112,7 +137,15 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
+        /// <param name="runsCount">
+        /// Default Value: 0<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="versionsCount">
+        /// Default Value: 0<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -121,6 +154,7 @@ namespace LabelStudio
         public ModelInterfaceSerializerGET(
             string title,
             global::System.Collections.Generic.IList<global::LabelStudio.AssociatedProject>? associatedProjects,
+            double? bestScore,
             global::LabelStudio.UserSimple? createdBy,
             string? description,
             object? inputFields,
@@ -129,9 +163,12 @@ namespace LabelStudio
             global::LabelStudio.SkillNameEnum? skillName,
             global::System.DateTime createdAt = default!,
             int id = default!,
-            global::System.DateTime updatedAt = default!)
+            int runsCount = default!,
+            global::System.DateTime updatedAt = default!,
+            int versionsCount = default!)
         {
             this.AssociatedProjects = associatedProjects;
+            this.BestScore = bestScore;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
@@ -139,9 +176,11 @@ namespace LabelStudio
             this.InputFields = inputFields;
             this.Organization = organization;
             this.OutputClasses = outputClasses;
+            this.RunsCount = runsCount;
             this.SkillName = skillName;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.UpdatedAt = updatedAt;
+            this.VersionsCount = versionsCount;
         }
 
         /// <summary>
