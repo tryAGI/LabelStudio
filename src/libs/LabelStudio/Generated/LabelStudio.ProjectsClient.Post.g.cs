@@ -33,6 +33,7 @@ namespace LabelStudio
             ref string? role,
             ref string? search,
             ref string? tags,
+            ref string? userType,
             global::LabelStudio.ProjectMemberBulkAssignRequest request);
         partial void PreparePostRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -43,6 +44,7 @@ namespace LabelStudio
             string? role,
             string? search,
             string? tags,
+            string? userType,
             global::LabelStudio.ProjectMemberBulkAssignRequest request);
         partial void ProcessPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -69,6 +71,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -82,6 +85,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -97,6 +101,7 @@ namespace LabelStudio
                 role: ref role,
                 search: ref search,
                 tags: ref tags,
+                userType: ref userType,
                 request: request);
 
 
@@ -129,7 +134,8 @@ namespace LabelStudio
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte)
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("tags", tags) 
+                                .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user_type", userType) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -183,6 +189,7 @@ namespace LabelStudio
                     role: role,
                     search: search,
                     tags: tags,
+                    userType: userType,
                     request: request);
 
                 return __httpRequest;
@@ -452,6 +459,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all project members
         /// </param>
@@ -475,6 +483,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectMemberBulkAssignRolesRequest>? roles = default,
@@ -496,6 +505,7 @@ namespace LabelStudio
                 role: role,
                 search: search,
                 tags: tags,
+                userType: userType,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
