@@ -29,12 +29,14 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             ref string? ordering,
             ref int? page,
+            ref int? pageSize,
             ref string? search);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? ordering,
             int? page,
+            int? pageSize,
             string? search);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -51,6 +53,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
+        /// <param name="pageSize"></param>
         /// <param name="search"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -58,6 +61,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedModelInterfaceSerializerGETList> List2Async(
             string? ordering = default,
             int? page = default,
+            int? pageSize = default,
             string? search = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -68,6 +72,7 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 ordering: ref ordering,
                 page: ref page,
+                pageSize: ref pageSize,
                 search: ref search);
 
 
@@ -98,6 +103,7 @@ namespace LabelStudio
                             __pathBuilder
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search) 
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -142,6 +148,7 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     ordering: ordering,
                     page: page,
+                    pageSize: pageSize,
                     search: search);
 
                 return __httpRequest;

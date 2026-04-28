@@ -10,6 +10,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
+        /// <param name="pageSize"></param>
         /// <param name="search"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -17,6 +18,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedModelInterfaceSerializerGETList> List2Async(
             string? ordering = default,
             int? page = default,
+            int? pageSize = default,
             string? search = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
