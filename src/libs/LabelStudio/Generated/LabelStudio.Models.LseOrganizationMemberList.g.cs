@@ -74,6 +74,13 @@ namespace LabelStudio
         public required global::LabelStudio.LseUserOrganizationMemberList User { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
+        public string UserType { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -112,6 +119,9 @@ namespace LabelStudio
         /// <param name="tags">
         /// Included only in responses
         /// </param>
+        /// <param name="userType">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -124,7 +134,8 @@ namespace LabelStudio
             int id = default!,
             string role = default!,
             string roleSource = default!,
-            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
+            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!,
+            string userType = default!)
         {
             this.Concurrency = concurrency;
             this.ContributedToProjects = contributedToProjects;
@@ -135,6 +146,7 @@ namespace LabelStudio
             this.RoleSource = roleSource;
             this.Tags = tags;
             this.User = user ?? throw new global::System.ArgumentNullException(nameof(user));
+            this.UserType = userType;
         }
 
         /// <summary>

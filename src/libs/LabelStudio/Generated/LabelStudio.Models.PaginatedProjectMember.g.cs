@@ -148,6 +148,13 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> Tags { get; set; } = default!;
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
+        public string UserType { get; set; } = default!;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
@@ -210,6 +217,9 @@ namespace LabelStudio
         /// <param name="tags">
         /// Included only in responses
         /// </param>
+        /// <param name="userType">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -233,7 +243,8 @@ namespace LabelStudio
             global::LabelStudio.OrganizationMembership organizationMembership = default!,
             string pause = default!,
             string projectRole = default!,
-            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
+            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!,
+            string userType = default!)
         {
             this.ActiveOrganization = activeOrganization;
             this.ActiveOrganizationMeta = activeOrganizationMeta;
@@ -254,6 +265,7 @@ namespace LabelStudio
             this.Phone = phone;
             this.ProjectRole = projectRole;
             this.Tags = tags;
+            this.UserType = userType;
             this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
         }
 

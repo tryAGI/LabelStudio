@@ -35,6 +35,7 @@ namespace LabelStudio
             ref string? tags,
             ref string? userLastActivityGte,
             ref string? userLastActivityLte,
+            ref string? userType,
             global::LabelStudio.BulkOrganizationMemberTagAssignmentRequest request);
         partial void PrepareAssignRequest(
             global::System.Net.Http.HttpClient httpClient,
@@ -47,6 +48,7 @@ namespace LabelStudio
             string? tags,
             string? userLastActivityGte,
             string? userLastActivityLte,
+            string? userType,
             global::LabelStudio.BulkOrganizationMemberTagAssignmentRequest request);
         partial void ProcessAssignResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -75,6 +77,7 @@ namespace LabelStudio
         /// <param name="tags"></param>
         /// <param name="userLastActivityGte"></param>
         /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -90,6 +93,7 @@ namespace LabelStudio
             string? tags = default,
             string? userLastActivityGte = default,
             string? userLastActivityLte = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,6 +111,7 @@ namespace LabelStudio
                 tags: ref tags,
                 userLastActivityGte: ref userLastActivityGte,
                 userLastActivityLte: ref userLastActivityLte,
+                userType: ref userType,
                 request: request);
 
 
@@ -141,7 +146,8 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("tags", tags)
                                 .AddOptionalParameter("user__last_activity__gte", userLastActivityGte)
-                                .AddOptionalParameter("user__last_activity__lte", userLastActivityLte) 
+                                .AddOptionalParameter("user__last_activity__lte", userLastActivityLte)
+                                .AddOptionalParameter("user_type", userType) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -197,6 +203,7 @@ namespace LabelStudio
                     tags: tags,
                     userLastActivityGte: userLastActivityGte,
                     userLastActivityLte: userLastActivityLte,
+                    userType: userType,
                     request: request);
 
                 return __httpRequest;
@@ -534,6 +541,7 @@ namespace LabelStudio
         /// <param name="tags"></param>
         /// <param name="userLastActivityGte"></param>
         /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="all">
         /// If true, assign tags to all organization members. If false, assign tags to the provided users.
         /// </param>
@@ -563,6 +571,7 @@ namespace LabelStudio
             string? tags = default,
             string? userLastActivityGte = default,
             string? userLastActivityLte = default,
+            string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,
             bool? overwrite = default,
@@ -588,6 +597,7 @@ namespace LabelStudio
                 tags: tags,
                 userLastActivityGte: userLastActivityGte,
                 userLastActivityLte: userLastActivityLte,
+                userType: userType,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

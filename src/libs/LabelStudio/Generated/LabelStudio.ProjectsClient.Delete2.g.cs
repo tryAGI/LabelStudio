@@ -35,7 +35,8 @@ namespace LabelStudio
             ref string? lastActivityLte,
             ref string? role,
             ref string? search,
-            ref string? tags);
+            ref string? tags,
+            ref string? userType);
         partial void PrepareDelete2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -47,7 +48,8 @@ namespace LabelStudio
             string? lastActivityLte,
             string? role,
             string? search,
-            string? tags);
+            string? tags,
+            string? userType);
         partial void ProcessDelete2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -76,6 +78,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userType"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -89,6 +92,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -104,7 +108,8 @@ namespace LabelStudio
                 lastActivityLte: ref lastActivityLte,
                 role: ref role,
                 search: ref search,
-                tags: ref tags);
+                tags: ref tags,
+                userType: ref userType);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -139,7 +144,8 @@ namespace LabelStudio
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte)
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("tags", tags) 
+                                .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user_type", userType) 
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -189,7 +195,8 @@ namespace LabelStudio
                     lastActivityLte: lastActivityLte,
                     role: role,
                     search: search,
-                    tags: tags);
+                    tags: tags,
+                    userType: userType);
 
                 return __httpRequest;
             }
