@@ -213,7 +213,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     commitToProject: commitToProject,
-                    id: id,
+                    id: id!,
                     preannotatedFromFields: preannotatedFromFields,
                     returnTaskIds: returnTaskIds,
                     request: request);

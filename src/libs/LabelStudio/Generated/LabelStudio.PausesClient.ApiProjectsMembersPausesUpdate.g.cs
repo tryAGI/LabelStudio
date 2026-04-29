@@ -155,9 +155,9 @@ namespace LabelStudio
                 PrepareApiProjectsMembersPausesUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    projectPk: projectPk,
-                    userPk: userPk,
+                    id: id!,
+                    projectPk: projectPk!,
+                    userPk: userPk!,
                     request: request);
 
                 return __httpRequest;

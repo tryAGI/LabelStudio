@@ -166,8 +166,8 @@ namespace LabelStudio
                     parentModel: parentModel,
                     project: project,
                     projectSubset: projectSubset,
-                    promptId: promptId,
-                    versionId: versionId);
+                    promptId: promptId!,
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

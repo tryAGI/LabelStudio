@@ -145,7 +145,7 @@ namespace LabelStudio
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectPk: projectPk,
+                    projectPk: projectPk!,
                     request: request);
 
                 return __httpRequest;

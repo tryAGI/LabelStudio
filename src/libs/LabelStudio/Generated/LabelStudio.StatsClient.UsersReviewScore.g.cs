@@ -145,8 +145,8 @@ namespace LabelStudio
                 PrepareUsersReviewScoreRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    ids: ids,
+                    id: id!,
+                    ids: ids!,
                     perLabel: perLabel);
 
                 return __httpRequest;

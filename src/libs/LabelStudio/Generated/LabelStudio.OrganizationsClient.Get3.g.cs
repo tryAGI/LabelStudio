@@ -139,8 +139,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     contributedToProjects: contributedToProjects,
-                    id: id,
-                    userPk: userPk);
+                    id: id!,
+                    userPk: userPk!);
 
                 return __httpRequest;
             }

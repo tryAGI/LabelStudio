@@ -152,8 +152,8 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     includeDeleted: includeDeleted,
                     ordering: ordering,
-                    projectPk: projectPk,
-                    userPk: userPk);
+                    projectPk: projectPk!,
+                    userPk: userPk!);
 
                 return __httpRequest;
             }

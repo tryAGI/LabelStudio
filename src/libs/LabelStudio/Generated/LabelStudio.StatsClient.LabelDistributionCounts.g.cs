@@ -154,7 +154,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     choiceKeys: choiceKeys,
-                    id: id,
+                    id: id!,
                     limit: limit,
                     offset: offset);
 

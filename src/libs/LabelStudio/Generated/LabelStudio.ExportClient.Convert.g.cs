@@ -144,8 +144,8 @@ namespace LabelStudio
                 PrepareConvertRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    exportPk: exportPk,
-                    id: id,
+                    exportPk: exportPk!,
+                    id: id!,
                     request: request);
 
                 return __httpRequest;

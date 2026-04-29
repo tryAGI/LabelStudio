@@ -154,7 +154,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     endDate: endDate,
-                    id: id,
+                    id: id!,
                     limit: limit,
                     startDate: startDate);
 

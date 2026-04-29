@@ -183,7 +183,7 @@ namespace LabelStudio
                 PreparePostRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,
                     role: role,

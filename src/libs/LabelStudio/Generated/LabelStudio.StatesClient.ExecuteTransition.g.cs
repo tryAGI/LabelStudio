@@ -150,8 +150,8 @@ namespace LabelStudio
                 PrepareExecuteTransitionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    entityId: entityId,
-                    entityName: entityName,
+                    entityId: entityId!,
+                    entityName: entityName!,
                     request: request);
 
                 return __httpRequest;

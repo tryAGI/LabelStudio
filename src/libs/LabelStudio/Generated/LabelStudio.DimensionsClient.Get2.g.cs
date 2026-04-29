@@ -150,9 +150,9 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     dimension: dimension,
-                    projectPk: projectPk,
-                    selection: selection,
-                    taskPk: taskPk);
+                    projectPk: projectPk!,
+                    selection: selection!,
+                    taskPk: taskPk!);
 
                 return __httpRequest;
             }

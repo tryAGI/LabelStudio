@@ -196,7 +196,7 @@ namespace LabelStudio
                     contributedToProjects: contributedToProjects,
                     excludeProjectId: excludeProjectId,
                     excludeWorkspaceId: excludeWorkspaceId,
-                    id: id,
+                    id: id!,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,

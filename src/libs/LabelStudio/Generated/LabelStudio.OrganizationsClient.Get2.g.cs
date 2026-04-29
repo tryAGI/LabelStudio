@@ -136,8 +136,8 @@ namespace LabelStudio
                 PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    tagPk: tagPk);
+                    id: id!,
+                    tagPk: tagPk!);
 
                 return __httpRequest;
             }

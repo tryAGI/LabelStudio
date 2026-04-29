@@ -150,8 +150,8 @@ namespace LabelStudio
                 PrepareUpdate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    permission: permission,
+                    id: id!,
+                    permission: permission!,
                     request: request);
 
                 return __httpRequest;

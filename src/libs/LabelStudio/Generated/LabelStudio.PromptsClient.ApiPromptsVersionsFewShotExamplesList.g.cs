@@ -139,8 +139,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     ordering: ordering,
-                    promptId: promptId,
-                    versionId: versionId);
+                    promptId: promptId!,
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

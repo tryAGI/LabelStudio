@@ -120,7 +120,7 @@ namespace LabelStudio
                 PrepareDownloadRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    filename: filename);
+                    filename: filename!);
 
                 return __httpRequest;
             }

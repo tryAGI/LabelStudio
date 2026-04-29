@@ -120,7 +120,7 @@ namespace LabelStudio
                 PrepareApiProjectsAnnotationsBrowseRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectPk: projectPk);
+                    projectPk: projectPk!);
 
                 return __httpRequest;
             }

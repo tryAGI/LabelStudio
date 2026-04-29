@@ -130,9 +130,9 @@ namespace LabelStudio
                 PrepareApiPromptsVersionsFewShotExamplesDestroyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    promptId: promptId,
-                    versionId: versionId);
+                    id: id!,
+                    promptId: promptId!,
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

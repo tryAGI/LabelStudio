@@ -96,7 +96,7 @@ namespace LabelStudio
                 PrepareApiBlueprintsCreateProjectRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    shareId: shareId);
+                    shareId: shareId!);
 
                 return __httpRequest;
             }

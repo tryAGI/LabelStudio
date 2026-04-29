@@ -135,7 +135,7 @@ namespace LabelStudio
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     membersLimit: membersLimit);
 
                 return __httpRequest;

@@ -147,7 +147,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     all: all,
-                    id: id,
+                    id: id!,
                     ids: ids,
                     ordering: ordering);
 

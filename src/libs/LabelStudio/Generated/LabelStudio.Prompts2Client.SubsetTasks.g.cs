@@ -182,7 +182,7 @@ namespace LabelStudio
                     page: page,
                     pageSize: pageSize,
                     parentModel: parentModel,
-                    projectPk: projectPk,
+                    projectPk: projectPk!,
                     projectSubset: projectSubset);
 
                 return __httpRequest;

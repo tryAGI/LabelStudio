@@ -139,8 +139,8 @@ namespace LabelStudio
                 PrepareApiProjectsReimportsRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    reimportPk: reimportPk);
+                    id: id!,
+                    reimportPk: reimportPk!);
 
                 return __httpRequest;
             }

@@ -145,7 +145,7 @@ namespace LabelStudio
                 PrepareListForProjectRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     page: page,
                     pageSize: pageSize);
 

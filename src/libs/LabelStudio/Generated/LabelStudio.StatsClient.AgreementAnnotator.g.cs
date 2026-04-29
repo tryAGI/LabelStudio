@@ -136,8 +136,8 @@ namespace LabelStudio
                 PrepareAgreementAnnotatorRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    userId: userId);
+                    id: id!,
+                    userId: userId!);
 
                 return __httpRequest;
             }

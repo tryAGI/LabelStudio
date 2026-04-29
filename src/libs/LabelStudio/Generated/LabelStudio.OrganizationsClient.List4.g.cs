@@ -139,7 +139,7 @@ namespace LabelStudio
                 PrepareList4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     ordering: ordering);
 
                 return __httpRequest;

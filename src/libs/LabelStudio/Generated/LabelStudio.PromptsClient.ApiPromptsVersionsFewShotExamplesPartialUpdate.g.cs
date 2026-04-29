@@ -149,9 +149,9 @@ namespace LabelStudio
                 PrepareApiPromptsVersionsFewShotExamplesPartialUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    promptId: promptId,
-                    versionId: versionId,
+                    id: id!,
+                    promptId: promptId!,
+                    versionId: versionId!,
                     request: request);
 
                 return __httpRequest;

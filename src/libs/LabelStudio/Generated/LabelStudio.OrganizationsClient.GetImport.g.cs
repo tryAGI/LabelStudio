@@ -137,8 +137,8 @@ namespace LabelStudio
                 PrepareGetImportRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    importPk: importPk);
+                    id: id!,
+                    importPk: importPk!);
 
                 return __httpRequest;
             }

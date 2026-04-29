@@ -189,7 +189,7 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     all: all,
                     excluded: excluded,
-                    id: id,
+                    id: id!,
                     included: included,
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,

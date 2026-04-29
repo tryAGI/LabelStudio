@@ -150,8 +150,8 @@ namespace LabelStudio
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectPk: projectPk,
-                    userPk: userPk,
+                    projectPk: projectPk!,
+                    userPk: userPk!,
                     request: request);
 
                 return __httpRequest;

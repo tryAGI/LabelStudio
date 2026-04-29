@@ -136,8 +136,8 @@ namespace LabelStudio
                 PrepareModelVersionAnnotatorAgreementRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    modelVersion: modelVersion);
+                    id: id!,
+                    modelVersion: modelVersion!);
 
                 return __httpRequest;
             }

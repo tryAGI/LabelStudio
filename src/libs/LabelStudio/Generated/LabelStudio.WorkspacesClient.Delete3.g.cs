@@ -165,7 +165,7 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     all: all,
                     excluded: excluded,
-                    id: id,
+                    id: id!,
                     ids: ids,
                     included: included,
                     search: search);

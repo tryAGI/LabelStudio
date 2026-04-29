@@ -135,7 +135,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     expandCreatedBy: expandCreatedBy,
-                    id: id);
+                    id: id!);
 
                 return __httpRequest;
             }

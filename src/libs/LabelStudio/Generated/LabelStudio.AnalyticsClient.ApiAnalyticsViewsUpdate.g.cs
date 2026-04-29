@@ -149,7 +149,7 @@ namespace LabelStudio
                 PrepareApiAnalyticsViewsUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uuid: uuid,
+                    uuid: uuid!,
                     request: request);
 
                 return __httpRequest;

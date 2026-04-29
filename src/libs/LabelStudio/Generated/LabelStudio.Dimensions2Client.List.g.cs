@@ -154,7 +154,7 @@ namespace LabelStudio
                     agreementMethodology: agreementMethodology,
                     isActive: isActive,
                     ordering: ordering,
-                    projectPk: projectPk);
+                    projectPk: projectPk!);
 
                 return __httpRequest;
             }
