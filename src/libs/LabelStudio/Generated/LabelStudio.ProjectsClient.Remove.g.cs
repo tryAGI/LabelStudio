@@ -134,7 +134,7 @@ namespace LabelStudio
                 PrepareRemoveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     user: user);
 
                 return __httpRequest;

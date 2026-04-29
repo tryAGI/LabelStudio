@@ -149,7 +149,7 @@ namespace LabelStudio
                 PrepareApiProjectsTasksListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize);

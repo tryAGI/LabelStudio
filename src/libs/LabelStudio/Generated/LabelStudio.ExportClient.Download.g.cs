@@ -144,8 +144,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     exportType: exportType,
-                    exportPk: exportPk,
-                    id: id);
+                    exportPk: exportPk!,
+                    id: id!);
 
                 return __httpRequest;
             }

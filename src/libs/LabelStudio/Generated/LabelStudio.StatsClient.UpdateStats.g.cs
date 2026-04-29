@@ -139,7 +139,7 @@ namespace LabelStudio
                 PrepareUpdateStatsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     statType: statType);
 
                 return __httpRequest;

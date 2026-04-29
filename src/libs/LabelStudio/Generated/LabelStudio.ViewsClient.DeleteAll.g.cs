@@ -123,7 +123,7 @@ namespace LabelStudio
                 PrepareDeleteAllRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    project: project);
+                    project: project!);
 
                 return __httpRequest;
             }

@@ -141,9 +141,9 @@ namespace LabelStudio
                 PrepareCancelRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    inferenceRunId: inferenceRunId,
-                    promptId: promptId,
-                    versionId: versionId);
+                    inferenceRunId: inferenceRunId!,
+                    promptId: promptId!,
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

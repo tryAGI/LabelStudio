@@ -136,8 +136,8 @@ namespace LabelStudio
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    taskPk: taskPk);
+                    id: id!,
+                    taskPk: taskPk!);
 
                 return __httpRequest;
             }

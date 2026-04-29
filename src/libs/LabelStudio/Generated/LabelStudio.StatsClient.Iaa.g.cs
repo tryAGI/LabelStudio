@@ -162,7 +162,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     expand: expand,
-                    id: id,
+                    id: id!,
                     perLabel: perLabel,
                     std: std,
                     task: task);

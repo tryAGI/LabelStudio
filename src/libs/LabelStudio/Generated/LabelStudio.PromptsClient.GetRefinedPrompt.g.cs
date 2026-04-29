@@ -144,9 +144,9 @@ namespace LabelStudio
                 PrepareGetRefinedPromptRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    promptId: promptId,
+                    promptId: promptId!,
                     refinementJobId: refinementJobId,
-                    versionId: versionId);
+                    versionId: versionId!);
 
                 return __httpRequest;
             }

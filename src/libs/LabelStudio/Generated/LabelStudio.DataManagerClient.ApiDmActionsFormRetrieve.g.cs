@@ -133,8 +133,8 @@ namespace LabelStudio
                 PrepareApiDmActionsFormRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    actionId: actionId,
-                    project: project);
+                    actionId: actionId!,
+                    project: project!);
 
                 return __httpRequest;
             }

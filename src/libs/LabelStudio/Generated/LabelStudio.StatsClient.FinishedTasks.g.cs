@@ -139,7 +139,7 @@ namespace LabelStudio
                 PrepareFinishedTasksRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     userPk: userPk);
 
                 return __httpRequest;

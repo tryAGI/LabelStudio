@@ -125,8 +125,8 @@ namespace LabelStudio
                 PrepareDelete3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    userPk: userPk);
+                    id: id!,
+                    userPk: userPk!);
 
                 return __httpRequest;
             }

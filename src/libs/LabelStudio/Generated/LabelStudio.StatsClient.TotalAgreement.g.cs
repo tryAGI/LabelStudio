@@ -140,7 +140,7 @@ namespace LabelStudio
                 PrepareTotalAgreementRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     perLabel: perLabel);
 
                 return __httpRequest;

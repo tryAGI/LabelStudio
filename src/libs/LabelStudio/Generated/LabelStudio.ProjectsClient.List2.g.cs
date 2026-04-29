@@ -211,7 +211,7 @@ namespace LabelStudio
                 PrepareList2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     ids: ids,
                     @implicit: @implicit,
                     lastActivityGte: lastActivityGte,

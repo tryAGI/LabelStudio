@@ -197,7 +197,7 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     excludeProjectId: excludeProjectId,
                     excludeWorkspaceId: excludeWorkspaceId,
-                    id: id,
+                    id: id!,
                     isDeleted: isDeleted,
                     role: role,
                     tags: tags,

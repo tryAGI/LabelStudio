@@ -150,8 +150,8 @@ namespace LabelStudio
                 PrepareUpdate2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    tagPk: tagPk,
+                    id: id!,
+                    tagPk: tagPk!,
                     request: request);
 
                 return __httpRequest;

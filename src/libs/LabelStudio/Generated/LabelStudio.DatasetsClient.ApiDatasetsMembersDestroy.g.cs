@@ -128,7 +128,7 @@ namespace LabelStudio
                 PrepareApiDatasetsMembersDestroyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     projectMember: projectMember);
 
                 return __httpRequest;

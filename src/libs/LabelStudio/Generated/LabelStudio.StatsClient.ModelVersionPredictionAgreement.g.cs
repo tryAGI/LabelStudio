@@ -146,8 +146,8 @@ namespace LabelStudio
                 PrepareModelVersionPredictionAgreementRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    modelVersion: modelVersion,
+                    id: id!,
+                    modelVersion: modelVersion!,
                     perLabel: perLabel);
 
                 return __httpRequest;

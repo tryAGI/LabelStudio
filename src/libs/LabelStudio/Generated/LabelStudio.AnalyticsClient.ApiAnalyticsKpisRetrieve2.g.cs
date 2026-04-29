@@ -176,14 +176,14 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     end: end,
-                    kpiKey: kpiKey,
+                    kpiKey: kpiKey!,
                     members: members,
                     projects: projects,
                     segmentByProject: segmentByProject,
                     segmentByTime: segmentByTime,
                     segmentByUser: segmentByUser,
                     start: start,
-                    tz: tz);
+                    tz: tz!);
 
                 return __httpRequest;
             }

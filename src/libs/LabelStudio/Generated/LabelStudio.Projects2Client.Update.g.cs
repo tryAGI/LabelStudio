@@ -151,7 +151,7 @@ namespace LabelStudio
                 PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     membersLimit: membersLimit,
                     request: request);
 

@@ -141,7 +141,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     ordering: ordering,
-                    projectPk: projectPk);
+                    projectPk: projectPk!);
 
                 return __httpRequest;
             }

@@ -157,7 +157,7 @@ namespace LabelStudio
                 PrepareList3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
+                    id: id!,
                     ids: ids,
                     page: page,
                     pageSize: pageSize,

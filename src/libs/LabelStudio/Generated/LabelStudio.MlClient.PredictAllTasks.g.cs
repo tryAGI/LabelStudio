@@ -137,7 +137,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     batchSize: batchSize,
-                    id: id);
+                    id: id!);
 
                 return __httpRequest;
             }
