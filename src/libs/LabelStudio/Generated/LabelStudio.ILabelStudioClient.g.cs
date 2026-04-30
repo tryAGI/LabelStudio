@@ -258,6 +258,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public ReviewRoutingRulesClient ReviewRoutingRules { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SessionPolicyClient SessionPolicy { get; }
 
         /// <summary>

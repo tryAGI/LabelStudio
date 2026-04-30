@@ -421,6 +421,15 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public ReviewRoutingRulesClient ReviewRoutingRules => new ReviewRoutingRulesClient(HttpClient, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public SessionPolicyClient SessionPolicy => new SessionPolicyClient(HttpClient, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
