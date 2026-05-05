@@ -36,6 +36,27 @@ namespace LabelStudio
         /// Create a copy of an existing saved interface.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesDuplicateCreateAsResponseAsync(
+            string id,
+
+            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// ✨ Duplicate a saved interface<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Create a copy of an existing saved interface.
+        /// </summary>
+        /// <param name="id"></param>
         /// <param name="artifacts">
         /// AI-produced code snapshots for session continuity
         /// </param>
@@ -52,6 +73,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="messages">
         /// Chat conversation history
+        /// </param>
+        /// <param name="metadata">
+        /// Arbitrary metadata for this interface
         /// </param>
         /// <param name="outputSchema">
         /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
@@ -74,6 +98,7 @@ namespace LabelStudio
             string? description = default,
             object? inputSchema = default,
             object? messages = default,
+            object? metadata = default,
             object? outputSchema = default,
             object? versions = default,
             int? workspace = default,

@@ -21,6 +21,19 @@ namespace LabelStudio
         /// Create new S3 storage<br/>
         /// Create new S3 import storage
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.S3ImportStorage>> Create2AsResponseAsync(
+
+            global::LabelStudio.ApiStoragesS3CreateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create new S3 storage<br/>
+        /// Create new S3 import storage
+        /// </summary>
         /// <param name="awsAccessKeyId">
         /// AWS_ACCESS_KEY_ID
         /// </param>

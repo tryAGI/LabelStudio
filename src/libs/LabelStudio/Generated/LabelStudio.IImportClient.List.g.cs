@@ -23,5 +23,24 @@ namespace LabelStudio
             string? ordering = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get files list<br/>
+        ///         Retrieve the list of uploaded files used to create labeling tasks for a specific project.<br/>
+        ///         
+        /// </summary>
+        /// <param name="all"></param>
+        /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="ordering"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.FileUpload>>> ListAsResponseAsync(
+            int id,
+            bool? all = default,
+            global::System.Collections.Generic.IList<string>? ids = default,
+            string? ordering = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

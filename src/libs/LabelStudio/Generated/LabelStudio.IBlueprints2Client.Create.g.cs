@@ -21,6 +21,19 @@ namespace LabelStudio
         /// Create blueprint<br/>
         /// Create a new blueprint
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Blueprint>> CreateAsResponseAsync(
+
+            global::LabelStudio.BlueprintRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create blueprint<br/>
+        /// Create a new blueprint
+        /// </summary>
         /// <param name="createdBy"></param>
         /// <param name="description">
         /// Project description

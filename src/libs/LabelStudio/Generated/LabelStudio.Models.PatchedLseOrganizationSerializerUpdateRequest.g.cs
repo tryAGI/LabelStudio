@@ -22,6 +22,13 @@ namespace LabelStudio
         public int? CreatedBy { get; set; }
 
         /// <summary>
+        /// Enable or disable custom interfaces for this organization<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interfaces_enabled")]
+        public bool? CustomInterfacesEnabled { get; set; }
+
+        /// <summary>
         /// Plugins<br/>
         /// Included only in requests
         /// </summary>
@@ -43,11 +50,25 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? EmbedDomains { get; set; }
 
         /// <summary>
+        /// Enable or disable embed functionality for this organization<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("embed_enabled")]
+        public bool? EmbedEnabled { get; set; }
+
+        /// <summary>
         /// Public Verification Key and Public Verification Algorithms configuration<br/>
         /// Included only in requests
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("embed_settings")]
         public object? EmbedSettings { get; set; }
+
+        /// <summary>
+        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interface_settings")]
+        public object? InterfaceSettings { get; set; }
 
         /// <summary>
         /// ReactCode settings<br/>
@@ -80,6 +101,10 @@ namespace LabelStudio
         /// </summary>
         /// <param name="contactInfo"></param>
         /// <param name="createdBy"></param>
+        /// <param name="customInterfacesEnabled">
+        /// Enable or disable custom interfaces for this organization<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="customScriptsEnabled">
         /// Plugins<br/>
         /// Included only in requests
@@ -92,8 +117,16 @@ namespace LabelStudio
         /// Supported domains<br/>
         /// Included only in requests
         /// </param>
+        /// <param name="embedEnabled">
+        /// Enable or disable embed functionality for this organization<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="embedSettings">
         /// Public Verification Key and Public Verification Algorithms configuration<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="interfaceSettings">
+        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions<br/>
         /// Included only in requests
         /// </param>
         /// <param name="reactCodeSettings">
@@ -111,20 +144,26 @@ namespace LabelStudio
         public PatchedLseOrganizationSerializerUpdateRequest(
             string? contactInfo,
             int? createdBy,
+            bool? customInterfacesEnabled,
             bool? customScriptsEnabled,
             object? emailNotificationSettings,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? embedDomains,
+            bool? embedEnabled,
             object? embedSettings,
+            object? interfaceSettings,
             object? reactCodeSettings,
             string? title,
             string? token)
         {
             this.ContactInfo = contactInfo;
             this.CreatedBy = createdBy;
+            this.CustomInterfacesEnabled = customInterfacesEnabled;
             this.CustomScriptsEnabled = customScriptsEnabled;
             this.EmailNotificationSettings = emailNotificationSettings;
             this.EmbedDomains = embedDomains;
+            this.EmbedEnabled = embedEnabled;
             this.EmbedSettings = embedSettings;
+            this.InterfaceSettings = interfaceSettings;
             this.ReactCodeSettings = reactCodeSettings;
             this.Title = title;
             this.Token = token;

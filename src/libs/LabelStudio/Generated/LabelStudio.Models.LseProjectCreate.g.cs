@@ -182,6 +182,12 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
+        public object? OutputSchema { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overlap_cohort_percentage")]
         public int? OverlapCohortPercentage { get; set; }
 
@@ -421,6 +427,7 @@ namespace LabelStudio
         /// Machine learning model version
         /// </param>
         /// <param name="organization"></param>
+        /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage"></param>
         /// <param name="pinnedAt">
         /// Pinned date and time
@@ -546,6 +553,7 @@ namespace LabelStudio
             int? minAnnotationsToStartTraining,
             string? modelVersion,
             int? organization,
+            object? outputSchema,
             int? overlapCohortPercentage,
             global::System.DateTime? pinnedAt,
             bool? revealPreannotationsInteractively,
@@ -607,6 +615,7 @@ namespace LabelStudio
             this.ModelVersion = modelVersion;
             this.NumTasksWithAnnotations = numTasksWithAnnotations;
             this.Organization = organization;
+            this.OutputSchema = outputSchema;
             this.OverlapCohortPercentage = overlapCohortPercentage;
             this.ParsedLabelConfig = parsedLabelConfig;
             this.PinnedAt = pinnedAt;

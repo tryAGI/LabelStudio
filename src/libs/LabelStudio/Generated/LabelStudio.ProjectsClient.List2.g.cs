@@ -114,6 +114,75 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await List2AsResponseAsync(
+                id: id,
+                ids: ids,
+                @implicit: @implicit,
+                lastActivityGte: lastActivityGte,
+                lastActivityLte: lastActivityLte,
+                noAnnotators: noAnnotators,
+                ordering: ordering,
+                page: page,
+                pageSize: pageSize,
+                role: role,
+                search: search,
+                tags: tags,
+                withDeleted: withDeleted,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// ✨ Get project members paginated<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Retrieve the members for a specific project.<br/>
+        /// **Response Fields:**<br/>
+        /// - `implicit_member` (boolean): Indicates if the user is an implicit member.<br/>
+        ///   - `true`: User has access via workspace membership or organization role (Administrator/Owner)<br/>
+        ///   - `false`: User is an explicit project member (added directly to the project)<br/>
+        /// - `project_role` (string|null): Project-specific role override if assigned, null otherwise<br/>
+        /// **Note:** Users can have both explicit membership AND implicit access. The `implicit_member` field is `false` if the user has an explicit ProjectMember entry, regardless of whether they also have implicit access via workspace or org role.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="implicit"></param>
+        /// <param name="lastActivityGte"></param>
+        /// <param name="lastActivityLte"></param>
+        /// <param name="noAnnotators"></param>
+        /// <param name="ordering"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="withDeleted"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedPaginatedProjectMemberList>> List2AsResponseAsync(
+            int id,
+            string? ids = default,
+            bool? @implicit = default,
+            global::System.DateTime? lastActivityGte = default,
+            global::System.DateTime? lastActivityLte = default,
+            bool? noAnnotators = default,
+            string? ordering = default,
+            int? page = default,
+            int? pageSize = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            bool? withDeleted = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareList2Arguments(
@@ -154,9 +223,10 @@ namespace LabelStudio
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
                                 path: $"/api/projects/{id}/members/paginated/",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("ids", ids)
                                 .AddOptionalParameter("implicit", @implicit?.ToString().ToLowerInvariant())
@@ -169,7 +239,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
-                                .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant()) 
+                                .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -253,6 +323,8 @@ namespace LabelStudio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -263,6 +335,11 @@ namespace LabelStudio
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -280,6 +357,8 @@ namespace LabelStudio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -289,8 +368,7 @@ namespace LabelStudio
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -299,6 +377,11 @@ namespace LabelStudio
                         __attempt < __maxAttempts &&
                         global::LabelStudio.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -315,14 +398,15 @@ namespace LabelStudio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -362,6 +446,8 @@ namespace LabelStudio
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -382,6 +468,8 @@ namespace LabelStudio
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
 
@@ -406,9 +494,13 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::LabelStudio.PaginatedPaginatedProjectMemberList.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.PaginatedPaginatedProjectMemberList.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedPaginatedProjectMemberList>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -436,9 +528,13 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::LabelStudio.PaginatedPaginatedProjectMemberList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.PaginatedPaginatedProjectMemberList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedPaginatedProjectMemberList>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

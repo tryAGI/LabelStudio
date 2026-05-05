@@ -301,6 +301,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsTasksAssigneesDestroyTypeNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsSubsetTasksListAlignmentOutcomeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsSubsetTasksListAlignmentOutcomeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiPromptsCompatibleProjectsListProjectTypeJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiPromptsCompatibleProjectsListProjectTypeNullableJsonConverter),
@@ -952,6 +956,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiOrganizationsMembershipsListScope), TypeInfoPropertyName = "ApiOrganizationsMembershipsListScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceRowsRetrieveTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType), TypeInfoPropertyName = "ApiProjectsTasksAssigneesDestroyType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome), TypeInfoPropertyName = "ApiProjectsSubsetTasksListAlignmentOutcome2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType), TypeInfoPropertyName = "ApiPromptsCompatibleProjectsListProjectType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiPromptsVersionsInferenceRunsListProjectSubset), TypeInfoPropertyName = "ApiPromptsVersionsInferenceRunsListProjectSubset2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiTasksListFields), TypeInfoPropertyName = "ApiTasksListFields2")]

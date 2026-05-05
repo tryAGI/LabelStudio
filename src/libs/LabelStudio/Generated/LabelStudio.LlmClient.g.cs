@@ -72,10 +72,10 @@ namespace LabelStudio
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public LlmClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::LabelStudio.EndPointAuthorization>? authorizations = null,
-            global::LabelStudio.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::LabelStudio.EndPointAuthorization>? authorizations,
+            global::LabelStudio.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 

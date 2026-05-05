@@ -32,6 +32,25 @@ namespace LabelStudio
         ///     
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MLBackend>> UpdateAsResponseAsync(
+            int id,
+
+            global::LabelStudio.ApiMlPartialUpdateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update ML Backend<br/>
+        ///     Update ML backend parameters using the Label Studio UI or by sending a PATCH request using the following cURL command:<br/>
+        ///     ```bash<br/>
+        ///     curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\<br/>
+        ///     --data '{"url": "http://localhost:9091"}' <br/>
+        ///     
+        /// </summary>
+        /// <param name="id"></param>
         /// <param name="authMethod">
         /// Auth method
         /// </param>

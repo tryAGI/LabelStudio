@@ -23,6 +23,19 @@ namespace LabelStudio
         /// Create a project<br/>
         /// Create a project for a specific organization.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectCreate>> CreateAsResponseAsync(
+
+            global::LabelStudio.LseProjectCreateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a project<br/>
+        /// Create a project for a specific organization.
+        /// </summary>
         /// <param name="annotatorEvaluationEnabled">
         /// Enable annotator evaluation for the project
         /// </param>
@@ -68,6 +81,7 @@ namespace LabelStudio
         /// Machine learning model version
         /// </param>
         /// <param name="organization"></param>
+        /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage"></param>
         /// <param name="pinnedAt">
         /// Pinned date and time
@@ -130,6 +144,7 @@ namespace LabelStudio
             int? minAnnotationsToStartTraining = default,
             string? modelVersion = default,
             int? organization = default,
+            object? outputSchema = default,
             int? overlapCohortPercentage = default,
             global::System.DateTime? pinnedAt = default,
             bool? revealPreannotationsInteractively = default,

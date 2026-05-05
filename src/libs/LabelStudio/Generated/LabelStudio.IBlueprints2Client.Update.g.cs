@@ -24,6 +24,21 @@ namespace LabelStudio
         /// Update a blueprint. Only title, description, and task_ids can be changed.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Blueprint>> UpdateAsResponseAsync(
+            string id,
+
+            global::LabelStudio.PatchedBlueprintUpdateRequest request,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update blueprint<br/>
+        /// Update a blueprint. Only title, description, and task_ids can be changed.
+        /// </summary>
+        /// <param name="id"></param>
         /// <param name="description">
         /// Project description
         /// </param>
