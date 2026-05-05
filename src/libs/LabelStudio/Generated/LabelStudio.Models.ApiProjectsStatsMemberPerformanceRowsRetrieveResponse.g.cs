@@ -33,12 +33,6 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<object>? Results { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
-        public object? Summary { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,7 +45,6 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="results"></param>
-        /// <param name="summary"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -59,14 +52,12 @@ namespace LabelStudio
             int? count,
             int? page,
             int? pageSize,
-            global::System.Collections.Generic.IList<object>? results,
-            object? summary)
+            global::System.Collections.Generic.IList<object>? results)
         {
             this.Count = count;
             this.Page = page;
             this.PageSize = pageSize;
             this.Results = results;
-            this.Summary = summary;
         }
 
         /// <summary>

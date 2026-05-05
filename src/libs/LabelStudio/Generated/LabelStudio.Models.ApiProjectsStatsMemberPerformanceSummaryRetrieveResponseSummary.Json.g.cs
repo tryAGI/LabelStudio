@@ -2,7 +2,7 @@
 
 namespace LabelStudio
 {
-    public sealed partial class ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary
+    public sealed partial class ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace LabelStudio
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary? FromJson(
+        public static global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary),
-                jsonSerializerContext) as global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary;
+                typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary),
+                jsonSerializerContext) as global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary? FromJson(
+        public static global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace LabelStudio
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary),
-                jsonSerializerContext).ConfigureAwait(false)) as global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary;
+                typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary),
+                jsonSerializerContext).ConfigureAwait(false)) as global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
