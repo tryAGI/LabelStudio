@@ -304,6 +304,12 @@ namespace LabelStudio
         public int? Organization { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
+        public object? OutputSchema { get; set; }
+
+        /// <summary>
         /// Annotations per task coverage
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overlap_cohort_percentage")]
@@ -663,6 +669,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="organization"></param>
+        /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
         /// </param>
@@ -842,6 +849,7 @@ namespace LabelStudio
             string? modelVersion,
             int? numTasksWithAnnotations,
             int? organization,
+            object? outputSchema,
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
@@ -932,6 +940,7 @@ namespace LabelStudio
             this.ModelVersion = modelVersion;
             this.NumTasksWithAnnotations = numTasksWithAnnotations;
             this.Organization = organization;
+            this.OutputSchema = outputSchema;
             this.OverlapCohortPercentage = overlapCohortPercentage;
             this.ParsedLabelConfig = parsedLabelConfig;
             this.PauseOnFailedAnnotatorEvaluation = pauseOnFailedAnnotatorEvaluation;

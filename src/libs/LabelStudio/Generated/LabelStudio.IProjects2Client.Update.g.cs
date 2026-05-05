@@ -33,6 +33,25 @@ namespace LabelStudio
         /// <param name="membersLimit">
         /// Default Value: 10
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectUpdate>> UpdateAsResponseAsync(
+            int id,
+
+            global::LabelStudio.PatchedLseProjectUpdateRequest request,
+            int? membersLimit = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update project details<br/>
+        /// Update the details of a specific project.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="membersLimit">
+        /// Default Value: 10
+        /// </param>
         /// <param name="agreementMethodology">
         /// Methodology (Consensus / Pairwise Averaging)<br/>
         /// * `consensus` - Consensus<br/>
@@ -122,6 +141,7 @@ namespace LabelStudio
         /// Machine learning model version
         /// </param>
         /// <param name="organization"></param>
+        /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
         /// </param>
@@ -219,6 +239,7 @@ namespace LabelStudio
             int? minAnnotationsToStartTraining = default,
             string? modelVersion = default,
             int? organization = default,
+            object? outputSchema = default,
             int? overlapCohortPercentage = default,
             bool? pauseOnFailedAnnotatorEvaluation = default,
             global::System.DateTime? pinnedAt = default,

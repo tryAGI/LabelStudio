@@ -82,6 +82,12 @@ namespace LabelStudio
         public object? Messages { get; set; }
 
         /// <summary>
+        /// Arbitrary metadata for this interface
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public object? Metadata { get; set; }
+
+        /// <summary>
         /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
@@ -148,6 +154,9 @@ namespace LabelStudio
         /// <param name="messages">
         /// Chat conversation history
         /// </param>
+        /// <param name="metadata">
+        /// Arbitrary metadata for this interface
+        /// </param>
         /// <param name="outputSchema">
         /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
         /// </param>
@@ -187,6 +196,7 @@ namespace LabelStudio
             string? description,
             object? inputSchema,
             object? messages,
+            object? metadata,
             object? outputSchema,
             object? versions,
             int? workspace,
@@ -208,6 +218,7 @@ namespace LabelStudio
             this.InputSchema = inputSchema;
             this.IsSystem = isSystem;
             this.Messages = messages;
+            this.Metadata = metadata;
             this.OutputSchema = outputSchema;
             this.ProjectsCount = projectsCount;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
