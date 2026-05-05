@@ -6,7 +6,7 @@ namespace LabelStudio
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class ApiProjectsStatsMemberPerformanceRowsRetrieveResponseSummary
+    public sealed partial class ApiProjectsStatsMemberPerformanceSummaryRetrieveResponseSummary
     {
 
         /// <summary>

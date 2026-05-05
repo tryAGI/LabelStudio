@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_MemberPerformanceRowsSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_MemberPerformanceSummarySecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,71 +21,56 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_MemberPerformanceRowsSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_MemberPerformanceSummarySecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_MemberPerformanceRowsSecurityRequirement0,
+            {                s_MemberPerformanceSummarySecurityRequirement0,
             };
-        partial void PrepareMemberPerformanceRowsArguments(
+        partial void PrepareMemberPerformanceSummaryArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
             ref string? ids,
-            ref string? ordering,
-            ref int? page,
-            ref int? pageSize,
-            ref global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table);
-        partial void PrepareMemberPerformanceRowsRequest(
+            ref global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
+        partial void PrepareMemberPerformanceSummaryRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
             string? ids,
-            string? ordering,
-            int? page,
-            int? pageSize,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table);
-        partial void ProcessMemberPerformanceRowsResponse(
+            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
+        partial void ProcessMemberPerformanceSummaryResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessMemberPerformanceRowsResponseContent(
+        partial void ProcessMemberPerformanceSummaryResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Get paginated member performance rows<br/>
+        /// ✨ Get member performance table summary aggregates<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Paginated, sortable member performance rows for annotation/review tables. Footer totals are returned by &lt;code&gt;member_performance_summary&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Footer / Total aggregates for member performance tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ids"></param>
-        /// <param name="ordering"></param>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse> MemberPerformanceRowsAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse> MemberPerformanceSummaryAsync(
             int id,
             string? ids = default,
-            string? ordering = default,
-            int? page = default,
-            int? pageSize = default,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
+            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await MemberPerformanceRowsAsResponseAsync(
+            var __response = await MemberPerformanceSummaryAsResponseAsync(
                 id: id,
                 ids: ids,
-                ordering: ordering,
-                page: page,
-                pageSize: pageSize,
                 table: table,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -94,50 +79,41 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Get paginated member performance rows<br/>
+        /// ✨ Get member performance table summary aggregates<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Paginated, sortable member performance rows for annotation/review tables. Footer totals are returned by &lt;code&gt;member_performance_summary&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Footer / Total aggregates for member performance tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ids"></param>
-        /// <param name="ordering"></param>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse>> MemberPerformanceRowsAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>> MemberPerformanceSummaryAsResponseAsync(
             int id,
             string? ids = default,
-            string? ordering = default,
-            int? page = default,
-            int? pageSize = default,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
+            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareMemberPerformanceRowsArguments(
+            PrepareMemberPerformanceSummaryArguments(
                 httpClient: HttpClient,
                 id: ref id,
                 ids: ref ids,
-                ordering: ref ordering,
-                page: ref page,
-                pageSize: ref pageSize,
                 table: ref table);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_MemberPerformanceRowsSecurityRequirements,
-                operationName: "MemberPerformanceRowsAsync");
+                securityRequirements: s_MemberPerformanceSummarySecurityRequirements,
+                operationName: "MemberPerformanceSummaryAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -157,13 +133,10 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/stats/member_performance_rows/",
+                                path: $"/api/projects/{id}/stats/member_performance_summary/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("ids", ids)
-                                .AddOptionalParameter("ordering", ordering)
-                                .AddOptionalParameter("page", page?.ToString())
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("table", table?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -203,14 +176,11 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareMemberPerformanceRowsRequest(
+                PrepareMemberPerformanceSummaryRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
                     ids: ids,
-                    ordering: ordering,
-                    page: page,
-                    pageSize: pageSize,
                     table: table);
 
                 return __httpRequest;
@@ -228,9 +198,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceRows",
-                                methodName: "MemberPerformanceRowsAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_rows/\"",
+                                operationId: "MemberPerformanceSummary",
+                                methodName: "MemberPerformanceSummaryAsync",
+                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -262,9 +232,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceRows",
-                                methodName: "MemberPerformanceRowsAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_rows/\"",
+                                operationId: "MemberPerformanceSummary",
+                                methodName: "MemberPerformanceSummaryAsync",
+                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -303,9 +273,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceRows",
-                                methodName: "MemberPerformanceRowsAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_rows/\"",
+                                operationId: "MemberPerformanceSummary",
+                                methodName: "MemberPerformanceSummaryAsync",
+                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -343,7 +313,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessMemberPerformanceRowsResponse(
+                ProcessMemberPerformanceSummaryResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -351,9 +321,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceRows",
-                                methodName: "MemberPerformanceRowsAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_rows/\"",
+                                operationId: "MemberPerformanceSummary",
+                                methodName: "MemberPerformanceSummaryAsync",
+                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -373,9 +343,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceRows",
-                                methodName: "MemberPerformanceRowsAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_rows/\"",
+                                operationId: "MemberPerformanceSummary",
+                                methodName: "MemberPerformanceSummaryAsync",
+                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -436,7 +406,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessMemberPerformanceRowsResponseContent(
+                                ProcessMemberPerformanceSummaryResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -445,9 +415,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -479,9 +449,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
