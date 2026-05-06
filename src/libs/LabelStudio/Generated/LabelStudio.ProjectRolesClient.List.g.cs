@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? ids,
+            global::System.Collections.Generic.IList<int>? ids,
             ref string? ordering);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? ids,
+            global::System.Collections.Generic.IList<int>? ids,
             string? ordering);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -60,7 +60,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ProjectRole>> ListAsync(
-            int? ids = default,
+            global::System.Collections.Generic.IList<int>? ids = default,
             string? ordering = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ProjectRole>>> ListAsResponseAsync(
-            int? ids = default,
+            global::System.Collections.Generic.IList<int>? ids = default,
             string? ordering = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -100,7 +100,7 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareListArguments(
                 httpClient: HttpClient,
-                ids: ref ids,
+                ids: ids,
                 ordering: ref ordering);
 
 
@@ -130,7 +130,7 @@ namespace LabelStudio
                                 path: "/api/projects/roles/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("ids", ids?.ToString())
+                                .AddOptionalParameter("ids", ids, selector: static x => x.ToString()!, delimiter: ",", explode: false)
                                 .AddOptionalParameter("ordering", ordering)
                                 ;
                             var __path = __pathBuilder.ToString();
