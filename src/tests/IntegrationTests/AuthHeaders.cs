@@ -11,6 +11,7 @@ public partial class Tests
         client.Authorizations.Should().ContainSingle().Which.Should().BeEquivalentTo(new global::LabelStudio.EndPointAuthorization
         {
             Type = "Http",
+            SchemeId = "Token",
             Location = "Header",
             Name = "Bearer",
             Value = "header.payload.signature",
