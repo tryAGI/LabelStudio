@@ -293,6 +293,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiOrganizationsMembershipsListScopeNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableNullableJsonConverter),
@@ -472,6 +476,13 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.Status7bfEnum), TypeInfoPropertyName = "Status7bfEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ConvertedFormatRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CustomFunctionCodeRequestRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DataQualityAgreementConfusionMatrix))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<int>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<double>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.DataQualityConfusionPair>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DataQualityConfusionPair))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DataQualityAgreementDimensions))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DataQualityAgreementDistribution))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksExportStorage))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksExportStorageRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatabricksImportStorage))]
@@ -537,7 +548,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.KPIUserInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.KPIUserInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.KPIMetadata))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.KPIProjectInfo))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.KPIProjectInfo>))]
@@ -958,6 +968,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiActivityLogsListMethod), TypeInfoPropertyName = "ApiActivityLogsListMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiDmActionsCreateId), TypeInfoPropertyName = "ApiDmActionsCreateId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiOrganizationsMembershipsListScope), TypeInfoPropertyName = "ApiOrganizationsMembershipsListScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveMode), TypeInfoPropertyName = "ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceRowsRetrieveTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceSummaryRetrieveTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType), TypeInfoPropertyName = "ApiProjectsTasksAssigneesDestroyType2")]
@@ -1003,6 +1014,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ConfigurablePermissionOption>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectTemplate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectRole>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.UserSimple>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponseStatus), TypeInfoPropertyName = "ApiProjectsAwsCustomFunctionRetrieveResponseStatus2")]
@@ -1111,6 +1123,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.BlueprintList>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Role9e7Enum>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<int>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DataQualityConfusionPair>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ConvertedFormat>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Filter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.FilterRequest>))]
@@ -1119,7 +1134,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.DateTime>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.KPIUserInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<double>>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.KPIProjectInfo>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LabelDistributionCountsRow>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LabelDistributionStructureDimension>))]
@@ -1204,6 +1218,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ConfigurablePermissionOption>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ProjectTemplate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ProjectRole>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DataQualityAgreementDimensions>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.UserSimple>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Export>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.FileUpload>))]

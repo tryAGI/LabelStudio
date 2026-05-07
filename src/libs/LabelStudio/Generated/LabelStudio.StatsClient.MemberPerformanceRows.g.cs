@@ -59,7 +59,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Paginated, sortable member performance rows for annotation/review tables. Footer totals are returned by &lt;code&gt;member_performance_summary&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Paginated, sortable member performance rows for annotation/review tables. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ids"></param>
@@ -101,7 +101,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Paginated, sortable member performance rows for annotation/review tables. Footer totals are returned by &lt;code&gt;member_performance_summary&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Paginated, sortable member performance rows for annotation/review tables. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ids"></param>
