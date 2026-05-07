@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_MemberPerformanceSummarySecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DataQualityAgreementDimensionsSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,57 +21,47 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_MemberPerformanceSummarySecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DataQualityAgreementDimensionsSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_MemberPerformanceSummarySecurityRequirement0,
+            {                s_DataQualityAgreementDimensionsSecurityRequirement0,
             };
-        partial void PrepareMemberPerformanceSummaryArguments(
+        partial void PrepareDataQualityAgreementDimensionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id,
-            ref string? ids,
-            ref global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
-        partial void PrepareMemberPerformanceSummaryRequest(
+            ref int id);
+        partial void PrepareDataQualityAgreementDimensionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id,
-            string? ids,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
-        partial void ProcessMemberPerformanceSummaryResponse(
+            int id);
+        partial void ProcessDataQualityAgreementDimensionsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessMemberPerformanceSummaryResponseContent(
+        partial void ProcessDataQualityAgreementDimensionsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Get member performance table summary aggregates<br/>
+        /// ✨ Data quality: agreement by dimension<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Returns per-dimension agreement scores for active dimensions.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="ids"></param>
-        /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse> MemberPerformanceSummaryAsync(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>> DataQualityAgreementDimensionsAsync(
             int id,
-            string? ids = default,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await MemberPerformanceSummaryAsResponseAsync(
+            var __response = await DataQualityAgreementDimensionsAsResponseAsync(
                 id: id,
-                ids: ids,
-                table: table,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,41 +69,35 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Get member performance table summary aggregates<br/>
+        /// ✨ Data quality: agreement by dimension<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;. Guarded by &lt;code&gt;fflag_feat_lse_project_dashboards_v3_members_short&lt;/code&gt;.
+        /// Returns per-dimension agreement scores for active dimensions.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="ids"></param>
-        /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>> MemberPerformanceSummaryAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>>> DataQualityAgreementDimensionsAsResponseAsync(
             int id,
-            string? ids = default,
-            global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareMemberPerformanceSummaryArguments(
+            PrepareDataQualityAgreementDimensionsArguments(
                 httpClient: HttpClient,
-                id: ref id,
-                ids: ref ids,
-                table: ref table);
+                id: ref id);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_MemberPerformanceSummarySecurityRequirements,
-                operationName: "MemberPerformanceSummaryAsync");
+                securityRequirements: s_DataQualityAgreementDimensionsSecurityRequirements,
+                operationName: "DataQualityAgreementDimensionsAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -133,12 +117,8 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/stats/member_performance_summary/",
+                                path: $"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("ids", ids)
-                                .AddOptionalParameter("table", table?.ToValueString())
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -176,12 +156,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareMemberPerformanceSummaryRequest(
+                PrepareDataQualityAgreementDimensionsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!,
-                    ids: ids,
-                    table: table);
+                    id: id!);
 
                 return __httpRequest;
             }
@@ -198,9 +176,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceSummary",
-                                methodName: "MemberPerformanceSummaryAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
+                                operationId: "DataQualityAgreementDimensions",
+                                methodName: "DataQualityAgreementDimensionsAsync",
+                                pathTemplate: "$\"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -232,9 +210,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceSummary",
-                                methodName: "MemberPerformanceSummaryAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
+                                operationId: "DataQualityAgreementDimensions",
+                                methodName: "DataQualityAgreementDimensionsAsync",
+                                pathTemplate: "$\"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -273,9 +251,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceSummary",
-                                methodName: "MemberPerformanceSummaryAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
+                                operationId: "DataQualityAgreementDimensions",
+                                methodName: "DataQualityAgreementDimensionsAsync",
+                                pathTemplate: "$\"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -313,7 +291,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessMemberPerformanceSummaryResponse(
+                ProcessDataQualityAgreementDimensionsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -321,9 +299,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceSummary",
-                                methodName: "MemberPerformanceSummaryAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
+                                operationId: "DataQualityAgreementDimensions",
+                                methodName: "DataQualityAgreementDimensionsAsync",
+                                pathTemplate: "$\"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -343,9 +321,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "MemberPerformanceSummary",
-                                methodName: "MemberPerformanceSummaryAsync",
-                                pathTemplate: "$\"/api/projects/{id}/stats/member_performance_summary/\"",
+                                operationId: "DataQualityAgreementDimensions",
+                                methodName: "DataQualityAgreementDimensionsAsync",
+                                pathTemplate: "$\"/api/projects/{id}/analytics/data-quality/agreement-analysis/dimensions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -360,39 +338,6 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-                                throw new global::LabelStudio.ApiException(
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    statusCode: __response.StatusCode)
-                                {
-                                    ResponseBody = __content_404,
-                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value),
-                                };
-                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -406,7 +351,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessMemberPerformanceSummaryResponseContent(
+                                ProcessDataQualityAgreementDimensionsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -415,9 +360,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +394,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.DataQualityAgreementDimensions>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
