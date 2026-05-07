@@ -30,7 +30,7 @@ public static class LabelStudioToolExtensions
                     search: search,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     count = response.Count,
                     projects = response.Results.Select(p => new
@@ -42,7 +42,7 @@ public static class LabelStudioToolExtensions
                         num_tasks_with_annotations = p.NumTasksWithAnnotations,
                         created_at = p.CreatedAt,
                     }),
-                });
+                };
             },
             name: "ListLabelingProjects",
             description: "Lists Label Studio labeling projects with their IDs, titles, descriptions, and task counts. Supports pagination and search by title.");
@@ -65,7 +65,7 @@ public static class LabelStudioToolExtensions
                     id: projectId,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     id = response.Id,
                     title = response.Title,
@@ -74,7 +74,7 @@ public static class LabelStudioToolExtensions
                     task_number = response.TaskNumber,
                     num_tasks_with_annotations = response.NumTasksWithAnnotations,
                     created_at = response.CreatedAt,
-                });
+                };
             },
             name: "GetLabelingProject",
             description: "Gets detailed information about a specific Label Studio labeling project by ID, including its label configuration, task counts, and timestamps.");
@@ -102,7 +102,7 @@ public static class LabelStudioToolExtensions
                     pageSize: pageSize,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     total = response.Total,
                     total_annotations = response.TotalAnnotations,
@@ -120,7 +120,7 @@ public static class LabelStudioToolExtensions
                             created_at = task.CreatedAt,
                         };
                     }).Where(t => t != null),
-                });
+                };
             },
             name: "ListLabelingTasks",
             description: "Lists tasks in a Label Studio project with their IDs, data, labeling status, and annotation/prediction counts. Supports pagination.");
@@ -139,23 +139,40 @@ public static class LabelStudioToolExtensions
         return AIFunctionFactory.Create(
             async (int taskId, string resultJson, CancellationToken cancellationToken) =>
             {
-                var result = JsonSerializer.Deserialize<List<object>>(resultJson);
+                var result = ParseJsonArray(resultJson);
 
                 var response = await client.Annotations.CreateAsync(
                     id: taskId,
                     result: result,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     id = response.Id,
                     task = response.Task,
                     created_at = response.CreatedAt,
                     updated_at = response.UpdatedAt,
                     completed_by = response.CompletedBy,
-                });
+                };
             },
             name: "CreateAnnotation",
             description: "Creates an annotation on a Label Studio task. The resultJson parameter should be a JSON array of annotation results following the Label Studio annotation format.");
+    }
+
+    private static List<object> ParseJsonArray(string json)
+    {
+        using var document = JsonDocument.Parse(json);
+        if (document.RootElement.ValueKind != JsonValueKind.Array)
+        {
+            throw new ArgumentException("Expected a JSON array.", nameof(json));
+        }
+
+        var result = new List<object>();
+        foreach (var element in document.RootElement.EnumerateArray())
+        {
+            result.Add(element.Clone());
+        }
+
+        return result;
     }
 }
