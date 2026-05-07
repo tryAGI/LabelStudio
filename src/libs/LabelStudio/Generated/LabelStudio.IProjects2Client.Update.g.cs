@@ -181,7 +181,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="skipQueue"></param>
         /// <param name="sourceInterfaceId"></param>
-        /// <param name="sourceInterfaceVersion"></param>
+        /// <param name="sourceInterfaceVersion">
+        /// Stable version ID of the saved interface snapshot used by this project.
+        /// </param>
         /// <param name="strictTaskOverlap">
         /// Enforce strict overlap limit<br/>
         /// Default Value: true

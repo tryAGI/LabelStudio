@@ -512,7 +512,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="skipQueue"></param>
         /// <param name="sourceInterfaceId"></param>
-        /// <param name="sourceInterfaceVersion"></param>
+        /// <param name="sourceInterfaceVersion">
+        /// Stable version ID of the saved interface used to create this project.
+        /// </param>
         /// <param name="taskDataLogin">
         /// Task data credentials: login
         /// </param>
