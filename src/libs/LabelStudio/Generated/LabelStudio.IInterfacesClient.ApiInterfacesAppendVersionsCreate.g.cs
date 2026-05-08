@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more published versions to a saved interface with server-assigned stable version IDs.
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -33,7 +33,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more published versions to a saved interface with server-assigned stable version IDs.
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -54,7 +54,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more published versions to a saved interface with server-assigned stable version IDs.
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="artifacts"></param>
@@ -63,7 +63,9 @@ namespace LabelStudio
         /// <param name="dataSample"></param>
         /// <param name="inputSchema"></param>
         /// <param name="messages"></param>
+        /// <param name="metadata"></param>
         /// <param name="outputSchema"></param>
+        /// <param name="title"></param>
         /// <param name="versions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -77,7 +79,9 @@ namespace LabelStudio
             object? dataSample = default,
             object? inputSchema = default,
             object? messages = default,
+            object? metadata = default,
             object? outputSchema = default,
+            string? title = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

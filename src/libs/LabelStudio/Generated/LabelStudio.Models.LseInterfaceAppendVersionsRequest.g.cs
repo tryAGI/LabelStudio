@@ -47,8 +47,20 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public object? Metadata { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public object? OutputSchema { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("title")]
+        public string? Title { get; set; }
 
         /// <summary>
         /// 
@@ -73,7 +85,9 @@ namespace LabelStudio
         /// <param name="dataSample"></param>
         /// <param name="inputSchema"></param>
         /// <param name="messages"></param>
+        /// <param name="metadata"></param>
         /// <param name="outputSchema"></param>
+        /// <param name="title"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,7 +99,9 @@ namespace LabelStudio
             object? dataSample,
             object? inputSchema,
             object? messages,
-            object? outputSchema)
+            object? metadata,
+            object? outputSchema,
+            string? title)
         {
             this.Artifacts = artifacts;
             this.Code = code;
@@ -93,7 +109,9 @@ namespace LabelStudio
             this.DataSample = dataSample;
             this.InputSchema = inputSchema;
             this.Messages = messages;
+            this.Metadata = metadata;
             this.OutputSchema = outputSchema;
+            this.Title = title;
             this.Versions = versions ?? throw new global::System.ArgumentNullException(nameof(versions));
         }
 
