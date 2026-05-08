@@ -49,7 +49,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns average agreement, histogram buckets, low-agreement count, and total tasks.
+        /// Returns average agreement, a 10-bucket histogram of `Task.precomputed_agreement` (filled on-the-fly from V2 dimension matrices when null), `low_agreement_count`, and `total_tasks`. The low-agreement threshold is `LseProject.agreement_threshold` (the same project setting Data Manager filters and review-routing rules consume); changing that setting moves the count for this endpoint as well.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -76,7 +76,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns average agreement, histogram buckets, low-agreement count, and total tasks.
+        /// Returns average agreement, a 10-bucket histogram of `Task.precomputed_agreement` (filled on-the-fly from V2 dimension matrices when null), `low_agreement_count`, and `total_tasks`. The low-agreement threshold is `LseProject.agreement_threshold` (the same project setting Data Manager filters and review-routing rules consume); changing that setting moves the count for this endpoint as well.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

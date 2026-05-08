@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the description for one saved interface version by stable version ID.
+        /// Update description for a saved interface version by ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -33,7 +33,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the description for one saved interface version by stable version ID.
+        /// Update description for a saved interface version by ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -54,7 +54,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the description for one saved interface version by stable version ID.
+        /// Update description for a saved interface version by ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="description">

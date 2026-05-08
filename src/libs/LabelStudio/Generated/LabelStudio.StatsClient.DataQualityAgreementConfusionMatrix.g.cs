@@ -53,7 +53,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns label confusion matrix with precision, recall, and top confusion pairs.
+        /// Returns label confusion matrix with precision, recall, and top confusion pairs. In `ground_truth` mode the matrix is directional: rows are GT labels (actual), columns are annotator labels (predicted). In `all` and `accepted` modes — where no canonical "actual vs predicted" axis exists — the matrix is symmetric. When a task has multiple GT annotations the most recently updated one is used. `top_confusion_pairs.rate` is the share of off-diagonal mass.
         /// </summary>
         /// <param name="fromName"></param>
         /// <param name="id"></param>
@@ -88,7 +88,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns label confusion matrix with precision, recall, and top confusion pairs.
+        /// Returns label confusion matrix with precision, recall, and top confusion pairs. In `ground_truth` mode the matrix is directional: rows are GT labels (actual), columns are annotator labels (predicted). In `all` and `accepted` modes — where no canonical "actual vs predicted" axis exists — the matrix is symmetric. When a task has multiple GT annotations the most recently updated one is used. `top_confusion_pairs.rate` is the share of off-diagonal mass.
         /// </summary>
         /// <param name="fromName"></param>
         /// <param name="id"></param>
