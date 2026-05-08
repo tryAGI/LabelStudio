@@ -71,6 +71,12 @@ namespace LabelStudio
         public object? ParamsSchema { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("unpublished")]
+        public bool? Unpublished { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -89,6 +95,7 @@ namespace LabelStudio
         /// <param name="op"></param>
         /// <param name="outputSchema"></param>
         /// <param name="paramsSchema"></param>
+        /// <param name="unpublished"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -102,7 +109,8 @@ namespace LabelStudio
             string? messageId,
             string? op,
             object? outputSchema,
-            object? paramsSchema)
+            object? paramsSchema,
+            bool? unpublished)
         {
             this.ArtifactId = artifactId;
             this.ChangeRanges = changeRanges;
@@ -114,6 +122,7 @@ namespace LabelStudio
             this.Op = op;
             this.OutputSchema = outputSchema;
             this.ParamsSchema = paramsSchema;
+            this.Unpublished = unpublished;
         }
 
         /// <summary>
