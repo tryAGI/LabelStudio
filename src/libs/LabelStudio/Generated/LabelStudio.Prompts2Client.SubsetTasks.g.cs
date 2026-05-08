@@ -32,6 +32,7 @@ namespace LabelStudio
             ref global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome? alignmentOutcome,
             ref bool? includeTotal,
             ref int? modelRun,
+            ref int? modelVersion,
             ref string? ordering,
             ref string? outputClass,
             ref string? outputFromName,
@@ -49,6 +50,7 @@ namespace LabelStudio
             global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome? alignmentOutcome,
             bool? includeTotal,
             int? modelRun,
+            int? modelVersion,
             string? ordering,
             string? outputClass,
             string? outputFromName,
@@ -83,6 +85,7 @@ namespace LabelStudio
         /// <param name="alignmentOutcome"></param>
         /// <param name="includeTotal"></param>
         /// <param name="modelRun"></param>
+        /// <param name="modelVersion"></param>
         /// <param name="ordering"></param>
         /// <param name="outputClass"></param>
         /// <param name="outputFromName"></param>
@@ -102,6 +105,7 @@ namespace LabelStudio
             global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome? alignmentOutcome = default,
             bool? includeTotal = default,
             int? modelRun = default,
+            int? modelVersion = default,
             string? ordering = default,
             string? outputClass = default,
             string? outputFromName = default,
@@ -120,6 +124,7 @@ namespace LabelStudio
                 alignmentOutcome: alignmentOutcome,
                 includeTotal: includeTotal,
                 modelRun: modelRun,
+                modelVersion: modelVersion,
                 ordering: ordering,
                 outputClass: outputClass,
                 outputFromName: outputFromName,
@@ -150,6 +155,7 @@ namespace LabelStudio
         /// <param name="alignmentOutcome"></param>
         /// <param name="includeTotal"></param>
         /// <param name="modelRun"></param>
+        /// <param name="modelVersion"></param>
         /// <param name="ordering"></param>
         /// <param name="outputClass"></param>
         /// <param name="outputFromName"></param>
@@ -169,6 +175,7 @@ namespace LabelStudio
             global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome? alignmentOutcome = default,
             bool? includeTotal = default,
             int? modelRun = default,
+            int? modelVersion = default,
             string? ordering = default,
             string? outputClass = default,
             string? outputFromName = default,
@@ -189,6 +196,7 @@ namespace LabelStudio
                 alignmentOutcome: ref alignmentOutcome,
                 includeTotal: ref includeTotal,
                 modelRun: ref modelRun,
+                modelVersion: ref modelVersion,
                 ordering: ref ordering,
                 outputClass: ref outputClass,
                 outputFromName: ref outputFromName,
@@ -231,6 +239,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("alignment_outcome", alignmentOutcome?.ToValueString())
                                 .AddOptionalParameter("include_total", includeTotal?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("model_run", modelRun?.ToString())
+                                .AddOptionalParameter("model_version", modelVersion?.ToString())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("output_class", outputClass)
                                 .AddOptionalParameter("output_from_name", outputFromName)
@@ -285,6 +294,7 @@ namespace LabelStudio
                     alignmentOutcome: alignmentOutcome,
                     includeTotal: includeTotal,
                     modelRun: modelRun,
+                    modelVersion: modelVersion,
                     ordering: ordering,
                     outputClass: outputClass,
                     outputFromName: outputFromName,
