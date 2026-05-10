@@ -40,5 +40,6 @@ namespace LabelStudio
         public ApiProjectsUserStatsPredictionRetrieve2Response()
         {
         }
+
     }
 }

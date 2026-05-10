@@ -87,5 +87,6 @@ namespace LabelStudio
         public ConfigurablePermissionOption()
         {
         }
+
     }
 }

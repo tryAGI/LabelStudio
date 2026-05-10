@@ -198,5 +198,6 @@ namespace LabelStudio
         public Comment()
         {
         }
+
     }
 }

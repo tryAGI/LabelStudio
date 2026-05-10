@@ -199,5 +199,6 @@ namespace LabelStudio
         public AnnotationHistory()
         {
         }
+
     }
 }

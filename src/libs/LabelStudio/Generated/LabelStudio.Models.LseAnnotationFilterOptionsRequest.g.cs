@@ -83,5 +83,6 @@ namespace LabelStudio
         public LseAnnotationFilterOptionsRequest()
         {
         }
+
     }
 }

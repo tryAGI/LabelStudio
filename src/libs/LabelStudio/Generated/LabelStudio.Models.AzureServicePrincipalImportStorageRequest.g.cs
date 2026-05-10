@@ -284,5 +284,6 @@ namespace LabelStudio
         public AzureServicePrincipalImportStorageRequest()
         {
         }
+
     }
 }

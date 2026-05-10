@@ -566,5 +566,6 @@ namespace LabelStudio
         public Project()
         {
         }
+
     }
 }

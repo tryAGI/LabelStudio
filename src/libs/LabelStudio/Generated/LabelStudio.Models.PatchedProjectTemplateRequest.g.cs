@@ -150,5 +150,6 @@ namespace LabelStudio
         public PatchedProjectTemplateRequest()
         {
         }
+
     }
 }

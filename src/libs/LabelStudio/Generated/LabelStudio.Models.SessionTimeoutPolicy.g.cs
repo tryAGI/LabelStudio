@@ -76,5 +76,6 @@ namespace LabelStudio
         public SessionTimeoutPolicy()
         {
         }
+
     }
 }

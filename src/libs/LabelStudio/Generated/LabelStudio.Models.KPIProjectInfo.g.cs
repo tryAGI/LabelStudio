@@ -78,5 +78,6 @@ namespace LabelStudio
         public KPIProjectInfo()
         {
         }
+
     }
 }

@@ -67,5 +67,6 @@ namespace LabelStudio
         public AssignmentSettings()
         {
         }
+
     }
 }

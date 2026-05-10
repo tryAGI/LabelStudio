@@ -283,5 +283,6 @@ namespace LabelStudio
         public PatchedAzureServicePrincipalImportStorageRequest()
         {
         }
+
     }
 }

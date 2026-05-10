@@ -175,5 +175,6 @@ namespace LabelStudio
         public PatchedLseOrganizationSerializerUpdateRequest()
         {
         }
+
     }
 }

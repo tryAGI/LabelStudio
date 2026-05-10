@@ -129,5 +129,6 @@ namespace LabelStudio
         public ApiUsersPartialUpdateRequest()
         {
         }
+
     }
 }

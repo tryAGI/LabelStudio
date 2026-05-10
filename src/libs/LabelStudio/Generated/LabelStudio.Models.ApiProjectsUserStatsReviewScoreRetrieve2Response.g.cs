@@ -50,5 +50,6 @@ namespace LabelStudio
         public ApiProjectsUserStatsReviewScoreRetrieve2Response()
         {
         }
+
     }
 }

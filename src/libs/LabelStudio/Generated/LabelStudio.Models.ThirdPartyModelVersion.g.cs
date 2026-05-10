@@ -206,5 +206,6 @@ namespace LabelStudio
         public ThirdPartyModelVersion()
         {
         }
+
     }
 }

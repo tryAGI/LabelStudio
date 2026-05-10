@@ -58,5 +58,6 @@ namespace LabelStudio
         public SelectedItemsRequest()
         {
         }
+
     }
 }

@@ -236,5 +236,18 @@ namespace LabelStudio
         public LocalFilesExportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LocalFilesExportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LocalFilesExportStorage FromProject(int project)
+        {
+            return new LocalFilesExportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

@@ -120,5 +120,6 @@ namespace LabelStudio
         public DimensionCreateRequest()
         {
         }
+
     }
 }

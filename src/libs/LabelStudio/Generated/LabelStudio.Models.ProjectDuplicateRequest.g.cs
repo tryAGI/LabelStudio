@@ -82,5 +82,6 @@ namespace LabelStudio
         public ProjectDuplicateRequest()
         {
         }
+
     }
 }

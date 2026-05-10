@@ -118,5 +118,18 @@ namespace LabelStudio
         public View()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="View"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static View FromProject(int project)
+        {
+            return new View
+            {
+                Project = project,
+            };
+        }
+
     }
 }
