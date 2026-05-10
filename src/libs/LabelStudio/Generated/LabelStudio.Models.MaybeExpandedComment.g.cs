@@ -99,6 +99,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public static MaybeExpandedComment FromComment(global::LabelStudio.Comment? value) => new MaybeExpandedComment(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MaybeExpandedComment(global::LabelStudio.CommentSerializerWithExpandedUser value) => new MaybeExpandedComment((global::LabelStudio.CommentSerializerWithExpandedUser?)value);
 
         /// <summary>
@@ -113,6 +118,11 @@ namespace LabelStudio
         {
             SerializerWithUser = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MaybeExpandedComment FromSerializerWithUser(global::LabelStudio.CommentSerializerWithExpandedUser? value) => new MaybeExpandedComment(value);
 
         /// <summary>
         /// 
