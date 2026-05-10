@@ -204,6 +204,7 @@ namespace LabelStudio.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTask), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTask> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTask).Name}");
                     lse = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -214,9 +215,13 @@ namespace LabelStudio.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (lse == null && lseSerializerForReviewers == null && lseSerializerForAnnotators == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTaskSerializerForReviewers), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTaskSerializerForReviewers> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTaskSerializerForReviewers).Name}");
                     lseSerializerForReviewers = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -227,9 +232,13 @@ namespace LabelStudio.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (lse == null && lseSerializerForReviewers == null && lseSerializerForAnnotators == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.LseTaskSerializerForAnnotators), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.LseTaskSerializerForAnnotators> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.LseTaskSerializerForAnnotators).Name}");
                     lseSerializerForAnnotators = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
