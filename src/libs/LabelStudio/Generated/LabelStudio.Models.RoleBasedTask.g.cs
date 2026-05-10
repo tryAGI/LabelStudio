@@ -119,6 +119,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public static RoleBasedTask FromLse(global::LabelStudio.LseTask? value) => new RoleBasedTask(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTaskSerializerForReviewers value) => new RoleBasedTask((global::LabelStudio.LseTaskSerializerForReviewers?)value);
 
         /// <summary>
@@ -137,6 +142,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public static RoleBasedTask FromLseSerializerForReviewers(global::LabelStudio.LseTaskSerializerForReviewers? value) => new RoleBasedTask(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTaskSerializerForAnnotators value) => new RoleBasedTask((global::LabelStudio.LseTaskSerializerForAnnotators?)value);
 
         /// <summary>
@@ -151,6 +161,11 @@ namespace LabelStudio
         {
             LseSerializerForAnnotators = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RoleBasedTask FromLseSerializerForAnnotators(global::LabelStudio.LseTaskSerializerForAnnotators? value) => new RoleBasedTask(value);
 
         /// <summary>
         /// 
