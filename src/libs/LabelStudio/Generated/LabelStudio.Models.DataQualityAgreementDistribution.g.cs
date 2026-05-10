@@ -69,5 +69,6 @@ namespace LabelStudio
         public DataQualityAgreementDistribution()
         {
         }
+
     }
 }

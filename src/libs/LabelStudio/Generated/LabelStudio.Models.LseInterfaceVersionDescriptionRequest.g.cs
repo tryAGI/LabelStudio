@@ -54,5 +54,6 @@ namespace LabelStudio
         public LseInterfaceVersionDescriptionRequest()
         {
         }
+
     }
 }

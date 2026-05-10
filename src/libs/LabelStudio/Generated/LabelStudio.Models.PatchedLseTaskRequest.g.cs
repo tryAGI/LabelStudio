@@ -248,5 +248,6 @@ namespace LabelStudio
         public PatchedLseTaskRequest()
         {
         }
+
     }
 }

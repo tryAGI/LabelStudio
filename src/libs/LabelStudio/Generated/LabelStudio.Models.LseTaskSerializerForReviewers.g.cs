@@ -571,5 +571,18 @@ namespace LabelStudio
         public LseTaskSerializerForReviewers()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LseTaskSerializerForReviewers"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LseTaskSerializerForReviewers FromData(object data)
+        {
+            return new LseTaskSerializerForReviewers
+            {
+                Data = data,
+            };
+        }
+
     }
 }

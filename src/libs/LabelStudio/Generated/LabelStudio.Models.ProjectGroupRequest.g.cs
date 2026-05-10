@@ -73,5 +73,6 @@ namespace LabelStudio
         public ProjectGroupRequest()
         {
         }
+
     }
 }

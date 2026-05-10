@@ -209,5 +209,18 @@ namespace LabelStudio
         public LseUserOrganizationMemberList()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LseUserOrganizationMemberList"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LseUserOrganizationMemberList FromUsername(string username)
+        {
+            return new LseUserOrganizationMemberList
+            {
+                Username = username,
+            };
+        }
+
     }
 }

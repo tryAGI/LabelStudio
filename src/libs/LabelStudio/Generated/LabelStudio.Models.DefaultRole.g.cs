@@ -209,5 +209,6 @@ namespace LabelStudio
         public DefaultRole()
         {
         }
+
     }
 }

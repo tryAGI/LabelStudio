@@ -56,5 +56,6 @@ namespace LabelStudio
         public AssociatedProject()
         {
         }
+
     }
 }

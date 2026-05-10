@@ -899,5 +899,6 @@ namespace LabelStudio
         public LseProjectUpdate()
         {
         }
+
     }
 }

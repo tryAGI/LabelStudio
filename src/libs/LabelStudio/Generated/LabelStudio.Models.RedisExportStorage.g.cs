@@ -280,5 +280,18 @@ namespace LabelStudio
         public RedisExportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="RedisExportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static RedisExportStorage FromProject(int project)
+        {
+            return new RedisExportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

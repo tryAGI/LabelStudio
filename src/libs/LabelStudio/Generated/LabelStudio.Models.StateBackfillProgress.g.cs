@@ -74,5 +74,6 @@ namespace LabelStudio
         public StateBackfillProgress()
         {
         }
+
     }
 }

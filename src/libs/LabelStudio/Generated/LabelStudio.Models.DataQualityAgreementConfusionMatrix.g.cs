@@ -80,5 +80,6 @@ namespace LabelStudio
         public DataQualityAgreementConfusionMatrix()
         {
         }
+
     }
 }

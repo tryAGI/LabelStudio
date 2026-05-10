@@ -113,5 +113,6 @@ namespace LabelStudio
         public TaskAssignment()
         {
         }
+
     }
 }

@@ -176,5 +176,6 @@ namespace LabelStudio
         public Label()
         {
         }
+
     }
 }

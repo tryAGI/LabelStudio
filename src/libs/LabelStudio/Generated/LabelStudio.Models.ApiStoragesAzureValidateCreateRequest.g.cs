@@ -168,5 +168,6 @@ namespace LabelStudio
         public ApiStoragesAzureValidateCreateRequest()
         {
         }
+
     }
 }

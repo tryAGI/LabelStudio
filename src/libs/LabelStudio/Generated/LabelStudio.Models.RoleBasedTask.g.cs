@@ -40,6 +40,13 @@ namespace LabelStudio
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTask PickLse() => IsLse
+            ? Lse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Lse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Data Manager Task Serializer with FSM state support.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -70,6 +77,13 @@ namespace LabelStudio
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTaskSerializerForReviewers PickLseSerializerForReviewers() => IsLseSerializerForReviewers
+            ? LseSerializerForReviewers!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LseSerializerForReviewers' but the value was {ToString()}.");
+
+        /// <summary>
         /// Data Manager Task Serializer with FSM state support.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -98,6 +112,13 @@ namespace LabelStudio
             value = LseSerializerForAnnotators;
             return IsLseSerializerForAnnotators;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTaskSerializerForAnnotators PickLseSerializerForAnnotators() => IsLseSerializerForAnnotators
+            ? LseSerializerForAnnotators!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LseSerializerForAnnotators' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

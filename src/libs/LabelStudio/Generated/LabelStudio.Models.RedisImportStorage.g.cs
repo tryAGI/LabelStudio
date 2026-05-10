@@ -269,5 +269,18 @@ namespace LabelStudio
         public RedisImportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="RedisImportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static RedisImportStorage FromProject(int project)
+        {
+            return new RedisImportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

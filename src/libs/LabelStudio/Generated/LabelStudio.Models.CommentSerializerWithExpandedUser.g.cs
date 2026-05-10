@@ -202,5 +202,18 @@ namespace LabelStudio
         public CommentSerializerWithExpandedUser()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="CommentSerializerWithExpandedUser"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static CommentSerializerWithExpandedUser FromCreatedBy(global::LabelStudio.LseUser createdBy)
+        {
+            return new CommentSerializerWithExpandedUser
+            {
+                CreatedBy = createdBy,
+            };
+        }
+
     }
 }

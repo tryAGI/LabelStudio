@@ -644,5 +644,6 @@ namespace LabelStudio
         public PatchedLseProjectUpdateRequest()
         {
         }
+
     }
 }

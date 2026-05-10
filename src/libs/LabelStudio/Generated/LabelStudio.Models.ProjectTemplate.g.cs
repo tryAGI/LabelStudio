@@ -176,5 +176,18 @@ namespace LabelStudio
         public ProjectTemplate()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ProjectTemplate"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ProjectTemplate FromName(string name)
+        {
+            return new ProjectTemplate
+            {
+                Name = name,
+            };
+        }
+
     }
 }

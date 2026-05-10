@@ -143,5 +143,6 @@ namespace LabelStudio
         public VersionResponse()
         {
         }
+
     }
 }

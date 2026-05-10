@@ -62,5 +62,6 @@ namespace LabelStudio
         public PatchedLabelLinkRequest()
         {
         }
+
     }
 }

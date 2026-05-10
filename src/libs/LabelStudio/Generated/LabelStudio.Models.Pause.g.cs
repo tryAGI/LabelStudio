@@ -171,5 +171,18 @@ namespace LabelStudio
         public Pause()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="Pause"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static Pause FromReason(global::LabelStudio.ReasonEnum reason)
+        {
+            return new Pause
+            {
+                Reason = reason,
+            };
+        }
+
     }
 }

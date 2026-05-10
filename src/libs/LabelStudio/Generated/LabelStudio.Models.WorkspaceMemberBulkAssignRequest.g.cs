@@ -64,5 +64,6 @@ namespace LabelStudio
         public WorkspaceMemberBulkAssignRequest()
         {
         }
+
     }
 }

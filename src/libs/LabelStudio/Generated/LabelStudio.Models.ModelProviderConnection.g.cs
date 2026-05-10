@@ -277,5 +277,6 @@ namespace LabelStudio
         public ModelProviderConnection()
         {
         }
+
     }
 }

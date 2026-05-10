@@ -153,5 +153,6 @@ namespace LabelStudio
         public PatchedLseUserSerializerUpdateRequest()
         {
         }
+
     }
 }

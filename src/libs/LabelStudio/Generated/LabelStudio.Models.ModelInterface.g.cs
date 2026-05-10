@@ -148,5 +148,18 @@ namespace LabelStudio
         public ModelInterface()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="ModelInterface"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static ModelInterface FromTitle(string title)
+        {
+            return new ModelInterface
+            {
+                Title = title,
+            };
+        }
+
     }
 }

@@ -212,5 +212,6 @@ namespace LabelStudio
         public ApiStoragesS3PartialUpdateRequest()
         {
         }
+
     }
 }

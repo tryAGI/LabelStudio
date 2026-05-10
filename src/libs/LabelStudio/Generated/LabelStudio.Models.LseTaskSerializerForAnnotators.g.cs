@@ -236,5 +236,18 @@ namespace LabelStudio
         public LseTaskSerializerForAnnotators()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LseTaskSerializerForAnnotators"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LseTaskSerializerForAnnotators FromData(object data)
+        {
+            return new LseTaskSerializerForAnnotators
+            {
+                Data = data,
+            };
+        }
+
     }
 }

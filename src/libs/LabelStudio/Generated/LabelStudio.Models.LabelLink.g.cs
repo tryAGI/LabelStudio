@@ -89,5 +89,6 @@ namespace LabelStudio
         public LabelLink()
         {
         }
+
     }
 }

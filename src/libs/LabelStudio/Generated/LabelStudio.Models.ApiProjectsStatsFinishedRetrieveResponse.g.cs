@@ -63,5 +63,6 @@ namespace LabelStudio
         public ApiProjectsStatsFinishedRetrieveResponse()
         {
         }
+
     }
 }
