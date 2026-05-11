@@ -161,6 +161,8 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     organizationOnly: organizationOnly);
 
+                global::LabelStudio.AutoSDKHttpRequestOptions.StampAuthorizationOverride(__httpRequest);
+
                 return __httpRequest;
             }
 
