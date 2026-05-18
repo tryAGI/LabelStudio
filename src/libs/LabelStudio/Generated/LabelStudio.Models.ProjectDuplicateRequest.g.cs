@@ -15,6 +15,13 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
+        /// Whether to include explicit project members and project role overrides in the duplicated project.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("include_members")]
+        public bool? IncludeMembers { get; set; }
+
+        /// <summary>
         /// What to Duplicate (Project configuration only / Project configuration and tasks)<br/>
         /// * `settings` - Only settings<br/>
         /// * `settings,data` - Settings and tasks
@@ -61,6 +68,10 @@ namespace LabelStudio
         /// <param name="description">
         /// Project Description
         /// </param>
+        /// <param name="includeMembers">
+        /// Whether to include explicit project members and project role overrides in the duplicated project.<br/>
+        /// Default Value: true
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -68,9 +79,11 @@ namespace LabelStudio
             global::LabelStudio.ProjectDuplicateModeEnum mode,
             string title,
             int workspace,
-            string? description)
+            string? description,
+            bool? includeMembers)
         {
             this.Description = description;
+            this.IncludeMembers = includeMembers;
             this.Mode = mode;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
             this.Workspace = workspace;
