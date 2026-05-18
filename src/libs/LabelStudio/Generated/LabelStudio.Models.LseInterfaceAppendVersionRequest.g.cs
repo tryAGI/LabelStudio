@@ -73,6 +73,12 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("screenParams")]
+        public object? ScreenParams { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("unpublished")]
         public bool? Unpublished { get; set; }
 
@@ -95,6 +101,7 @@ namespace LabelStudio
         /// <param name="op"></param>
         /// <param name="outputSchema"></param>
         /// <param name="paramsSchema"></param>
+        /// <param name="screenParams"></param>
         /// <param name="unpublished"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -110,6 +117,7 @@ namespace LabelStudio
             string? op,
             object? outputSchema,
             object? paramsSchema,
+            object? screenParams,
             bool? unpublished)
         {
             this.ArtifactId = artifactId;
@@ -122,6 +130,7 @@ namespace LabelStudio
             this.Op = op;
             this.OutputSchema = outputSchema;
             this.ParamsSchema = paramsSchema;
+            this.ScreenParams = screenParams;
             this.Unpublished = unpublished;
         }
 

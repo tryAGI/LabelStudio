@@ -60,6 +60,10 @@ namespace LabelStudio
         /// <param name="description">
         /// Project Description
         /// </param>
+        /// <param name="includeMembers">
+        /// Whether to include explicit project members and project role overrides in the duplicated project.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="mode">
         /// What to Duplicate (Project configuration only / Project configuration and tasks)<br/>
         /// * `settings` - Only settings<br/>
@@ -80,6 +84,7 @@ namespace LabelStudio
             string title,
             int workspace,
             string? description = default,
+            bool? includeMembers = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
