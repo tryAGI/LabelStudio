@@ -188,5 +188,6 @@ namespace LabelStudio
         public Prediction()
         {
         }
+
     }
 }

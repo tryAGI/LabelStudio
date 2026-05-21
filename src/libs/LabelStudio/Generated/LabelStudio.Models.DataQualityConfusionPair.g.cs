@@ -25,6 +25,12 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("from_name")]
+        public string? FromName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Label { get; set; }
@@ -49,6 +55,7 @@ namespace LabelStudio
         /// <param name="count"></param>
         /// <param name="label"></param>
         /// <param name="rate"></param>
+        /// <param name="fromName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -56,10 +63,12 @@ namespace LabelStudio
             string actual,
             int count,
             string label,
-            double rate)
+            double rate,
+            string? fromName)
         {
             this.Actual = actual ?? throw new global::System.ArgumentNullException(nameof(actual));
             this.Count = count;
+            this.FromName = fromName;
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.Rate = rate;
         }
@@ -70,5 +79,6 @@ namespace LabelStudio
         public DataQualityConfusionPair()
         {
         }
+
     }
 }

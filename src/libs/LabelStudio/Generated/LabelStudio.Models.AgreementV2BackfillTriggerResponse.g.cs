@@ -98,5 +98,6 @@ namespace LabelStudio
         public AgreementV2BackfillTriggerResponse()
         {
         }
+
     }
 }

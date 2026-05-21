@@ -48,5 +48,6 @@ namespace LabelStudio
         public OrganizationInvite()
         {
         }
+
     }
 }

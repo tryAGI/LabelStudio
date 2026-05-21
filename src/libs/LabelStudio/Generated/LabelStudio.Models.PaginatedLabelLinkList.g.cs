@@ -77,5 +77,6 @@ namespace LabelStudio
         public PaginatedLabelLinkList()
         {
         }
+
     }
 }

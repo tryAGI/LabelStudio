@@ -148,5 +148,18 @@ namespace LabelStudio
         public Workspace()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="Workspace"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static Workspace FromTitle(string title)
+        {
+            return new Workspace
+            {
+                Title = title,
+            };
+        }
+
     }
 }

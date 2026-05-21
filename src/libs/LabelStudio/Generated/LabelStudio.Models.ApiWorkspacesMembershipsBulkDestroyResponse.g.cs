@@ -39,5 +39,6 @@ namespace LabelStudio
         public ApiWorkspacesMembershipsBulkDestroyResponse()
         {
         }
+
     }
 }

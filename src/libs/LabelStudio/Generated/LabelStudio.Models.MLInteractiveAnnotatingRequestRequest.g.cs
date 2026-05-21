@@ -53,5 +53,6 @@ namespace LabelStudio
         public MLInteractiveAnnotatingRequestRequest()
         {
         }
+
     }
 }

@@ -165,5 +165,6 @@ namespace LabelStudio
         public ApiWebhooksInfoRetrieveResponse()
         {
         }
+
     }
 }

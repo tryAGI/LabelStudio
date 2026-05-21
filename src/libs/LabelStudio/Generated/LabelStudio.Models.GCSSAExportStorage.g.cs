@@ -269,5 +269,18 @@ namespace LabelStudio
         public GCSSAExportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="GCSSAExportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static GCSSAExportStorage FromProject(int project)
+        {
+            return new GCSSAExportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

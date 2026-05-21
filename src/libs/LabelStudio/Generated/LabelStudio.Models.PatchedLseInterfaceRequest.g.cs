@@ -154,5 +154,6 @@ namespace LabelStudio
         public PatchedLseInterfaceRequest()
         {
         }
+
     }
 }

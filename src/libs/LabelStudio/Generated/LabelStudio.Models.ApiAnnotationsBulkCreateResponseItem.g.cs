@@ -42,5 +42,6 @@ namespace LabelStudio
         public ApiAnnotationsBulkCreateResponseItem()
         {
         }
+
     }
 }

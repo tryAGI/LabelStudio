@@ -40,5 +40,6 @@ namespace LabelStudio
         public OrganizationMembershipRequest()
         {
         }
+
     }
 }

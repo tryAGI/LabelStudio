@@ -91,5 +91,6 @@ namespace LabelStudio
         public SendInviteRequest()
         {
         }
+
     }
 }

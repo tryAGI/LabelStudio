@@ -124,5 +124,6 @@ namespace LabelStudio
         public LseTaskFilterOptions()
         {
         }
+
     }
 }

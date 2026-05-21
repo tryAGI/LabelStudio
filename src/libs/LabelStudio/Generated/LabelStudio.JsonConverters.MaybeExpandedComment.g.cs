@@ -127,6 +127,7 @@ namespace LabelStudio.JsonConverters
             {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.Comment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.Comment> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.Comment).Name}");
                     comment = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);
@@ -137,9 +138,13 @@ namespace LabelStudio.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (comment == null && serializerWithUser == null)
+            {
                 try
                 {
+
                     var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.CommentSerializerWithExpandedUser), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.CommentSerializerWithExpandedUser> ??
                                    throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.CommentSerializerWithExpandedUser).Name}");
                     serializerWithUser = global::System.Text.Json.JsonSerializer.Deserialize(__rawJson, typeInfo);

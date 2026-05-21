@@ -27,6 +27,26 @@ namespace LabelStudio
         public bool IsLse => Lse != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLse(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LabelStudio.LseTask? value)
+        {
+            value = Lse;
+            return IsLse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTask PickLse() => IsLse
+            ? Lse!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Lse' but the value was {ToString()}.");
+
+        /// <summary>
         /// Data Manager Task Serializer with FSM state support.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -44,6 +64,26 @@ namespace LabelStudio
         public bool IsLseSerializerForReviewers => LseSerializerForReviewers != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLseSerializerForReviewers(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LabelStudio.LseTaskSerializerForReviewers? value)
+        {
+            value = LseSerializerForReviewers;
+            return IsLseSerializerForReviewers;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTaskSerializerForReviewers PickLseSerializerForReviewers() => IsLseSerializerForReviewers
+            ? LseSerializerForReviewers!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LseSerializerForReviewers' but the value was {ToString()}.");
+
+        /// <summary>
         /// Data Manager Task Serializer with FSM state support.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -59,6 +99,26 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LseSerializerForAnnotators))]
 #endif
         public bool IsLseSerializerForAnnotators => LseSerializerForAnnotators != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickLseSerializerForAnnotators(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LabelStudio.LseTaskSerializerForAnnotators? value)
+        {
+            value = LseSerializerForAnnotators;
+            return IsLseSerializerForAnnotators;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.LseTaskSerializerForAnnotators PickLseSerializerForAnnotators() => IsLseSerializerForAnnotators
+            ? LseSerializerForAnnotators!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'LseSerializerForAnnotators' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -76,6 +136,11 @@ namespace LabelStudio
         {
             Lse = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RoleBasedTask FromLse(global::LabelStudio.LseTask? value) => new RoleBasedTask(value);
 
         /// <summary>
         /// 
@@ -98,6 +163,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public static RoleBasedTask FromLseSerializerForReviewers(global::LabelStudio.LseTaskSerializerForReviewers? value) => new RoleBasedTask(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTaskSerializerForAnnotators value) => new RoleBasedTask((global::LabelStudio.LseTaskSerializerForAnnotators?)value);
 
         /// <summary>
@@ -112,6 +182,11 @@ namespace LabelStudio
         {
             LseSerializerForAnnotators = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static RoleBasedTask FromLseSerializerForAnnotators(global::LabelStudio.LseTaskSerializerForAnnotators? value) => new RoleBasedTask(value);
 
         /// <summary>
         /// 
@@ -157,9 +232,9 @@ namespace LabelStudio
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::LabelStudio.LseTask?, TResult>? lse = null,
-            global::System.Func<global::LabelStudio.LseTaskSerializerForReviewers?, TResult>? lseSerializerForReviewers = null,
-            global::System.Func<global::LabelStudio.LseTaskSerializerForAnnotators?, TResult>? lseSerializerForAnnotators = null,
+            global::System.Func<global::LabelStudio.LseTask, TResult>? lse = null,
+            global::System.Func<global::LabelStudio.LseTaskSerializerForReviewers, TResult>? lseSerializerForReviewers = null,
+            global::System.Func<global::LabelStudio.LseTaskSerializerForAnnotators, TResult>? lseSerializerForAnnotators = null,
             bool validate = true)
         {
             if (validate)
@@ -187,9 +262,39 @@ namespace LabelStudio
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::LabelStudio.LseTask?>? lse = null,
-            global::System.Action<global::LabelStudio.LseTaskSerializerForReviewers?>? lseSerializerForReviewers = null,
-            global::System.Action<global::LabelStudio.LseTaskSerializerForAnnotators?>? lseSerializerForAnnotators = null,
+            global::System.Action<global::LabelStudio.LseTask>? lse = null,
+
+            global::System.Action<global::LabelStudio.LseTaskSerializerForReviewers>? lseSerializerForReviewers = null,
+
+            global::System.Action<global::LabelStudio.LseTaskSerializerForAnnotators>? lseSerializerForAnnotators = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsLse)
+            {
+                lse?.Invoke(Lse!);
+            }
+            else if (IsLseSerializerForReviewers)
+            {
+                lseSerializerForReviewers?.Invoke(LseSerializerForReviewers!);
+            }
+            else if (IsLseSerializerForAnnotators)
+            {
+                lseSerializerForAnnotators?.Invoke(LseSerializerForAnnotators!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::LabelStudio.LseTask>? lse = null,
+            global::System.Action<global::LabelStudio.LseTaskSerializerForReviewers>? lseSerializerForReviewers = null,
+            global::System.Action<global::LabelStudio.LseTaskSerializerForAnnotators>? lseSerializerForAnnotators = null,
             bool validate = true)
         {
             if (validate)

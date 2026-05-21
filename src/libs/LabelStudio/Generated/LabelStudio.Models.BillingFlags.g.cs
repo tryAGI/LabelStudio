@@ -296,5 +296,6 @@ namespace LabelStudio
         public BillingFlags()
         {
         }
+
     }
 }

@@ -61,5 +61,6 @@ namespace LabelStudio
         public LabelDistributionCountsResponse()
         {
         }
+
     }
 }

@@ -32,6 +32,26 @@ namespace LabelStudio
         public bool IsComment => Comment != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickComment(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LabelStudio.Comment? value)
+        {
+            value = Comment;
+            return IsComment;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.Comment PickComment() => IsComment
+            ? Comment!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Comment' but the value was {ToString()}.");
+
+        /// <summary>
         /// Comment Serializer with FSM state support.<br/>
         /// Note: The 'state' field will be populated from the queryset annotation<br/>
         /// if present, preventing N+1 queries. Use .with_state() on your queryset.<br/>
@@ -52,6 +72,26 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SerializerWithUser))]
 #endif
         public bool IsSerializerWithUser => SerializerWithUser != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickSerializerWithUser(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::LabelStudio.CommentSerializerWithExpandedUser? value)
+        {
+            value = SerializerWithUser;
+            return IsSerializerWithUser;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::LabelStudio.CommentSerializerWithExpandedUser PickSerializerWithUser() => IsSerializerWithUser
+            ? SerializerWithUser!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'SerializerWithUser' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -73,6 +113,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public static MaybeExpandedComment FromComment(global::LabelStudio.Comment? value) => new MaybeExpandedComment(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator MaybeExpandedComment(global::LabelStudio.CommentSerializerWithExpandedUser value) => new MaybeExpandedComment((global::LabelStudio.CommentSerializerWithExpandedUser?)value);
 
         /// <summary>
@@ -87,6 +132,11 @@ namespace LabelStudio
         {
             SerializerWithUser = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static MaybeExpandedComment FromSerializerWithUser(global::LabelStudio.CommentSerializerWithExpandedUser? value) => new MaybeExpandedComment(value);
 
         /// <summary>
         /// 
@@ -128,8 +178,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::LabelStudio.Comment?, TResult>? comment = null,
-            global::System.Func<global::LabelStudio.CommentSerializerWithExpandedUser?, TResult>? serializerWithUser = null,
+            global::System.Func<global::LabelStudio.Comment, TResult>? comment = null,
+            global::System.Func<global::LabelStudio.CommentSerializerWithExpandedUser, TResult>? serializerWithUser = null,
             bool validate = true)
         {
             if (validate)
@@ -153,8 +203,32 @@ namespace LabelStudio
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::LabelStudio.Comment?>? comment = null,
-            global::System.Action<global::LabelStudio.CommentSerializerWithExpandedUser?>? serializerWithUser = null,
+            global::System.Action<global::LabelStudio.Comment>? comment = null,
+
+            global::System.Action<global::LabelStudio.CommentSerializerWithExpandedUser>? serializerWithUser = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsComment)
+            {
+                comment?.Invoke(Comment!);
+            }
+            else if (IsSerializerWithUser)
+            {
+                serializerWithUser?.Invoke(SerializerWithUser!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::LabelStudio.Comment>? comment = null,
+            global::System.Action<global::LabelStudio.CommentSerializerWithExpandedUser>? serializerWithUser = null,
             bool validate = true)
         {
             if (validate)

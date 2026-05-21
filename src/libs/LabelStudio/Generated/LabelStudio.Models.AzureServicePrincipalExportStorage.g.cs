@@ -302,5 +302,18 @@ namespace LabelStudio
         public AzureServicePrincipalExportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="AzureServicePrincipalExportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static AzureServicePrincipalExportStorage FromProject(int project)
+        {
+            return new AzureServicePrincipalExportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

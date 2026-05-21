@@ -55,5 +55,6 @@ namespace LabelStudio
         public ApiProjectsTasksAssigneesCreate2Request()
         {
         }
+
     }
 }

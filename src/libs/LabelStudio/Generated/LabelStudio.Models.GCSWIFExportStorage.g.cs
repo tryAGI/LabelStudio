@@ -313,5 +313,18 @@ namespace LabelStudio
         public GCSWIFExportStorage()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="GCSWIFExportStorage"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static GCSWIFExportStorage FromProject(int project)
+        {
+            return new GCSWIFExportStorage
+            {
+                Project = project,
+            };
+        }
+
     }
 }

@@ -114,5 +114,18 @@ namespace LabelStudio
         public AnalyticsView()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="AnalyticsView"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static AnalyticsView FromName(string name)
+        {
+            return new AnalyticsView
+            {
+                Name = name,
+            };
+        }
+
     }
 }

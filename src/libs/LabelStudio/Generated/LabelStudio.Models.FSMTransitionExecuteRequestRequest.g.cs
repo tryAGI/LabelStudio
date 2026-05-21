@@ -49,5 +49,6 @@ namespace LabelStudio
         public FSMTransitionExecuteRequestRequest()
         {
         }
+
     }
 }

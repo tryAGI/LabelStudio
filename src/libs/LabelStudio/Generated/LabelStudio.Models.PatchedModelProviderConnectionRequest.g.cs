@@ -186,5 +186,6 @@ namespace LabelStudio
         public PatchedModelProviderConnectionRequest()
         {
         }
+
     }
 }

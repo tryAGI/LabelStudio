@@ -203,5 +203,18 @@ namespace LabelStudio
         public LseUserAPI()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LseUserAPI"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LseUserAPI FromUsername(string username)
+        {
+            return new LseUserAPI
+            {
+                Username = username,
+            };
+        }
+
     }
 }

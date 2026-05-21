@@ -102,5 +102,6 @@ namespace LabelStudio
         public LabelDistributionCountsRow()
         {
         }
+
     }
 }

@@ -208,5 +208,6 @@ namespace LabelStudio
         public PatchedDefaultRoleRequest()
         {
         }
+
     }
 }

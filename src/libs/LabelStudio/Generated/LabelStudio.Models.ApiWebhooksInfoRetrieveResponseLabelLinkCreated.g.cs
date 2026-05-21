@@ -70,5 +70,6 @@ namespace LabelStudio
         public ApiWebhooksInfoRetrieveResponseLabelLinkCreated()
         {
         }
+
     }
 }

@@ -193,5 +193,6 @@ namespace LabelStudio
         public ActivityLog()
         {
         }
+
     }
 }

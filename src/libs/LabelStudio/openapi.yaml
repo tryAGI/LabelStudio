@@ -3738,7 +3738,7 @@ paths:
                               - filter:tasks:updated_at
                             type: string
                           operator:
-                            description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+                            description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`in_list`<br> Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`not_in_list`<br> Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`starts_with`<br> Starts with</li>'
                             enum:
                               - contains
                               - ends_with
@@ -3747,12 +3747,14 @@ paths:
                               - greater
                               - greater_or_equal
                               - in
+                              - in_list
                               - less
                               - less_or_equal
                               - not_contains
                               - not_equal
                               - not_exists
                               - not_in
+                              - not_in_list
                               - starts_with
                             type: string
                           type:
@@ -3777,7 +3779,7 @@ paths:
                               - description: Dictionary is used for some operator types, e.g. `in` and `not_in`
                                 title: Dictionary
                                 type: object
-                              - description: List of strings or integers
+                              - description: List of strings or integers. Used by the `in_list` and `not_in_list` operators, e.g. `[1, 2, 3]` or `["a", "b"]`.
                                 title: List
                                 type: object
                             type: object
@@ -3998,7 +4000,7 @@ paths:
                                   - filter:tasks:updated_at
                                 type: string
                               operator:
-                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`in_list`<br> Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`not_in_list`<br> Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`starts_with`<br> Starts with</li>'
                                 enum:
                                   - contains
                                   - ends_with
@@ -4007,12 +4009,14 @@ paths:
                                   - greater
                                   - greater_or_equal
                                   - in
+                                  - in_list
                                   - less
                                   - less_or_equal
                                   - not_contains
                                   - not_equal
                                   - not_exists
                                   - not_in
+                                  - not_in_list
                                   - starts_with
                                 type: string
                               type:
@@ -4037,7 +4041,7 @@ paths:
                                   - description: Dictionary is used for some operator types, e.g. `in` and `not_in`
                                     title: Dictionary
                                     type: object
-                                  - description: List of strings or integers
+                                  - description: List of strings or integers. Used by the `in_list` and `not_in_list` operators, e.g. `[1, 2, 3]` or `["a", "b"]`.
                                     title: List
                                     type: object
                                 type: object
@@ -4264,7 +4268,7 @@ paths:
                                   - filter:tasks:updated_at
                                 type: string
                               operator:
-                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`in_list`<br> Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`not_in_list`<br> Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`starts_with`<br> Starts with</li>'
                                 enum:
                                   - contains
                                   - ends_with
@@ -4273,12 +4277,14 @@ paths:
                                   - greater
                                   - greater_or_equal
                                   - in
+                                  - in_list
                                   - less
                                   - less_or_equal
                                   - not_contains
                                   - not_equal
                                   - not_exists
                                   - not_in
+                                  - not_in_list
                                   - starts_with
                                 type: string
                               type:
@@ -4303,7 +4309,7 @@ paths:
                                   - description: Dictionary is used for some operator types, e.g. `in` and `not_in`
                                     title: Dictionary
                                     type: object
-                                  - description: List of strings or integers
+                                  - description: List of strings or integers. Used by the `in_list` and `not_in_list` operators, e.g. `[1, 2, 3]` or `["a", "b"]`.
                                     title: List
                                     type: object
                                 type: object
@@ -4430,7 +4436,7 @@ paths:
                                   - filter:tasks:updated_at
                                 type: string
                               operator:
-                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+                                description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`in_list`<br> Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`not_in_list`<br> Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`starts_with`<br> Starts with</li>'
                                 enum:
                                   - contains
                                   - ends_with
@@ -4439,12 +4445,14 @@ paths:
                                   - greater
                                   - greater_or_equal
                                   - in
+                                  - in_list
                                   - less
                                   - less_or_equal
                                   - not_contains
                                   - not_equal
                                   - not_exists
                                   - not_in
+                                  - not_in_list
                                   - starts_with
                                 type: string
                               type:
@@ -4469,7 +4477,7 @@ paths:
                                   - description: Dictionary is used for some operator types, e.g. `in` and `not_in`
                                     title: Dictionary
                                     type: object
-                                  - description: List of strings or integers
+                                  - description: List of strings or integers. Used by the `in_list` and `not_in_list` operators, e.g. `[1, 2, 3]` or `["a", "b"]`.
                                     title: List
                                     type: object
                                 type: object
@@ -5323,7 +5331,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Append one or more published versions to a saved interface with server-assigned stable version IDs.
+        Append one or more versions to a saved interface with server-assigned stable version IDs.
       operationId: api_interfaces_append_versions_create
       parameters:
         - in: path
@@ -5405,7 +5413,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Publish one saved interface version by stable version ID.
+        Publish a saved interface version by ID.
       operationId: api_interfaces_publish_create
       parameters:
         - in: path
@@ -5446,7 +5454,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Unpublish one saved interface version by stable version ID.
+        Unpublish a saved interface version by ID.
       operationId: api_interfaces_unpublish_create
       parameters:
         - in: path
@@ -5487,7 +5495,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Update the description for one saved interface version by stable version ID.
+        Update description for a saved interface version by ID.
       operationId: api_interfaces_update_description_create
       parameters:
         - in: path
@@ -9342,7 +9350,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Returns label confusion matrix with precision, recall, and top confusion pairs.
+        Returns label confusion matrix with precision, recall, and top confusion pairs. In `ground_truth` mode the matrix is directional: rows are GT labels (actual), columns are annotator labels (predicted). In `all` and `accepted` modes — where no canonical "actual vs predicted" axis exists — the matrix is symmetric. When a task has multiple GT annotations the most recently updated one is used. `top_confusion_pairs.rate` is the share of off-diagonal mass.
       operationId: api_projects_analytics_data_quality_agreement_analysis_confusion_matrix_retrieve
       parameters:
         - description: From name
@@ -9430,7 +9438,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Returns average agreement, histogram buckets, low-agreement count, and total tasks.
+        Returns average agreement, a 10-bucket histogram of `Task.precomputed_agreement` (filled on-the-fly from V2 dimension matrices when null), `low_agreement_count`, and `total_tasks`. The low-agreement threshold is `LseProject.agreement_threshold` (the same project setting Data Manager filters and review-routing rules consume); changing that setting moves the count for this endpoint as well.
       operationId: api_projects_analytics_data_quality_agreement_analysis_distribution_retrieve
       parameters:
         - in: path
@@ -10041,7 +10049,7 @@ paths:
   /api/projects/{id}/export/formats:
     get:
       deprecated: true
-      description: |2-
+      description: |-
 
         This endpoint is deprecated in Enterprise. Use the async export API instead:
         POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).
@@ -12232,7 +12240,7 @@ paths:
           required: true
           schema:
             type: integer
-        - description: Comma-separated user IDs to include. When omitted, members are derived from the project.
+        - description: 'Comma-separated participant IDs: numeric user IDs and/or synthetic members as <code>model:&lt;version&gt;</code> (annotations table only). When omitted, members and distinct model versions are derived from the project.'
           in: query
           name: ids
           schema:
@@ -12309,7 +12317,7 @@ paths:
           required: true
           schema:
             type: integer
-        - description: Comma-separated user IDs. When omitted, members are derived from the project.
+        - description: 'Comma-separated participant IDs: numeric user IDs and/or <code>model:&lt;version&gt;</code> for annotations. When omitted, derived from the project.'
           in: query
           name: ids
           schema:
@@ -12532,7 +12540,7 @@ paths:
                               - filter:tasks:updated_at
                             type: string
                           operator:
-                            description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+                            description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`in_list`<br> Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`not_in_list`<br> Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.</li><br><li>`starts_with`<br> Starts with</li>'
                             enum:
                               - contains
                               - ends_with
@@ -12541,12 +12549,14 @@ paths:
                               - greater
                               - greater_or_equal
                               - in
+                              - in_list
                               - less
                               - less_or_equal
                               - not_contains
                               - not_equal
                               - not_exists
                               - not_in
+                              - not_in_list
                               - starts_with
                             type: string
                           type:
@@ -12571,7 +12581,7 @@ paths:
                               - description: Dictionary is used for some operator types, e.g. `in` and `not_in`
                                 title: Dictionary
                                 type: object
-                              - description: List of strings or integers
+                              - description: List of strings or integers. Used by the `in_list` and `not_in_list` operators, e.g. `[1, 2, 3]` or `["a", "b"]`.
                                 title: List
                                 type: object
                             type: object
@@ -13877,6 +13887,11 @@ paths:
         - description: A unique ID of a ModelRun
           in: query
           name: model_run
+          schema:
+            type: integer
+        - description: Restrict prefetched predictions to this specific prompt version. Used with parent_model when no model_run is selected so a newly created version does not inherit predictions from prior versions.
+          in: query
+          name: model_version
           schema:
             type: integer
         - description: Which field to use when ordering the results.
@@ -26297,10 +26312,13 @@ components:
           format: double
           nullable: true
           type: number
+        from_name:
+          type: string
         name:
           type: string
       required:
         - agreement
+        - from_name
         - name
       type: object
     DataQualityAgreementDistribution:
@@ -26331,6 +26349,9 @@ components:
           type: string
         count:
           type: integer
+        from_name:
+          default: ''
+          type: string
         label:
           type: string
         rate:
@@ -30053,6 +30074,10 @@ components:
           nullable: true
         paramsSchema:
           nullable: true
+        screenParams:
+          nullable: true
+        unpublished:
+          type: boolean
       required:
         - code
         - compiled
@@ -30069,7 +30094,11 @@ components:
         data_sample: {}
         input_schema: {}
         messages: {}
+        metadata: {}
         output_schema: {}
+        title:
+          minLength: 1
+          type: string
         versions:
           items:
             $ref: '#/components/schemas/LseInterfaceAppendVersionRequest'
@@ -37579,6 +37608,10 @@ components:
           default: ''
           description: Project Description
           type: string
+        include_members:
+          default: true
+          description: Whether to include explicit project members and project role overrides in the duplicated project.
+          type: boolean
         mode:
           allOf:
             - $ref: '#/components/schemas/ProjectDuplicateModeEnum'

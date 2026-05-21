@@ -154,5 +154,18 @@ namespace LabelStudio
         public Blueprint()
         {
         }
+
+        /// <summary>
+        /// Creates a new <see cref="Blueprint"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static Blueprint FromProject(int project)
+        {
+            return new Blueprint
+            {
+                Project = project,
+            };
+        }
+
     }
 }

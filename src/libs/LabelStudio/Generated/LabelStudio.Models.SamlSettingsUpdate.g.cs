@@ -162,5 +162,6 @@ namespace LabelStudio
         public SamlSettingsUpdate()
         {
         }
+
     }
 }
