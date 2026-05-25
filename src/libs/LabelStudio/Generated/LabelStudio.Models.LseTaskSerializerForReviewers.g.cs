@@ -29,13 +29,10 @@ namespace LabelStudio
         public bool? AllowSkip { get; set; }
 
         /// <summary>
-        /// Calculate total annotation time for this task from MetricInTimeBucket records.<br/>
-        /// Returns time in seconds.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation_time")]
-        public int AnnotationTime { get; set; } = default!;
+        public int? AnnotationTime { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -239,13 +236,10 @@ namespace LabelStudio
         public int? Project { get; set; }
 
         /// <summary>
-        /// Calculate total review time for this task from MetricInTimeBucket records.<br/>
-        /// Returns time in seconds.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_time")]
-        public int ReviewTime { get; set; } = default!;
+        public int? ReviewTime { get; set; }
 
         /// <summary>
         /// 
@@ -342,6 +336,9 @@ namespace LabelStudio
         /// <param name="allowSkip">
         /// Whether this task can be skipped. Set to False to make task unskippable.
         /// </param>
+        /// <param name="annotationTime">
+        /// Included only in responses
+        /// </param>
         /// <param name="avgLeadTime"></param>
         /// <param name="cancelledAnnotations"></param>
         /// <param name="commentCount">
@@ -370,6 +367,9 @@ namespace LabelStudio
         /// <param name="project">
         /// Project ID for this task
         /// </param>
+        /// <param name="reviewTime">
+        /// Included only in responses
+        /// </param>
         /// <param name="reviewed"></param>
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
@@ -382,11 +382,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="agreementSelected">
-        /// Included only in responses
-        /// </param>
-        /// <param name="annotationTime">
-        /// Calculate total annotation time for this task from MetricInTimeBucket records.<br/>
-        /// Returns time in seconds.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="annotations">
@@ -439,11 +434,6 @@ namespace LabelStudio
         /// <param name="predictionsResults">
         /// Included only in responses
         /// </param>
-        /// <param name="reviewTime">
-        /// Calculate total review time for this task from MetricInTimeBucket records.<br/>
-        /// Returns time in seconds.<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="reviewers">
         /// Included only in responses
         /// </param>
@@ -470,6 +460,7 @@ namespace LabelStudio
         public LseTaskSerializerForReviewers(
             object data,
             bool? allowSkip,
+            int? annotationTime,
             double? avgLeadTime,
             int? cancelledAnnotations,
             int? commentCount,
@@ -484,6 +475,7 @@ namespace LabelStudio
             double? precomputedAgreement,
             double? predictionsScore,
             int? project,
+            int? reviewTime,
             bool? reviewed,
             int? reviewsAccepted,
             int? reviewsRejected,
@@ -492,7 +484,6 @@ namespace LabelStudio
             int? unresolvedCommentCount,
             string agreement = default!,
             string agreementSelected = default!,
-            int annotationTime = default!,
             string annotations = default!,
             string annotationsIds = default!,
             string annotationsResults = default!,
@@ -508,7 +499,6 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.LseTaskSerializerForReviewersPrediction> predictions = default!,
             string predictionsModelVersions = default!,
             string predictionsResults = default!,
-            int reviewTime = default!,
             global::System.Collections.Generic.IList<object> reviewers = default!,
             int reviewersCount = default!,
             string state = default!,
