@@ -47,9 +47,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_left")]
-        public int QueueLeft { get; set; } = default!;
+        public int? QueueLeft { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -68,16 +67,14 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_total_tasks")]
-        public int ReviewTotalTasks { get; set; } = default!;
+        public int? ReviewTotalTasks { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_number")]
-        public int ReviewedNumber { get; set; } = default!;
+        public int? ReviewedNumber { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -126,6 +123,15 @@ namespace LabelStudio
         /// <param name="numTasksWithAnnotations">
         /// Included only in responses
         /// </param>
+        /// <param name="queueLeft">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewTotalTasks">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewedNumber">
+        /// Included only in responses
+        /// </param>
         /// <param name="usefulAnnotationNumber">
         /// Included only in responses
         /// </param>
@@ -142,19 +148,10 @@ namespace LabelStudio
         /// <param name="queueDone">
         /// Included only in responses
         /// </param>
-        /// <param name="queueLeft">
-        /// Included only in responses
-        /// </param>
         /// <param name="queueTotal">
         /// Included only in responses
         /// </param>
         /// <param name="rejected">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewTotalTasks">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewedNumber">
         /// Included only in responses
         /// </param>
         /// <param name="skippedAnnotationsNumber">
@@ -175,16 +172,16 @@ namespace LabelStudio
 #endif
         public LseProjectCounts(
             int? numTasksWithAnnotations,
+            int? queueLeft,
+            int? reviewTotalTasks,
+            int? reviewedNumber,
             int? usefulAnnotationNumber,
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
             int queueDone = default!,
-            int queueLeft = default!,
             string queueTotal = default!,
             int rejected = default!,
-            int reviewTotalTasks = default!,
-            int reviewedNumber = default!,
             string skippedAnnotationsNumber = default!,
             int taskNumber = default!,
             string totalAnnotationsNumber = default!,
