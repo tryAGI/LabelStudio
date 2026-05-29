@@ -373,9 +373,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_left")]
-        public int QueueLeft { get; set; } = default!;
+        public int? QueueLeft { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -421,23 +420,20 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_total_tasks")]
-        public int ReviewTotalTasks { get; set; } = default!;
+        public int? ReviewTotalTasks { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_number")]
-        public int ReviewedNumber { get; set; } = default!;
+        public int? ReviewedNumber { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_queue_total")]
-        public int ReviewerQueueTotal { get; set; } = default!;
+        public int? ReviewerQueueTotal { get; set; }
 
         /// <summary>
         /// 
@@ -711,12 +707,24 @@ namespace LabelStudio
         /// <param name="pinnedAt">
         /// Pinned date and time
         /// </param>
+        /// <param name="queueLeft">
+        /// Included only in responses
+        /// </param>
         /// <param name="requireCommentOnSkip">
         /// Require comment to skip<br/>
         /// Default Value: false
         /// </param>
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
+        /// </param>
+        /// <param name="reviewTotalTasks">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewedNumber">
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewerQueueTotal">
+        /// Included only in responses
         /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
@@ -804,9 +812,6 @@ namespace LabelStudio
         /// <param name="queueDone">
         /// Included only in responses
         /// </param>
-        /// <param name="queueLeft">
-        /// Included only in responses
-        /// </param>
         /// <param name="queueTotal">
         /// Included only in responses
         /// </param>
@@ -814,15 +819,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="rejected">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewTotalTasks">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewedNumber">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewerQueueTotal">
         /// Included only in responses
         /// </param>
         /// <param name="skippedAnnotationsNumber">
@@ -896,8 +892,12 @@ namespace LabelStudio
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
+            int? queueLeft,
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
+            int? reviewTotalTasks,
+            int? reviewedNumber,
+            int? reviewerQueueTotal,
             global::LabelStudio.SamplingDe5Enum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
@@ -927,13 +927,9 @@ namespace LabelStudio
             object parsedLabelConfig = default!,
             string prompts = default!,
             int queueDone = default!,
-            int queueLeft = default!,
             string queueTotal = default!,
             bool ready = default!,
             int rejected = default!,
-            int reviewTotalTasks = default!,
-            int reviewedNumber = default!,
-            int reviewerQueueTotal = default!,
             string skippedAnnotationsNumber = default!,
             bool startTrainingOnAnnotationUpdate = default!,
             string state = default!,
