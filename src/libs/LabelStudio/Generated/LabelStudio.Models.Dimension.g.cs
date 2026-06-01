@@ -71,6 +71,14 @@ namespace LabelStudio
         public bool? IsActive { get; set; }
 
         /// <summary>
+        /// Whether this dimension produces categorical (primitive/scalar) values.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_categorical")]
+        public bool IsCategorical { get; set; } = default!;
+
+        /// <summary>
         /// Whether this dimension was manually created by a user. System-generated dimensions have this set to False.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_user_defined")]
@@ -170,6 +178,10 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
+        /// <param name="isCategorical">
+        /// Whether this dimension produces categorical (primitive/scalar) values.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="project">
         /// Project this dimension belongs to<br/>
         /// Included only in responses
@@ -195,6 +207,7 @@ namespace LabelStudio
             string allowedMetricsWithParams = default!,
             global::System.DateTime createdAt = default!,
             int id = default!,
+            bool isCategorical = default!,
             int project = default!,
             global::System.DateTime updatedAt = default!)
         {
@@ -207,6 +220,7 @@ namespace LabelStudio
             this.ExtractionMethodParams = extractionMethodParams;
             this.Id = id;
             this.IsActive = isActive;
+            this.IsCategorical = isCategorical;
             this.IsUserDefined = isUserDefined;
             this.MetricParams = metricParams;
             this.MetricType = metricType;
