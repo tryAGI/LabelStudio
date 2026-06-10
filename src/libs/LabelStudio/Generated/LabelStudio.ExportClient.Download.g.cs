@@ -50,8 +50,8 @@ namespace LabelStudio
         ///         Download an export file in the specified format for a specific project. Specify the project ID with the `id`<br/>
         ///         parameter in the path and the ID of the export file you want to download using the `export_pk` parameter<br/>
         ///         in the path.<br/>
-        ///         Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)<br/>
-        ///         or after [listing export files](/api#operation/api_projects_exports_list).<br/>
+        ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
+        ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
         ///         
         /// </summary>
         /// <param name="exportType"></param>
@@ -82,8 +82,8 @@ namespace LabelStudio
         ///         Download an export file in the specified format for a specific project. Specify the project ID with the `id`<br/>
         ///         parameter in the path and the ID of the export file you want to download using the `export_pk` parameter<br/>
         ///         in the path.<br/>
-        ///         Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)<br/>
-        ///         or after [listing export files](/api#operation/api_projects_exports_list).<br/>
+        ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
+        ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
         ///         
         /// </summary>
         /// <param name="exportType"></param>
@@ -413,8 +413,8 @@ namespace LabelStudio
         ///         Download an export file in the specified format for a specific project. Specify the project ID with the `id`<br/>
         ///         parameter in the path and the ID of the export file you want to download using the `export_pk` parameter<br/>
         ///         in the path.<br/>
-        ///         Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)<br/>
-        ///         or after [listing export files](/api#operation/api_projects_exports_list).<br/>
+        ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
+        ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
         ///         
         /// </summary>
         /// <param name="exportType"></param>
