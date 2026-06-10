@@ -19,7 +19,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesPartialUpdateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PartialUpdateAsync(
             string id,
 
             global::LabelStudio.PatchedLseInterfaceRequest request,
@@ -40,7 +40,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesPartialUpdateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> PartialUpdateAsResponseAsync(
             string id,
 
             global::LabelStudio.PatchedLseInterfaceRequest request,
@@ -88,7 +88,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesPartialUpdateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PartialUpdateAsync(
             string id,
             object? artifacts = default,
             string? code = default,

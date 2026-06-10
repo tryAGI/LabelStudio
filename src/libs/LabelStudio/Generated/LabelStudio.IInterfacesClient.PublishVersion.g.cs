@@ -5,83 +5,67 @@ namespace LabelStudio
     public partial interface IInterfacesClient
     {
         /// <summary>
-        /// ✨ Append saved interface versions<br/>
+        /// ✨ Publish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
+        /// Publish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesAppendVersionsCreateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PublishVersionAsync(
             string id,
 
-            global::LabelStudio.LseInterfaceAppendVersionsRequest request,
+            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// ✨ Append saved interface versions<br/>
+        /// ✨ Publish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
+        /// Publish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesAppendVersionsCreateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> PublishVersionAsResponseAsync(
             string id,
 
-            global::LabelStudio.LseInterfaceAppendVersionsRequest request,
+            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// ✨ Append saved interface versions<br/>
+        /// ✨ Publish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
+        /// Publish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="artifacts"></param>
-        /// <param name="code"></param>
-        /// <param name="compiled"></param>
-        /// <param name="dataSample"></param>
-        /// <param name="inputSchema"></param>
-        /// <param name="messages"></param>
-        /// <param name="metadata"></param>
-        /// <param name="outputSchema"></param>
-        /// <param name="title"></param>
-        /// <param name="versions"></param>
+        /// <param name="versionId">
+        /// Stable interface version ID.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesAppendVersionsCreateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PublishVersionAsync(
             string id,
-            global::System.Collections.Generic.IList<global::LabelStudio.LseInterfaceAppendVersionRequest> versions,
-            object? artifacts = default,
-            string? code = default,
-            string? compiled = default,
-            object? dataSample = default,
-            object? inputSchema = default,
-            object? messages = default,
-            object? metadata = default,
-            object? outputSchema = default,
-            string? title = default,
+            int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
