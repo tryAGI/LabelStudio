@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Filter configurations (finished, skipped, accepted, rejected, gt, predictions, review_score)
+    /// Filter configurations (finished, agreement, skipped, accepted, rejected, gt, predictions, review_score)
     /// </summary>
     public sealed partial class ApiProjectsStatsDataFilterRetrieveResponseUserFiltersStat2
     {

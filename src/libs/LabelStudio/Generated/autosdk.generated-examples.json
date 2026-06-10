@@ -103,7 +103,7 @@
       "Order": 10,
       "Title": "Train",
       "Slug": "api-ml-train-create",
-      "Description": "After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).",
+      "Description": "After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).",
       "Language": "http",
       "Code": "### Train\n# @name api_ml_train_create\nPOST {{host}}/api/ml/{{id}}/train\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022use_ground_truth\u0022: true\n}\n\n## Responses\n# 200\n# Description: Training has successfully started.\n# 500\n# Description: Training error\n# Content-Type: application/json",
       "Format": "http",

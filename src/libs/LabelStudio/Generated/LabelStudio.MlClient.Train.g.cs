@@ -43,7 +43,7 @@ namespace LabelStudio
         ///         After you add an ML backend, call this API with the ML backend ID to start training with <br/>
         ///         already-labeled tasks. <br/>
         ///         <br/>
-        ///         Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).<br/>
+        ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
         ///         
         /// </summary>
         /// <param name="id"></param>
@@ -71,7 +71,7 @@ namespace LabelStudio
         ///         After you add an ML backend, call this API with the ML backend ID to start training with <br/>
         ///         already-labeled tasks. <br/>
         ///         <br/>
-        ///         Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).<br/>
+        ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
         ///         
         /// </summary>
         /// <param name="id"></param>
@@ -469,7 +469,7 @@ namespace LabelStudio
         ///         After you add an ML backend, call this API with the ML backend ID to start training with <br/>
         ///         already-labeled tasks. <br/>
         ///         <br/>
-        ///         Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).<br/>
+        ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
         ///         
         /// </summary>
         /// <param name="id"></param>
