@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiInterfacesCreateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UpdateVersionDescriptionSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,47 +21,52 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiInterfacesCreateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UpdateVersionDescriptionSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiInterfacesCreateSecurityRequirement0,
+            {                s_UpdateVersionDescriptionSecurityRequirement0,
             };
-        partial void PrepareApiInterfacesCreateArguments(
+        partial void PrepareUpdateVersionDescriptionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.LseInterfaceRequest request);
-        partial void PrepareApiInterfacesCreateRequest(
+            ref string id,
+            global::LabelStudio.LseInterfaceVersionDescriptionRequest request);
+        partial void PrepareUpdateVersionDescriptionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.LseInterfaceRequest request);
-        partial void ProcessApiInterfacesCreateResponse(
+            string id,
+            global::LabelStudio.LseInterfaceVersionDescriptionRequest request);
+        partial void ProcessUpdateVersionDescriptionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiInterfacesCreateResponseContent(
+        partial void ProcessUpdateVersionDescriptionResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Create a saved interface<br/>
+        /// ✨ Update a saved interface version description<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a new saved interface.
+        /// Update the description for one saved interface version by stable version ID.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> UpdateVersionDescriptionAsync(
+            string id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceVersionDescriptionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiInterfacesCreateAsResponseAsync(
+            var __response = await UpdateVersionDescriptionAsResponseAsync(
+                id: id,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -71,22 +76,24 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Create a saved interface<br/>
+        /// ✨ Update a saved interface version description<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a new saved interface.
+        /// Update the description for one saved interface version by stable version ID.
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> UpdateVersionDescriptionAsResponseAsync(
+            string id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceVersionDescriptionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -94,15 +101,16 @@ namespace LabelStudio
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiInterfacesCreateArguments(
+            PrepareUpdateVersionDescriptionArguments(
                 httpClient: HttpClient,
+                id: ref id,
                 request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiInterfacesCreateSecurityRequirements,
-                operationName: "ApiInterfacesCreateAsync");
+                securityRequirements: s_UpdateVersionDescriptionSecurityRequirements,
+                operationName: "UpdateVersionDescriptionAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +130,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: "/api/interfaces/",
+                                path: $"/api/interfaces/{id}/update_description/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -167,9 +175,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiInterfacesCreateRequest(
+                PrepareUpdateVersionDescriptionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    id: id!,
                     request: request);
 
                 return __httpRequest;
@@ -187,9 +196,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesCreate",
-                                methodName: "ApiInterfacesCreateAsync",
-                                pathTemplate: "\"/api/interfaces/\"",
+                                operationId: "UpdateVersionDescription",
+                                methodName: "UpdateVersionDescriptionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/update_description/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -221,9 +230,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesCreate",
-                                methodName: "ApiInterfacesCreateAsync",
-                                pathTemplate: "\"/api/interfaces/\"",
+                                operationId: "UpdateVersionDescription",
+                                methodName: "UpdateVersionDescriptionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/update_description/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -262,9 +271,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesCreate",
-                                methodName: "ApiInterfacesCreateAsync",
-                                pathTemplate: "\"/api/interfaces/\"",
+                                operationId: "UpdateVersionDescription",
+                                methodName: "UpdateVersionDescriptionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/update_description/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -302,7 +311,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiInterfacesCreateResponse(
+                ProcessUpdateVersionDescriptionResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -310,9 +319,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesCreate",
-                                methodName: "ApiInterfacesCreateAsync",
-                                pathTemplate: "\"/api/interfaces/\"",
+                                operationId: "UpdateVersionDescription",
+                                methodName: "UpdateVersionDescriptionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/update_description/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -332,9 +341,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesCreate",
-                                methodName: "ApiInterfacesCreateAsync",
-                                pathTemplate: "\"/api/interfaces/\"",
+                                operationId: "UpdateVersionDescription",
+                                methodName: "UpdateVersionDescriptionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/update_description/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -362,7 +371,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiInterfacesCreateResponseContent(
+                                ProcessUpdateVersionDescriptionResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -446,79 +455,40 @@ namespace LabelStudio
             }
         }
         /// <summary>
-        /// ✨ Create a saved interface<br/>
+        /// ✨ Update a saved interface version description<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a new saved interface.
+        /// Update the description for one saved interface version by stable version ID.
         /// </summary>
-        /// <param name="artifacts">
-        /// AI-produced code snapshots for session continuity
+        /// <param name="id"></param>
+        /// <param name="description">
+        /// Description to store on the saved interface version.
         /// </param>
-        /// <param name="code">
-        /// JSX source code for the interface screen module
+        /// <param name="versionId">
+        /// Stable interface version ID.
         /// </param>
-        /// <param name="compiled"></param>
-        /// <param name="dataSample">
-        /// Sample task data for preview
-        /// </param>
-        /// <param name="description"></param>
-        /// <param name="inputSchema">
-        /// JSON Schema declaring expected task data field types for import validation
-        /// </param>
-        /// <param name="messages">
-        /// Chat conversation history
-        /// </param>
-        /// <param name="metadata">
-        /// Arbitrary metadata for this interface
-        /// </param>
-        /// <param name="outputSchema">
-        /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
-        /// </param>
-        /// <param name="title"></param>
-        /// <param name="versions">
-        /// Code version history
-        /// </param>
-        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesCreateAsync(
-            string code,
-            string compiled,
-            string title,
-            object? artifacts = default,
-            object? dataSample = default,
-            string? description = default,
-            object? inputSchema = default,
-            object? messages = default,
-            object? metadata = default,
-            object? outputSchema = default,
-            object? versions = default,
-            int? workspace = default,
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> UpdateVersionDescriptionAsync(
+            string id,
+            string description,
+            int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.LseInterfaceRequest
+            var __request = new global::LabelStudio.LseInterfaceVersionDescriptionRequest
             {
-                Artifacts = artifacts,
-                Code = code,
-                Compiled = compiled,
-                DataSample = dataSample,
                 Description = description,
-                InputSchema = inputSchema,
-                Messages = messages,
-                Metadata = metadata,
-                OutputSchema = outputSchema,
-                Title = title,
-                Versions = versions,
-                Workspace = workspace,
+                VersionId = versionId,
             };
 
-            return await ApiInterfacesCreateAsync(
+            return await UpdateVersionDescriptionAsync(
+                id: id,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiInterfacesRetrieveSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_AppendVersionsSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,47 +21,54 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiInterfacesRetrieveSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_AppendVersionsSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiInterfacesRetrieveSecurityRequirement0,
+            {                s_AppendVersionsSecurityRequirement0,
             };
-        partial void PrepareApiInterfacesRetrieveArguments(
+        partial void PrepareAppendVersionsArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id);
-        partial void PrepareApiInterfacesRetrieveRequest(
+            ref string id,
+            global::LabelStudio.LseInterfaceAppendVersionsRequest request);
+        partial void PrepareAppendVersionsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id);
-        partial void ProcessApiInterfacesRetrieveResponse(
+            string id,
+            global::LabelStudio.LseInterfaceAppendVersionsRequest request);
+        partial void ProcessAppendVersionsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiInterfacesRetrieveResponseContent(
+        partial void ProcessAppendVersionsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Get a saved interface<br/>
+        /// ✨ Append saved interface versions<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve a saved interface by ID.
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesRetrieveAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> AppendVersionsAsync(
             string id,
+
+            global::LabelStudio.LseInterfaceAppendVersionsRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiInterfacesRetrieveAsResponseAsync(
+            var __response = await AppendVersionsAsResponseAsync(
                 id: id,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -69,35 +76,41 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Get a saved interface<br/>
+        /// ✨ Append saved interface versions<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve a saved interface by ID.
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesRetrieveAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> AppendVersionsAsResponseAsync(
             string id,
+
+            global::LabelStudio.LseInterfaceAppendVersionsRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiInterfacesRetrieveArguments(
+            PrepareAppendVersionsArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiInterfacesRetrieveSecurityRequirements,
-                operationName: "ApiInterfacesRetrieveAsync");
+                securityRequirements: s_AppendVersionsSecurityRequirements,
+                operationName: "AppendVersionsAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -117,7 +130,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/interfaces/{id}/",
+                                path: $"/api/interfaces/{id}/append_versions/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -125,7 +138,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -148,6 +161,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -156,10 +175,11 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiInterfacesRetrieveRequest(
+                PrepareAppendVersionsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!);
+                    id: id!,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -176,10 +196,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesRetrieve",
-                                methodName: "ApiInterfacesRetrieveAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/\"",
-                                httpMethod: "GET",
+                                operationId: "AppendVersions",
+                                methodName: "AppendVersionsAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/append_versions/\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -210,10 +230,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesRetrieve",
-                                methodName: "ApiInterfacesRetrieveAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/\"",
-                                httpMethod: "GET",
+                                operationId: "AppendVersions",
+                                methodName: "AppendVersionsAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/append_versions/\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -251,10 +271,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesRetrieve",
-                                methodName: "ApiInterfacesRetrieveAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/\"",
-                                httpMethod: "GET",
+                                operationId: "AppendVersions",
+                                methodName: "AppendVersionsAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/append_versions/\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -291,7 +311,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiInterfacesRetrieveResponse(
+                ProcessAppendVersionsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -299,10 +319,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesRetrieve",
-                                methodName: "ApiInterfacesRetrieveAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/\"",
-                                httpMethod: "GET",
+                                operationId: "AppendVersions",
+                                methodName: "AppendVersionsAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/append_versions/\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -321,10 +341,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesRetrieve",
-                                methodName: "ApiInterfacesRetrieveAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/\"",
-                                httpMethod: "GET",
+                                operationId: "AppendVersions",
+                                methodName: "AppendVersionsAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/append_versions/\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -351,7 +371,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiInterfacesRetrieveResponseContent(
+                                ProcessAppendVersionsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -433,6 +453,65 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// ✨ Append saved interface versions<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Append one or more versions to a saved interface with server-assigned stable version IDs.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="artifacts"></param>
+        /// <param name="code"></param>
+        /// <param name="compiled"></param>
+        /// <param name="dataSample"></param>
+        /// <param name="inputSchema"></param>
+        /// <param name="messages"></param>
+        /// <param name="metadata"></param>
+        /// <param name="outputSchema"></param>
+        /// <param name="title"></param>
+        /// <param name="versions"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> AppendVersionsAsync(
+            string id,
+            global::System.Collections.Generic.IList<global::LabelStudio.LseInterfaceAppendVersionRequest> versions,
+            object? artifacts = default,
+            string? code = default,
+            string? compiled = default,
+            object? dataSample = default,
+            object? inputSchema = default,
+            object? messages = default,
+            object? metadata = default,
+            object? outputSchema = default,
+            string? title = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.LseInterfaceAppendVersionsRequest
+            {
+                Artifacts = artifacts,
+                Code = code,
+                Compiled = compiled,
+                DataSample = dataSample,
+                InputSchema = inputSchema,
+                Messages = messages,
+                Metadata = metadata,
+                OutputSchema = outputSchema,
+                Title = title,
+                Versions = versions,
+            };
+
+            return await AppendVersionsAsync(
+                id: id,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

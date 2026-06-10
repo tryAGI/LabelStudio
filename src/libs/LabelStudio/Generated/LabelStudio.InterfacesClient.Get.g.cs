@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiInterfacesUnpublishCreateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_GetSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,54 +21,47 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiInterfacesUnpublishCreateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiInterfacesUnpublishCreateSecurityRequirement0,
+            {                s_GetSecurityRequirement0,
             };
-        partial void PrepareApiInterfacesUnpublishCreateArguments(
+        partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
-            global::LabelStudio.LseInterfaceVersionIdRequest request);
-        partial void PrepareApiInterfacesUnpublishCreateRequest(
+            ref string id);
+        partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
-            global::LabelStudio.LseInterfaceVersionIdRequest request);
-        partial void ProcessApiInterfacesUnpublishCreateResponse(
+            string id);
+        partial void ProcessGetResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiInterfacesUnpublishCreateResponseContent(
+        partial void ProcessGetResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Unpublish a saved interface version<br/>
+        /// ✨ Get a saved interface<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unpublish a saved interface version by ID.
+        /// Retrieve a saved interface by ID.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesUnpublishCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> GetAsync(
             string id,
-
-            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiInterfacesUnpublishCreateAsResponseAsync(
+            var __response = await GetAsResponseAsync(
                 id: id,
-
-                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -76,41 +69,35 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Unpublish a saved interface version<br/>
+        /// ✨ Get a saved interface<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Unpublish a saved interface version by ID.
+        /// Retrieve a saved interface by ID.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesUnpublishCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> GetAsResponseAsync(
             string id,
-
-            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiInterfacesUnpublishCreateArguments(
+            PrepareGetArguments(
                 httpClient: HttpClient,
-                id: ref id,
-                request: request);
+                id: ref id);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiInterfacesUnpublishCreateSecurityRequirements,
-                operationName: "ApiInterfacesUnpublishCreateAsync");
+                securityRequirements: s_GetSecurityRequirements,
+                operationName: "GetAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -130,7 +117,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/interfaces/{id}/unpublish/",
+                                path: $"/api/interfaces/{id}/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -138,7 +125,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -161,12 +148,6 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -175,11 +156,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiInterfacesUnpublishCreateRequest(
+                PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!,
-                    request: request);
+                    id: id!);
 
                 return __httpRequest;
             }
@@ -196,10 +176,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesUnpublishCreate",
-                                methodName: "ApiInterfacesUnpublishCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
-                                httpMethod: "POST",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -230,10 +210,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesUnpublishCreate",
-                                methodName: "ApiInterfacesUnpublishCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
-                                httpMethod: "POST",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -271,10 +251,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesUnpublishCreate",
-                                methodName: "ApiInterfacesUnpublishCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
-                                httpMethod: "POST",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -311,7 +291,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiInterfacesUnpublishCreateResponse(
+                ProcessGetResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -319,10 +299,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesUnpublishCreate",
-                                methodName: "ApiInterfacesUnpublishCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
-                                httpMethod: "POST",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -341,10 +321,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesUnpublishCreate",
-                                methodName: "ApiInterfacesUnpublishCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
-                                httpMethod: "POST",
+                                operationId: "Get",
+                                methodName: "GetAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -371,7 +351,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiInterfacesUnpublishCreateResponseContent(
+                                ProcessGetResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -453,40 +433,6 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// ✨ Unpublish a saved interface version<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Unpublish a saved interface version by ID.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="versionId">
-        /// Stable interface version ID.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesUnpublishCreateAsync(
-            string id,
-            int versionId,
-            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::LabelStudio.LseInterfaceVersionIdRequest
-            {
-                VersionId = versionId,
-            };
-
-            return await ApiInterfacesUnpublishCreateAsync(
-                id: id,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiInterfacesDuplicateCreateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UnpublishVersionSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,51 +21,51 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiInterfacesDuplicateCreateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UnpublishVersionSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiInterfacesDuplicateCreateSecurityRequirement0,
+            {                s_UnpublishVersionSecurityRequirement0,
             };
-        partial void PrepareApiInterfacesDuplicateCreateArguments(
+        partial void PrepareUnpublishVersionArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
-            global::LabelStudio.LseInterfaceRequest request);
-        partial void PrepareApiInterfacesDuplicateCreateRequest(
+            global::LabelStudio.LseInterfaceVersionIdRequest request);
+        partial void PrepareUnpublishVersionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
-            global::LabelStudio.LseInterfaceRequest request);
-        partial void ProcessApiInterfacesDuplicateCreateResponse(
+            global::LabelStudio.LseInterfaceVersionIdRequest request);
+        partial void ProcessUnpublishVersionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiInterfacesDuplicateCreateResponseContent(
+        partial void ProcessUnpublishVersionResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
+        /// ✨ Unpublish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
+        /// Unpublish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesDuplicateCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> UnpublishVersionAsync(
             string id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiInterfacesDuplicateCreateAsResponseAsync(
+            var __response = await UnpublishVersionAsResponseAsync(
                 id: id,
 
                 request: request,
@@ -76,24 +76,24 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
+        /// ✨ Unpublish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
+        /// Unpublish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> ApiInterfacesDuplicateCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> UnpublishVersionAsResponseAsync(
             string id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,7 +101,7 @@ namespace LabelStudio
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiInterfacesDuplicateCreateArguments(
+            PrepareUnpublishVersionArguments(
                 httpClient: HttpClient,
                 id: ref id,
                 request: request);
@@ -109,8 +109,8 @@ namespace LabelStudio
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiInterfacesDuplicateCreateSecurityRequirements,
-                operationName: "ApiInterfacesDuplicateCreateAsync");
+                securityRequirements: s_UnpublishVersionSecurityRequirements,
+                operationName: "UnpublishVersionAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -130,7 +130,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/interfaces/{id}/duplicate/",
+                                path: $"/api/interfaces/{id}/unpublish/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -175,7 +175,7 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiInterfacesDuplicateCreateRequest(
+                PrepareUnpublishVersionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
@@ -196,9 +196,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDuplicateCreate",
-                                methodName: "ApiInterfacesDuplicateCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
+                                operationId: "UnpublishVersion",
+                                methodName: "UnpublishVersionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,9 +230,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDuplicateCreate",
-                                methodName: "ApiInterfacesDuplicateCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
+                                operationId: "UnpublishVersion",
+                                methodName: "UnpublishVersionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -271,9 +271,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDuplicateCreate",
-                                methodName: "ApiInterfacesDuplicateCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
+                                operationId: "UnpublishVersion",
+                                methodName: "UnpublishVersionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -311,7 +311,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiInterfacesDuplicateCreateResponse(
+                ProcessUnpublishVersionResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -319,9 +319,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDuplicateCreate",
-                                methodName: "ApiInterfacesDuplicateCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
+                                operationId: "UnpublishVersion",
+                                methodName: "UnpublishVersionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -341,9 +341,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDuplicateCreate",
-                                methodName: "ApiInterfacesDuplicateCreateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
+                                operationId: "UnpublishVersion",
+                                methodName: "UnpublishVersionAsync",
+                                pathTemplate: "$\"/api/interfaces/{id}/unpublish/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -371,7 +371,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiInterfacesDuplicateCreateResponseContent(
+                                ProcessUnpublishVersionResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -455,81 +455,34 @@ namespace LabelStudio
             }
         }
         /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
+        /// ✨ Unpublish a saved interface version<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
+        /// Unpublish one saved interface version by stable version ID.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="artifacts">
-        /// AI-produced code snapshots for session continuity
+        /// <param name="versionId">
+        /// Stable interface version ID.
         /// </param>
-        /// <param name="code">
-        /// JSX source code for the interface screen module
-        /// </param>
-        /// <param name="compiled"></param>
-        /// <param name="dataSample">
-        /// Sample task data for preview
-        /// </param>
-        /// <param name="description"></param>
-        /// <param name="inputSchema">
-        /// JSON Schema declaring expected task data field types for import validation
-        /// </param>
-        /// <param name="messages">
-        /// Chat conversation history
-        /// </param>
-        /// <param name="metadata">
-        /// Arbitrary metadata for this interface
-        /// </param>
-        /// <param name="outputSchema">
-        /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
-        /// </param>
-        /// <param name="title"></param>
-        /// <param name="versions">
-        /// Code version history
-        /// </param>
-        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> ApiInterfacesDuplicateCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> UnpublishVersionAsync(
             string id,
-            string code,
-            string compiled,
-            string title,
-            object? artifacts = default,
-            object? dataSample = default,
-            string? description = default,
-            object? inputSchema = default,
-            object? messages = default,
-            object? metadata = default,
-            object? outputSchema = default,
-            object? versions = default,
-            int? workspace = default,
+            int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.LseInterfaceRequest
+            var __request = new global::LabelStudio.LseInterfaceVersionIdRequest
             {
-                Artifacts = artifacts,
-                Code = code,
-                Compiled = compiled,
-                DataSample = dataSample,
-                Description = description,
-                InputSchema = inputSchema,
-                Messages = messages,
-                Metadata = metadata,
-                OutputSchema = outputSchema,
-                Title = title,
-                Versions = versions,
-                Workspace = workspace,
+                VersionId = versionId,
             };
 
-            return await ApiInterfacesDuplicateCreateAsync(
+            return await UnpublishVersionAsync(
                 id: id,
                 request: __request,
                 requestOptions: requestOptions,

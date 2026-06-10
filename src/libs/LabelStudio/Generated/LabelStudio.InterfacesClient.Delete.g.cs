@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiInterfacesDestroySecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DeleteSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,18 +21,18 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiInterfacesDestroySecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DeleteSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiInterfacesDestroySecurityRequirement0,
+            {                s_DeleteSecurityRequirement0,
             };
-        partial void PrepareApiInterfacesDestroyArguments(
+        partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
-        partial void PrepareApiInterfacesDestroyRequest(
+        partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id);
-        partial void ProcessApiInterfacesDestroyResponse(
+        partial void ProcessDeleteResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
@@ -50,12 +50,12 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiInterfacesDestroyAsync(
+        public async global::System.Threading.Tasks.Task DeleteAsync(
             string id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiInterfacesDestroyAsResponseAsync(
+            await DeleteAsResponseAsync(
                 id: id,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -75,22 +75,22 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiInterfacesDestroyAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> DeleteAsResponseAsync(
             string id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiInterfacesDestroyArguments(
+            PrepareDeleteArguments(
                 httpClient: HttpClient,
                 id: ref id);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiInterfacesDestroySecurityRequirements,
-                operationName: "ApiInterfacesDestroyAsync");
+                securityRequirements: s_DeleteSecurityRequirements,
+                operationName: "DeleteAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -149,7 +149,7 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiInterfacesDestroyRequest(
+                PrepareDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!);
@@ -169,8 +169,8 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDestroy",
-                                methodName: "ApiInterfacesDestroyAsync",
+                                operationId: "Delete",
+                                methodName: "DeleteAsync",
                                 pathTemplate: "$\"/api/interfaces/{id}/\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -203,8 +203,8 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDestroy",
-                                methodName: "ApiInterfacesDestroyAsync",
+                                operationId: "Delete",
+                                methodName: "DeleteAsync",
                                 pathTemplate: "$\"/api/interfaces/{id}/\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -244,8 +244,8 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDestroy",
-                                methodName: "ApiInterfacesDestroyAsync",
+                                operationId: "Delete",
+                                methodName: "DeleteAsync",
                                 pathTemplate: "$\"/api/interfaces/{id}/\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -284,7 +284,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiInterfacesDestroyResponse(
+                ProcessDeleteResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -292,8 +292,8 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDestroy",
-                                methodName: "ApiInterfacesDestroyAsync",
+                                operationId: "Delete",
+                                methodName: "DeleteAsync",
                                 pathTemplate: "$\"/api/interfaces/{id}/\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
@@ -314,8 +314,8 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiInterfacesDestroy",
-                                methodName: "ApiInterfacesDestroyAsync",
+                                operationId: "Delete",
+                                methodName: "DeleteAsync",
                                 pathTemplate: "$\"/api/interfaces/{id}/\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
