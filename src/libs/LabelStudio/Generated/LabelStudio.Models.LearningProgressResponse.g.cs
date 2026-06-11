@@ -15,6 +15,12 @@ namespace LabelStudio
         public global::System.DateTime? CompletedAt { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("course_reset")]
+        public bool? CourseReset { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gating")]
@@ -78,6 +84,9 @@ namespace LabelStudio
         /// <param name="resourceVersion"></param>
         /// <param name="timeSpentSeconds"></param>
         /// <param name="completedAt"></param>
+        /// <param name="courseReset">
+        /// Default Value: false
+        /// </param>
         /// <param name="moduleProgress"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -90,9 +99,11 @@ namespace LabelStudio
             int resourceVersion,
             int timeSpentSeconds,
             global::System.DateTime? completedAt,
+            bool? courseReset,
             object? moduleProgress)
         {
             this.CompletedAt = completedAt;
+            this.CourseReset = courseReset;
             this.Gating = gating ?? throw new global::System.ArgumentNullException(nameof(gating));
             this.IsStale = isStale;
             this.ModuleProgress = moduleProgress;
