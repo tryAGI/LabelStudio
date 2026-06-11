@@ -53,6 +53,13 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("quiz_summary")]
+        public string QuizSummary { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_retake")]
         public string RequiresRetake { get; set; } = default!;
 
@@ -113,6 +120,9 @@ namespace LabelStudio
         /// <param name="progressPercent">
         /// Included only in responses
         /// </param>
+        /// <param name="quizSummary">
+        /// Included only in responses
+        /// </param>
         /// <param name="requiresRetake">
         /// Included only in responses
         /// </param>
@@ -136,6 +146,7 @@ namespace LabelStudio
             string lastPageId = default!,
             string lastPageTitle = default!,
             string progressPercent = default!,
+            string quizSummary = default!,
             string requiresRetake = default!,
             string status = default!,
             int timeSpentSeconds = default!,
@@ -147,6 +158,7 @@ namespace LabelStudio
             this.LastPageId = lastPageId;
             this.LastPageTitle = lastPageTitle;
             this.ProgressPercent = progressPercent;
+            this.QuizSummary = quizSummary;
             this.RequiresRetake = requiresRetake;
             this.StartedAt = startedAt;
             this.Status = status;

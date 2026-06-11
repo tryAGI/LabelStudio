@@ -471,7 +471,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="moduleId"></param>
         /// <param name="pageId"></param>
-        /// <param name="passed"></param>
         /// <param name="quizId"></param>
         /// <param name="timeSpentSeconds"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -483,7 +482,6 @@ namespace LabelStudio
             bool? markComplete = default,
             int? moduleId = default,
             string? pageId = default,
-            bool? passed = default,
             string? quizId = default,
             int? timeSpentSeconds = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -495,7 +493,6 @@ namespace LabelStudio
                 MarkComplete = markComplete,
                 ModuleId = moduleId,
                 PageId = pageId,
-                Passed = passed,
                 QuizId = quizId,
                 TimeSpentSeconds = timeSpentSeconds,
             };
