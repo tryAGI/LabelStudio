@@ -46,6 +46,13 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pages_visited")]
+        public object PagesVisited { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress_percent")]
         public string ProgressPercent { get; set; } = default!;
 
@@ -117,6 +124,9 @@ namespace LabelStudio
         /// <param name="lastPageTitle">
         /// Included only in responses
         /// </param>
+        /// <param name="pagesVisited">
+        /// Included only in responses
+        /// </param>
         /// <param name="progressPercent">
         /// Included only in responses
         /// </param>
@@ -145,6 +155,7 @@ namespace LabelStudio
             string lastModuleTitle = default!,
             string lastPageId = default!,
             string lastPageTitle = default!,
+            object pagesVisited = default!,
             string progressPercent = default!,
             string quizSummary = default!,
             string requiresRetake = default!,
@@ -157,6 +168,7 @@ namespace LabelStudio
             this.LastModuleTitle = lastModuleTitle;
             this.LastPageId = lastPageId;
             this.LastPageTitle = lastPageTitle;
+            this.PagesVisited = pagesVisited;
             this.ProgressPercent = progressPercent;
             this.QuizSummary = quizSummary;
             this.RequiresRetake = requiresRetake;
