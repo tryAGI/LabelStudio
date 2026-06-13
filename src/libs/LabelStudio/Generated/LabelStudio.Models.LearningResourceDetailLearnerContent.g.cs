@@ -6,7 +6,7 @@ namespace LabelStudio
     /// <summary>
     /// Included only in responses
     /// </summary>
-    public sealed partial class UserLearningProgressListPagesVisited
+    public sealed partial class LearningResourceDetailLearnerContent
     {
 
         /// <summary>

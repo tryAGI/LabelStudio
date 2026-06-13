@@ -47,7 +47,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("pages_visited")]
-        public object PagesVisited { get; set; } = default!;
+        public global::System.Collections.Generic.IList<string> PagesVisited { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -155,7 +155,7 @@ namespace LabelStudio
             string lastModuleTitle = default!,
             string lastPageId = default!,
             string lastPageTitle = default!,
-            object pagesVisited = default!,
+            global::System.Collections.Generic.IList<string> pagesVisited = default!,
             string progressPercent = default!,
             string quizSummary = default!,
             string requiresRetake = default!,
