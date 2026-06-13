@@ -117,6 +117,12 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("learner_content")]
+        public object? LearnerContent { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learner_count")]
         public string LearnerCount { get; set; } = default!;
@@ -249,6 +255,9 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="hideCompletedQuizzes"></param>
+        /// <param name="learnerContent">
+        /// Included only in responses
+        /// </param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -323,6 +332,7 @@ namespace LabelStudio
             bool? generateCertificateOnCompletion,
             bool? hasUnpublishedChanges,
             bool? hideCompletedQuizzes,
+            object? learnerContent,
             string? summary,
             string? title,
             int? workspace,
@@ -362,6 +372,7 @@ namespace LabelStudio
             this.HideCompletedQuizzes = hideCompletedQuizzes;
             this.Id = id;
             this.IsPublished = isPublished;
+            this.LearnerContent = learnerContent;
             this.LearnerCount = learnerCount;
             this.LearnersCompletedCount = learnersCompletedCount;
             this.LearnersStartedCount = learnersStartedCount;
