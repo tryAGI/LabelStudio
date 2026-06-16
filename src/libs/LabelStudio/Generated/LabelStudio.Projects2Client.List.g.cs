@@ -36,6 +36,7 @@ namespace LabelStudio
             ref int? page,
             ref int? pageSize,
             ref string? search,
+            ref double? sourceInterfaceId,
             ref string? state,
             ref string? title,
             ref double? workspaces);
@@ -51,6 +52,7 @@ namespace LabelStudio
             int? page,
             int? pageSize,
             string? search,
+            double? sourceInterfaceId,
             string? state,
             string? title,
             double? workspaces);
@@ -80,6 +82,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="search"></param>
+        /// <param name="sourceInterfaceId"></param>
         /// <param name="state"></param>
         /// <param name="title"></param>
         /// <param name="workspaces"></param>
@@ -96,6 +99,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? search = default,
+            double? sourceInterfaceId = default,
             string? state = default,
             string? title = default,
             double? workspaces = default,
@@ -112,6 +116,7 @@ namespace LabelStudio
                 page: page,
                 pageSize: pageSize,
                 search: search,
+                sourceInterfaceId: sourceInterfaceId,
                 state: state,
                 title: title,
                 workspaces: workspaces,
@@ -138,6 +143,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="search"></param>
+        /// <param name="sourceInterfaceId"></param>
         /// <param name="state"></param>
         /// <param name="title"></param>
         /// <param name="workspaces"></param>
@@ -154,6 +160,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? search = default,
+            double? sourceInterfaceId = default,
             string? state = default,
             string? title = default,
             double? workspaces = default,
@@ -173,6 +180,7 @@ namespace LabelStudio
                 page: ref page,
                 pageSize: ref pageSize,
                 search: ref search,
+                sourceInterfaceId: ref sourceInterfaceId,
                 state: ref state,
                 title: ref title,
                 workspaces: ref workspaces);
@@ -213,6 +221,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("source_interface_id", sourceInterfaceId?.ToString())
                                 .AddOptionalParameter("state", state)
                                 .AddOptionalParameter("title", title)
                                 .AddOptionalParameter("workspaces", workspaces?.ToString())
@@ -266,6 +275,7 @@ namespace LabelStudio
                     page: page,
                     pageSize: pageSize,
                     search: search,
+                    sourceInterfaceId: sourceInterfaceId,
                     state: state,
                     title: title,
                     workspaces: workspaces);

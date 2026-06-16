@@ -14,7 +14,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Create predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. <br/>
         /// See [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. <br/>
-        /// Reference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).
+        /// Reference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).
         /// </summary>
         /// <param name="batchSize"></param>
         /// <param name="id"></param>
@@ -36,7 +36,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Create predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. <br/>
         /// See [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. <br/>
-        /// Reference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).
+        /// Reference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).
         /// </summary>
         /// <param name="batchSize"></param>
         /// <param name="id"></param>

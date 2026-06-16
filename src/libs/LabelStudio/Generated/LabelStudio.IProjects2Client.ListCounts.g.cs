@@ -18,6 +18,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="search"></param>
+        /// <param name="sourceInterfaceId"></param>
         /// <param name="state"></param>
         /// <param name="title"></param>
         /// <param name="workspaces"></param>
@@ -33,6 +34,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? search = default,
+            double? sourceInterfaceId = default,
             string? state = default,
             string? title = default,
             double? workspaces = default,
@@ -52,6 +54,7 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="search"></param>
+        /// <param name="sourceInterfaceId"></param>
         /// <param name="state"></param>
         /// <param name="title"></param>
         /// <param name="workspaces"></param>
@@ -67,6 +70,7 @@ namespace LabelStudio
             int? page = default,
             int? pageSize = default,
             string? search = default,
+            double? sourceInterfaceId = default,
             string? state = default,
             string? title = default,
             double? workspaces = default,

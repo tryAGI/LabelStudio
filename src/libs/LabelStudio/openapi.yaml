@@ -3712,7 +3712,7 @@ paths:
                           value: 123
                         properties:
                           filter:
-                            description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+                            description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
                             enum:
                               - filter:tasks:agreement
                               - filter:tasks:annotations_results
@@ -3974,7 +3974,7 @@ paths:
                               value: 123
                             properties:
                               filter:
-                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
                                 enum:
                                   - filter:tasks:agreement
                                   - filter:tasks:annotations_results
@@ -4242,7 +4242,7 @@ paths:
                               value: 123
                             properties:
                               filter:
-                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
                                 enum:
                                   - filter:tasks:agreement
                                   - filter:tasks:annotations_results
@@ -4410,7 +4410,7 @@ paths:
                               value: 123
                             properties:
                               filter:
-                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+                                description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
                                 enum:
                                   - filter:tasks:agreement
                                   - filter:tasks:annotations_results
@@ -5156,6 +5156,10 @@ paths:
       summary: ✨ List saved interfaces
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: list
     post:
       description: |-
         <Card href="https://humansignal.com/goenterprise">
@@ -5190,6 +5194,10 @@ paths:
       summary: ✨ Create a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: create
   /api/interfaces/{id}/:
     delete:
       description: |-
@@ -5215,6 +5223,10 @@ paths:
       summary: ✨ Delete a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: delete
     get:
       description: |-
         <Card href="https://humansignal.com/goenterprise">
@@ -5243,6 +5255,10 @@ paths:
       summary: ✨ Get a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: get
     patch:
       description: |-
         <Card href="https://humansignal.com/goenterprise">
@@ -5282,6 +5298,10 @@ paths:
       summary: ✨ Partially update a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: partial_update
     put:
       description: |-
         <Card href="https://humansignal.com/goenterprise">
@@ -5322,6 +5342,10 @@ paths:
       summary: ✨ Update a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: update
   /api/interfaces/{id}/append_versions/:
     post:
       description: |-
@@ -5363,6 +5387,10 @@ paths:
       summary: ✨ Append saved interface versions
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: append_versions
   /api/interfaces/{id}/duplicate/:
     post:
       description: |-
@@ -5404,6 +5432,10 @@ paths:
       summary: ✨ Duplicate a saved interface
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: duplicate
   /api/interfaces/{id}/publish/:
     post:
       description: |-
@@ -5413,7 +5445,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Publish a saved interface version by ID.
+        Publish one saved interface version by stable version ID.
       operationId: api_interfaces_publish_create
       parameters:
         - in: path
@@ -5445,6 +5477,10 @@ paths:
       summary: ✨ Publish a saved interface version
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: publish_version
   /api/interfaces/{id}/unpublish/:
     post:
       description: |-
@@ -5454,7 +5490,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Unpublish a saved interface version by ID.
+        Unpublish one saved interface version by stable version ID.
       operationId: api_interfaces_unpublish_create
       parameters:
         - in: path
@@ -5486,6 +5522,10 @@ paths:
       summary: ✨ Unpublish a saved interface version
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: unpublish_version
   /api/interfaces/{id}/update_description/:
     post:
       description: |-
@@ -5495,7 +5535,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Update description for a saved interface version by ID.
+        Update the description for one saved interface version by stable version ID.
       operationId: api_interfaces_update_description_create
       parameters:
         - in: path
@@ -5527,6 +5567,10 @@ paths:
       summary: ✨ Update a saved interface version description
       tags:
         - Interfaces
+      x-fern-audiences:
+        - public
+      x-fern-sdk-group-name: interfaces
+      x-fern-sdk-method-name: update_version_description
   /api/invite:
     get:
       description: Get invite link for organization
@@ -6036,6 +6080,997 @@ paths:
         - internal
       x-fern-sdk-group-name: labels
       x-fern-sdk-method-name: update
+  /api/learning-resources/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List org-level courses.
+      operationId: api_learning_resources_list
+      parameters:
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLearningResourceList'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List learning resources
+      tags:
+        - Learning Resources
+    post:
+      operationId: api_learning_resources_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceCreateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceCreateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceCreateRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResourceCreate'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Create a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/:
+    delete:
+      operationId: api_learning_resources_destroy
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Delete a learning resource
+      tags:
+        - Learning Resources
+    get:
+      operationId: api_learning_resources_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResourceDetail'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get a learning resource
+      tags:
+        - Learning Resources
+    patch:
+      operationId: api_learning_resources_partial_update
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceUpdateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResourceUpdate'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Update a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/certificates/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List all certificates issued for a course.
+      operationId: api_learning_resources_certificates_list
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCertificateList'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List certificates for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/certificates/{certificate_id}/revoke/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Revoke a certificate issued for a learning resource.
+      operationId: api_learning_resources_certificates_revoke_create
+      parameters:
+        - in: path
+          name: certificate_id
+          required: true
+          schema:
+            type: integer
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeCertificateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RevokeCertificateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RevokeCertificateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Revoke a certificate
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/duplicate/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create a copy of a learning resource.
+      operationId: api_learning_resources_duplicate_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DuplicateLearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DuplicateLearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DuplicateLearningResourceRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResource'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Duplicate a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/invalidate-progress/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Invalidate all learner progress for a learning resource.
+      operationId: api_learning_resources_invalidate_progress_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '200':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Invalidate progress for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/modules/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List or create modules for a learning resource.
+      operationId: api_learning_resources_modules_list
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCourseModuleList'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseModule'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List or create modules for a learning resource
+      tags:
+        - Learning Resources
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List or create modules for a learning resource.
+      operationId: api_learning_resources_modules_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCourseModuleList'
+          description: ''
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseModule'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List or create modules for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/modules/reorder/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Reorder modules for a learning resource.
+      operationId: api_learning_resources_modules_reorder_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCourseModuleList'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Reorder modules for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/modules/{module_id}/:
+    delete:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Update or delete a module in a learning resource.
+      operationId: api_learning_resources_modules_destroy
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: module_id
+          required: true
+          schema:
+            pattern: ^\d+$
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseModule'
+          description: ''
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Update or delete a module
+      tags:
+        - Learning Resources
+    patch:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Update or delete a module in a learning resource.
+      operationId: api_learning_resources_modules_partial_update
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: module_id
+          required: true
+          schema:
+            pattern: ^\d+$
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseModule'
+          description: ''
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Update or delete a module
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/progress/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Update the current user's progress on a learning resource.
+      operationId: api_learning_resources_progress_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningProgressUpdateRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningProgressUpdateRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningProgressUpdateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningProgressResponse'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Update learner progress on a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/project-assignments/:
+    post:
+      description: Create project assignments for many projects in one request.
+      operationId: api_learning_resources_project_assignments_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkProjectLearningAssignmentRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BulkProjectLearningAssignmentRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BulkProjectLearningAssignmentRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResource'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Bulk assign learning resource to projects
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/publish/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Publish a learning resource to make it available to learners.
+      operationId: api_learning_resources_publish_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishLearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PublishLearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PublishLearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResource'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Publish a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/take/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Get a published learning resource available for standalone access.
+      operationId: api_learning_resources_take_retrieve
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResourceDetail'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Get a standalone learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/unpublish/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Unpublish a learning resource to hide it from learners.
+      operationId: api_learning_resources_unpublish_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResource'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Unpublish a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/upload/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Upload a file asset for use in a learning resource.
+      operationId: api_learning_resources_upload_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningResourceUploadResponse'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Upload a file for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/user-progress/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Paginated progress for users who started the course.
+      operationId: api_learning_resources_user_progress_list
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - description: Which field to use when ordering the results.
+          in: query
+          name: ordering
+          required: false
+          schema:
+            type: string
+        - description: A page number within the paginated result set.
+          in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - description: Number of results to return per page.
+          in: query
+          name: page_size
+          required: false
+          schema:
+            type: integer
+        - description: A search term.
+          in: query
+          name: search
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUserLearningProgressListList'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List user progress for a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/user-progress/bulk-reset/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Delete multiple learners' progress on this course and revoke their certificates.
+      operationId: api_learning_resources_user_progress_bulk_reset_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkResetCourseProgressRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BulkResetCourseProgressRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BulkResetCourseProgressRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  reset_count:
+                    type: integer
+                type: object
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Bulk reset user progress on a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/user-progress/import/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Upload a CSV export to mark organization members as having completed the course.
+      operationId: api_learning_resources_user_progress_import_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  format: binary
+                  type: string
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseProgressImportResult'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Import completed learner progress from CSV
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/user-progress/{user_id}/reset/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Delete a learner's progress on this course and revoke their certificate so they must retake it.
+      operationId: api_learning_resources_user_progress_reset_create
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            pattern: ^\d+$
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LearningResourceRequest'
+      responses:
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Reset user progress on a learning resource
+      tags:
+        - Learning Resources
   /api/llm/openai/chat/completions:
     post:
       description: 'Proxy requests to OpenAI-compatible chat completions APIs and return the full response payload. Supports multiple providers via model parameter format: "model_name" (defaults to OpenAI), "provider/model_name", or "provider:model_name". Works with providers that offer OpenAI-compatible endpoints.'
@@ -6385,7 +7420,7 @@ paths:
       x-fern-sdk-method-name: predict_interactive
   /api/ml/{id}/predict:
     post:
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n\nCreate predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. \n\nSee [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. \n\nReference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list)."
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n\nCreate predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. \n\nSee [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. \n\nReference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/)."
       operationId: api_ml_predict_create
       parameters:
         - description: Computed number of tasks without predictions that the ML backend needs to predict.
@@ -6456,7 +7491,7 @@ paths:
       x-fern-sdk-method-name: test_predict
   /api/ml/{id}/train:
     post:
-      description: "\n        After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).\n        "
+      description: "\n        After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).\n        "
       operationId: api_ml_train_create
       parameters:
         - description: A unique integer value identifying this ML backend.
@@ -8975,6 +10010,11 @@ paths:
           name: search
           schema:
             type: string
+        - description: Filter lse_project__source_interface_id by exact match
+          in: query
+          name: source_interface_id
+          schema:
+            type: number
         - description: Filter current_state by exact match
           in: query
           name: state
@@ -9088,6 +10128,11 @@ paths:
           name: search
           schema:
             type: string
+        - description: Filter lse_project__source_interface_id by exact match
+          in: query
+          name: source_interface_id
+          schema:
+            type: number
         - description: Filter current_state by exact match
           in: query
           name: state
@@ -9994,7 +11039,7 @@ paths:
   /api/projects/{id}/export:
     get:
       deprecated: true
-      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n        Export annotated tasks as a file in a specific format.\n        For example, to export JSON annotations for a project to a file called `annotations.json`,\n        run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export specific tasks with IDs of 123 and 345, run the following from the command line:\n        ```bash\n        curl -X GET 'http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345' -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        "
+      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](api:POST/api/projects/{id}/exports/)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n        Export annotated tasks as a file in a specific format.\n        For example, to export JSON annotations for a project to a file called `annotations.json`,\n        run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export specific tasks with IDs of 123 and 345, run the following from the command line:\n        ```bash\n        curl -X GET 'http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345' -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        "
       operationId: api_projects_export_retrieve
       parameters:
         - description: If true, download all tasks regardless of status. If false, download only annotated tasks.
@@ -10052,7 +11097,7 @@ paths:
       description: |-
 
         This endpoint is deprecated in Enterprise. Use the async export API instead:
-        POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).
+        POST /api/projects/{{id}}/exports/ (see [Create new export](api:POST/api/projects/{id}/exports/)).
 
         In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.
 
@@ -10283,7 +11328,7 @@ paths:
       x-fern-sdk-method-name: convert
   /api/projects/{id}/exports/{export_pk}/download:
     get:
-      description: "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)\n        or after [listing export files](/api#operation/api_projects_exports_list).\n        "
+      description: "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)\n        or after [listing export files](api:GET/api/projects/{id}/exports/).\n        "
       operationId: api_projects_exports_download_retrieve
       parameters:
         - description: Selected export format
@@ -11946,7 +12991,7 @@ paths:
                         description: List of filter configurations for users and models
                         items:
                           additionalProperties:
-                            description: Filter configurations (finished, skipped, accepted, rejected, gt, predictions, review_score)
+                            description: Filter configurations (finished, agreement, skipped, accepted, rejected, gt, predictions, review_score)
                             type: object
                           properties:
                             id:
@@ -12514,7 +13559,7 @@ paths:
                           value: 123
                         properties:
                           filter:
-                            description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+                            description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
                             enum:
                               - filter:tasks:agreement
                               - filter:tasks:annotations_results
@@ -13558,6 +14603,116 @@ paths:
         - Dimensions
       x-fern-audiences:
         - internal
+  /api/projects/{project_pk}/learning-assignments/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List all learning resource assignments for a project.
+      operationId: api_projects_learning_assignments_retrieve
+      parameters:
+        - in: path
+          name: project_pk
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ List learning assignments for a project
+      tags:
+        - Learning Resources
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Create a learning resource assignment for a project.
+      operationId: api_projects_learning_assignments_create
+      parameters:
+        - in: path
+          name: project_pk
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Assign a learning resource to a project
+      tags:
+        - Learning Resources
+  /api/projects/{project_pk}/learning-assignments/reorder/:
+    patch:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Reorder the learning resource assignments for a project.
+      operationId: api_projects_learning_assignments_reorder_partial_update
+      parameters:
+        - in: path
+          name: project_pk
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ProjectLearningAssignment'
+                type: array
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Reorder learning assignments for a project
+      tags:
+        - Learning Resources
+  /api/projects/{project_pk}/learning-assignments/{id}/:
+    delete:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Delete a learning resource assignment from a project.
+      operationId: api_projects_learning_assignments_destroy
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: project_pk
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: No response body
+      security:
+        - Token: []
+      summary: ✨ Remove a learning assignment from a project
+      tags:
+        - Learning Resources
   /api/projects/{project_pk}/members/{user_pk}/pauses/:
     get:
       description: |-
@@ -22158,6 +23313,31 @@ paths:
         - public
       x-fern-sdk-group-name: users
       x-fern-sdk-method-name: create
+  /api/users/me/certificates/:
+    get:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        List all certificates issued to the current user.
+      operationId: api_users_me_certificates_list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Certificate'
+                type: array
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ List certificates for the current user
+      tags:
+        - Learning Resources
   /api/users/{id}/:
     delete:
       description: |-
@@ -23940,6 +25120,7 @@ components:
           readOnly: true
           type: integer
         queue_left:
+          nullable: true
           readOnly: true
           type: integer
         queue_total:
@@ -23961,12 +25142,15 @@ components:
         review_settings:
           $ref: '#/components/schemas/ReviewSettings'
         review_total_tasks:
+          nullable: true
           readOnly: true
           type: integer
         reviewed_number:
+          nullable: true
           readOnly: true
           type: integer
         reviewer_queue_total:
+          nullable: true
           readOnly: true
           type: integer
         sampling:
@@ -25868,12 +27052,73 @@ components:
       required:
         - all
       type: object
+    BulkProjectLearningAssignmentRequest:
+      properties:
+        project_ids:
+          items:
+            minimum: 1
+            type: integer
+          type: array
+      required:
+        - project_ids
+      type: object
+    BulkResetCourseProgressRequest:
+      properties:
+        user_ids:
+          items:
+            minimum: 1
+            type: integer
+          type: array
+      required:
+        - user_ids
+      type: object
     CancelModelRunResponse:
       properties:
         detail:
           type: string
       required:
         - detail
+      type: object
+    Certificate:
+      properties:
+        completed_at:
+          format: date-time
+          readOnly: true
+          type: string
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        expires_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          type: integer
+        learning_resource:
+          readOnly: true
+          type: integer
+        metadata:
+          readOnly: true
+        revoked_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        serial_number:
+          readOnly: true
+          type: string
+      required:
+        - completed_at
+        - created_at
+        - expires_at
+        - id
+        - learning_resource
+        - metadata
+        - revoked_at
+        - serial_number
       type: object
     CheckMatchingFunctionRequestRequest:
       properties:
@@ -26256,6 +27501,72 @@ components:
         - count
         - limit
         - reached
+      type: object
+    CourseModule:
+      properties:
+        content: {}
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        id:
+          readOnly: true
+          type: integer
+        learning_resource:
+          readOnly: true
+          type: integer
+        marked_stale:
+          type: boolean
+        page_count:
+          readOnly: true
+          type: string
+        sort_order:
+          default: 0
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        title:
+          maxLength: 255
+          type: string
+        updated_at:
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+        - created_at
+        - id
+        - learning_resource
+        - page_count
+        - updated_at
+      type: object
+    CourseProgressImportResult:
+      properties:
+        imported_count:
+          type: integer
+        imported_emails:
+          items:
+            format: email
+            type: string
+          type: array
+        skipped_invalid:
+          items:
+            additionalProperties: {}
+            type: object
+          type: array
+        skipped_not_completed:
+          items:
+            type: string
+          type: array
+        skipped_not_in_org:
+          items:
+            type: string
+          type: array
+      required:
+        - imported_count
+        - imported_emails
+        - skipped_invalid
+        - skipped_not_completed
+        - skipped_not_in_org
       type: object
     CustomFunctionCodeRequestRequest:
       properties:
@@ -27129,6 +28440,10 @@ components:
         is_active:
           description: Whether this dimension is used in agreement calculations.
           type: boolean
+        is_categorical:
+          description: Whether this dimension produces categorical (primitive/scalar) values.
+          readOnly: true
+          type: boolean
         is_user_defined:
           description: Whether this dimension was manually created by a user. System-generated dimensions have this set to False.
           type: boolean
@@ -27163,6 +28478,7 @@ components:
         - created_at
         - created_by
         - id
+        - is_categorical
         - name
         - project
         - updated_at
@@ -27246,6 +28562,10 @@ components:
           description: Whether this dimension is used in agreement calculations.
           readOnly: true
           type: boolean
+        is_categorical:
+          description: Whether this dimension produces categorical (primitive/scalar) values.
+          readOnly: true
+          type: boolean
         is_user_defined:
           description: Whether this dimension was manually created by a user. System-generated dimensions have this set to False.
           readOnly: true
@@ -27283,6 +28603,7 @@ components:
         - extraction_method_params
         - id
         - is_active
+        - is_categorical
         - is_user_defined
         - metric_params
         - metric_type
@@ -27336,6 +28657,12 @@ components:
       required:
         - name
       type: object
+    DuplicateLearningResourceRequest:
+      properties:
+        workspace:
+          nullable: true
+          type: integer
+      type: object
     EditionEnum:
       description: |-
         * `Community` - Community
@@ -27343,6 +28670,18 @@ components:
       enum:
         - Community
         - Enterprise
+      type: string
+    EstimatedDurationUnitEnum:
+      description: |-
+        * `minutes` - Minutes
+        * `hours` - Hours
+        * `days` - Days
+        * `weeks` - Weeks
+      enum:
+        - minutes
+        - hours
+        - days
+        - weeks
       type: string
     Export:
       properties:
@@ -29596,6 +30935,485 @@ components:
         - fixed_and_accepted
         - deleted_review
       type: string
+    LearningProgressResponse:
+      properties:
+        completed_at:
+          format: date-time
+          nullable: true
+          type: string
+        course_reset:
+          default: false
+          type: boolean
+        gating:
+          additionalProperties: {}
+          type: object
+        is_stale:
+          type: boolean
+        module_progress:
+          additionalProperties: {}
+          type: object
+        pages_visited:
+          items:
+            type: string
+          type: array
+        quiz_results:
+          additionalProperties: {}
+          type: object
+        resource_version:
+          type: integer
+        time_spent_seconds:
+          type: integer
+      required:
+        - completed_at
+        - gating
+        - is_stale
+        - pages_visited
+        - quiz_results
+        - resource_version
+        - time_spent_seconds
+      type: object
+    LearningProgressUpdateRequest:
+      properties:
+        answers:
+          additionalProperties: {}
+          type: object
+        mark_complete:
+          default: false
+          type: boolean
+        module_id:
+          type: integer
+        page_id:
+          minLength: 1
+          type: string
+        quiz_id:
+          minLength: 1
+          type: string
+        time_spent_seconds:
+          minimum: 0
+          type: integer
+      type: object
+    LearningResource:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        content:
+          readOnly: true
+          type: string
+        content_version:
+          readOnly: true
+          type: integer
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        has_unpublished_changes:
+          nullable: true
+          readOnly: true
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        id:
+          readOnly: true
+          type: integer
+        is_published:
+          readOnly: true
+          type: boolean
+        learner_count:
+          readOnly: true
+          type: string
+        learners_completed_count:
+          readOnly: true
+          type: string
+        learners_started_count:
+          readOnly: true
+          type: string
+        module_count:
+          readOnly: true
+          type: string
+        organization:
+          readOnly: true
+          type: integer
+        page_count:
+          readOnly: true
+          type: string
+        project_count:
+          readOnly: true
+          type: string
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          type: string
+        updated_at:
+          format: date-time
+          readOnly: true
+          type: string
+        updated_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        workspace:
+          nullable: true
+          type: integer
+      required:
+        - content
+        - content_version
+        - created_at
+        - created_by
+        - has_unpublished_changes
+        - id
+        - is_published
+        - learner_count
+        - learners_completed_count
+        - learners_started_count
+        - module_count
+        - organization
+        - page_count
+        - project_count
+        - updated_at
+        - updated_by
+      type: object
+    LearningResourceCreate:
+      properties:
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          type: string
+        workspace:
+          nullable: true
+          type: integer
+      type: object
+    LearningResourceCreateRequest:
+      properties:
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          minLength: 1
+          type: string
+        workspace:
+          nullable: true
+          type: integer
+      type: object
+    LearningResourceDetail:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        content:
+          readOnly: true
+          type: string
+        content_version:
+          readOnly: true
+          type: integer
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        has_unpublished_changes:
+          nullable: true
+          readOnly: true
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        id:
+          readOnly: true
+          type: integer
+        is_published:
+          readOnly: true
+          type: boolean
+        learner_content:
+          additionalProperties: true
+          nullable: true
+          readOnly: true
+          type: object
+        learner_count:
+          readOnly: true
+          type: string
+        learners_completed_count:
+          readOnly: true
+          type: string
+        learners_started_count:
+          readOnly: true
+          type: string
+        module_count:
+          readOnly: true
+          type: string
+        modules:
+          items:
+            $ref: '#/components/schemas/CourseModule'
+          readOnly: true
+          type: array
+        organization:
+          readOnly: true
+          type: integer
+        page_count:
+          readOnly: true
+          type: string
+        progress:
+          readOnly: true
+          type: string
+        project_assignments:
+          readOnly: true
+          type: string
+        project_count:
+          readOnly: true
+          type: string
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          type: string
+        unpublished_module_ids:
+          readOnly: true
+          type: string
+        updated_at:
+          format: date-time
+          readOnly: true
+          type: string
+        updated_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        workspace:
+          nullable: true
+          type: integer
+      required:
+        - content
+        - content_version
+        - created_at
+        - created_by
+        - has_unpublished_changes
+        - id
+        - is_published
+        - learner_content
+        - learner_count
+        - learners_completed_count
+        - learners_started_count
+        - module_count
+        - modules
+        - organization
+        - page_count
+        - progress
+        - project_assignments
+        - project_count
+        - unpublished_module_ids
+        - updated_at
+        - updated_by
+      type: object
+    LearningResourceRequest:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          minLength: 1
+          type: string
+        workspace:
+          nullable: true
+          type: integer
+      type: object
+    LearningResourceUpdate:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          type: string
+        workspace:
+          nullable: true
+          type: integer
+      type: object
+    LearningResourceUploadResponse:
+      properties:
+        url:
+          format: uri
+          type: string
+      required:
+        - url
+      type: object
     LocalFilesExportStorage:
       properties:
         can_delete_objects:
@@ -30745,6 +32563,7 @@ components:
           readOnly: true
           type: integer
         queue_left:
+          nullable: true
           readOnly: true
           type: integer
         queue_total:
@@ -30754,9 +32573,11 @@ components:
           readOnly: true
           type: integer
         review_total_tasks:
+          nullable: true
           readOnly: true
           type: integer
         reviewed_number:
+          nullable: true
           readOnly: true
           type: integer
         skipped_annotations_number:
@@ -34458,6 +36279,52 @@ components:
         - count
         - results
       type: object
+    PaginatedCertificateList:
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?page=4
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?page=2
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/Certificate'
+          type: array
+      required:
+        - count
+        - results
+      type: object
+    PaginatedCourseModuleList:
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?page=4
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?page=2
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/CourseModule'
+          type: array
+      required:
+        - count
+        - results
+      type: object
     PaginatedLabelCreateList:
       properties:
         count:
@@ -34522,6 +36389,29 @@ components:
         results:
           items:
             $ref: '#/components/schemas/Label'
+          type: array
+      required:
+        - count
+        - results
+      type: object
+    PaginatedLearningResourceList:
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?page=4
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?page=2
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/LearningResource'
           type: array
       required:
         - count
@@ -34854,6 +36744,29 @@ components:
         results:
           items:
             $ref: '#/components/schemas/StateModel'
+          type: array
+      required:
+        - count
+        - results
+      type: object
+    PaginatedUserLearningProgressListList:
+      properties:
+        count:
+          example: 123
+          type: integer
+        next:
+          example: http://api.example.org/accounts/?page=4
+          format: uri
+          nullable: true
+          type: string
+        previous:
+          example: http://api.example.org/accounts/?page=2
+          format: uri
+          nullable: true
+          type: string
+        results:
+          items:
+            $ref: '#/components/schemas/UserLearningProgressList'
           type: array
       required:
         - count
@@ -36103,6 +38016,104 @@ components:
           type: string
         value:
           description: Label value
+      type: object
+    PatchedLearningResourceRequest:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          minLength: 1
+          type: string
+        workspace:
+          nullable: true
+          type: integer
+      type: object
+    PatchedLearningResourceUpdateRequest:
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          minLength: 1
+          type: string
+        workspace:
+          nullable: true
+          type: integer
       type: object
     PatchedLseInterfaceRequest:
       properties:
@@ -37766,6 +39777,54 @@ components:
       required:
         - label_config
       type: object
+    ProjectLearningAssignment:
+      properties:
+        allow_manual_access:
+          type: boolean
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        id:
+          readOnly: true
+          type: integer
+        learning_resource:
+          allOf:
+            - $ref: '#/components/schemas/LearningResource'
+          readOnly: true
+        project:
+          readOnly: true
+          type: integer
+        sort_order:
+          maximum: 2147483647
+          minimum: 0
+          type: integer
+        updated_at:
+          format: date-time
+          readOnly: true
+          type: string
+      required:
+        - created_at
+        - id
+        - learning_resource
+        - project
+        - updated_at
+      type: object
     ProjectMember:
       properties:
         user:
@@ -38088,6 +40147,16 @@ components:
         - Anthropic
         - Custom
       type: string
+    PublishLearningResourceRequest:
+      properties:
+        force_reshown:
+          default: false
+          type: boolean
+        retake_scope:
+          allOf:
+            - $ref: '#/components/schemas/RetakeScopeEnum'
+          default: none
+      type: object
     ReEvaluate:
       properties:
         mode:
@@ -38400,6 +40469,16 @@ components:
         - remove
         - flexible
       type: string
+    RetakeScopeEnum:
+      description: |-
+        * `none` - none
+        * `full` - full
+        * `changed_modules` - changed_modules
+      enum:
+        - none
+        - full
+        - changed_modules
+      type: string
     ReviewCriteriaEnum:
       description: |-
         * `all` - Task is reviewed if all annotations are reviewed
@@ -38656,6 +40735,12 @@ components:
       enum:
         - only
         - exclude
+    RevokeCertificateRequest:
+      properties:
+        reason:
+          default: ''
+          type: string
+      type: object
     RevokeInviteRequest:
       properties:
         email:
@@ -40390,6 +42475,75 @@ components:
         - AN
         - RE
       type: string
+    UserLearningProgressList:
+      properties:
+        completed_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        imported_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        is_stale:
+          readOnly: true
+          type: boolean
+        last_module_title:
+          readOnly: true
+          type: string
+        last_page_id:
+          readOnly: true
+          type: string
+        last_page_title:
+          readOnly: true
+          type: string
+        pages_visited:
+          items:
+            type: string
+          readOnly: true
+          type: array
+        progress_percent:
+          readOnly: true
+          type: string
+        quiz_summary:
+          readOnly: true
+          type: string
+        requires_retake:
+          readOnly: true
+          type: string
+        started_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        status:
+          readOnly: true
+          type: string
+        time_spent_seconds:
+          readOnly: true
+          type: integer
+        user:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+      required:
+        - completed_at
+        - imported_at
+        - is_stale
+        - last_module_title
+        - last_page_id
+        - last_page_title
+        - pages_visited
+        - progress_percent
+        - quiz_summary
+        - requires_retake
+        - started_at
+        - status
+        - time_spent_seconds
+        - user
+      type: object
     UserSimple:
       description: |-
         A ModelSerializer that takes additional arguments for

@@ -183,6 +183,11 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        public LearningResourcesClient LearningResources { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public LlmClient Llm { get; }
 
         /// <summary>
