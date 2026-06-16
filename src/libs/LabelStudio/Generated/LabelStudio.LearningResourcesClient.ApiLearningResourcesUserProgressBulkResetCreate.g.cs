@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiLearningResourcesUserProgressResetCreateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiLearningResourcesUserProgressBulkResetCreateSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,79 +21,79 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiLearningResourcesUserProgressResetCreateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiLearningResourcesUserProgressBulkResetCreateSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiLearningResourcesUserProgressResetCreateSecurityRequirement0,
+            {                s_ApiLearningResourcesUserProgressBulkResetCreateSecurityRequirement0,
             };
-        partial void PrepareApiLearningResourcesUserProgressResetCreateArguments(
+        partial void PrepareApiLearningResourcesUserProgressBulkResetCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
-            ref string userId,
-            global::LabelStudio.LearningResourceRequest request);
-        partial void PrepareApiLearningResourcesUserProgressResetCreateRequest(
+            global::LabelStudio.BulkResetCourseProgressRequest request);
+        partial void PrepareApiLearningResourcesUserProgressBulkResetCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
-            string userId,
-            global::LabelStudio.LearningResourceRequest request);
-        partial void ProcessApiLearningResourcesUserProgressResetCreateResponse(
+            global::LabelStudio.BulkResetCourseProgressRequest request);
+        partial void ProcessApiLearningResourcesUserProgressBulkResetCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessApiLearningResourcesUserProgressBulkResetCreateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// ✨ Reset user progress on a learning resource<br/>
+        /// ✨ Bulk reset user progress on a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete multiple learners' progress on this course and revoke their certificates.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="userId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiLearningResourcesUserProgressResetCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse> ApiLearningResourcesUserProgressBulkResetCreateAsync(
             string id,
-            string userId,
 
-            global::LabelStudio.LearningResourceRequest request,
+            global::LabelStudio.BulkResetCourseProgressRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiLearningResourcesUserProgressResetCreateAsResponseAsync(
+            var __response = await ApiLearningResourcesUserProgressBulkResetCreateAsResponseAsync(
                 id: id,
-                userId: userId,
 
                 request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// ✨ Reset user progress on a learning resource<br/>
+        /// ✨ Bulk reset user progress on a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete multiple learners' progress on this course and revoke their certificates.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="userId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiLearningResourcesUserProgressResetCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse>> ApiLearningResourcesUserProgressBulkResetCreateAsResponseAsync(
             string id,
-            string userId,
 
-            global::LabelStudio.LearningResourceRequest request,
+            global::LabelStudio.BulkResetCourseProgressRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -101,17 +101,16 @@ namespace LabelStudio
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiLearningResourcesUserProgressResetCreateArguments(
+            PrepareApiLearningResourcesUserProgressBulkResetCreateArguments(
                 httpClient: HttpClient,
                 id: ref id,
-                userId: ref userId,
                 request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiLearningResourcesUserProgressResetCreateSecurityRequirements,
-                operationName: "ApiLearningResourcesUserProgressResetCreateAsync");
+                securityRequirements: s_ApiLearningResourcesUserProgressBulkResetCreateSecurityRequirements,
+                operationName: "ApiLearningResourcesUserProgressBulkResetCreateAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -131,7 +130,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/learning-resources/{id}/user-progress/{userId}/reset/",
+                                path: $"/api/learning-resources/{id}/user-progress/bulk-reset/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -176,11 +175,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiLearningResourcesUserProgressResetCreateRequest(
+                PrepareApiLearningResourcesUserProgressBulkResetCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
-                    userId: userId!,
                     request: request);
 
                 return __httpRequest;
@@ -198,9 +196,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesUserProgressResetCreate",
-                                methodName: "ApiLearningResourcesUserProgressResetCreateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/{userId}/reset/\"",
+                                operationId: "ApiLearningResourcesUserProgressBulkResetCreate",
+                                methodName: "ApiLearningResourcesUserProgressBulkResetCreateAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/bulk-reset/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -232,9 +230,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesUserProgressResetCreate",
-                                methodName: "ApiLearningResourcesUserProgressResetCreateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/{userId}/reset/\"",
+                                operationId: "ApiLearningResourcesUserProgressBulkResetCreate",
+                                methodName: "ApiLearningResourcesUserProgressBulkResetCreateAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/bulk-reset/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -273,9 +271,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesUserProgressResetCreate",
-                                methodName: "ApiLearningResourcesUserProgressResetCreateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/{userId}/reset/\"",
+                                operationId: "ApiLearningResourcesUserProgressBulkResetCreate",
+                                methodName: "ApiLearningResourcesUserProgressBulkResetCreateAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/bulk-reset/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -313,7 +311,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiLearningResourcesUserProgressResetCreateResponse(
+                ProcessApiLearningResourcesUserProgressBulkResetCreateResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -321,9 +319,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesUserProgressResetCreate",
-                                methodName: "ApiLearningResourcesUserProgressResetCreateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/{userId}/reset/\"",
+                                operationId: "ApiLearningResourcesUserProgressBulkResetCreate",
+                                methodName: "ApiLearningResourcesUserProgressBulkResetCreateAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/bulk-reset/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -343,9 +341,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesUserProgressResetCreate",
-                                methodName: "ApiLearningResourcesUserProgressResetCreateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/{userId}/reset/\"",
+                                operationId: "ApiLearningResourcesUserProgressBulkResetCreate",
+                                methodName: "ApiLearningResourcesUserProgressBulkResetCreateAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/user-progress/bulk-reset/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -373,15 +371,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiLearningResourcesUserProgressBulkResetCreateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -401,10 +406,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -441,86 +455,33 @@ namespace LabelStudio
             }
         }
         /// <summary>
-        /// ✨ Reset user progress on a learning resource<br/>
+        /// ✨ Bulk reset user progress on a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete multiple learners' progress on this course and revoke their certificates.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="userId"></param>
-        /// <param name="allowStandalone"></param>
-        /// <param name="color"></param>
-        /// <param name="coverImageUrl"></param>
-        /// <param name="defaultAllowManualAccess"></param>
-        /// <param name="defaultGateAnnotatorDataManager"></param>
-        /// <param name="defaultGateAnnotatorLabelStream"></param>
-        /// <param name="defaultGateReviewerDataManager"></param>
-        /// <param name="defaultGateReviewerLabelStream"></param>
-        /// <param name="defaultGateReviewerReviewStream"></param>
-        /// <param name="estimatedDurationUnit">
-        /// * `minutes` - Minutes<br/>
-        /// * `hours` - Hours<br/>
-        /// * `days` - Days<br/>
-        /// * `weeks` - Weeks
-        /// </param>
-        /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
-        /// <param name="hideCompletedQuizzes"></param>
-        /// <param name="summary"></param>
-        /// <param name="title"></param>
-        /// <param name="workspace"></param>
+        /// <param name="userIds"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task ApiLearningResourcesUserProgressResetCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse> ApiLearningResourcesUserProgressBulkResetCreateAsync(
             string id,
-            string userId,
-            bool? allowStandalone = default,
-            string? color = default,
-            string? coverImageUrl = default,
-            bool? defaultAllowManualAccess = default,
-            bool? defaultGateAnnotatorDataManager = default,
-            bool? defaultGateAnnotatorLabelStream = default,
-            bool? defaultGateReviewerDataManager = default,
-            bool? defaultGateReviewerLabelStream = default,
-            bool? defaultGateReviewerReviewStream = default,
-            global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit = default,
-            int? estimatedDurationValue = default,
-            bool? generateCertificateOnCompletion = default,
-            bool? hideCompletedQuizzes = default,
-            string? summary = default,
-            string? title = default,
-            int? workspace = default,
+            global::System.Collections.Generic.IList<int> userIds,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.LearningResourceRequest
+            var __request = new global::LabelStudio.BulkResetCourseProgressRequest
             {
-                AllowStandalone = allowStandalone,
-                Color = color,
-                CoverImageUrl = coverImageUrl,
-                DefaultAllowManualAccess = defaultAllowManualAccess,
-                DefaultGateAnnotatorDataManager = defaultGateAnnotatorDataManager,
-                DefaultGateAnnotatorLabelStream = defaultGateAnnotatorLabelStream,
-                DefaultGateReviewerDataManager = defaultGateReviewerDataManager,
-                DefaultGateReviewerLabelStream = defaultGateReviewerLabelStream,
-                DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream,
-                EstimatedDurationUnit = estimatedDurationUnit,
-                EstimatedDurationValue = estimatedDurationValue,
-                GenerateCertificateOnCompletion = generateCertificateOnCompletion,
-                HideCompletedQuizzes = hideCompletedQuizzes,
-                Summary = summary,
-                Title = title,
-                Workspace = workspace,
+                UserIds = userIds,
             };
 
-            await ApiLearningResourcesUserProgressResetCreateAsync(
+            return await ApiLearningResourcesUserProgressBulkResetCreateAsync(
                 id: id,
-                userId: userId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
