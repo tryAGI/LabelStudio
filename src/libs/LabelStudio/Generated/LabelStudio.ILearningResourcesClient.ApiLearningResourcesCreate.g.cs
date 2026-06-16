@@ -32,7 +32,11 @@ namespace LabelStudio
         /// ✨ Create a learning resource
         /// </summary>
         /// <param name="defaultAllowManualAccess"></param>
-        /// <param name="defaultGateBeforeFirstAnnotation"></param>
+        /// <param name="defaultGateAnnotatorDataManager"></param>
+        /// <param name="defaultGateAnnotatorLabelStream"></param>
+        /// <param name="defaultGateReviewerDataManager"></param>
+        /// <param name="defaultGateReviewerLabelStream"></param>
+        /// <param name="defaultGateReviewerReviewStream"></param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -41,7 +45,11 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LearningResourceCreate> ApiLearningResourcesCreateAsync(
             bool? defaultAllowManualAccess = default,
-            bool? defaultGateBeforeFirstAnnotation = default,
+            bool? defaultGateAnnotatorDataManager = default,
+            bool? defaultGateAnnotatorLabelStream = default,
+            bool? defaultGateReviewerDataManager = default,
+            bool? defaultGateReviewerLabelStream = default,
+            bool? defaultGateReviewerReviewStream = default,
             string? summary = default,
             string? title = default,
             int? workspace = default,

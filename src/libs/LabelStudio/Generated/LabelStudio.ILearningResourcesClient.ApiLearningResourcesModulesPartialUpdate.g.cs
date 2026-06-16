@@ -66,7 +66,11 @@ namespace LabelStudio
         /// <param name="color"></param>
         /// <param name="coverImageUrl"></param>
         /// <param name="defaultAllowManualAccess"></param>
-        /// <param name="defaultGateBeforeFirstAnnotation"></param>
+        /// <param name="defaultGateAnnotatorDataManager"></param>
+        /// <param name="defaultGateAnnotatorLabelStream"></param>
+        /// <param name="defaultGateReviewerDataManager"></param>
+        /// <param name="defaultGateReviewerLabelStream"></param>
+        /// <param name="defaultGateReviewerReviewStream"></param>
         /// <param name="estimatedDurationUnit">
         /// * `minutes` - Minutes<br/>
         /// * `hours` - Hours<br/>
@@ -89,7 +93,11 @@ namespace LabelStudio
             string? color = default,
             string? coverImageUrl = default,
             bool? defaultAllowManualAccess = default,
-            bool? defaultGateBeforeFirstAnnotation = default,
+            bool? defaultGateAnnotatorDataManager = default,
+            bool? defaultGateAnnotatorLabelStream = default,
+            bool? defaultGateReviewerDataManager = default,
+            bool? defaultGateReviewerLabelStream = default,
+            bool? defaultGateReviewerReviewStream = default,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit = default,
             int? estimatedDurationValue = default,
             bool? generateCertificateOnCompletion = default,

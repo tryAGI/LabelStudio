@@ -24,8 +24,32 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("gate_before_first_annotation")]
-        public bool? GateBeforeFirstAnnotation { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("gate_annotator_data_manager")]
+        public bool? GateAnnotatorDataManager { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gate_annotator_label_stream")]
+        public bool? GateAnnotatorLabelStream { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_data_manager")]
+        public bool? GateReviewerDataManager { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_label_stream")]
+        public bool? GateReviewerLabelStream { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_review_stream")]
+        public bool? GateReviewerReviewStream { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -71,7 +95,11 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="ProjectLearningAssignment" /> class.
         /// </summary>
         /// <param name="allowManualAccess"></param>
-        /// <param name="gateBeforeFirstAnnotation"></param>
+        /// <param name="gateAnnotatorDataManager"></param>
+        /// <param name="gateAnnotatorLabelStream"></param>
+        /// <param name="gateReviewerDataManager"></param>
+        /// <param name="gateReviewerLabelStream"></param>
+        /// <param name="gateReviewerReviewStream"></param>
         /// <param name="sortOrder"></param>
         /// <param name="createdAt">
         /// Included only in responses
@@ -93,7 +121,11 @@ namespace LabelStudio
 #endif
         public ProjectLearningAssignment(
             bool? allowManualAccess,
-            bool? gateBeforeFirstAnnotation,
+            bool? gateAnnotatorDataManager,
+            bool? gateAnnotatorLabelStream,
+            bool? gateReviewerDataManager,
+            bool? gateReviewerLabelStream,
+            bool? gateReviewerReviewStream,
             int? sortOrder,
             global::System.DateTime createdAt = default!,
             int id = default!,
@@ -103,7 +135,11 @@ namespace LabelStudio
         {
             this.AllowManualAccess = allowManualAccess;
             this.CreatedAt = createdAt;
-            this.GateBeforeFirstAnnotation = gateBeforeFirstAnnotation;
+            this.GateAnnotatorDataManager = gateAnnotatorDataManager;
+            this.GateAnnotatorLabelStream = gateAnnotatorLabelStream;
+            this.GateReviewerDataManager = gateReviewerDataManager;
+            this.GateReviewerLabelStream = gateReviewerLabelStream;
+            this.GateReviewerReviewStream = gateReviewerReviewStream;
             this.Id = id;
             this.LearningResource = learningResource;
             this.Project = project;

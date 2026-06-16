@@ -63,8 +63,32 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_before_first_annotation")]
-        public bool? DefaultGateBeforeFirstAnnotation { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_annotator_data_manager")]
+        public bool? DefaultGateAnnotatorDataManager { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_annotator_label_stream")]
+        public bool? DefaultGateAnnotatorLabelStream { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_data_manager")]
+        public bool? DefaultGateReviewerDataManager { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_label_stream")]
+        public bool? DefaultGateReviewerLabelStream { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_review_stream")]
+        public bool? DefaultGateReviewerReviewStream { get; set; }
 
         /// <summary>
         /// * `minutes` - Minutes<br/>
@@ -242,7 +266,11 @@ namespace LabelStudio
         /// <param name="color"></param>
         /// <param name="coverImageUrl"></param>
         /// <param name="defaultAllowManualAccess"></param>
-        /// <param name="defaultGateBeforeFirstAnnotation"></param>
+        /// <param name="defaultGateAnnotatorDataManager"></param>
+        /// <param name="defaultGateAnnotatorLabelStream"></param>
+        /// <param name="defaultGateReviewerDataManager"></param>
+        /// <param name="defaultGateReviewerLabelStream"></param>
+        /// <param name="defaultGateReviewerReviewStream"></param>
         /// <param name="estimatedDurationUnit">
         /// * `minutes` - Minutes<br/>
         /// * `hours` - Hours<br/>
@@ -326,7 +354,11 @@ namespace LabelStudio
             string? color,
             string? coverImageUrl,
             bool? defaultAllowManualAccess,
-            bool? defaultGateBeforeFirstAnnotation,
+            bool? defaultGateAnnotatorDataManager,
+            bool? defaultGateAnnotatorLabelStream,
+            bool? defaultGateReviewerDataManager,
+            bool? defaultGateReviewerLabelStream,
+            bool? defaultGateReviewerReviewStream,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit,
             int? estimatedDurationValue,
             bool? generateCertificateOnCompletion,
@@ -364,7 +396,11 @@ namespace LabelStudio
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.DefaultAllowManualAccess = defaultAllowManualAccess;
-            this.DefaultGateBeforeFirstAnnotation = defaultGateBeforeFirstAnnotation;
+            this.DefaultGateAnnotatorDataManager = defaultGateAnnotatorDataManager;
+            this.DefaultGateAnnotatorLabelStream = defaultGateAnnotatorLabelStream;
+            this.DefaultGateReviewerDataManager = defaultGateReviewerDataManager;
+            this.DefaultGateReviewerLabelStream = defaultGateReviewerLabelStream;
+            this.DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream;
             this.EstimatedDurationUnit = estimatedDurationUnit;
             this.EstimatedDurationValue = estimatedDurationValue;
             this.GenerateCertificateOnCompletion = generateCertificateOnCompletion;

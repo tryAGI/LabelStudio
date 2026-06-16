@@ -17,6 +17,12 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("imported_at")]
+        public global::System.DateTime? ImportedAt { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_stale")]
         public bool IsStale { get; set; } = default!;
@@ -109,6 +115,9 @@ namespace LabelStudio
         /// <param name="completedAt">
         /// Included only in responses
         /// </param>
+        /// <param name="importedAt">
+        /// Included only in responses
+        /// </param>
         /// <param name="startedAt">
         /// Included only in responses
         /// </param>
@@ -150,6 +159,7 @@ namespace LabelStudio
 #endif
         public UserLearningProgressList(
             global::System.DateTime? completedAt,
+            global::System.DateTime? importedAt,
             global::System.DateTime? startedAt,
             bool isStale = default!,
             string lastModuleTitle = default!,
@@ -164,6 +174,7 @@ namespace LabelStudio
             global::LabelStudio.UserSimple user = default!)
         {
             this.CompletedAt = completedAt;
+            this.ImportedAt = importedAt;
             this.IsStale = isStale;
             this.LastModuleTitle = lastModuleTitle;
             this.LastPageId = lastPageId;
