@@ -68,6 +68,13 @@ namespace LabelStudio
         public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("updated_by")]
+        public global::LabelStudio.UserSimple UpdatedBy { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +104,9 @@ namespace LabelStudio
         /// <param name="updatedAt">
         /// Included only in responses
         /// </param>
+        /// <param name="updatedBy">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -109,7 +119,8 @@ namespace LabelStudio
             int id = default!,
             int learningResource = default!,
             string pageCount = default!,
-            global::System.DateTime updatedAt = default!)
+            global::System.DateTime updatedAt = default!,
+            global::LabelStudio.UserSimple updatedBy = default!)
         {
             this.Content = content;
             this.CreatedAt = createdAt;
@@ -120,6 +131,7 @@ namespace LabelStudio
             this.SortOrder = sortOrder;
             this.Title = title;
             this.UpdatedAt = updatedAt;
+            this.UpdatedBy = updatedBy;
         }
 
         /// <summary>
