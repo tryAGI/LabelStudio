@@ -134,6 +134,13 @@ namespace LabelStudio
         public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
+        /// Schema-defined enum values for indexed value_counts. Refreshed only with label config changes.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("values_enum")]
+        public object? ValuesEnum { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -144,6 +151,10 @@ namespace LabelStudio
         /// </summary>
         /// <param name="controlTag">
         /// Name of the control tag this dimension is extracted from. Set automatically for system dimensions.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="valuesEnum">
+        /// Schema-defined enum values for indexed value_counts. Refreshed only with label config changes.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="allowedMetricsWithParams">
@@ -208,6 +219,7 @@ namespace LabelStudio
 #endif
         public DimensionList(
             string? controlTag,
+            object? valuesEnum,
             string allowedMetricsWithParams = default!,
             global::System.DateTime createdAt = default!,
             string description = default!,
@@ -240,6 +252,7 @@ namespace LabelStudio
             this.Order = order;
             this.Project = project;
             this.UpdatedAt = updatedAt;
+            this.ValuesEnum = valuesEnum;
         }
 
         /// <summary>

@@ -37,6 +37,12 @@ namespace LabelStudio
         public string? Type { get; set; }
 
         /// <summary>
+        /// Reason this dimension cannot render label distribution rows, when unavailable.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("unsupported_reason")]
+        public string? UnsupportedReason { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -54,6 +60,9 @@ namespace LabelStudio
         /// <param name="type">
         /// Result item type for this dimension when available.
         /// </param>
+        /// <param name="unsupportedReason">
+        /// Reason this dimension cannot render label distribution rows, when unavailable.
+        /// </param>
         /// <param name="choiceKeys">
         /// Flat keys in "&lt;from_name&gt;___SEP___&lt;choice&gt;" format for this dimension.<br/>
         /// Included only in responses
@@ -65,12 +74,14 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<string> choices,
             string name,
             string? type,
+            string? unsupportedReason,
             global::System.Collections.Generic.IList<string> choiceKeys = default!)
         {
             this.ChoiceKeys = choiceKeys;
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.UnsupportedReason = unsupportedReason;
         }
 
         /// <summary>

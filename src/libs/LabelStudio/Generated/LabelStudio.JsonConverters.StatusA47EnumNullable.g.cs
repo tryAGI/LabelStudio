@@ -3,10 +3,10 @@
 namespace LabelStudio.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class AgreementV2BackfillJobStatusEnumJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::LabelStudio.AgreementV2BackfillJobStatusEnum>
+    public sealed class StatusA47EnumNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::LabelStudio.StatusA47Enum?>
     {
         /// <inheritdoc />
-        public override global::LabelStudio.AgreementV2BackfillJobStatusEnum Read(
+        public override global::LabelStudio.StatusA47Enum? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace LabelStudio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::LabelStudio.AgreementV2BackfillJobStatusEnumExtensions.ToEnum(stringValue) ?? default;
+                        return global::LabelStudio.StatusA47EnumExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace LabelStudio.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::LabelStudio.AgreementV2BackfillJobStatusEnum)numValue;
+                    return (global::LabelStudio.StatusA47Enum)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::LabelStudio.AgreementV2BackfillJobStatusEnum);
+                    return default(global::LabelStudio.StatusA47Enum?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace LabelStudio.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::LabelStudio.AgreementV2BackfillJobStatusEnum value,
+            global::LabelStudio.StatusA47Enum? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::LabelStudio.AgreementV2BackfillJobStatusEnumExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::LabelStudio.StatusA47EnumExtensions.ToValueString(value.Value));
+            }
         }
     }
 }
