@@ -4,10 +4,10 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Serializes a DimensionsBackfillJob model instance.<br/>
-    /// Used by the list endpoint and as the base for the status endpoint.
+    /// Serializes a DimensionValueCountsBackfillJob model instance.<br/>
+    /// Used by the value-counts backfill list endpoint and as the base for the status endpoint.
     /// </summary>
-    public sealed partial class AgreementV2BackfillJob
+    public sealed partial class ValueCountsBackfillJob
     {
         /// <summary>
         /// 
@@ -37,7 +37,7 @@ namespace LabelStudio
         public int JobId { get; set; } = default!;
 
         /// <summary>
-        /// JSON data tracking job progress (matrices_created, errors, etc.)
+        /// JSON data tracking job progress (rows_written, etc.)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress_data")]
         public object? ProgressData { get; set; }
@@ -89,14 +89,14 @@ namespace LabelStudio
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgreementV2BackfillJob" /> class.
+        /// Initializes a new instance of the <see cref="ValueCountsBackfillJob" /> class.
         /// </summary>
         /// <param name="completedAt"></param>
         /// <param name="errorMessage">
         /// Error message if job failed
         /// </param>
         /// <param name="progressData">
-        /// JSON data tracking job progress (matrices_created, errors, etc.)
+        /// JSON data tracking job progress (rows_written, etc.)
         /// </param>
         /// <param name="projectId">
         /// Optional specific project to backfill (if null, backfills entire organization)<br/>
@@ -129,7 +129,7 @@ namespace LabelStudio
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public AgreementV2BackfillJob(
+        public ValueCountsBackfillJob(
             global::System.DateTime? completedAt,
             string? errorMessage,
             object? progressData,
@@ -154,9 +154,9 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AgreementV2BackfillJob" /> class.
+        /// Initializes a new instance of the <see cref="ValueCountsBackfillJob" /> class.
         /// </summary>
-        public AgreementV2BackfillJob()
+        public ValueCountsBackfillJob()
         {
         }
 

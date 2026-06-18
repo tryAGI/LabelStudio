@@ -10,7 +10,7 @@ namespace LabelStudio
     /// * `COMPLETED` - Completed<br/>
     /// * `FAILED` - Failed
     /// </summary>
-    public enum AgreementV2BackfillJobStatusEnum
+    public enum StatusA47Enum
     {
         /// <summary>
         /// 
@@ -37,35 +37,35 @@ namespace LabelStudio
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class AgreementV2BackfillJobStatusEnumExtensions
+    public static class StatusA47EnumExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this AgreementV2BackfillJobStatusEnum value)
+        public static string ToValueString(this StatusA47Enum value)
         {
             return value switch
             {
-                AgreementV2BackfillJobStatusEnum.Completed => "COMPLETED",
-                AgreementV2BackfillJobStatusEnum.Failed => "FAILED",
-                AgreementV2BackfillJobStatusEnum.Pending => "PENDING",
-                AgreementV2BackfillJobStatusEnum.Queued => "QUEUED",
-                AgreementV2BackfillJobStatusEnum.Running => "RUNNING",
+                StatusA47Enum.Completed => "COMPLETED",
+                StatusA47Enum.Failed => "FAILED",
+                StatusA47Enum.Pending => "PENDING",
+                StatusA47Enum.Queued => "QUEUED",
+                StatusA47Enum.Running => "RUNNING",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static AgreementV2BackfillJobStatusEnum? ToEnum(string value)
+        public static StatusA47Enum? ToEnum(string value)
         {
             return value switch
             {
-                "COMPLETED" => AgreementV2BackfillJobStatusEnum.Completed,
-                "FAILED" => AgreementV2BackfillJobStatusEnum.Failed,
-                "PENDING" => AgreementV2BackfillJobStatusEnum.Pending,
-                "QUEUED" => AgreementV2BackfillJobStatusEnum.Queued,
-                "RUNNING" => AgreementV2BackfillJobStatusEnum.Running,
+                "COMPLETED" => StatusA47Enum.Completed,
+                "FAILED" => StatusA47Enum.Failed,
+                "PENDING" => StatusA47Enum.Pending,
+                "QUEUED" => StatusA47Enum.Queued,
+                "RUNNING" => StatusA47Enum.Running,
                 _ => null,
             };
         }

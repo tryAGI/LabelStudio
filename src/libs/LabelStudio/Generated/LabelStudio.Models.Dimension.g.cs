@@ -125,6 +125,13 @@ namespace LabelStudio
         public global::System.DateTime UpdatedAt { get; set; } = default!;
 
         /// <summary>
+        /// Schema-defined enum values for indexed value_counts. Refreshed only with label config changes.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("values_enum")]
+        public object? ValuesEnum { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -168,6 +175,10 @@ namespace LabelStudio
         /// <param name="order">
         /// Display order within the project
         /// </param>
+        /// <param name="valuesEnum">
+        /// Schema-defined enum values for indexed value_counts. Refreshed only with label config changes.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="allowedMetricsWithParams">
         /// Dictionary mapping metric type names to their parameter schemas.<br/>
         /// Included only in responses
@@ -204,6 +215,7 @@ namespace LabelStudio
             object? metricParams,
             string? metricType,
             int? order,
+            object? valuesEnum,
             string allowedMetricsWithParams = default!,
             global::System.DateTime createdAt = default!,
             int id = default!,
@@ -228,6 +240,7 @@ namespace LabelStudio
             this.Order = order;
             this.Project = project;
             this.UpdatedAt = updatedAt;
+            this.ValuesEnum = valuesEnum;
         }
 
         /// <summary>
