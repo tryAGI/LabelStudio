@@ -39,7 +39,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotations")]
-        public string Annotations { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Annotations { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -484,7 +484,7 @@ namespace LabelStudio
             int? unresolvedCommentCount,
             string agreement = default!,
             string agreementSelected = default!,
-            string annotations = default!,
+            global::System.Collections.Generic.IList<object> annotations = default!,
             string annotationsIds = default!,
             string annotationsResults = default!,
             global::System.Collections.Generic.IList<object> annotators = default!,

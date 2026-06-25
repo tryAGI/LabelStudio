@@ -14,7 +14,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotations")]
-        public string Annotations { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Annotations { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -34,7 +34,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("comment_count")]
-        public string CommentCount { get; set; } = default!;
+        public int CommentCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -130,7 +130,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("unresolved_comment_count")]
-        public string UnresolvedCommentCount { get; set; } = default!;
+        public int UnresolvedCommentCount { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -198,9 +198,9 @@ namespace LabelStudio
             int? reviewsRejected,
             int? totalAnnotations,
             int? totalPredictions,
-            string annotations = default!,
+            global::System.Collections.Generic.IList<object> annotations = default!,
             string annotationsResults = default!,
-            string commentCount = default!,
+            int commentCount = default!,
             string comments = default!,
             global::System.DateTime createdAt = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.LseTaskSerializerForAnnotatorsDraft> drafts = default!,
@@ -208,7 +208,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.LseTaskSerializerForAnnotatorsPrediction> predictions = default!,
             string predictionsResults = default!,
             string state = default!,
-            string unresolvedCommentCount = default!)
+            int unresolvedCommentCount = default!)
         {
             this.Annotations = annotations;
             this.AnnotationsResults = annotationsResults;
