@@ -63,7 +63,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learning_resource")]
-        public global::LabelStudio.LearningResource LearningResource { get; set; } = default!;
+        public global::LabelStudio.LearningResourceAssignmentSummary LearningResource { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -129,7 +129,7 @@ namespace LabelStudio
             int? sortOrder,
             global::System.DateTime createdAt = default!,
             int id = default!,
-            global::LabelStudio.LearningResource learningResource = default!,
+            global::LabelStudio.LearningResourceAssignmentSummary learningResource = default!,
             int project = default!,
             global::System.DateTime updatedAt = default!)
         {
