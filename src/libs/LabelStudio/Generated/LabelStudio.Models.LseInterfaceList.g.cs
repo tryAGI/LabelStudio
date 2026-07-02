@@ -9,13 +9,6 @@ namespace LabelStudio
     public sealed partial class LseInterfaceList
     {
         /// <summary>
-        /// JSX source code for the interface screen module
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("code")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Code { get; set; }
-
-        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -43,12 +36,6 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
-        /// JSON Schema declaring expected task data field types for import validation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
-        public object? InputSchema { get; set; }
-
-        /// <summary>
         /// HumanSignal-provided system template visible to all organizations<br/>
         /// Included only in responses
         /// </summary>
@@ -63,12 +50,6 @@ namespace LabelStudio
         public object? Metadata { get; set; }
 
         /// <summary>
-        /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
-        public object? OutputSchema { get; set; }
-
-        /// <summary>
         /// Default Value: 0<br/>
         /// Included only in responses
         /// </summary>
@@ -77,11 +58,23 @@ namespace LabelStudio
         public int ProjectsCount { get; set; } = default!;
 
         /// <summary>
+        /// Number of published versions for list cards (derived from versions JSON)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("published_versions_count")]
+        public int? PublishedVersionsCount { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Title { get; set; }
+
+        /// <summary>
+        /// CamelCase screen component name for list cards (derived from code)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type_name")]
+        public string? TypeName { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -112,19 +105,16 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseInterfaceList" /> class.
         /// </summary>
-        /// <param name="code">
-        /// JSX source code for the interface screen module
-        /// </param>
         /// <param name="title"></param>
         /// <param name="description"></param>
-        /// <param name="inputSchema">
-        /// JSON Schema declaring expected task data field types for import validation
-        /// </param>
         /// <param name="metadata">
         /// Arbitrary metadata for this interface
         /// </param>
-        /// <param name="outputSchema">
-        /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
+        /// <param name="publishedVersionsCount">
+        /// Number of published versions for list cards (derived from versions JSON)
+        /// </param>
+        /// <param name="typeName">
+        /// CamelCase screen component name for list cards (derived from code)
         /// </param>
         /// <param name="workspace"></param>
         /// <param name="createdAt">
@@ -154,12 +144,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseInterfaceList(
-            string code,
             string title,
             string? description,
-            object? inputSchema,
             object? metadata,
-            object? outputSchema,
+            int? publishedVersionsCount,
+            string? typeName,
             int? workspace,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
@@ -169,17 +158,16 @@ namespace LabelStudio
             global::System.DateTime updatedAt = default!,
             string versions = default!)
         {
-            this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
             this.Id = id;
-            this.InputSchema = inputSchema;
             this.IsSystem = isSystem;
             this.Metadata = metadata;
-            this.OutputSchema = outputSchema;
             this.ProjectsCount = projectsCount;
+            this.PublishedVersionsCount = publishedVersionsCount;
             this.Title = title ?? throw new global::System.ArgumentNullException(nameof(title));
+            this.TypeName = typeName;
             this.UpdatedAt = updatedAt;
             this.Versions = versions;
             this.Workspace = workspace;
@@ -190,6 +178,18 @@ namespace LabelStudio
         /// </summary>
         public LseInterfaceList()
         {
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="LseInterfaceList"/> from its single non-const required field,
+        /// hardcoding any const discriminator fields.
+        /// </summary>
+        public static LseInterfaceList FromTitle(string title)
+        {
+            return new LseInterfaceList
+            {
+                Title = title,
+            };
         }
 
     }
