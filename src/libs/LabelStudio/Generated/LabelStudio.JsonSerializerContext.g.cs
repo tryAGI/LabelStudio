@@ -305,6 +305,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableNullableJsonConverter),
@@ -1194,6 +1198,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableNullableJsonConverter),
@@ -1411,6 +1419,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiDmActionsCreateId), TypeInfoPropertyName = "ApiDmActionsCreateId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiOrganizationsMembershipsListScope), TypeInfoPropertyName = "ApiOrganizationsMembershipsListScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveMode), TypeInfoPropertyName = "ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceParticipantsListTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceParticipantsListTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceRowsRetrieveTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable), TypeInfoPropertyName = "ApiProjectsStatsMemberPerformanceSummaryRetrieveTable2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType), TypeInfoPropertyName = "ApiProjectsTasksAssigneesDestroyType2")]
@@ -1903,6 +1912,8 @@ namespace LabelStudio
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiOrganizationsMembershipsListScopeNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveModeNullableJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceParticipantsListTableNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceRowsRetrieveTableNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsStatsMemberPerformanceSummaryRetrieveTableJsonConverter());
