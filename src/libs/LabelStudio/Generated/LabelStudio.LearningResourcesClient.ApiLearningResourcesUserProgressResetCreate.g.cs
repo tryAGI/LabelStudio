@@ -27,13 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesUserProgressResetCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref string userId,
             global::LabelStudio.LearningResourceRequest request);
         partial void PrepareApiLearningResourcesUserProgressResetCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             string userId,
             global::LabelStudio.LearningResourceRequest request);
         partial void ProcessApiLearningResourcesUserProgressResetCreateResponse(
@@ -57,7 +57,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task ApiLearningResourcesUserProgressResetCreateAsync(
-            string id,
+            int id,
             string userId,
 
             global::LabelStudio.LearningResourceRequest request,
@@ -90,7 +90,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiLearningResourcesUserProgressResetCreateAsResponseAsync(
-            string id,
+            int id,
             string userId,
 
             global::LabelStudio.LearningResourceRequest request,
@@ -477,7 +477,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task ApiLearningResourcesUserProgressResetCreateAsync(
-            string id,
+            int id,
             string userId,
             bool? allowStandalone = default,
             string? color = default,

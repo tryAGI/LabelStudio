@@ -21,7 +21,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.CourseModule> ApiLearningResourcesModulesPartialUpdateAsync(
-            string id,
+            int id,
             string moduleId,
 
             global::LabelStudio.PatchedLearningResourceRequest request,
@@ -44,7 +44,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseModule>> ApiLearningResourcesModulesPartialUpdateAsResponseAsync(
-            string id,
+            int id,
             string moduleId,
 
             global::LabelStudio.PatchedLearningResourceRequest request,
@@ -87,7 +87,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.CourseModule> ApiLearningResourcesModulesPartialUpdateAsync(
-            string id,
+            int id,
             string moduleId,
             bool? allowStandalone = default,
             string? color = default,

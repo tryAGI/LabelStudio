@@ -28,13 +28,13 @@ namespace LabelStudio
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? expandCreatedBy,
-            ref string id,
+            ref int id,
             global::LabelStudio.PatchedCommentRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? expandCreatedBy,
-            string id,
+            int id,
             global::LabelStudio.PatchedCommentRequest request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -62,7 +62,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> UpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedCommentRequest request,
             bool? expandCreatedBy = default,
@@ -97,7 +97,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MaybeExpandedComment>> UpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedCommentRequest request,
             bool? expandCreatedBy = default,
@@ -496,7 +496,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> UpdateAsync(
-            string id,
+            int id,
             bool? expandCreatedBy = default,
             int? annotation = default,
             object? classifications = default,

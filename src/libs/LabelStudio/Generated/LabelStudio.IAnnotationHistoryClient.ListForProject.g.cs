@@ -14,6 +14,8 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List all annotation history items for the project with pagination.
         /// </summary>
+        /// <param name="createdAtFrom"></param>
+        /// <param name="createdAtTo"></param>
         /// <param name="id"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -22,6 +24,8 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedAnnotationHistoryList> ListForProjectAsync(
             int id,
+            global::System.DateTime? createdAtFrom = default,
+            global::System.DateTime? createdAtTo = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -36,6 +40,8 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List all annotation history items for the project with pagination.
         /// </summary>
+        /// <param name="createdAtFrom"></param>
+        /// <param name="createdAtTo"></param>
         /// <param name="id"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -44,6 +50,8 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedAnnotationHistoryList>> ListForProjectAsResponseAsync(
             int id,
+            global::System.DateTime? createdAtFrom = default,
+            global::System.DateTime? createdAtTo = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

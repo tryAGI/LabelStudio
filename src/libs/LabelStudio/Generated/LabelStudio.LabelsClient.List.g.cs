@@ -27,11 +27,21 @@ namespace LabelStudio
             };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? page);
+            ref global::System.DateTime? labelCreatedAt,
+            ref global::System.DateTime? labelCreatedAtGte,
+            ref global::System.DateTime? labelCreatedAtLte,
+            ref int? labelCreatedBy,
+            ref int? page,
+            ref int? project);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? page);
+            global::System.DateTime? labelCreatedAt,
+            global::System.DateTime? labelCreatedAtGte,
+            global::System.DateTime? labelCreatedAtLte,
+            int? labelCreatedBy,
+            int? page,
+            int? project);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -45,17 +55,32 @@ namespace LabelStudio
         /// List label links<br/>
         /// List label links for a specific label and project.
         /// </summary>
+        /// <param name="labelCreatedAt"></param>
+        /// <param name="labelCreatedAtGte"></param>
+        /// <param name="labelCreatedAtLte"></param>
+        /// <param name="labelCreatedBy"></param>
         /// <param name="page"></param>
+        /// <param name="project"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLabelLinkList> ListAsync(
+            global::System.DateTime? labelCreatedAt = default,
+            global::System.DateTime? labelCreatedAtGte = default,
+            global::System.DateTime? labelCreatedAtLte = default,
+            int? labelCreatedBy = default,
             int? page = default,
+            int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
+                labelCreatedAt: labelCreatedAt,
+                labelCreatedAtGte: labelCreatedAtGte,
+                labelCreatedAtLte: labelCreatedAtLte,
+                labelCreatedBy: labelCreatedBy,
                 page: page,
+                project: project,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -66,12 +91,22 @@ namespace LabelStudio
         /// List label links<br/>
         /// List label links for a specific label and project.
         /// </summary>
+        /// <param name="labelCreatedAt"></param>
+        /// <param name="labelCreatedAtGte"></param>
+        /// <param name="labelCreatedAtLte"></param>
+        /// <param name="labelCreatedBy"></param>
         /// <param name="page"></param>
+        /// <param name="project"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLabelLinkList>> ListAsResponseAsync(
+            global::System.DateTime? labelCreatedAt = default,
+            global::System.DateTime? labelCreatedAtGte = default,
+            global::System.DateTime? labelCreatedAtLte = default,
+            int? labelCreatedBy = default,
             int? page = default,
+            int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,7 +114,12 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareListArguments(
                 httpClient: HttpClient,
-                page: ref page);
+                labelCreatedAt: ref labelCreatedAt,
+                labelCreatedAtGte: ref labelCreatedAtGte,
+                labelCreatedAtLte: ref labelCreatedAtLte,
+                labelCreatedBy: ref labelCreatedBy,
+                page: ref page,
+                project: ref project);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -108,7 +148,12 @@ namespace LabelStudio
                                 path: "/api/label_links/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("label__created_at", labelCreatedAt?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("label__created_at__gte", labelCreatedAtGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("label__created_at__lte", labelCreatedAtLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("label__created_by", labelCreatedBy?.ToString())
                                 .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("project", project?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -150,7 +195,12 @@ namespace LabelStudio
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    page: page);
+                    labelCreatedAt: labelCreatedAt,
+                    labelCreatedAtGte: labelCreatedAtGte,
+                    labelCreatedAtLte: labelCreatedAtLte,
+                    labelCreatedBy: labelCreatedBy,
+                    page: page,
+                    project: project);
 
                 return __httpRequest;
             }

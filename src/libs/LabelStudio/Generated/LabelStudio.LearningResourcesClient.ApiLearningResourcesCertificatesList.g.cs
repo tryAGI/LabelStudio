@@ -27,19 +27,23 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesCertificatesListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
-            ref string? search);
+            ref string? scope,
+            ref string? search,
+            ref int? workspace);
         partial void PrepareApiLearningResourcesCertificatesListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             string? ordering,
             int? page,
             int? pageSize,
-            string? search);
+            string? scope,
+            string? search,
+            int? workspace);
         partial void ProcessApiLearningResourcesCertificatesListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -63,16 +67,20 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedCertificateList> ApiLearningResourcesCertificatesListAsync(
-            string id,
+            int id,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +89,9 @@ namespace LabelStudio
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
+                scope: scope,
                 search: search,
+                workspace: workspace,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -102,16 +112,20 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedCertificateList>> ApiLearningResourcesCertificatesListAsResponseAsync(
-            string id,
+            int id,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -123,7 +137,9 @@ namespace LabelStudio
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
-                search: ref search);
+                scope: ref scope,
+                search: ref search,
+                workspace: ref workspace);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -155,7 +171,9 @@ namespace LabelStudio
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("scope", scope)
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("workspace", workspace?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -201,7 +219,9 @@ namespace LabelStudio
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
-                    search: search);
+                    scope: scope,
+                    search: search,
+                    workspace: workspace);
 
                 return __httpRequest;
             }

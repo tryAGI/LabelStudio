@@ -28,12 +28,14 @@ namespace LabelStudio
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? project,
-            ref int? task);
+            ref int? task,
+            ref int? taskProject);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? project,
-            int? task);
+            int? task,
+            int? taskProject);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -49,18 +51,21 @@ namespace LabelStudio
         /// </summary>
         /// <param name="project"></param>
         /// <param name="task"></param>
+        /// <param name="taskProject"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.Prediction>> ListAsync(
             int? project = default,
             int? task = default,
+            int? taskProject = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
                 project: project,
                 task: task,
+                taskProject: taskProject,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -73,12 +78,14 @@ namespace LabelStudio
         /// </summary>
         /// <param name="project"></param>
         /// <param name="task"></param>
+        /// <param name="taskProject"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.Prediction>>> ListAsResponseAsync(
             int? project = default,
             int? task = default,
+            int? taskProject = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -87,7 +94,8 @@ namespace LabelStudio
             PrepareListArguments(
                 httpClient: HttpClient,
                 project: ref project,
-                task: ref task);
+                task: ref task,
+                taskProject: ref taskProject);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -118,6 +126,7 @@ namespace LabelStudio
                             __pathBuilder
                                 .AddOptionalParameter("project", project?.ToString())
                                 .AddOptionalParameter("task", task?.ToString())
+                                .AddOptionalParameter("task__project", taskProject?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -160,7 +169,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     project: project,
-                    task: task);
+                    task: task,
+                    taskProject: taskProject);
 
                 return __httpRequest;
             }

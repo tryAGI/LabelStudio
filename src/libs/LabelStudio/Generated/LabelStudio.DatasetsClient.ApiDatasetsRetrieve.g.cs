@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareApiDatasetsRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id);
+            ref int id);
         partial void PrepareApiDatasetsRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id);
+            int id);
         partial void ProcessApiDatasetsRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,7 +50,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Dataset> ApiDatasetsRetrieveAsync(
-            string id,
+            int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -71,7 +71,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Dataset>> ApiDatasetsRetrieveAsResponseAsync(
-            string id,
+            int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

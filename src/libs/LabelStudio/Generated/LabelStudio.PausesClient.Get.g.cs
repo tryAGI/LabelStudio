@@ -27,13 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref int projectPk,
             ref int userPk);
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             int projectPk,
             int userPk);
         partial void ProcessGetResponse(
@@ -62,7 +62,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Pause> GetAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -95,7 +95,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Pause>> GetAsResponseAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

@@ -160,7 +160,7 @@
       "Slug": "api-predictions-list",
       "Description": "List all predictions and their IDs.",
       "Language": "http",
-      "Code": "### List predictions\n# @name api_predictions_list\nGET {{host}}/api/predictions/?project={{project}}\u0026task={{task}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Predictions list\n# Content-Type: application/json",
+      "Code": "### List predictions\n# @name api_predictions_list\nGET {{host}}/api/predictions/?project={{project}}\u0026task={{task}}\u0026task__project={{task__project}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Predictions list\n# Content-Type: application/json",
       "Format": "http",
       "OperationId": "api_predictions_list",
       "Setup": null

@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesDuplicateCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.DuplicateLearningResourceRequest request);
         partial void PrepareApiLearningResourcesDuplicateCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.DuplicateLearningResourceRequest request);
         partial void ProcessApiLearningResourcesDuplicateCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResource> ApiLearningResourcesDuplicateCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DuplicateLearningResourceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LearningResource>> ApiLearningResourcesDuplicateCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DuplicateLearningResourceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -470,7 +470,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResource> ApiLearningResourcesDuplicateCreateAsync(
-            string id,
+            int id,
             int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

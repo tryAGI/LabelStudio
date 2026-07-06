@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiDatasetsUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.DatasetRequest request);
         partial void PrepareApiDatasetsUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.DatasetRequest request);
         partial void ProcessApiDatasetsUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,7 +53,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Dataset> ApiDatasetsUpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DatasetRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -79,7 +79,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Dataset>> ApiDatasetsUpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DatasetRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -468,7 +468,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Dataset> ApiDatasetsUpdateAsync(
-            string id,
+            int id,
             string title,
             object? columns = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,

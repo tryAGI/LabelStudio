@@ -31,13 +31,17 @@ namespace LabelStudio
             ref int? excludeProjectId,
             ref int? excludeWorkspaceId,
             ref int id,
+            ref bool? isDeleted,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
             ref string? role,
             ref global::LabelStudio.ApiOrganizationsMembershipsListScope? scope,
             ref string? search,
-            ref string? tags);
+            ref string? tags,
+            ref global::System.DateTime? userLastActivityGte,
+            ref global::System.DateTime? userLastActivityLte,
+            global::System.Collections.Generic.IList<string>? userType);
         partial void PrepareList3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -45,13 +49,17 @@ namespace LabelStudio
             int? excludeProjectId,
             int? excludeWorkspaceId,
             int id,
+            bool? isDeleted,
             string? ordering,
             int? page,
             int? pageSize,
             string? role,
             global::LabelStudio.ApiOrganizationsMembershipsListScope? scope,
             string? search,
-            string? tags);
+            string? tags,
+            global::System.DateTime? userLastActivityGte,
+            global::System.DateTime? userLastActivityLte,
+            global::System.Collections.Generic.IList<string>? userType);
         partial void ProcessList3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -75,6 +83,7 @@ namespace LabelStudio
         /// <param name="excludeProjectId"></param>
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="id"></param>
+        /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -82,6 +91,9 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -90,6 +102,7 @@ namespace LabelStudio
             bool? contributedToProjects = default,
             int? excludeProjectId = default,
             int? excludeWorkspaceId = default,
+            bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -97,6 +110,9 @@ namespace LabelStudio
             global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
+            global::System.DateTime? userLastActivityGte = default,
+            global::System.DateTime? userLastActivityLte = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -105,6 +121,7 @@ namespace LabelStudio
                 contributedToProjects: contributedToProjects,
                 excludeProjectId: excludeProjectId,
                 excludeWorkspaceId: excludeWorkspaceId,
+                isDeleted: isDeleted,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
@@ -112,6 +129,9 @@ namespace LabelStudio
                 scope: scope,
                 search: search,
                 tags: tags,
+                userLastActivityGte: userLastActivityGte,
+                userLastActivityLte: userLastActivityLte,
+                userType: userType,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -132,6 +152,7 @@ namespace LabelStudio
         /// <param name="excludeProjectId"></param>
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="id"></param>
+        /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -139,6 +160,9 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -147,6 +171,7 @@ namespace LabelStudio
             bool? contributedToProjects = default,
             int? excludeProjectId = default,
             int? excludeWorkspaceId = default,
+            bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -154,6 +179,9 @@ namespace LabelStudio
             global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
+            global::System.DateTime? userLastActivityGte = default,
+            global::System.DateTime? userLastActivityLte = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -165,13 +193,17 @@ namespace LabelStudio
                 excludeProjectId: ref excludeProjectId,
                 excludeWorkspaceId: ref excludeWorkspaceId,
                 id: ref id,
+                isDeleted: ref isDeleted,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
                 role: ref role,
                 scope: ref scope,
                 search: ref search,
-                tags: ref tags);
+                tags: ref tags,
+                userLastActivityGte: ref userLastActivityGte,
+                userLastActivityLte: ref userLastActivityLte,
+                userType: userType);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -203,6 +235,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("contributed_to_projects", contributedToProjects?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("exclude_project_id", excludeProjectId?.ToString())
                                 .AddOptionalParameter("exclude_workspace_id", excludeWorkspaceId?.ToString())
+                                .AddOptionalParameter("is_deleted", isDeleted?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -210,6 +243,9 @@ namespace LabelStudio
                                 .AddOptionalParameter("scope", scope?.ToValueString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user__last_activity__gte", userLastActivityGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("user__last_activity__lte", userLastActivityLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("user_type", userType, delimiter: ",", explode: false)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -255,13 +291,17 @@ namespace LabelStudio
                     excludeProjectId: excludeProjectId,
                     excludeWorkspaceId: excludeWorkspaceId,
                     id: id!,
+                    isDeleted: isDeleted,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
                     role: role,
                     scope: scope,
                     search: search,
-                    tags: tags);
+                    tags: tags,
+                    userLastActivityGte: userLastActivityGte,
+                    userLastActivityLte: userLastActivityLte,
+                    userType: userType);
 
                 return __httpRequest;
             }

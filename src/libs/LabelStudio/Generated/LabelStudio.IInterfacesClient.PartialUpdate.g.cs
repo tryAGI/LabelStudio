@@ -20,7 +20,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PartialUpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedLseInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -41,7 +41,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> PartialUpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedLseInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -89,7 +89,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PartialUpdateAsync(
-            string id,
+            int id,
             object? artifacts = default,
             string? code = default,
             string? compiled = default,

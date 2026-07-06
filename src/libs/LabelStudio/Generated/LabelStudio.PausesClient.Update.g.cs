@@ -27,14 +27,14 @@ namespace LabelStudio
             };
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref int projectPk,
             ref int userPk,
             global::LabelStudio.PatchedPauseRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.PatchedPauseRequest request);
@@ -65,7 +65,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Pause> UpdateAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
 
@@ -103,7 +103,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Pause>> UpdateAsResponseAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
 
@@ -500,7 +500,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Pause> UpdateAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.ReasonEnum? reason = default,

@@ -20,7 +20,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PublishVersionAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -41,7 +41,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> PublishVersionAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LseInterfaceVersionIdRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -64,7 +64,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> PublishVersionAsync(
-            string id,
+            int id,
             int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
