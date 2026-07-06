@@ -18,6 +18,7 @@ namespace LabelStudio
         /// <param name="excludeProjectId"></param>
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="id"></param>
+        /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -25,6 +26,9 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -33,6 +37,7 @@ namespace LabelStudio
             bool? contributedToProjects = default,
             int? excludeProjectId = default,
             int? excludeWorkspaceId = default,
+            bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -40,6 +45,9 @@ namespace LabelStudio
             global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
+            global::System.DateTime? userLastActivityGte = default,
+            global::System.DateTime? userLastActivityLte = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -56,6 +64,7 @@ namespace LabelStudio
         /// <param name="excludeProjectId"></param>
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="id"></param>
+        /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -63,6 +72,9 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -71,6 +83,7 @@ namespace LabelStudio
             bool? contributedToProjects = default,
             int? excludeProjectId = default,
             int? excludeWorkspaceId = default,
+            bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -78,6 +91,9 @@ namespace LabelStudio
             global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
             string? search = default,
             string? tags = default,
+            global::System.DateTime? userLastActivityGte = default,
+            global::System.DateTime? userLastActivityLte = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -39,6 +39,7 @@ namespace LabelStudio
             ref string? role,
             ref string? search,
             ref string? tags,
+            global::System.Collections.Generic.IList<string>? userType,
             ref bool? withDeleted);
         partial void PrepareList2Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,6 +56,7 @@ namespace LabelStudio
             string? role,
             string? search,
             string? tags,
+            global::System.Collections.Generic.IList<string>? userType,
             bool? withDeleted);
         partial void ProcessList2Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -93,6 +95,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -110,6 +113,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -127,6 +131,7 @@ namespace LabelStudio
                 role: role,
                 search: search,
                 tags: tags,
+                userType: userType,
                 withDeleted: withDeleted,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -162,6 +167,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -179,6 +185,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            global::System.Collections.Generic.IList<string>? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -199,6 +206,7 @@ namespace LabelStudio
                 role: ref role,
                 search: ref search,
                 tags: ref tags,
+                userType: userType,
                 withDeleted: ref withDeleted);
 
 
@@ -239,6 +247,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user_type", userType, delimiter: ",", explode: false)
                                 .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -293,6 +302,7 @@ namespace LabelStudio
                     role: role,
                     search: search,
                     tags: tags,
+                    userType: userType,
                     withDeleted: withDeleted);
 
                 return __httpRequest;

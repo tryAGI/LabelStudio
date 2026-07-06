@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesUserProgressBulkResetCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.BulkResetCourseProgressRequest request);
         partial void PrepareApiLearningResourcesUserProgressBulkResetCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.BulkResetCourseProgressRequest request);
         partial void ProcessApiLearningResourcesUserProgressBulkResetCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse> ApiLearningResourcesUserProgressBulkResetCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.BulkResetCourseProgressRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse>> ApiLearningResourcesUserProgressBulkResetCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.BulkResetCourseProgressRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -470,7 +470,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse> ApiLearningResourcesUserProgressBulkResetCreateAsync(
-            string id,
+            int id,
             global::System.Collections.Generic.IList<int> userIds,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

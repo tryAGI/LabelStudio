@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesModulesDestroyArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref string moduleId);
         partial void PrepareApiLearningResourcesModulesDestroyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             string moduleId);
         partial void ProcessApiLearningResourcesModulesDestroyResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseModule> ApiLearningResourcesModulesDestroyAsync(
-            string id,
+            int id,
             string moduleId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -89,7 +89,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseModule>> ApiLearningResourcesModulesDestroyAsResponseAsync(
-            string id,
+            int id,
             string moduleId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

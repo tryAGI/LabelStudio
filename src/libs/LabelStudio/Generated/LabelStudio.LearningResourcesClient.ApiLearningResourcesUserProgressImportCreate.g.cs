@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesUserProgressImportCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest request);
         partial void PrepareApiLearningResourcesUserProgressImportCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest request);
         partial void ProcessApiLearningResourcesUserProgressImportCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseProgressImportResult> ApiLearningResourcesUserProgressImportCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseProgressImportResult>> ApiLearningResourcesUserProgressImportCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -164,7 +164,7 @@ namespace LabelStudio
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(id ?? string.Empty),
+                                content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(id, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
                                 name: "\"id\"");
 
                             if (request.File != default)
@@ -516,7 +516,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseProgressImportResult> ApiLearningResourcesUserProgressImportCreateAsync(
-            string id,
+            int id,
             byte[]? file = default,
             string? filename = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

@@ -27,20 +27,24 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesModulesReorderCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
+            ref string? scope,
             ref string? search,
+            ref int? workspace,
             global::LabelStudio.LearningResourceRequest request);
         partial void PrepareApiLearningResourcesModulesReorderCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             string? ordering,
             int? page,
             int? pageSize,
+            string? scope,
             string? search,
+            int? workspace,
             global::LabelStudio.LearningResourceRequest request);
         partial void ProcessApiLearningResourcesModulesReorderCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -65,19 +69,23 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedCourseModuleList> ApiLearningResourcesModulesReorderCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LearningResourceRequest request,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -88,7 +96,9 @@ namespace LabelStudio
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
+                scope: scope,
                 search: search,
+                workspace: workspace,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -109,19 +119,23 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedCourseModuleList>> ApiLearningResourcesModulesReorderCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LearningResourceRequest request,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -135,7 +149,9 @@ namespace LabelStudio
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
+                scope: ref scope,
                 search: ref search,
+                workspace: ref workspace,
                 request: request);
 
 
@@ -168,7 +184,9 @@ namespace LabelStudio
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("scope", scope)
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("workspace", workspace?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -220,7 +238,9 @@ namespace LabelStudio
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
+                    scope: scope,
                     search: search,
+                    workspace: workspace,
                     request: request);
 
                 return __httpRequest;
@@ -510,7 +530,9 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="allowStandalone"></param>
         /// <param name="color"></param>
         /// <param name="coverImageUrl"></param>
@@ -531,16 +553,18 @@ namespace LabelStudio
         /// <param name="hideCompletedQuizzes"></param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
-        /// <param name="workspace"></param>
+        /// <param name="requestWorkspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedCourseModuleList> ApiLearningResourcesModulesReorderCreateAsync(
-            string id,
+            int id,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             bool? allowStandalone = default,
             string? color = default,
             string? coverImageUrl = default,
@@ -556,7 +580,7 @@ namespace LabelStudio
             bool? hideCompletedQuizzes = default,
             string? summary = default,
             string? title = default,
-            int? workspace = default,
+            int? requestWorkspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -577,7 +601,7 @@ namespace LabelStudio
                 HideCompletedQuizzes = hideCompletedQuizzes,
                 Summary = summary,
                 Title = title,
-                Workspace = workspace,
+                Workspace = requestWorkspace,
             };
 
             return await ApiLearningResourcesModulesReorderCreateAsync(
@@ -585,7 +609,9 @@ namespace LabelStudio
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
+                scope: scope,
                 search: search,
+                workspace: workspace,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

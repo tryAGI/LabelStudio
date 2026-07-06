@@ -20,7 +20,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task ApiLearningResourcesInvalidateProgressCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LearningResourceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -41,7 +41,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiLearningResourcesInvalidateProgressCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.LearningResourceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -82,7 +82,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task ApiLearningResourcesInvalidateProgressCreateAsync(
-            string id,
+            int id,
             bool? allowStandalone = default,
             string? color = default,
             string? coverImageUrl = default,

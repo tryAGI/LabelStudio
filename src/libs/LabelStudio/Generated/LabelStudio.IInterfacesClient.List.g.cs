@@ -17,7 +17,9 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -25,7 +27,9 @@ namespace LabelStudio
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -41,7 +45,9 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="scope"></param>
         /// <param name="search"></param>
+        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -49,7 +55,9 @@ namespace LabelStudio
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            string? scope = default,
             string? search = default,
+            int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

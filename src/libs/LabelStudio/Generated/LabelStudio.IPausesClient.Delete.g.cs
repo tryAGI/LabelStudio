@@ -21,7 +21,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task DeleteAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -43,7 +43,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> DeleteAsResponseAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

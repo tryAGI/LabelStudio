@@ -27,12 +27,16 @@ namespace LabelStudio
             };
         partial void PrepareListForProjectArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref global::System.DateTime? createdAtFrom,
+            ref global::System.DateTime? createdAtTo,
             ref int id,
             ref int? page,
             ref int? pageSize);
         partial void PrepareListForProjectRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::System.DateTime? createdAtFrom,
+            global::System.DateTime? createdAtTo,
             int id,
             int? page,
             int? pageSize);
@@ -55,6 +59,8 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List all annotation history items for the project with pagination.
         /// </summary>
+        /// <param name="createdAtFrom"></param>
+        /// <param name="createdAtTo"></param>
         /// <param name="id"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -63,6 +69,8 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedAnnotationHistoryList> ListForProjectAsync(
             int id,
+            global::System.DateTime? createdAtFrom = default,
+            global::System.DateTime? createdAtTo = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -70,6 +78,8 @@ namespace LabelStudio
         {
             var __response = await ListForProjectAsResponseAsync(
                 id: id,
+                createdAtFrom: createdAtFrom,
+                createdAtTo: createdAtTo,
                 page: page,
                 pageSize: pageSize,
                 requestOptions: requestOptions,
@@ -88,6 +98,8 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List all annotation history items for the project with pagination.
         /// </summary>
+        /// <param name="createdAtFrom"></param>
+        /// <param name="createdAtTo"></param>
         /// <param name="id"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -96,6 +108,8 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedAnnotationHistoryList>> ListForProjectAsResponseAsync(
             int id,
+            global::System.DateTime? createdAtFrom = default,
+            global::System.DateTime? createdAtTo = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -105,6 +119,8 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareListForProjectArguments(
                 httpClient: HttpClient,
+                createdAtFrom: ref createdAtFrom,
+                createdAtTo: ref createdAtTo,
                 id: ref id,
                 page: ref page,
                 pageSize: ref pageSize);
@@ -136,6 +152,8 @@ namespace LabelStudio
                                 path: $"/api/projects/{id}/annotation-history/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("created_at_from", createdAtFrom?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+                                .AddOptionalParameter("created_at_to", createdAtTo?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 ;
@@ -179,6 +197,8 @@ namespace LabelStudio
                 PrepareListForProjectRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    createdAtFrom: createdAtFrom,
+                    createdAtTo: createdAtTo,
                     id: id!,
                     page: page,
                     pageSize: pageSize);

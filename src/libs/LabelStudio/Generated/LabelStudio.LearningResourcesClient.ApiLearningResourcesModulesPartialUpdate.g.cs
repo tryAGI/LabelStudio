@@ -27,13 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesModulesPartialUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref string moduleId,
             global::LabelStudio.PatchedLearningResourceRequest request);
         partial void PrepareApiLearningResourcesModulesPartialUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             string moduleId,
             global::LabelStudio.PatchedLearningResourceRequest request);
         partial void ProcessApiLearningResourcesModulesPartialUpdateResponse(
@@ -62,7 +62,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseModule> ApiLearningResourcesModulesPartialUpdateAsync(
-            string id,
+            int id,
             string moduleId,
 
             global::LabelStudio.PatchedLearningResourceRequest request,
@@ -97,7 +97,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseModule>> ApiLearningResourcesModulesPartialUpdateAsResponseAsync(
-            string id,
+            int id,
             string moduleId,
 
             global::LabelStudio.PatchedLearningResourceRequest request,
@@ -500,7 +500,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseModule> ApiLearningResourcesModulesPartialUpdateAsync(
-            string id,
+            int id,
             string moduleId,
             bool? allowStandalone = default,
             string? color = default,

@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesProjectAssignmentsCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.BulkProjectLearningAssignmentRequest request);
         partial void PrepareApiLearningResourcesProjectAssignmentsCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.BulkProjectLearningAssignmentRequest request);
         partial void ProcessApiLearningResourcesProjectAssignmentsCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,7 +53,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResource> ApiLearningResourcesProjectAssignmentsCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.BulkProjectLearningAssignmentRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -79,7 +79,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LearningResource>> ApiLearningResourcesProjectAssignmentsCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.BulkProjectLearningAssignmentRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -452,7 +452,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResource> ApiLearningResourcesProjectAssignmentsCreateAsync(
-            string id,
+            int id,
             global::System.Collections.Generic.IList<int> projectIds,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

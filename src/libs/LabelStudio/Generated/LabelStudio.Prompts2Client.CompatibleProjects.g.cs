@@ -27,17 +27,29 @@ namespace LabelStudio
             };
         partial void PrepareCompatibleProjectsArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? archived,
+            global::System.Collections.Generic.IList<int>? ids,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
-            ref global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType);
+            ref global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType,
+            ref double? sourceInterfaceId,
+            ref string? state,
+            ref string? title,
+            ref int? workspaces);
         partial void PrepareCompatibleProjectsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? archived,
+            global::System.Collections.Generic.IList<int>? ids,
             string? ordering,
             int? page,
             int? pageSize,
-            global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType);
+            global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType,
+            double? sourceInterfaceId,
+            string? state,
+            string? title,
+            int? workspaces);
         partial void ProcessCompatibleProjectsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,28 +63,46 @@ namespace LabelStudio
         /// ✨ List projects compatible with prompt<br/>
         /// Retrieve a list of compatible project for prompt.
         /// </summary>
+        /// <param name="archived"></param>
+        /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="projectType">
         /// Default Value: TextClassification
         /// </param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="state"></param>
+        /// <param name="title"></param>
+        /// <param name="workspaces"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedAllRolesProjectListList> CompatibleProjectsAsync(
+            bool? archived = default,
+            global::System.Collections.Generic.IList<int>? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType = default,
+            double? sourceInterfaceId = default,
+            string? state = default,
+            string? title = default,
+            int? workspaces = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CompatibleProjectsAsResponseAsync(
+                archived: archived,
+                ids: ids,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
                 projectType: projectType,
+                sourceInterfaceId: sourceInterfaceId,
+                state: state,
+                title: title,
+                workspaces: workspaces,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -83,20 +113,32 @@ namespace LabelStudio
         /// ✨ List projects compatible with prompt<br/>
         /// Retrieve a list of compatible project for prompt.
         /// </summary>
+        /// <param name="archived"></param>
+        /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="projectType">
         /// Default Value: TextClassification
         /// </param>
+        /// <param name="sourceInterfaceId"></param>
+        /// <param name="state"></param>
+        /// <param name="title"></param>
+        /// <param name="workspaces"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedAllRolesProjectListList>> CompatibleProjectsAsResponseAsync(
+            bool? archived = default,
+            global::System.Collections.Generic.IList<int>? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
             global::LabelStudio.ApiPromptsCompatibleProjectsListProjectType? projectType = default,
+            double? sourceInterfaceId = default,
+            string? state = default,
+            string? title = default,
+            int? workspaces = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -104,10 +146,16 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareCompatibleProjectsArguments(
                 httpClient: HttpClient,
+                archived: ref archived,
+                ids: ids,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
-                projectType: ref projectType);
+                projectType: ref projectType,
+                sourceInterfaceId: ref sourceInterfaceId,
+                state: ref state,
+                title: ref title,
+                workspaces: ref workspaces);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -136,10 +184,16 @@ namespace LabelStudio
                                 path: "/api/prompts/compatible-projects",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("archived", archived?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("ids", ids, selector: static x => x.ToString()!, delimiter: ",", explode: false)
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("project_type", projectType?.ToValueString())
+                                .AddOptionalParameter("source_interface_id", sourceInterfaceId?.ToString())
+                                .AddOptionalParameter("state", state)
+                                .AddOptionalParameter("title", title)
+                                .AddOptionalParameter("workspaces", workspaces?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -181,10 +235,16 @@ namespace LabelStudio
                 PrepareCompatibleProjectsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    archived: archived,
+                    ids: ids,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
-                    projectType: projectType);
+                    projectType: projectType,
+                    sourceInterfaceId: sourceInterfaceId,
+                    state: state,
+                    title: title,
+                    workspaces: workspaces);
 
                 return __httpRequest;
             }

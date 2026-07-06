@@ -27,13 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareDeleteArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref int projectPk,
             ref int userPk);
         partial void PrepareDeleteRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             int projectPk,
             int userPk);
         partial void ProcessDeleteResponse(
@@ -57,7 +57,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task DeleteAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -88,7 +88,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> DeleteAsResponseAsync(
-            string id,
+            int id,
             int projectPk,
             int userPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

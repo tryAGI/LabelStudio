@@ -14,7 +14,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Dataset> ApiDatasetsUpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DatasetRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -29,7 +29,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Dataset>> ApiDatasetsUpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.DatasetRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -60,7 +60,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Dataset> ApiDatasetsUpdateAsync(
-            string id,
+            int id,
             string title,
             object? columns = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,

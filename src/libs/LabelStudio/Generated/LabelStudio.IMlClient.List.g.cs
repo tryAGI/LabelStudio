@@ -12,11 +12,13 @@ namespace LabelStudio
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
         ///     
         /// </summary>
+        /// <param name="isInteractive"></param>
         /// <param name="project"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.MLBackend>> ListAsync(
+            bool? isInteractive = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -28,11 +30,13 @@ namespace LabelStudio
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
         ///     
         /// </summary>
+        /// <param name="isInteractive"></param>
         /// <param name="project"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.MLBackend>>> ListAsResponseAsync(
+            bool? isInteractive = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

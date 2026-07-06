@@ -21,7 +21,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> UpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedCommentRequest request,
             bool? expandCreatedBy = default,
@@ -44,7 +44,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MaybeExpandedComment>> UpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.PatchedCommentRequest request,
             bool? expandCreatedBy = default,
@@ -80,7 +80,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.MaybeExpandedComment> UpdateAsync(
-            string id,
+            int id,
             bool? expandCreatedBy = default,
             int? annotation = default,
             object? classifications = default,
