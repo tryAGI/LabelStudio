@@ -9,16 +9,18 @@ namespace LabelStudio
     public sealed partial class ApiProjectsUserStatsReviewScoreRetrieveResponse
     {
         /// <summary>
-        /// Performance scores mapped by annotator ID
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("performance_score")]
-        public object? PerformanceScore { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OneOfJsonConverter<double?, global::System.Collections.Generic.Dictionary<string, double>>))]
+        public global::LabelStudio.OneOf<double?, global::System.Collections.Generic.Dictionary<string, double>>? PerformanceScore { get; set; }
 
         /// <summary>
-        /// Review scores mapped by annotator ID
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_score")]
-        public object? ReviewScore { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OneOfJsonConverter<double?, global::System.Collections.Generic.Dictionary<string, double>>))]
+        public global::LabelStudio.OneOf<double?, global::System.Collections.Generic.Dictionary<string, double>>? ReviewScore { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,18 +31,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiProjectsUserStatsReviewScoreRetrieveResponse" /> class.
         /// </summary>
-        /// <param name="performanceScore">
-        /// Performance scores mapped by annotator ID
-        /// </param>
-        /// <param name="reviewScore">
-        /// Review scores mapped by annotator ID
-        /// </param>
+        /// <param name="performanceScore"></param>
+        /// <param name="reviewScore"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ApiProjectsUserStatsReviewScoreRetrieveResponse(
-            object? performanceScore,
-            object? reviewScore)
+            global::LabelStudio.OneOf<double?, global::System.Collections.Generic.Dictionary<string, double>>? performanceScore,
+            global::LabelStudio.OneOf<double?, global::System.Collections.Generic.Dictionary<string, double>>? reviewScore)
         {
             this.PerformanceScore = performanceScore;
             this.ReviewScore = reviewScore;

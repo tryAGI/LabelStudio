@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiProjectsLearningAssignmentsDestroyArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             ref int projectPk);
         partial void PrepareApiProjectsLearningAssignmentsDestroyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             int projectPk);
         partial void ProcessApiProjectsLearningAssignmentsDestroyResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -54,7 +54,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task ApiProjectsLearningAssignmentsDestroyAsync(
-            string id,
+            int id,
             int projectPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -82,7 +82,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiProjectsLearningAssignmentsDestroyAsResponseAsync(
-            string id,
+            int id,
             int projectPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

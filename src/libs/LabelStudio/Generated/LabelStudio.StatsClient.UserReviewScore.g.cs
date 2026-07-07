@@ -61,7 +61,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response> UserReviewScoreAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse> UserReviewScoreAsync(
             int id,
             int userPk,
             bool? perLabel = default,
@@ -94,7 +94,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response>> UserReviewScoreAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse>> UserReviewScoreAsResponseAsync(
             int id,
             int userPk,
             bool? perLabel = default,
@@ -381,9 +381,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -413,9 +413,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieve2Response>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsReviewScoreRetrieveResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

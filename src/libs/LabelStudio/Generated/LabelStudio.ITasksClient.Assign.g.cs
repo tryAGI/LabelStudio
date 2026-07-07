@@ -24,7 +24,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -47,7 +47,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -74,7 +74,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.TaskAssignment> AssignAsync(
             int id,
             int taskPk,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2RequestType type,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestType type,
             global::System.Collections.Generic.IList<int> users,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

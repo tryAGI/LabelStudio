@@ -337,24 +337,24 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            // Invalid token or token already blacklisted
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                string? __value_400 = null;
+                                global::LabelStudio.TokenDetailError? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.TokenDetailError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.TokenDetailError.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -363,7 +363,7 @@ namespace LabelStudio
                                 }
 
 
-                                throw global::LabelStudio.ApiException<string>.Create(
+                                throw global::LabelStudio.ApiException<global::LabelStudio.TokenDetailError>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,

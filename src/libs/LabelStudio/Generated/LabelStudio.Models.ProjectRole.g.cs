@@ -37,6 +37,13 @@ namespace LabelStudio
         public required global::LabelStudio.Role9e7Enum Role { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("role_source")]
+        public string RoleSource { get; set; } = default!;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user")]
@@ -66,6 +73,9 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
+        /// <param name="roleSource">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,11 +83,13 @@ namespace LabelStudio
             int project,
             global::LabelStudio.Role9e7Enum role,
             int user,
-            int id = default!)
+            int id = default!,
+            string roleSource = default!)
         {
             this.Id = id;
             this.Project = project;
             this.Role = role;
+            this.RoleSource = roleSource;
             this.User = user;
         }
 

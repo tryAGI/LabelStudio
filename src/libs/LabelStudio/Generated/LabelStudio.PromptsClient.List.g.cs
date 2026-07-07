@@ -55,7 +55,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>> ListAsync(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>> ListAsync(
             int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -82,7 +82,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>>> ListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>>> ListAsResponseAsync(
             int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -360,9 +360,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>), JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -392,9 +392,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>), JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsRetrieveResponseItem>>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ApiInferenceRunsIndicatorsListResponseItem>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

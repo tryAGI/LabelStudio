@@ -13,7 +13,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ModelInterface> ApiPromptsDuplicateCreateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ModelInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -27,7 +27,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ModelInterface>> ApiPromptsDuplicateCreateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ModelInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -56,7 +56,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ModelInterface> ApiPromptsDuplicateCreateAsync(
-            string id,
+            int id,
             string title,
             global::System.Collections.Generic.IList<int>? associatedProjects = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,
