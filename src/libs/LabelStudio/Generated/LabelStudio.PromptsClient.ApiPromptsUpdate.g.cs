@@ -27,12 +27,12 @@ namespace LabelStudio
             };
         partial void PrepareApiPromptsUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id,
+            ref int id,
             global::LabelStudio.ModelInterfaceRequest request);
         partial void PrepareApiPromptsUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id,
+            int id,
             global::LabelStudio.ModelInterfaceRequest request);
         partial void ProcessApiPromptsUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ModelInterface> ApiPromptsUpdateAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ModelInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ModelInterface>> ApiPromptsUpdateAsResponseAsync(
-            string id,
+            int id,
 
             global::LabelStudio.ModelInterfaceRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -485,7 +485,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ModelInterface> ApiPromptsUpdateAsync(
-            string id,
+            int id,
             string title,
             global::System.Collections.Generic.IList<int>? associatedProjects = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,

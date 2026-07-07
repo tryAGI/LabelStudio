@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Performance scores mapped by annotator ID
+    /// Performance score per label for the user when per_label=True
     /// </summary>
     public sealed partial class ApiProjectsUserStatsReviewScoreRetrieveResponsePerformanceScore
     {

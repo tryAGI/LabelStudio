@@ -100,7 +100,7 @@ paths:
   /api/analytics/kpis/:
     get:
       description: Returns metadata for all available KPI (Key Performance Indicator) classes. Each KPI includes its key, label, base class, dependencies, and configuration. This endpoint is useful for discovering available metrics and understanding their relationships and requirements.
-      operationId: api_analytics_kpis_retrieve
+      operationId: api_analytics_kpis_list
       responses:
         '200':
           content:
@@ -118,7 +118,7 @@ paths:
   /api/analytics/kpis/{kpi_key}:
     get:
       description: Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
-      operationId: api_analytics_kpis_retrieve_2
+      operationId: api_analytics_kpis_retrieve
       parameters:
         - description: End date for filtering (ISO format)
           in: query
@@ -1355,11 +1355,12 @@ paths:
       description: Delete a blueprint by ID
       operationId: api_blueprints_destroy
       parameters:
-        - in: path
+        - description: A unique integer value identifying this blueprint.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: No response body
@@ -1376,11 +1377,12 @@ paths:
       description: Update a blueprint. Only title, description, and task_ids can be changed.
       operationId: api_blueprints_partial_update
       parameters:
-        - in: path
+        - description: A unique integer value identifying this blueprint.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -5252,7 +5254,7 @@ paths:
                 </p>
             </Card>
         Get key indicators for the Prompt dashboard.
-      operationId: api_inference_runs_indicators_retrieve
+      operationId: api_inference_runs_indicators_list
       parameters:
         - in: path
           name: id
@@ -5294,7 +5296,7 @@ paths:
                 </p>
             </Card>
         Get a specific key indicator for the Prompt dashboard.
-      operationId: api_inference_runs_indicators_retrieve_2
+      operationId: api_inference_runs_indicators_retrieve
       parameters:
         - in: path
           name: id
@@ -13959,7 +13961,7 @@ paths:
                 </p>
             </Card>
         Assign multiple users to a collection of tasks within a specific project.
-      operationId: api_projects_tasks_assignees_create
+      operationId: api_projects_tasks_assignees_bulk_create
       parameters:
         - in: path
           name: id
@@ -14313,7 +14315,7 @@ paths:
                 </p>
             </Card>
         Assign a user to a task in a specific project.
-      operationId: api_projects_tasks_assignees_create_2
+      operationId: api_projects_tasks_assignees_create
       parameters:
         - description: A unique integer value identifying this project.
           in: path
@@ -14417,7 +14419,7 @@ paths:
                 </p>
             </Card>
         Get prediction agreement statistics for multiple annotators within a project.
-      operationId: api_projects_user_stats_prediction_retrieve
+      operationId: api_projects_user_stats_prediction_list
       parameters:
         - in: path
           name: id
@@ -14476,7 +14478,7 @@ paths:
                 </p>
             </Card>
         Get review score and performance score statistics for multiple annotators within a project. Only allowed for accounts with reviewing features enabled.
-      operationId: api_projects_user_stats_review_score_retrieve
+      operationId: api_projects_user_stats_review_score_list
       parameters:
         - in: path
           name: id
@@ -14545,7 +14547,7 @@ paths:
                 </p>
             </Card>
         Get prediction agreement statistics for a specific user within a project.
-      operationId: api_projects_user_stats_prediction_retrieve_2
+      operationId: api_projects_user_stats_prediction_retrieve
       parameters:
         - in: path
           name: id
@@ -14599,7 +14601,7 @@ paths:
                 </p>
             </Card>
         Get review score statistics for a specific user within a project. Only allowed for accounts with reviewing features enabled.
-      operationId: api_projects_user_stats_review_score_retrieve_2
+      operationId: api_projects_user_stats_review_score_retrieve
       parameters:
         - in: path
           name: id
@@ -15126,11 +15128,12 @@ paths:
         Delete a learning resource assignment from a project.
       operationId: api_projects_learning_assignments_destroy
       parameters:
-        - in: path
+        - description: A unique integer value identifying this project learning assignment.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
         - in: path
           name: project_pk
           required: true
@@ -15841,11 +15844,12 @@ paths:
         Delete a prompt by ID
       operationId: api_prompts_destroy
       parameters:
-        - in: path
+        - description: A unique integer value identifying this model interface.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: No response body
@@ -15869,11 +15873,12 @@ paths:
         Retrieve a specific prompt.
       operationId: api_prompts_retrieve
       parameters:
-        - in: path
+        - description: A unique integer value identifying this model interface.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           content:
@@ -15901,11 +15906,12 @@ paths:
         Update a specific prompt by ID.
       operationId: api_prompts_partial_update
       parameters:
-        - in: path
+        - description: A unique integer value identifying this model interface.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -15944,11 +15950,12 @@ paths:
         Overwrite a specific prompt by ID.
       operationId: api_prompts_update
       parameters:
-        - in: path
+        - description: A unique integer value identifying this model interface.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -15979,11 +15986,12 @@ paths:
     post:
       operationId: api_prompts_duplicate_create
       parameters:
-        - in: path
+        - description: A unique integer value identifying this model interface.
+          in: path
           name: id
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -17278,11 +17286,9 @@ paths:
             application/json:
               schema:
                 items:
-                  additionalProperties: {}
-                  description: Unspecified response body
                   type: object
                 type: array
-          description: ''
+          description: List of import storages of all types with their IDs.
       security:
         - Token: []
       summary: List all import storages from the project
@@ -18160,11 +18166,9 @@ paths:
             application/json:
               schema:
                 items:
-                  additionalProperties: {}
-                  description: Unspecified response body
                   type: object
                 type: array
-          description: ''
+          description: List of export storages of all types with their IDs.
       security:
         - Token: []
       summary: List all export storages from the project
@@ -23605,21 +23609,13 @@ paths:
         required: true
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                additionalProperties: {}
-                description: Unspecified response body
-                type: object
-          description: ''
+          description: Token was successfully blacklisted
         '404':
           content:
             application/json:
               schema:
-                additionalProperties: {}
-                description: Unspecified response body
-                type: object
-          description: ''
+                $ref: '#/components/schemas/TokenDetailError'
+          description: Token is already blacklisted
       summary: Blacklist a JWT refresh token
       tags:
         - JWT
@@ -23684,10 +23680,8 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties: {}
-                description: Unspecified response body
-                type: object
-          description: ''
+                $ref: '#/components/schemas/TokenDetailError'
+          description: Invalid token or token already blacklisted
       security:
         - Token: []
       summary: Rotate JWT refresh token
@@ -37181,6 +37175,9 @@ components:
         project_role:
           readOnly: true
           type: string
+        project_role_source:
+          readOnly: true
+          type: string
         tags:
           items:
             $ref: '#/components/schemas/SimpleOrganizationMemberTag'
@@ -37204,6 +37201,7 @@ components:
         - organization_membership
         - pause
         - project_role
+        - project_role_source
         - tags
         - user_type
         - username
@@ -40462,12 +40460,16 @@ components:
           type: integer
         role:
           $ref: '#/components/schemas/Role9e7Enum'
+        role_source:
+          readOnly: true
+          type: string
         user:
           type: integer
       required:
         - id
         - project
         - role
+        - role_source
         - user
       type: object
     ProjectRoleRequest:
@@ -42950,6 +42952,13 @@ components:
         - prompt
         - provider_model_id
         - title
+      type: object
+    TokenDetailError:
+      properties:
+        detail:
+          type: string
+      required:
+        - detail
       type: object
     TokenRefreshRequest:
       properties:

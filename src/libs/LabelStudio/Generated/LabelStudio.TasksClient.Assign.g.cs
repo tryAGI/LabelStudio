@@ -29,13 +29,13 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
             ref int taskPk,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request);
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request);
         partial void PrepareAssignRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
             int taskPk,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request);
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request);
         partial void ProcessAssignResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -65,7 +65,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -100,7 +100,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request request,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -487,12 +487,12 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.TaskAssignment> AssignAsync(
             int id,
             int taskPk,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreate2RequestType type,
+            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestType type,
             global::System.Collections.Generic.IList<int> users,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiProjectsTasksAssigneesCreate2Request
+            var __request = new global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest
             {
                 Type = type,
                 Users = users,

@@ -22,7 +22,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsUserStatsPredictionRetrieveResponse> UsersPredictionAgreementAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsUserStatsPredictionListResponse> UsersPredictionAgreementAsync(
             int id,
             string ids,
             bool? perLabel = default,
@@ -46,7 +46,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsPredictionRetrieveResponse>> UsersPredictionAgreementAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsUserStatsPredictionListResponse>> UsersPredictionAgreementAsResponseAsync(
             int id,
             string ids,
             bool? perLabel = default,

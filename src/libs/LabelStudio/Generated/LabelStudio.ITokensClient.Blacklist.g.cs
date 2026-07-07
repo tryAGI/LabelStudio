@@ -12,7 +12,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> BlacklistAsync(
+        global::System.Threading.Tasks.Task BlacklistAsync(
 
             global::LabelStudio.LSAPITokenBlacklistRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<string>> BlacklistAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> BlacklistAsResponseAsync(
 
             global::LabelStudio.LSAPITokenBlacklistRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -40,7 +40,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> BlacklistAsync(
+        global::System.Threading.Tasks.Task BlacklistAsync(
             string refresh,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -19,10 +19,10 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesCreateResponse> BulkAssignAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse> BulkAssignAsync(
             int id,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
+            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -40,10 +40,10 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsTasksAssigneesCreateResponse>> BulkAssignAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse>> BulkAssignAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
+            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -72,12 +72,12 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesCreateResponse> BulkAssignAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse> BulkAssignAsync(
             int id,
-            global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestSelectedItemsAllTrue> selectedItems,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestType type,
+            global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue> selectedItems,
+            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestType type,
             global::System.Collections.Generic.IList<int> users,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestFilters? filters = default,
+            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestFilters? filters = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

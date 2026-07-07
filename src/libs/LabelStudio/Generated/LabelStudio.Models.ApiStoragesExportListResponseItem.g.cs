@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Unspecified response body
+    /// 
     /// </summary>
     public sealed partial class ApiStoragesExportListResponseItem
     {
