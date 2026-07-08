@@ -37,8 +37,8 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Role9e7EnumJsonConverter))]
-        public global::LabelStudio.Role9e7Enum? DefaultRole1 { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
+        public global::LabelStudio.OrganizationRoleEnum? DefaultRole1 { get; set; }
 
         /// <summary>
         /// Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}
@@ -174,7 +174,7 @@ namespace LabelStudio
             global::System.DateTime? annotatorReviewerFirewallEnabledAt,
             bool? customInterfacesEnabled,
             global::System.DateTime? customScriptsEnabledAt,
-            global::LabelStudio.Role9e7Enum? defaultRole1,
+            global::LabelStudio.OrganizationRoleEnum? defaultRole1,
             object? emailNotificationSettings,
             object? embedDomains,
             bool? embedEnabled,

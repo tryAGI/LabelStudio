@@ -13,7 +13,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("active")]
-        public string Active { get; set; } = default!;
+        public bool Active { get; set; } = default!;
 
         /// <summary>
         /// Organization ID<br/>
@@ -52,7 +52,7 @@ namespace LabelStudio
 #endif
         public OrganizationMembership(
             string role,
-            string active = default!,
+            bool active = default!,
             int organizationId = default!)
         {
             this.Active = active;

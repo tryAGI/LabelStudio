@@ -123,8 +123,8 @@ namespace LabelStudio
         /// * `completed_with_errors` - Completed with errors
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StatusC5aEnumJsonConverter))]
-        public global::LabelStudio.StatusC5aEnum? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StorageStatusEnumJsonConverter))]
+        public global::LabelStudio.StorageStatusEnum? Status { get; set; }
 
         /// <summary>
         /// 
@@ -297,7 +297,7 @@ namespace LabelStudio
             string? prefix,
             string? regexFilter,
             int? requestTimeoutS,
-            global::LabelStudio.StatusC5aEnum? status,
+            global::LabelStudio.StorageStatusEnum? status,
             long? streamChunkBytes,
             bool? synchronizable,
             string? tenantId,

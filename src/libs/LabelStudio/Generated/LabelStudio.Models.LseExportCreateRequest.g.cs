@@ -57,8 +57,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Status7bfEnumJsonConverter))]
-        public global::LabelStudio.Status7bfEnum? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectImportStatusEnumJsonConverter))]
+        public global::LabelStudio.ProjectImportStatusEnum? Status { get; set; }
 
         /// <summary>
         /// 
@@ -109,7 +109,7 @@ namespace LabelStudio
             global::System.DateTime? finishedAt,
             string? md5,
             global::LabelStudio.SerializationOptionsRequest? serializationOptions,
-            global::LabelStudio.Status7bfEnum? status,
+            global::LabelStudio.ProjectImportStatusEnum? status,
             global::LabelStudio.LseTaskFilterOptionsRequest? taskFilterOptions,
             string? title)
         {

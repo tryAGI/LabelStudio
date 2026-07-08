@@ -13,14 +13,14 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("agreement")]
-        public string Agreement { get; set; } = default!;
+        public double Agreement { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("agreement_selected")]
-        public string AgreementSelected { get; set; } = default!;
+        public double AgreementSelected { get; set; } = default!;
 
         /// <summary>
         /// Whether this task can be skipped. Set to False to make task unskippable.
@@ -35,6 +35,10 @@ namespace LabelStudio
         public int? AnnotationTime { get; set; }
 
         /// <summary>
+        /// Return annotations for the task.<br/>
+        /// If annotations_stub=True is in context (via feature flag<br/>
+        /// fflag_fix_all_fit_720_lazy_load_annotations), returns lightweight<br/>
+        /// annotation stubs without result data for improved performance.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -148,9 +152,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("file_upload")]
-        public string FileUpload { get; set; } = default!;
+        public string? FileUpload { get; set; }
 
         /// <summary>
         /// 
@@ -283,9 +286,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("storage_filename")]
-        public string StorageFilename { get; set; } = default!;
+        public string? StorageFilename { get; set; }
 
         /// <summary>
         /// 
@@ -346,6 +348,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="completedAt"></param>
         /// <param name="draftExists"></param>
+        /// <param name="fileUpload">
+        /// Included only in responses
+        /// </param>
         /// <param name="groundTruth"></param>
         /// <param name="innerId"></param>
         /// <param name="isLabeled">
@@ -373,6 +378,9 @@ namespace LabelStudio
         /// <param name="reviewed"></param>
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
+        /// <param name="storageFilename">
+        /// Included only in responses
+        /// </param>
         /// <param name="totalAnnotations"></param>
         /// <param name="totalPredictions"></param>
         /// <param name="unresolvedCommentCount">
@@ -385,6 +393,10 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="annotations">
+        /// Return annotations for the task.<br/>
+        /// If annotations_stub=True is in context (via feature flag<br/>
+        /// fflag_fix_all_fit_720_lazy_load_annotations), returns lightweight<br/>
+        /// annotation stubs without result data for improved performance.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="annotationsIds">
@@ -418,9 +430,6 @@ namespace LabelStudio
         /// Drafts for this task<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="fileUpload">
-        /// Included only in responses
-        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -443,9 +452,6 @@ namespace LabelStudio
         /// <param name="state">
         /// Included only in responses
         /// </param>
-        /// <param name="storageFilename">
-        /// Included only in responses
-        /// </param>
         /// <param name="updatedAt">
         /// Last time a task was updated<br/>
         /// Included only in responses
@@ -466,6 +472,7 @@ namespace LabelStudio
             int? commentCount,
             global::System.DateTime? completedAt,
             bool? draftExists,
+            string? fileUpload,
             bool? groundTruth,
             int? innerId,
             bool? isLabeled,
@@ -479,11 +486,12 @@ namespace LabelStudio
             bool? reviewed,
             int? reviewsAccepted,
             int? reviewsRejected,
+            string? storageFilename,
             int? totalAnnotations,
             int? totalPredictions,
             int? unresolvedCommentCount,
-            string agreement = default!,
-            string agreementSelected = default!,
+            double agreement = default!,
+            double agreementSelected = default!,
             global::System.Collections.Generic.IList<object> annotations = default!,
             string annotationsIds = default!,
             string annotationsResults = default!,
@@ -494,7 +502,6 @@ namespace LabelStudio
             string comments = default!,
             global::System.DateTime createdAt = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.LseTaskSerializerForReviewersDraft> drafts = default!,
-            string fileUpload = default!,
             int id = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.LseTaskSerializerForReviewersPrediction> predictions = default!,
             string predictionsModelVersions = default!,
@@ -502,7 +509,6 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<object> reviewers = default!,
             int reviewersCount = default!,
             string state = default!,
-            string storageFilename = default!,
             global::System.DateTime updatedAt = default!,
             global::System.Collections.Generic.IList<object> updatedBy = default!)
         {

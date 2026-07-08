@@ -15,8 +15,8 @@ namespace LabelStudio
         /// * `None` - None
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotated")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AnnotatedEnumJsonConverter))]
-        public global::LabelStudio.AnnotatedEnum? Annotated { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DataManagerFilterModeEnumJsonConverter))]
+        public global::LabelStudio.DataManagerFilterModeEnum? Annotated { get; set; }
 
         /// <summary>
         /// `only` - include all finished tasks (is_labeled = true)`exclude` - exclude all finished tasks<br/>
@@ -25,8 +25,8 @@ namespace LabelStudio
         /// * `None` - None
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finished")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.FinishedEnumJsonConverter))]
-        public global::LabelStudio.FinishedEnum? Finished { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DataManagerFilterModeEnumJsonConverter))]
+        public global::LabelStudio.DataManagerFilterModeEnum? Finished { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -41,8 +41,8 @@ namespace LabelStudio
         /// * `None` - None
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ReviewedEnumJsonConverter))]
-        public global::LabelStudio.ReviewedEnum? Reviewed { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DataManagerFilterModeEnumJsonConverter))]
+        public global::LabelStudio.DataManagerFilterModeEnum? Reviewed { get; set; }
 
         /// <summary>
         /// `only` - include all tasks with skipped annotations`exclude` - exclude all tasks with skipped annotations<br/>
@@ -51,8 +51,8 @@ namespace LabelStudio
         /// * `None` - None
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SkippedEnumJsonConverter))]
-        public global::LabelStudio.SkippedEnum? Skipped { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DataManagerFilterModeEnumJsonConverter))]
+        public global::LabelStudio.DataManagerFilterModeEnum? Skipped { get; set; }
 
         /// <summary>
         /// Apply filters from the view ID (a tab from the Data Manager)
@@ -103,11 +103,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseTaskFilterOptionsRequest(
-            global::LabelStudio.AnnotatedEnum? annotated,
-            global::LabelStudio.FinishedEnum? finished,
+            global::LabelStudio.DataManagerFilterModeEnum? annotated,
+            global::LabelStudio.DataManagerFilterModeEnum? finished,
             bool? onlyWithAnnotations,
-            global::LabelStudio.ReviewedEnum? reviewed,
-            global::LabelStudio.SkippedEnum? skipped,
+            global::LabelStudio.DataManagerFilterModeEnum? reviewed,
+            global::LabelStudio.DataManagerFilterModeEnum? skipped,
             int? view)
         {
             this.Annotated = annotated;

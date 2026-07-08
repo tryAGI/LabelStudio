@@ -239,7 +239,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_dimensions_enabled")]
-        public string IsDimensionsEnabled { get; set; } = default!;
+        public bool IsDimensionsEnabled { get; set; } = default!;
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -276,7 +276,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("members")]
-        public string Members { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Members { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -346,9 +346,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts")]
-        public string Prompts { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object>? Prompts { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -430,8 +429,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SamplingDe5EnumJsonConverter))]
-        public global::LabelStudio.SamplingDe5Enum? Sampling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
+        public global::LabelStudio.ProjectSamplingEnum? Sampling { get; set; }
 
         /// <summary>
         /// Show Data Manager to Annotators
@@ -580,14 +579,13 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace")]
-        public string Workspace { get; set; } = default!;
+        public int Workspace { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_title")]
-        public string WorkspaceTitle { get; set; } = default!;
+        public string? WorkspaceTitle { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -706,6 +704,9 @@ namespace LabelStudio
         /// <param name="pinnedAt">
         /// Pinned date and time
         /// </param>
+        /// <param name="prompts">
+        /// Included only in responses
+        /// </param>
         /// <param name="requireCommentOnSkip">
         /// Require comment to skip<br/>
         /// Default Value: false
@@ -759,6 +760,9 @@ namespace LabelStudio
         /// <param name="usefulAnnotationNumber">
         /// Included only in responses
         /// </param>
+        /// <param name="workspaceTitle">
+        /// Included only in responses
+        /// </param>
         /// <param name="allowStream">
         /// Included only in responses
         /// </param>
@@ -798,9 +802,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="prompts">
         /// Included only in responses
         /// </param>
         /// <param name="queueDone">
@@ -847,9 +848,6 @@ namespace LabelStudio
         /// <param name="workspace">
         /// Included only in responses
         /// </param>
-        /// <param name="workspaceTitle">
-        /// Included only in responses
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -894,9 +892,10 @@ namespace LabelStudio
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
+            global::System.Collections.Generic.IList<object>? prompts,
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
-            global::LabelStudio.SamplingDe5Enum? sampling,
+            global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
             bool? showInstruction,
@@ -913,6 +912,7 @@ namespace LabelStudio
             int? totalPredictionsNumber,
             bool? useCustomInterface,
             int? usefulAnnotationNumber,
+            string? workspaceTitle,
             bool allowStream = default!,
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
@@ -920,12 +920,11 @@ namespace LabelStudio
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
-            string isDimensionsEnabled = default!,
-            string members = default!,
+            bool isDimensionsEnabled = default!,
+            global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
             int numTasksWithAnnotations = default!,
             object parsedLabelConfig = default!,
-            string prompts = default!,
             int queueDone = default!,
             int queueLeft = default!,
             int queueTotal = default!,
@@ -939,8 +938,7 @@ namespace LabelStudio
             string state = default!,
             int taskNumber = default!,
             int totalAnnotationsNumber = default!,
-            string workspace = default!,
-            string workspaceTitle = default!)
+            int workspace = default!)
         {
             this.AgreementMethodology = agreementMethodology;
             this.AgreementThreshold = agreementThreshold;

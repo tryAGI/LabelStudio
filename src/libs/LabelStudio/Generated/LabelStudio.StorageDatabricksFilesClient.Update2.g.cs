@@ -572,7 +572,7 @@ namespace LabelStudio
             string? regexFilter = default,
             int? requestTimeoutS = default,
             string? schema = default,
-            global::LabelStudio.StatusC5aEnum? status = default,
+            global::LabelStudio.StorageStatusEnum? status = default,
             long? streamChunkBytes = default,
             bool? synchronizable = default,
             string? tenantId = default,

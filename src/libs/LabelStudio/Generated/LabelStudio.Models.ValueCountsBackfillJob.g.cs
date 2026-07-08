@@ -71,16 +71,15 @@ namespace LabelStudio
         /// * `FAILED` - Failed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StatusA47EnumJsonConverter))]
-        public global::LabelStudio.StatusA47Enum? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.FsmBackfillJobStatusEnumJsonConverter))]
+        public global::LabelStudio.FsmBackfillJobStatusEnum? Status { get; set; }
 
         /// <summary>
         /// User who triggered the backfill<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggered_by")]
-        public string TriggeredBy { get; set; } = default!;
+        public object? TriggeredBy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -115,15 +114,15 @@ namespace LabelStudio
         /// * `COMPLETED` - Completed<br/>
         /// * `FAILED` - Failed
         /// </param>
+        /// <param name="triggeredBy">
+        /// User who triggered the backfill<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
         /// <param name="jobId">
         /// Database ID of the backfill job<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="triggeredBy">
-        /// User who triggered the backfill<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -136,10 +135,10 @@ namespace LabelStudio
             int? projectId,
             string? rqJobId,
             global::System.DateTime? startedAt,
-            global::LabelStudio.StatusA47Enum? status,
+            global::LabelStudio.FsmBackfillJobStatusEnum? status,
+            object? triggeredBy,
             global::System.DateTime createdAt = default!,
-            int jobId = default!,
-            string triggeredBy = default!)
+            int jobId = default!)
         {
             this.CompletedAt = completedAt;
             this.CreatedAt = createdAt;

@@ -25,11 +25,11 @@ namespace LabelStudio
         public int CreatedBy { get; set; } = default!;
 
         /// <summary>
+        /// Return created_by user details when include_all_workspaces is enabled.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by_user")]
-        public string CreatedByUser { get; set; } = default!;
+        public object? CreatedByUser { get; set; }
 
         /// <summary>
         /// Workspace description
@@ -59,9 +59,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("membership")]
-        public string Membership { get; set; } = default!;
+        public object? Membership { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -91,6 +90,10 @@ namespace LabelStudio
         /// <param name="color">
         /// Color
         /// </param>
+        /// <param name="createdByUser">
+        /// Return created_by user details when include_all_workspaces is enabled.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="description">
         /// Workspace description
         /// </param>
@@ -100,19 +103,16 @@ namespace LabelStudio
         /// <param name="isPersonal">
         /// Workspace is a personal user workspace
         /// </param>
+        /// <param name="membership">
+        /// Included only in responses
+        /// </param>
         /// <param name="projectsCount">
         /// Included only in responses
         /// </param>
         /// <param name="createdBy">
         /// Included only in responses
         /// </param>
-        /// <param name="createdByUser">
-        /// Included only in responses
-        /// </param>
         /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="membership">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -121,14 +121,14 @@ namespace LabelStudio
         public Workspace(
             string title,
             string? color,
+            object? createdByUser,
             string? description,
             bool? isArchived,
             bool? isPersonal,
+            object? membership,
             int? projectsCount,
             int createdBy = default!,
-            string createdByUser = default!,
-            int id = default!,
-            string membership = default!)
+            int id = default!)
         {
             this.Color = color;
             this.CreatedBy = createdBy;

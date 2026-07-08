@@ -13,17 +13,16 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("agreement_threshold")]
         [global::System.Obsolete("This property marked as deprecated.")]
-        public string AgreementThreshold { get; set; } = default!;
+        public int? AgreementThreshold { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed")]
-        public string Allowed { get; set; } = default!;
+        public bool Allowed { get; set; } = default!;
 
         /// <summary>
         /// Maximum number of additional annotators that can be assigned to a low agreement task
@@ -66,7 +65,7 @@ namespace LabelStudio
         public MetricParam(
             string? metricName,
             object? metricParams,
-            string allowed = default!)
+            bool allowed = default!)
         {
             this.Allowed = allowed;
             this.MetricName = metricName;

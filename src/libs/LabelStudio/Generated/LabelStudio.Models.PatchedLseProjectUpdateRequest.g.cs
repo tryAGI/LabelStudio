@@ -259,8 +259,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SamplingDe5EnumJsonConverter))]
-        public global::LabelStudio.SamplingDe5Enum? Sampling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
+        public global::LabelStudio.ProjectSamplingEnum? Sampling { get; set; }
 
         /// <summary>
         /// Show Data Manager to Annotators
@@ -564,7 +564,7 @@ namespace LabelStudio
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
             global::LabelStudio.ReviewSettingsRequest? reviewSettings,
-            global::LabelStudio.SamplingDe5Enum? sampling,
+            global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
             bool? showInstruction,

@@ -60,7 +60,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggered_by")]
-        public global::LabelStudio.TriggeredBy? TriggeredBy { get; set; }
+        public global::LabelStudio.TriggeredBy2? TriggeredBy { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -102,7 +102,7 @@ namespace LabelStudio
             string? previousState,
             string? reason,
             string? transitionName,
-            global::LabelStudio.TriggeredBy? triggeredBy,
+            global::LabelStudio.TriggeredBy2? triggeredBy,
             object contextData = default!,
             global::System.DateTime createdAt = default!,
             global::System.Guid id = default!,

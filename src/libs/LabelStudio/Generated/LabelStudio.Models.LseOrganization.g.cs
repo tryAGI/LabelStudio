@@ -33,7 +33,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_scripts_enabled")]
-        public string CustomScriptsEnabled { get; set; } = default!;
+        public bool CustomScriptsEnabled { get; set; } = default!;
 
         /// <summary>
         /// Default membership role for invited users<br/>
@@ -46,15 +46,30 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Role9e7EnumJsonConverter))]
-        public global::LabelStudio.Role9e7Enum? DefaultRole { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
+        public global::LabelStudio.OrganizationRoleEnum? DefaultRole { get; set; }
 
         /// <summary>
+        /// Get email notification settings with default values for all notification types.<br/>
+        /// Returns a dictionary with the following structure:<br/>
+        /// {<br/>
+        ///     'notifications_allowed': {<br/>
+        ///         'notification_type': bool<br/>
+        ///     },<br/>
+        ///     'notification_types': [<br/>
+        ///         {'value': str, 'label': str}<br/>
+        ///     ]<br/>
+        /// }<br/>
+        /// Excludes blocklisted notification types and ensures all valid types are included<br/>
+        /// with proper defaults for any missing types.<br/>
+        /// When organization's email_notification_settings is null or empty, all notifications<br/>
+        /// are shown as enabled (True) by default. When organization has some settings,<br/>
+        /// unconfigured notifications default to False.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("email_notification_settings")]
-        public string EmailNotificationSettings { get; set; } = default!;
+        public object EmailNotificationSettings { get; set; } = default!;
 
         /// <summary>
         /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
@@ -98,7 +113,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("react_code_settings")]
-        public string ReactCodeSettings { get; set; } = default!;
+        public object ReactCodeSettings { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -159,6 +174,21 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="emailNotificationSettings">
+        /// Get email notification settings with default values for all notification types.<br/>
+        /// Returns a dictionary with the following structure:<br/>
+        /// {<br/>
+        ///     'notifications_allowed': {<br/>
+        ///         'notification_type': bool<br/>
+        ///     },<br/>
+        ///     'notification_types': [<br/>
+        ///         {'value': str, 'label': str}<br/>
+        ///     ]<br/>
+        /// }<br/>
+        /// Excludes blocklisted notification types and ensures all valid types are included<br/>
+        /// with proper defaults for any missing types.<br/>
+        /// When organization's email_notification_settings is null or empty, all notifications<br/>
+        /// are shown as enabled (True) by default. When organization has some settings,<br/>
+        /// unconfigured notifications default to False.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -179,17 +209,17 @@ namespace LabelStudio
         public LseOrganization(
             global::LabelStudio.OrganizationBilling billing,
             bool? customInterfacesEnabled,
-            global::LabelStudio.Role9e7Enum? defaultRole,
+            global::LabelStudio.OrganizationRoleEnum? defaultRole,
             object? embedDomains,
             bool? embedEnabled,
             object? embedSettings,
             string? externalId,
             object? interfaceSettings,
             global::System.DateTime createdAt = default!,
-            string customScriptsEnabled = default!,
-            string emailNotificationSettings = default!,
+            bool customScriptsEnabled = default!,
+            object emailNotificationSettings = default!,
             int id = default!,
-            string reactCodeSettings = default!,
+            object reactCodeSettings = default!,
             string title = default!,
             string token = default!)
         {

@@ -48,6 +48,7 @@ namespace LabelStudio
         public required int Project { get; set; }
 
         /// <summary>
+        /// base64 encoded id<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -66,7 +67,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("task_count")]
-        public string TaskCount { get; set; } = default!;
+        public int TaskCount { get; set; } = default!;
 
         /// <summary>
         /// Blueprint name. Must be between 3 and 50 characters long.
@@ -108,6 +109,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="shareId">
+        /// base64 encoded id<br/>
         /// Included only in responses
         /// </param>
         /// <param name="shortUrl">
@@ -132,7 +134,7 @@ namespace LabelStudio
             int id = default!,
             string shareId = default!,
             string shortUrl = default!,
-            string taskCount = default!,
+            int taskCount = default!,
             global::System.DateTime updatedAt = default!)
         {
             this.CreatedAt = createdAt;

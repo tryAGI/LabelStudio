@@ -13,35 +13,35 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("enforce_session_concurrency")]
-        public string EnforceSessionConcurrency { get; set; } = default!;
+        public bool EnforceSessionConcurrency { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_role_management")]
-        public string ManualRoleManagement { get; set; } = default!;
+        public bool ManualRoleManagement { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("manual_workspace_management")]
-        public string ManualWorkspaceManagement { get; set; } = default!;
+        public bool ManualWorkspaceManagement { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_parallel_sessions")]
-        public string MaxParallelSessions { get; set; } = default!;
+        public int MaxParallelSessions { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("session_concurrency_window_seconds")]
-        public string SessionConcurrencyWindowSeconds { get; set; } = default!;
+        public int SessionConcurrencyWindowSeconds { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,11 +71,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public OrganizationBilling(
-            string enforceSessionConcurrency = default!,
-            string manualRoleManagement = default!,
-            string manualWorkspaceManagement = default!,
-            string maxParallelSessions = default!,
-            string sessionConcurrencyWindowSeconds = default!)
+            bool enforceSessionConcurrency = default!,
+            bool manualRoleManagement = default!,
+            bool manualWorkspaceManagement = default!,
+            int maxParallelSessions = default!,
+            int sessionConcurrencyWindowSeconds = default!)
         {
             this.EnforceSessionConcurrency = enforceSessionConcurrency;
             this.ManualRoleManagement = manualRoleManagement;

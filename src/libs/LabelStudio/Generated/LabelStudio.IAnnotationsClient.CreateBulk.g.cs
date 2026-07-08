@@ -102,7 +102,7 @@ namespace LabelStudio
             global::System.DateTime? draftCreatedAt = default,
             bool? groundTruth = default,
             long? importId = default,
-            global::LabelStudio.LastActionEnum? lastAction = default,
+            global::LabelStudio.AnnotationHistoryActionEnum? lastAction = default,
             int? lastCreatedBy = default,
             double? leadTime = default,
             int? parentAnnotation = default,

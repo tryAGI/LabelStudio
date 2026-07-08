@@ -20,7 +20,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation_result")]
-        public string AnnotationResult { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> AnnotationResult { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -54,7 +54,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("task_data")]
-        public string TaskData { get; set; } = default!;
+        public object TaskData { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -87,10 +87,10 @@ namespace LabelStudio
             int annotation,
             int task,
             int? order,
-            string annotationResult = default!,
+            global::System.Collections.Generic.IList<object> annotationResult = default!,
             global::System.DateTime createdAt = default!,
             int id = default!,
-            string taskData = default!)
+            object taskData = default!)
         {
             this.Annotation = annotation;
             this.AnnotationResult = annotationResult;

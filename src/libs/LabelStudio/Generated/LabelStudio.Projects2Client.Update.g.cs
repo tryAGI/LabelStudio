@@ -664,7 +664,7 @@ namespace LabelStudio
             bool? requireCommentOnSkip = default,
             bool? revealPreannotationsInteractively = default,
             global::LabelStudio.ReviewSettingsRequest? reviewSettings = default,
-            global::LabelStudio.SamplingDe5Enum? sampling = default,
+            global::LabelStudio.ProjectSamplingEnum? sampling = default,
             bool? showAnnotationHistory = default,
             bool? showCollabPredictions = default,
             bool? showInstruction = default,

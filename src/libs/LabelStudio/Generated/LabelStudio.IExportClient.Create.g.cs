@@ -68,7 +68,7 @@ namespace LabelStudio
             global::System.DateTime? finishedAt = default,
             string? md5 = default,
             global::LabelStudio.SerializationOptionsRequest? serializationOptions = default,
-            global::LabelStudio.Status7bfEnum? status = default,
+            global::LabelStudio.ProjectImportStatusEnum? status = default,
             global::LabelStudio.LseTaskFilterOptionsRequest? taskFilterOptions = default,
             string? title = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

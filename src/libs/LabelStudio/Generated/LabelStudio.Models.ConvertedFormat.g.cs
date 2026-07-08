@@ -29,8 +29,8 @@ namespace LabelStudio
         /// * `completed` - Completed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Status7bfEnumJsonConverter))]
-        public global::LabelStudio.Status7bfEnum? Status { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectImportStatusEnumJsonConverter))]
+        public global::LabelStudio.ProjectImportStatusEnum? Status { get; set; }
 
         /// <summary>
         /// Traceback report in case of errors
@@ -65,7 +65,7 @@ namespace LabelStudio
 #endif
         public ConvertedFormat(
             string exportType,
-            global::LabelStudio.Status7bfEnum? status,
+            global::LabelStudio.ProjectImportStatusEnum? status,
             string? traceback,
             int id = default!)
         {
