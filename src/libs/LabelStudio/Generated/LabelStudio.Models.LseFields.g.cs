@@ -9,11 +9,19 @@ namespace LabelStudio
     public sealed partial class LseFields
     {
         /// <summary>
+        /// Get email notification settings with organization-level filtering.<br/>
+        /// Use the model's getter method to ensure all notification types are included<br/>
+        /// with proper defaults for any missing types. Transform the output to include<br/>
+        /// both value and label for each notification type.<br/>
+        /// Filter notifications based on organization's allowed notifications if user<br/>
+        /// belongs to exactly one organization.<br/>
+        /// Role-based filtering: not_activated_user_login is only available to users<br/>
+        /// who are admins or owners in at least one organization.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("email_notification_settings")]
-        public string EmailNotificationSettings { get; set; } = default!;
+        public object EmailNotificationSettings { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -24,16 +32,14 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("invite_expired")]
-        public string InviteExpired { get; set; } = default!;
+        public bool? InviteExpired { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("invite_expired_at")]
-        public string InviteExpiredAt { get; set; } = default!;
+        public global::System.DateTime? InviteExpiredAt { get; set; }
 
         /// <summary>
         /// 
@@ -107,6 +113,12 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="LseFields" /> class.
         /// </summary>
         /// <param name="inviteActivated"></param>
+        /// <param name="inviteExpired">
+        /// Included only in responses
+        /// </param>
+        /// <param name="inviteExpiredAt">
+        /// Included only in responses
+        /// </param>
         /// <param name="invitedAt"></param>
         /// <param name="invitedBy"></param>
         /// <param name="onboardingState">
@@ -127,12 +139,14 @@ namespace LabelStudio
         /// <param name="trialModelsInProduction"></param>
         /// <param name="trialRole"></param>
         /// <param name="emailNotificationSettings">
-        /// Included only in responses
-        /// </param>
-        /// <param name="inviteExpired">
-        /// Included only in responses
-        /// </param>
-        /// <param name="inviteExpiredAt">
+        /// Get email notification settings with organization-level filtering.<br/>
+        /// Use the model's getter method to ensure all notification types are included<br/>
+        /// with proper defaults for any missing types. Transform the output to include<br/>
+        /// both value and label for each notification type.<br/>
+        /// Filter notifications based on organization's allowed notifications if user<br/>
+        /// belongs to exactly one organization.<br/>
+        /// Role-based filtering: not_activated_user_login is only available to users<br/>
+        /// who are admins or owners in at least one organization.<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -140,6 +154,8 @@ namespace LabelStudio
 #endif
         public LseFields(
             bool? inviteActivated,
+            bool? inviteExpired,
+            global::System.DateTime? inviteExpiredAt,
             global::System.DateTime? invitedAt,
             int? invitedBy,
             global::LabelStudio.OnboardingStateEnum? onboardingState,
@@ -149,9 +165,7 @@ namespace LabelStudio
             bool? trialLicenseEnterprise,
             string? trialModelsInProduction,
             global::LabelStudio.TrialRoleEnum? trialRole,
-            string emailNotificationSettings = default!,
-            string inviteExpired = default!,
-            string inviteExpiredAt = default!)
+            object emailNotificationSettings = default!)
         {
             this.EmailNotificationSettings = emailNotificationSettings;
             this.InviteActivated = inviteActivated;

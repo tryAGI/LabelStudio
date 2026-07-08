@@ -13,7 +13,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("default")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.Default165Enum> Default { get; set; } = default!;
+        public global::System.Collections.Generic.IList<global::LabelStudio.OrganizationPermissionRoleEnum> Default { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -39,7 +39,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("options")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.Options165Enum> Options { get; set; } = default!;
+        public global::System.Collections.Generic.IList<global::LabelStudio.OrganizationPermissionRoleEnum> Options { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// Organization roles
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("roles")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? Roles { get; set; }
+        public global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? Roles { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -108,11 +108,11 @@ namespace LabelStudio
             string permission,
             string? group,
             string? label,
-            global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? roles,
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles,
             string? tooltip,
-            global::System.Collections.Generic.IList<global::LabelStudio.Default165Enum> @default = default!,
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationPermissionRoleEnum> @default = default!,
             int id = default!,
-            global::System.Collections.Generic.IList<global::LabelStudio.Options165Enum> options = default!,
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationPermissionRoleEnum> options = default!,
             int organization = default!)
         {
             this.Default = @default;

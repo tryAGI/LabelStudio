@@ -30,23 +30,20 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_module_title")]
-        public string LastModuleTitle { get; set; } = default!;
+        public string? LastModuleTitle { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_page_id")]
-        public string LastPageId { get; set; } = default!;
+        public string? LastPageId { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_page_title")]
-        public string LastPageTitle { get; set; } = default!;
+        public string? LastPageTitle { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -60,21 +57,21 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("progress_percent")]
-        public string ProgressPercent { get; set; } = default!;
+        public double ProgressPercent { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("quiz_summary")]
-        public string QuizSummary { get; set; } = default!;
+        public object QuizSummary { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("requires_retake")]
-        public string RequiresRetake { get; set; } = default!;
+        public bool RequiresRetake { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -118,12 +115,6 @@ namespace LabelStudio
         /// <param name="importedAt">
         /// Included only in responses
         /// </param>
-        /// <param name="startedAt">
-        /// Included only in responses
-        /// </param>
-        /// <param name="isStale">
-        /// Included only in responses
-        /// </param>
         /// <param name="lastModuleTitle">
         /// Included only in responses
         /// </param>
@@ -131,6 +122,12 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="lastPageTitle">
+        /// Included only in responses
+        /// </param>
+        /// <param name="startedAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="isStale">
         /// Included only in responses
         /// </param>
         /// <param name="pagesVisited">
@@ -160,15 +157,15 @@ namespace LabelStudio
         public UserLearningProgressList(
             global::System.DateTime? completedAt,
             global::System.DateTime? importedAt,
+            string? lastModuleTitle,
+            string? lastPageId,
+            string? lastPageTitle,
             global::System.DateTime? startedAt,
             bool isStale = default!,
-            string lastModuleTitle = default!,
-            string lastPageId = default!,
-            string lastPageTitle = default!,
             global::System.Collections.Generic.IList<string> pagesVisited = default!,
-            string progressPercent = default!,
-            string quizSummary = default!,
-            string requiresRetake = default!,
+            double progressPercent = default!,
+            object quizSummary = default!,
+            bool requiresRetake = default!,
             string status = default!,
             int timeSpentSeconds = default!,
             global::LabelStudio.UserSimple user = default!)

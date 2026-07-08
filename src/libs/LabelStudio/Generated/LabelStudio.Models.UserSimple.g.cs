@@ -14,9 +14,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar")]
-        public string Avatar { get; set; } = default!;
+        public string? Avatar { get; set; }
 
         /// <summary>
         /// 
@@ -60,12 +59,12 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="UserSimple" /> class.
         /// </summary>
         /// <param name="username"></param>
-        /// <param name="email"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
         /// <param name="avatar">
         /// Included only in responses
         /// </param>
+        /// <param name="email"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -74,10 +73,10 @@ namespace LabelStudio
 #endif
         public UserSimple(
             string username,
+            string? avatar,
             string? email,
             string? firstName,
             string? lastName,
-            string avatar = default!,
             int id = default!)
         {
             this.Avatar = avatar;

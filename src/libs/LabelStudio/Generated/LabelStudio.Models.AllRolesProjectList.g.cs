@@ -253,7 +253,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_dimensions_enabled")]
-        public string IsDimensionsEnabled { get; set; } = default!;
+        public bool IsDimensionsEnabled { get; set; } = default!;
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -290,7 +290,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("members")]
-        public string Members { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Members { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -359,9 +359,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts")]
-        public string Prompts { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object>? Prompts { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -381,7 +380,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_total")]
-        public string QueueTotal { get; set; } = default!;
+        public int QueueTotal { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -439,8 +438,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SamplingDe5EnumJsonConverter))]
-        public global::LabelStudio.SamplingDe5Enum? Sampling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
+        public global::LabelStudio.ProjectSamplingEnum? Sampling { get; set; }
 
         /// <summary>
         /// Show Data Manager to Annotators
@@ -495,9 +494,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped_annotations_number")]
-        public string SkippedAnnotationsNumber { get; set; } = default!;
+        public int? SkippedAnnotationsNumber { get; set; }
 
         /// <summary>
         /// 
@@ -552,7 +550,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations_number")]
-        public string TotalAnnotationsNumber { get; set; } = default!;
+        public int TotalAnnotationsNumber { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -578,14 +576,13 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace")]
-        public string Workspace { get; set; } = default!;
+        public int Workspace { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_title")]
-        public string WorkspaceTitle { get; set; } = default!;
+        public string? WorkspaceTitle { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -707,6 +704,9 @@ namespace LabelStudio
         /// <param name="pinnedAt">
         /// Pinned date and time
         /// </param>
+        /// <param name="prompts">
+        /// Included only in responses
+        /// </param>
         /// <param name="queueLeft">
         /// Included only in responses
         /// </param>
@@ -746,6 +746,9 @@ namespace LabelStudio
         /// Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="skippedAnnotationsNumber">
+        /// Included only in responses
+        /// </param>
         /// <param name="sourceInterfaceId"></param>
         /// <param name="sourceInterfaceVersion">
         /// Stable version ID of the saved interface snapshot used by this project.
@@ -761,6 +764,9 @@ namespace LabelStudio
         /// Default Value: false
         /// </param>
         /// <param name="usefulAnnotationNumber">
+        /// Included only in responses
+        /// </param>
+        /// <param name="workspaceTitle">
         /// Included only in responses
         /// </param>
         /// <param name="allowStream">
@@ -806,9 +812,6 @@ namespace LabelStudio
         /// JSON-formatted labeling configuration<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="prompts">
-        /// Included only in responses
-        /// </param>
         /// <param name="queueDone">
         /// Included only in responses
         /// </param>
@@ -819,9 +822,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="rejected">
-        /// Included only in responses
-        /// </param>
-        /// <param name="skippedAnnotationsNumber">
         /// Included only in responses
         /// </param>
         /// <param name="startTrainingOnAnnotationUpdate">
@@ -842,9 +842,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="workspace">
-        /// Included only in responses
-        /// </param>
-        /// <param name="workspaceTitle">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -892,13 +889,14 @@ namespace LabelStudio
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
+            global::System.Collections.Generic.IList<object>? prompts,
             int? queueLeft,
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
             int? reviewTotalTasks,
             int? reviewedNumber,
             int? reviewerQueueTotal,
-            global::LabelStudio.SamplingDe5Enum? sampling,
+            global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
             bool? showInstruction,
@@ -906,12 +904,14 @@ namespace LabelStudio
             bool? showSkipButton,
             bool? showUnusedDataColumnsToAnnotators,
             global::LabelStudio.SkipQueueEnum? skipQueue,
+            int? skippedAnnotationsNumber,
             int? sourceInterfaceId,
             int? sourceInterfaceVersion,
             bool? strictTaskOverlap,
             string? title,
             bool? useCustomInterface,
             int? usefulAnnotationNumber,
+            string? workspaceTitle,
             bool allowStream = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.BlueprintList> blueprints = default!,
             bool configHasControlTags = default!,
@@ -921,23 +921,20 @@ namespace LabelStudio
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
-            string isDimensionsEnabled = default!,
-            string members = default!,
+            bool isDimensionsEnabled = default!,
+            global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
             object parsedLabelConfig = default!,
-            string prompts = default!,
             int queueDone = default!,
-            string queueTotal = default!,
+            int queueTotal = default!,
             bool ready = default!,
             int rejected = default!,
-            string skippedAnnotationsNumber = default!,
             bool startTrainingOnAnnotationUpdate = default!,
             string state = default!,
             int taskNumber = default!,
-            string totalAnnotationsNumber = default!,
+            int totalAnnotationsNumber = default!,
             int totalPredictionsNumber = default!,
-            string workspace = default!,
-            string workspaceTitle = default!)
+            int workspace = default!)
         {
             this.AgreementMethodology = agreementMethodology;
             this.AgreementThreshold = agreementThreshold;

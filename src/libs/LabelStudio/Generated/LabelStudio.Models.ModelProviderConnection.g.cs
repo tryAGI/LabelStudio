@@ -108,7 +108,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_params")]
-        public string ModelParams { get; set; } = default!;
+        public object ModelParams { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -247,7 +247,7 @@ namespace LabelStudio
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
-            string modelParams = default!,
+            object modelParams = default!,
             global::System.DateTime updatedAt = default!)
         {
             this.BudgetAlertThreshold = budgetAlertThreshold;

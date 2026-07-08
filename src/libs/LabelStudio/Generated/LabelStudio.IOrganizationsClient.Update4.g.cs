@@ -73,7 +73,7 @@ namespace LabelStudio
             int id,
             string permission,
             string? requestPermission = default,
-            global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? roles = default,
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

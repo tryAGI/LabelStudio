@@ -55,7 +55,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_total")]
-        public string QueueTotal { get; set; } = default!;
+        public int QueueTotal { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -79,9 +79,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped_annotations_number")]
-        public string SkippedAnnotationsNumber { get; set; } = default!;
+        public int? SkippedAnnotationsNumber { get; set; }
 
         /// <summary>
         /// Total task number in project<br/>
@@ -96,7 +95,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations_number")]
-        public string TotalAnnotationsNumber { get; set; } = default!;
+        public int TotalAnnotationsNumber { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -132,6 +131,9 @@ namespace LabelStudio
         /// <param name="reviewedNumber">
         /// Included only in responses
         /// </param>
+        /// <param name="skippedAnnotationsNumber">
+        /// Included only in responses
+        /// </param>
         /// <param name="usefulAnnotationNumber">
         /// Included only in responses
         /// </param>
@@ -154,9 +156,6 @@ namespace LabelStudio
         /// <param name="rejected">
         /// Included only in responses
         /// </param>
-        /// <param name="skippedAnnotationsNumber">
-        /// Included only in responses
-        /// </param>
         /// <param name="taskNumber">
         /// Total task number in project<br/>
         /// Included only in responses
@@ -175,16 +174,16 @@ namespace LabelStudio
             int? queueLeft,
             int? reviewTotalTasks,
             int? reviewedNumber,
+            int? skippedAnnotationsNumber,
             int? usefulAnnotationNumber,
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
             int queueDone = default!,
-            string queueTotal = default!,
+            int queueTotal = default!,
             int rejected = default!,
-            string skippedAnnotationsNumber = default!,
             int taskNumber = default!,
-            string totalAnnotationsNumber = default!,
+            int totalAnnotationsNumber = default!,
             int totalPredictionsNumber = default!)
         {
             this.FinishedTaskNumber = finishedTaskNumber;

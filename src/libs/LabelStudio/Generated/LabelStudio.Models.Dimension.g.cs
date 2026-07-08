@@ -16,7 +16,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_metrics_with_params")]
-        public string AllowedMetricsWithParams { get; set; } = default!;
+        public object AllowedMetricsWithParams { get; set; } = default!;
 
         /// <summary>
         /// Name of the control tag this dimension is extracted from. Set automatically for system dimensions.<br/>
@@ -216,7 +216,7 @@ namespace LabelStudio
             string? metricType,
             int? order,
             object? valuesEnum,
-            string allowedMetricsWithParams = default!,
+            object allowedMetricsWithParams = default!,
             global::System.DateTime createdAt = default!,
             int id = default!,
             bool isCategorical = default!,

@@ -539,7 +539,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> Create2Async(
             int id,
             string permission,
-            global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? roles = default,
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

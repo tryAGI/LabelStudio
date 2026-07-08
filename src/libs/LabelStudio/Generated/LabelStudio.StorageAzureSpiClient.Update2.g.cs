@@ -548,7 +548,7 @@ namespace LabelStudio
             string? prefix = default,
             int? project = default,
             string? regexFilter = default,
-            global::LabelStudio.StatusC5aEnum? status = default,
+            global::LabelStudio.StorageStatusEnum? status = default,
             bool? synchronizable = default,
             string? tenantId = default,
             string? title = default,

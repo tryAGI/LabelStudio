@@ -19,8 +19,8 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Role9e7EnumJsonConverter))]
-        public global::LabelStudio.Role9e7Enum? Role { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
+        public global::LabelStudio.OrganizationRoleEnum? Role { get; set; }
 
         /// <summary>
         /// Member
@@ -54,7 +54,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchedOrganizationMemberCreateUpdateRequest(
-            global::LabelStudio.Role9e7Enum? role,
+            global::LabelStudio.OrganizationRoleEnum? role,
             int? userId)
         {
             this.Role = role;

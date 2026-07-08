@@ -523,7 +523,7 @@ namespace LabelStudio
             global::System.DateTime? annotatorReviewerFirewallEnabledAt = default,
             bool? customInterfacesEnabled = default,
             global::System.DateTime? customScriptsEnabledAt = default,
-            global::LabelStudio.Role9e7Enum? defaultRole = default,
+            global::LabelStudio.OrganizationRoleEnum? defaultRole = default,
             object? emailNotificationSettings = default,
             object? embedDomains = default,
             bool? embedEnabled = default,

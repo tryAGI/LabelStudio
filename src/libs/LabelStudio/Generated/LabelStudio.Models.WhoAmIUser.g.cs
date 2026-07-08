@@ -24,7 +24,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("active_organization_meta")]
-        public string ActiveOrganizationMeta { get; set; } = default!;
+        public global::System.Collections.Generic.Dictionary<string, string> ActiveOrganizationMeta { get; set; } = default!;
 
         /// <summary>
         /// Allow sending newsletters to user
@@ -35,9 +35,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar")]
-        public string Avatar { get; set; } = default!;
+        public string? Avatar { get; set; }
 
         /// <summary>
         /// Custom keyboard shortcuts configuration for the user interface
@@ -116,9 +115,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("pause")]
-        public string Pause { get; set; } = default!;
+        public object? Pause { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -161,6 +159,9 @@ namespace LabelStudio
         /// <param name="allowNewsletters">
         /// Allow sending newsletters to user
         /// </param>
+        /// <param name="avatar">
+        /// Included only in responses
+        /// </param>
         /// <param name="customHotkeys">
         /// Custom keyboard shortcuts configuration for the user interface
         /// </param>
@@ -168,11 +169,11 @@ namespace LabelStudio
         /// <param name="email"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="phone"></param>
-        /// <param name="activeOrganizationMeta">
+        /// <param name="pause">
         /// Included only in responses
         /// </param>
-        /// <param name="avatar">
+        /// <param name="phone"></param>
+        /// <param name="activeOrganizationMeta">
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -191,9 +192,6 @@ namespace LabelStudio
         /// <param name="organizationMembership">
         /// Included only in responses
         /// </param>
-        /// <param name="pause">
-        /// Included only in responses
-        /// </param>
         /// <param name="permissions">
         /// Included only in responses
         /// </param>
@@ -207,20 +205,20 @@ namespace LabelStudio
             string username,
             int? activeOrganization,
             bool? allowNewsletters,
+            string? avatar,
             object? customHotkeys,
             global::System.DateTime? dateJoined,
             string? email,
             string? firstName,
             string? lastName,
+            object? pause,
             string? phone,
-            string activeOrganizationMeta = default!,
-            string avatar = default!,
+            global::System.Collections.Generic.Dictionary<string, string> activeOrganizationMeta = default!,
             int id = default!,
             string initials = default!,
             global::System.DateTime lastActivity = default!,
             global::LabelStudio.WhoAmILseFields lseFields = default!,
             global::LabelStudio.OrganizationMembership organizationMembership = default!,
-            string pause = default!,
             global::System.Collections.Generic.IList<string> permissions = default!,
             global::System.Collections.Generic.IList<object> socialAccounts = default!)
         {

@@ -25,7 +25,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
-        public string Content { get; set; } = default!;
+        public object Content { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -143,28 +143,28 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learner_count")]
-        public string LearnerCount { get; set; } = default!;
+        public int LearnerCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_completed_count")]
-        public string LearnersCompletedCount { get; set; } = default!;
+        public int LearnersCompletedCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_started_count")]
-        public string LearnersStartedCount { get; set; } = default!;
+        public int LearnersStartedCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("module_count")]
-        public string ModuleCount { get; set; } = default!;
+        public int ModuleCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -178,14 +178,14 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("page_count")]
-        public string PageCount { get; set; } = default!;
+        public int PageCount { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_count")]
-        public string ProjectCount { get; set; } = default!;
+        public int ProjectCount { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -318,19 +318,19 @@ namespace LabelStudio
             string? summary,
             string? title,
             int? workspace,
-            string content = default!,
+            object content = default!,
             int contentVersion = default!,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
             bool isPublished = default!,
-            string learnerCount = default!,
-            string learnersCompletedCount = default!,
-            string learnersStartedCount = default!,
-            string moduleCount = default!,
+            int learnerCount = default!,
+            int learnersCompletedCount = default!,
+            int learnersStartedCount = default!,
+            int moduleCount = default!,
             int organization = default!,
-            string pageCount = default!,
-            string projectCount = default!,
+            int pageCount = default!,
+            int projectCount = default!,
             global::System.DateTime updatedAt = default!,
             global::LabelStudio.UserSimple updatedBy = default!)
         {

@@ -158,7 +158,7 @@ namespace LabelStudio
             string? regexFilter = default,
             string? regionName = default,
             string? s3Endpoint = default,
-            global::LabelStudio.StatusC5aEnum? status = default,
+            global::LabelStudio.StorageStatusEnum? status = default,
             bool? synchronizable = default,
             string? title = default,
             string? traceback = default,

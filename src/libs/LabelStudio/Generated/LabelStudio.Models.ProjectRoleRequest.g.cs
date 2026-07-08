@@ -25,9 +25,9 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.Role9e7EnumJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.Role9e7Enum Role { get; set; }
+        public required global::LabelStudio.OrganizationRoleEnum Role { get; set; }
 
         /// <summary>
         /// 
@@ -61,7 +61,7 @@ namespace LabelStudio
 #endif
         public ProjectRoleRequest(
             int project,
-            global::LabelStudio.Role9e7Enum role,
+            global::LabelStudio.OrganizationRoleEnum role,
             int user)
         {
             this.Project = project;

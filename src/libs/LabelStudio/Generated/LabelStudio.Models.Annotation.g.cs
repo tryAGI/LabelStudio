@@ -85,8 +85,8 @@ namespace LabelStudio
         /// * `deleted_review` - Deleted review
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_action")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.LastActionEnumJsonConverter))]
-        public global::LabelStudio.LastActionEnum? LastAction { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter))]
+        public global::LabelStudio.AnnotationHistoryActionEnum? LastAction { get; set; }
 
         /// <summary>
         /// User who created the last annotation history item
@@ -250,7 +250,7 @@ namespace LabelStudio
             global::System.DateTime? draftCreatedAt,
             bool? groundTruth,
             long? importId,
-            global::LabelStudio.LastActionEnum? lastAction,
+            global::LabelStudio.AnnotationHistoryActionEnum? lastAction,
             int? lastCreatedBy,
             double? leadTime,
             int? parentAnnotation,

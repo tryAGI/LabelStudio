@@ -233,7 +233,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_dimensions_enabled")]
-        public string IsDimensionsEnabled { get; set; } = default!;
+        public bool IsDimensionsEnabled { get; set; } = default!;
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -270,7 +270,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("members")]
-        public string Members { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Members { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -339,30 +339,29 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts")]
-        public string Prompts { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object>? Prompts { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_done")]
-        public string QueueDone { get; set; } = default!;
+        public int QueueDone { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_left")]
-        public string QueueLeft { get; set; } = default!;
+        public int QueueLeft { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_total")]
-        public string QueueTotal { get; set; } = default!;
+        public int QueueTotal { get; set; } = default!;
 
         /// <summary>
         /// Require comment to skip<br/>
@@ -389,14 +388,14 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_queue_total")]
-        public string ReviewerQueueTotal { get; set; } = default!;
+        public int ReviewerQueueTotal { get; set; } = default!;
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SamplingDe5EnumJsonConverter))]
-        public global::LabelStudio.SamplingDe5Enum? Sampling { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
+        public global::LabelStudio.ProjectSamplingEnum? Sampling { get; set; }
 
         /// <summary>
         /// Show Data Manager to Annotators
@@ -551,14 +550,13 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace")]
-        public string Workspace { get; set; } = default!;
+        public int Workspace { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace_title")]
-        public string WorkspaceTitle { get; set; } = default!;
+        public string? WorkspaceTitle { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -680,6 +678,9 @@ namespace LabelStudio
         /// <param name="pinnedAt">
         /// Pinned date and time
         /// </param>
+        /// <param name="prompts">
+        /// Included only in responses
+        /// </param>
         /// <param name="requireCommentOnSkip">
         /// Require comment to skip<br/>
         /// Default Value: false
@@ -727,6 +728,9 @@ namespace LabelStudio
         /// <param name="useCustomInterface">
         /// Default Value: false
         /// </param>
+        /// <param name="workspaceTitle">
+        /// Included only in responses
+        /// </param>
         /// <param name="configHasControlTags">
         /// Flag to detect is project ready for labeling<br/>
         /// Included only in responses
@@ -760,9 +764,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="prompts">
         /// Included only in responses
         /// </param>
         /// <param name="queueDone">
@@ -805,9 +806,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="workspace">
-        /// Included only in responses
-        /// </param>
-        /// <param name="workspaceTitle">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -855,9 +853,10 @@ namespace LabelStudio
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
+            global::System.Collections.Generic.IList<object>? prompts,
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
-            global::LabelStudio.SamplingDe5Enum? sampling,
+            global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
             bool? showInstruction,
@@ -872,21 +871,21 @@ namespace LabelStudio
             string? taskDataPassword,
             string? title,
             bool? useCustomInterface,
+            string? workspaceTitle,
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
             global::System.DateTime createdAt = default!,
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
-            string isDimensionsEnabled = default!,
-            string members = default!,
+            bool isDimensionsEnabled = default!,
+            global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
             object parsedLabelConfig = default!,
-            string prompts = default!,
-            string queueDone = default!,
-            string queueLeft = default!,
-            string queueTotal = default!,
-            string reviewerQueueTotal = default!,
+            int queueDone = default!,
+            int queueLeft = default!,
+            int queueTotal = default!,
+            int reviewerQueueTotal = default!,
             int skippedAnnotationsNumber = default!,
             bool startTrainingOnAnnotationUpdate = default!,
             string state = default!,
@@ -894,8 +893,7 @@ namespace LabelStudio
             int totalAnnotationsNumber = default!,
             int totalPredictionsNumber = default!,
             int usefulAnnotationNumber = default!,
-            string workspace = default!,
-            string workspaceTitle = default!)
+            int workspace = default!)
         {
             this.AgreementMethodology = agreementMethodology;
             this.AgreementThreshold = agreementThreshold;

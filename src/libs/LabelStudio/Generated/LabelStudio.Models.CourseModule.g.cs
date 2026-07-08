@@ -46,7 +46,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("page_count")]
-        public string PageCount { get; set; } = default!;
+        public int PageCount { get; set; } = default!;
 
         /// <summary>
         /// Default Value: 0
@@ -118,7 +118,7 @@ namespace LabelStudio
             global::System.DateTime createdAt = default!,
             int id = default!,
             int learningResource = default!,
-            string pageCount = default!,
+            int pageCount = default!,
             global::System.DateTime updatedAt = default!,
             global::LabelStudio.UserSimple updatedBy = default!)
         {

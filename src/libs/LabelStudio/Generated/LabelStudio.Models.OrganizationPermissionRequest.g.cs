@@ -19,7 +19,7 @@ namespace LabelStudio
         /// Organization roles
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("roles")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? Roles { get; set; }
+        public global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? Roles { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,7 +39,7 @@ namespace LabelStudio
 #endif
         public OrganizationPermissionRequest(
             string permission,
-            global::System.Collections.Generic.IList<global::LabelStudio.Role9e7Enum>? roles)
+            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles)
         {
             this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
             this.Roles = roles;

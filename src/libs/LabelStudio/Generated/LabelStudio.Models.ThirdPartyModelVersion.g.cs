@@ -37,6 +37,7 @@ namespace LabelStudio
         public int? MaxFewShotExamples { get; set; }
 
         /// <summary>
+        /// Human-readable model name derived from provider_model_id.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -92,9 +93,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("score")]
-        public string Score { get; set; } = default!;
+        public double? Score { get; set; }
 
         /// <summary>
         /// Model name
@@ -146,6 +146,9 @@ namespace LabelStudio
         /// * `Anthropic` - Anthropic<br/>
         /// * `Custom` - Custom
         /// </param>
+        /// <param name="score">
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -157,9 +160,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="modelDisplayName">
-        /// Included only in responses
-        /// </param>
-        /// <param name="score">
+        /// Human-readable model name derived from provider_model_id.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="updatedAt">
@@ -177,11 +178,11 @@ namespace LabelStudio
             int? organization,
             int? parentModel,
             global::LabelStudio.ProviderEnum? provider,
+            double? score,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
             string modelDisplayName = default!,
-            string score = default!,
             global::System.DateTime updatedAt = default!)
         {
             this.CreatedAt = createdAt;

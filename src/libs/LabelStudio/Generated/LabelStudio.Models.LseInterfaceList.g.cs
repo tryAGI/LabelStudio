@@ -88,7 +88,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("versions")]
-        public string Versions { get; set; } = default!;
+        public global::System.Collections.Generic.IList<object> Versions { get; set; } = default!;
 
         /// <summary>
         /// 
@@ -156,7 +156,7 @@ namespace LabelStudio
             bool isSystem = default!,
             int projectsCount = default!,
             global::System.DateTime updatedAt = default!,
-            string versions = default!)
+            global::System.Collections.Generic.IList<object> versions = default!)
         {
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;

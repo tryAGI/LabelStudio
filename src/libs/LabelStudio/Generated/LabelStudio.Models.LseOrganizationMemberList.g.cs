@@ -12,9 +12,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("concurrency")]
-        public string Concurrency { get; set; } = default!;
+        public object? Concurrency { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -76,9 +75,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
-        public string UserType { get; set; } = default!;
+        public string? UserType { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -98,13 +96,16 @@ namespace LabelStudio
         /// control which fields are displayed, and whether to replace simple<br/>
         /// values with complex, nested serializations
         /// </param>
+        /// <param name="concurrency">
+        /// Included only in responses
+        /// </param>
         /// <param name="contributedToProjects">
         /// Included only in responses
         /// </param>
         /// <param name="createdProjects">
         /// Included only in responses
         /// </param>
-        /// <param name="concurrency">
+        /// <param name="userType">
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -119,23 +120,20 @@ namespace LabelStudio
         /// <param name="tags">
         /// Included only in responses
         /// </param>
-        /// <param name="userType">
-        /// Included only in responses
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseOrganizationMemberList(
             int organization,
             global::LabelStudio.LseUserOrganizationMemberList user,
+            object? concurrency,
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListContributedToProject>? contributedToProjects,
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListCreatedProject>? createdProjects,
-            string concurrency = default!,
+            string? userType,
             int id = default!,
             string role = default!,
             string roleSource = default!,
-            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!,
-            string userType = default!)
+            global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
         {
             this.Concurrency = concurrency;
             this.ContributedToProjects = contributedToProjects;

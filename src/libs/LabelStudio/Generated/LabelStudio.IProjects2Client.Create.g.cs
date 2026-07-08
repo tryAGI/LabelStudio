@@ -150,7 +150,7 @@ namespace LabelStudio
             int? overlapCohortPercentage = default,
             global::System.DateTime? pinnedAt = default,
             bool? revealPreannotationsInteractively = default,
-            global::LabelStudio.SamplingDe5Enum? sampling = default,
+            global::LabelStudio.ProjectSamplingEnum? sampling = default,
             bool? showAnnotationHistory = default,
             bool? showCollabPredictions = default,
             bool? showInstruction = default,

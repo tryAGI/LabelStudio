@@ -28,9 +28,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("avatar")]
-        public string Avatar { get; set; } = default!;
+        public string? Avatar { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -108,9 +107,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("pause")]
-        public string Pause { get; set; } = default!;
+        public object? Pause { get; set; }
 
         /// <summary>
         /// 
@@ -139,6 +137,9 @@ namespace LabelStudio
         /// <param name="allowNewsletters">
         /// Allow sending newsletters to user
         /// </param>
+        /// <param name="avatar">
+        /// Included only in responses
+        /// </param>
         /// <param name="customHotkeys">
         /// Custom keyboard shortcuts configuration for the user interface
         /// </param>
@@ -146,10 +147,10 @@ namespace LabelStudio
         /// <param name="email"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
-        /// <param name="phone"></param>
-        /// <param name="avatar">
+        /// <param name="pause">
         /// Included only in responses
         /// </param>
+        /// <param name="phone"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -163,9 +164,6 @@ namespace LabelStudio
         /// <param name="lseFields">
         /// Included only in responses
         /// </param>
-        /// <param name="pause">
-        /// Included only in responses
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -173,18 +171,18 @@ namespace LabelStudio
             string username,
             int? activeOrganization,
             bool? allowNewsletters,
+            string? avatar,
             object? customHotkeys,
             global::System.DateTime? dateJoined,
             string? email,
             string? firstName,
             string? lastName,
+            object? pause,
             string? phone,
-            string avatar = default!,
             int id = default!,
             string initials = default!,
             global::System.DateTime lastActivity = default!,
-            global::LabelStudio.LseFields lseFields = default!,
-            string pause = default!)
+            global::LabelStudio.LseFields lseFields = default!)
         {
             this.ActiveOrganization = activeOrganization;
             this.AllowNewsletters = allowNewsletters;

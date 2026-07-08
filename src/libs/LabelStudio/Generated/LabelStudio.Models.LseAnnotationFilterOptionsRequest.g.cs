@@ -21,8 +21,8 @@ namespace LabelStudio
         /// * `None` - None
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ReviewedEnumJsonConverter))]
-        public global::LabelStudio.ReviewedEnum? Reviewed { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DataManagerFilterModeEnumJsonConverter))]
+        public global::LabelStudio.DataManagerFilterModeEnum? Reviewed { get; set; }
 
         /// <summary>
         /// Include skipped annotations
@@ -67,7 +67,7 @@ namespace LabelStudio
 #endif
         public LseAnnotationFilterOptionsRequest(
             bool? groundTruth,
-            global::LabelStudio.ReviewedEnum? reviewed,
+            global::LabelStudio.DataManagerFilterModeEnum? reviewed,
             bool? skipped,
             bool? usual)
         {

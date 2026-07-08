@@ -15,8 +15,8 @@ namespace LabelStudio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("action")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ActionEnumJsonConverter))]
-        public global::LabelStudio.ActionEnum? Action { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter))]
+        public global::LabelStudio.AnnotationHistoryActionEnum? Action { get; set; }
 
         /// <summary>
         /// Corresponding annotation for this historical annotation
@@ -160,7 +160,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnnotationHistory(
-            global::LabelStudio.ActionEnum? action,
+            global::LabelStudio.AnnotationHistoryActionEnum? action,
             int? annotationId,
             string? comment,
             int? commentId,

@@ -121,7 +121,7 @@ namespace LabelStudio
             int? presignTtl = default,
             bool? recursiveScan = default,
             string? regexFilter = default,
-            global::LabelStudio.StatusC5aEnum? status = default,
+            global::LabelStudio.StorageStatusEnum? status = default,
             bool? synced = default,
             bool? synchronizable = default,
             string? title = default,
