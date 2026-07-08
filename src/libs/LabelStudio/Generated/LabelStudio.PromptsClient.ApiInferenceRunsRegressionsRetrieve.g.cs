@@ -34,6 +34,11 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessApiInferenceRunsRegressionsRetrieveResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
         /// ✨ Compare correctness transitions between inference runs<br/>
         /// Compare correctness transitions between two inference runs.<br/>
@@ -43,14 +48,16 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiInferenceRunsRegressionsRetrieveAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.RegressionsResponse> ApiInferenceRunsRegressionsRetrieveAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiInferenceRunsRegressionsRetrieveAsResponseAsync(
+            var __response = await ApiInferenceRunsRegressionsRetrieveAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// ✨ Compare correctness transitions between inference runs<br/>
@@ -61,7 +68,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiInferenceRunsRegressionsRetrieveAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.RegressionsResponse>> ApiInferenceRunsRegressionsRetrieveAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -327,15 +334,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiInferenceRunsRegressionsRetrieveResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.RegressionsResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.RegressionsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -355,10 +369,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.RegressionsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.RegressionsResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

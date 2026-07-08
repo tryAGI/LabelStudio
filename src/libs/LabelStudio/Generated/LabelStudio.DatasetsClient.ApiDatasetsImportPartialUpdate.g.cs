@@ -28,15 +28,22 @@ namespace LabelStudio
         partial void PrepareApiDatasetsImportPartialUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? jobId,
-            ref string? signal);
+            ref string? signal,
+            global::LabelStudio.ApiDatasetsImportPartialUpdateRequest request);
         partial void PrepareApiDatasetsImportPartialUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int? jobId,
-            string? signal);
+            string? signal,
+            global::LabelStudio.ApiDatasetsImportPartialUpdateRequest request);
         partial void ProcessApiDatasetsImportPartialUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessApiDatasetsImportPartialUpdateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
 
         /// <summary>
         /// Export candidate tasks to project<br/>
@@ -44,21 +51,28 @@ namespace LabelStudio
         /// </summary>
         /// <param name="jobId"></param>
         /// <param name="signal"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiDatasetsImportPartialUpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.DatasetImportCandidatesResponse> ApiDatasetsImportPartialUpdateAsync(
+
+            global::LabelStudio.ApiDatasetsImportPartialUpdateRequest request,
             int? jobId = default,
             string? signal = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiDatasetsImportPartialUpdateAsResponseAsync(
+            var __response = await ApiDatasetsImportPartialUpdateAsResponseAsync(
+
+                request: request,
                 jobId: jobId,
                 signal: signal,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// Export candidate tasks to project<br/>
@@ -66,21 +80,27 @@ namespace LabelStudio
         /// </summary>
         /// <param name="jobId"></param>
         /// <param name="signal"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiDatasetsImportPartialUpdateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>> ApiDatasetsImportPartialUpdateAsResponseAsync(
+
+            global::LabelStudio.ApiDatasetsImportPartialUpdateRequest request,
             int? jobId = default,
             string? signal = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareApiDatasetsImportPartialUpdateArguments(
                 httpClient: HttpClient,
                 jobId: ref jobId,
-                signal: ref signal);
+                signal: ref signal,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -141,6 +161,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -153,7 +179,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     jobId: jobId,
-                    signal: signal);
+                    signal: signal,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -345,15 +372,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiDatasetsImportPartialUpdateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.DatasetImportCandidatesResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -373,10 +407,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.DatasetImportCandidatesResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -411,6 +454,40 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Export candidate tasks to project<br/>
+        /// Export Candidate task for a specific dataset to project.
+        /// </summary>
+        /// <param name="jobId"></param>
+        /// <param name="signal"></param>
+        /// <param name="requestJobId"></param>
+        /// <param name="requestSignal">
+        /// Operation type.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.DatasetImportCandidatesResponse> ApiDatasetsImportPartialUpdateAsync(
+            int requestJobId,
+            string requestSignal,
+            int? jobId = default,
+            string? signal = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.ApiDatasetsImportPartialUpdateRequest
+            {
+                JobId = requestJobId,
+                Signal = requestSignal,
+            };
+
+            return await ApiDatasetsImportPartialUpdateAsync(
+                jobId: jobId,
+                signal: signal,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -28,15 +28,22 @@ namespace LabelStudio
         partial void PrepareApiPromptsVersionsTryTaskCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int promptId,
-            ref int versionId);
+            ref int versionId,
+            global::LabelStudio.TryTaskRequestRequest request);
         partial void PrepareApiPromptsVersionsTryTaskCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int promptId,
-            int versionId);
+            int versionId,
+            global::LabelStudio.TryTaskRequestRequest request);
         partial void ProcessApiPromptsVersionsTryTaskCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessApiPromptsVersionsTryTaskCreateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
 
         /// <summary>
         /// ✨ Try prompt on a single task<br/>
@@ -46,21 +53,28 @@ namespace LabelStudio
         /// </summary>
         /// <param name="promptId"></param>
         /// <param name="versionId"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiPromptsVersionsTryTaskCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.TryTaskResponse> ApiPromptsVersionsTryTaskCreateAsync(
             int promptId,
             int versionId,
+
+            global::LabelStudio.TryTaskRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiPromptsVersionsTryTaskCreateAsResponseAsync(
+            var __response = await ApiPromptsVersionsTryTaskCreateAsResponseAsync(
                 promptId: promptId,
                 versionId: versionId,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// ✨ Try prompt on a single task<br/>
@@ -70,21 +84,27 @@ namespace LabelStudio
         /// </summary>
         /// <param name="promptId"></param>
         /// <param name="versionId"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiPromptsVersionsTryTaskCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TryTaskResponse>> ApiPromptsVersionsTryTaskCreateAsResponseAsync(
             int promptId,
             int versionId,
+
+            global::LabelStudio.TryTaskRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareApiPromptsVersionsTryTaskCreateArguments(
                 httpClient: HttpClient,
                 promptId: ref promptId,
-                versionId: ref versionId);
+                versionId: ref versionId,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -141,6 +161,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -153,7 +179,8 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     promptId: promptId!,
-                    versionId: versionId!);
+                    versionId: versionId!,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -345,15 +372,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiPromptsVersionsTryTaskCreateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.TryTaskResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TryTaskResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -373,10 +407,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.TryTaskResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TryTaskResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -411,6 +454,43 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// ✨ Try prompt on a single task<br/>
+        /// Run a single-task ephemeral prediction using the current (possibly unsaved) prompt.<br/>
+        /// No ModelRun is created and no Prediction is stored. The user iterates<br/>
+        /// until happy, then saves and does a full Run.
+        /// </summary>
+        /// <param name="promptId"></param>
+        /// <param name="versionId"></param>
+        /// <param name="projectId"></param>
+        /// <param name="promptOverride"></param>
+        /// <param name="taskId"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.TryTaskResponse> ApiPromptsVersionsTryTaskCreateAsync(
+            int promptId,
+            int versionId,
+            int projectId,
+            int taskId,
+            string? promptOverride = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.TryTaskRequestRequest
+            {
+                ProjectId = projectId,
+                PromptOverride = promptOverride,
+                TaskId = taskId,
+            };
+
+            return await ApiPromptsVersionsTryTaskCreateAsync(
+                promptId: promptId,
+                versionId: versionId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

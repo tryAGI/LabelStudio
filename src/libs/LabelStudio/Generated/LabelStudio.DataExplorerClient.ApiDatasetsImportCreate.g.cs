@@ -32,7 +32,8 @@ namespace LabelStudio
             object? excluded,
             object? included,
             ref int? project,
-            ref int? view);
+            ref int? view,
+            global::LabelStudio.DatasetImportCandidatesCreateRequest request);
         partial void PrepareApiDatasetsImportCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,10 +42,16 @@ namespace LabelStudio
             object? excluded,
             object? included,
             int? project,
-            int? view);
+            int? view,
+            global::LabelStudio.DatasetImportCandidatesCreateRequest request);
         partial void ProcessApiDatasetsImportCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessApiDatasetsImportCreateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
 
         /// <summary>
         /// Export candidate tasks to project<br/>
@@ -57,10 +64,13 @@ namespace LabelStudio
         /// <param name="included"></param>
         /// <param name="project"></param>
         /// <param name="view"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiDatasetsImportCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.DatasetImportCandidatesResponse> ApiDatasetsImportCreateAsync(
+
+            global::LabelStudio.DatasetImportCandidatesCreateRequest request,
             object? additionalFilters = default,
             int? dataset = default,
             object? excluded = default,
@@ -70,7 +80,9 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiDatasetsImportCreateAsResponseAsync(
+            var __response = await ApiDatasetsImportCreateAsResponseAsync(
+
+                request: request,
                 additionalFilters: additionalFilters,
                 dataset: dataset,
                 excluded: excluded,
@@ -80,6 +92,8 @@ namespace LabelStudio
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// Export candidate tasks to project<br/>
@@ -92,10 +106,13 @@ namespace LabelStudio
         /// <param name="included"></param>
         /// <param name="project"></param>
         /// <param name="view"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiDatasetsImportCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>> ApiDatasetsImportCreateAsResponseAsync(
+
+            global::LabelStudio.DatasetImportCandidatesCreateRequest request,
             object? additionalFilters = default,
             int? dataset = default,
             object? excluded = default,
@@ -105,6 +122,8 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareApiDatasetsImportCreateArguments(
@@ -114,7 +133,8 @@ namespace LabelStudio
                 excluded: excluded,
                 included: included,
                 project: ref project,
-                view: ref view);
+                view: ref view,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -179,6 +199,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -195,7 +221,8 @@ namespace LabelStudio
                     excluded: excluded,
                     included: included,
                     project: project,
-                    view: view);
+                    view: view,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -387,15 +414,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiDatasetsImportCreateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.DatasetImportCandidatesResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -415,10 +449,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.DatasetImportCandidatesResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatasetImportCandidatesResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -453,6 +496,69 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Export candidate tasks to project<br/>
+        ///     Export Candidate task for a specific dataset to project.<br/>
+        ///     
+        /// </summary>
+        /// <param name="additionalFilters"></param>
+        /// <param name="dataset"></param>
+        /// <param name="excluded"></param>
+        /// <param name="included"></param>
+        /// <param name="project"></param>
+        /// <param name="view"></param>
+        /// <param name="requestAdditionalFilters">
+        /// Default Value: {}
+        /// </param>
+        /// <param name="requestDataset"></param>
+        /// <param name="requestExcluded">
+        /// Default Value: {}
+        /// </param>
+        /// <param name="requestIncluded">
+        /// Default Value: {}
+        /// </param>
+        /// <param name="requestProject"></param>
+        /// <param name="requestView"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.DatasetImportCandidatesResponse> ApiDatasetsImportCreateAsync(
+            int requestDataset,
+            object? additionalFilters = default,
+            int? dataset = default,
+            object? excluded = default,
+            object? included = default,
+            int? project = default,
+            int? view = default,
+            object? requestAdditionalFilters = default,
+            object? requestExcluded = default,
+            object? requestIncluded = default,
+            int? requestProject = default,
+            int? requestView = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.DatasetImportCandidatesCreateRequest
+            {
+                AdditionalFilters = requestAdditionalFilters,
+                Dataset = requestDataset,
+                Excluded = requestExcluded,
+                Included = requestIncluded,
+                Project = requestProject,
+                View = requestView,
+            };
+
+            return await ApiDatasetsImportCreateAsync(
+                additionalFilters: additionalFilters,
+                dataset: dataset,
+                excluded: excluded,
+                included: included,
+                project: project,
+                view: view,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task ApiPromptsVersionsPromptPreviewRetrieveAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.PromptPreviewResponse> ApiPromptsVersionsPromptPreviewRetrieveAsync(
             int promptId,
             int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -27,7 +27,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiPromptsVersionsPromptPreviewRetrieveAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PromptPreviewResponse>> ApiPromptsVersionsPromptPreviewRetrieveAsResponseAsync(
             int promptId,
             int versionId,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

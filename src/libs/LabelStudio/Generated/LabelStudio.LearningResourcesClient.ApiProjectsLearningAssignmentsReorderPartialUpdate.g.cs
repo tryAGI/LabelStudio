@@ -27,11 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareApiProjectsLearningAssignmentsReorderPartialUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int projectPk);
+            ref int projectPk,
+            global::LabelStudio.PatchedProjectLearningAssignmentRequest request);
         partial void PrepareApiProjectsLearningAssignmentsReorderPartialUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int projectPk);
+            int projectPk,
+            global::LabelStudio.PatchedProjectLearningAssignmentRequest request);
         partial void ProcessApiProjectsLearningAssignmentsReorderPartialUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,16 +54,21 @@ namespace LabelStudio
         /// Reorder the learning resource assignments for a project.
         /// </summary>
         /// <param name="projectPk"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>> ApiProjectsLearningAssignmentsReorderPartialUpdateAsync(
             int projectPk,
+
+            global::LabelStudio.PatchedProjectLearningAssignmentRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ApiProjectsLearningAssignmentsReorderPartialUpdateAsResponseAsync(
                 projectPk: projectPk,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,19 +86,25 @@ namespace LabelStudio
         /// Reorder the learning resource assignments for a project.
         /// </summary>
         /// <param name="projectPk"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>>> ApiProjectsLearningAssignmentsReorderPartialUpdateAsResponseAsync(
             int projectPk,
+
+            global::LabelStudio.PatchedProjectLearningAssignmentRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareApiProjectsLearningAssignmentsReorderPartialUpdateArguments(
                 httpClient: HttpClient,
-                projectPk: ref projectPk);
+                projectPk: ref projectPk,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -148,6 +161,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -159,7 +178,8 @@ namespace LabelStudio
                 PrepareApiProjectsLearningAssignmentsReorderPartialUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectPk: projectPk!);
+                    projectPk: projectPk!,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -433,6 +453,61 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// ✨ Reorder learning assignments for a project<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Reorder the learning resource assignments for a project.
+        /// </summary>
+        /// <param name="projectPk"></param>
+        /// <param name="allowManualAccess"></param>
+        /// <param name="gateAnnotatorDataManager"></param>
+        /// <param name="gateAnnotatorLabelStream"></param>
+        /// <param name="gateReviewerDataManager"></param>
+        /// <param name="gateReviewerLabelStream"></param>
+        /// <param name="gateReviewerReviewStream"></param>
+        /// <param name="learningResourceId">
+        /// Included only in requests
+        /// </param>
+        /// <param name="sortOrder"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>> ApiProjectsLearningAssignmentsReorderPartialUpdateAsync(
+            int projectPk,
+            int learningResourceId,
+            bool? allowManualAccess = default,
+            bool? gateAnnotatorDataManager = default,
+            bool? gateAnnotatorLabelStream = default,
+            bool? gateReviewerDataManager = default,
+            bool? gateReviewerLabelStream = default,
+            bool? gateReviewerReviewStream = default,
+            int? sortOrder = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.PatchedProjectLearningAssignmentRequest
+            {
+                AllowManualAccess = allowManualAccess,
+                GateAnnotatorDataManager = gateAnnotatorDataManager,
+                GateAnnotatorLabelStream = gateAnnotatorLabelStream,
+                GateReviewerDataManager = gateReviewerDataManager,
+                GateReviewerLabelStream = gateReviewerLabelStream,
+                GateReviewerReviewStream = gateReviewerReviewStream,
+                LearningResourceId = learningResourceId,
+                SortOrder = sortOrder,
+            };
+
+            return await ApiProjectsLearningAssignmentsReorderPartialUpdateAsync(
+                projectPk: projectPk,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

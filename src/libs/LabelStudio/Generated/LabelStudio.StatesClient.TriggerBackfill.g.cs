@@ -346,19 +346,19 @@ namespace LabelStudio
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                string? __value_400 = null;
+                                global::LabelStudio.StateBackfillErrorResponse? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.StateBackfillErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.StateBackfillErrorResponse.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -367,7 +367,7 @@ namespace LabelStudio
                                 }
 
 
-                                throw global::LabelStudio.ApiException<string>.Create(
+                                throw global::LabelStudio.ApiException<global::LabelStudio.StateBackfillErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -383,19 +383,15 @@ namespace LabelStudio
                             {
                                 string? __content_403 = null;
                                 global::System.Exception? __exception_403 = null;
-                                string? __value_403 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_403, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_403 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_403, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -404,12 +400,11 @@ namespace LabelStudio
                                 }
 
 
-                                throw global::LabelStudio.ApiException<string>.Create(
+                                throw global::LabelStudio.ApiException.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_403,
                                     responseBody: __content_403,
-                                    responseObject: __value_403,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -420,19 +415,15 @@ namespace LabelStudio
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                string? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -441,12 +432,11 @@ namespace LabelStudio
                                 }
 
 
-                                throw global::LabelStudio.ApiException<string>.Create(
+                                throw global::LabelStudio.ApiException.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
                                     responseBody: __content_404,
-                                    responseObject: __value_404,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

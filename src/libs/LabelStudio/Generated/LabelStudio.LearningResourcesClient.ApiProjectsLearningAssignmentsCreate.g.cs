@@ -27,14 +27,21 @@ namespace LabelStudio
             };
         partial void PrepareApiProjectsLearningAssignmentsCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int projectPk);
+            ref int projectPk,
+            global::LabelStudio.ProjectLearningAssignmentCreateRequest request);
         partial void PrepareApiProjectsLearningAssignmentsCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int projectPk);
+            int projectPk,
+            global::LabelStudio.ProjectLearningAssignmentCreateRequest request);
         partial void ProcessApiProjectsLearningAssignmentsCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessApiProjectsLearningAssignmentsCreateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
 
         /// <summary>
         /// ✨ Assign a learning resource to a project<br/>
@@ -47,19 +54,26 @@ namespace LabelStudio
         /// Create a learning resource assignment for a project.
         /// </summary>
         /// <param name="projectPk"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task ApiProjectsLearningAssignmentsCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectLearningAssignment> ApiProjectsLearningAssignmentsCreateAsync(
             int projectPk,
+
+            global::LabelStudio.ProjectLearningAssignmentCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await ApiProjectsLearningAssignmentsCreateAsResponseAsync(
+            var __response = await ApiProjectsLearningAssignmentsCreateAsResponseAsync(
                 projectPk: projectPk,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
         /// ✨ Assign a learning resource to a project<br/>
@@ -72,19 +86,25 @@ namespace LabelStudio
         /// Create a learning resource assignment for a project.
         /// </summary>
         /// <param name="projectPk"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ApiProjectsLearningAssignmentsCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectLearningAssignment>> ApiProjectsLearningAssignmentsCreateAsResponseAsync(
             int projectPk,
+
+            global::LabelStudio.ProjectLearningAssignmentCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareApiProjectsLearningAssignmentsCreateArguments(
                 httpClient: HttpClient,
-                projectPk: ref projectPk);
+                projectPk: ref projectPk,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -141,6 +161,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -152,7 +178,8 @@ namespace LabelStudio
                 PrepareApiProjectsLearningAssignmentsCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    projectPk: projectPk!);
+                    projectPk: projectPk!,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -344,15 +371,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessApiProjectsLearningAssignmentsCreateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.ProjectLearningAssignment.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectLearningAssignment>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -372,10 +406,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.ProjectLearningAssignment.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectLearningAssignment>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -410,6 +453,65 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// ✨ Assign a learning resource to a project<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Create a learning resource assignment for a project.
+        /// </summary>
+        /// <param name="projectPk"></param>
+        /// <param name="allowManualAccess"></param>
+        /// <param name="gateAnnotatorDataManager"></param>
+        /// <param name="gateAnnotatorLabelStream"></param>
+        /// <param name="gateReviewerDataManager"></param>
+        /// <param name="gateReviewerLabelStream"></param>
+        /// <param name="gateReviewerReviewStream"></param>
+        /// <param name="insertAfterId"></param>
+        /// <param name="insertBeforeId"></param>
+        /// <param name="learningResourceId"></param>
+        /// <param name="sortOrder"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectLearningAssignment> ApiProjectsLearningAssignmentsCreateAsync(
+            int projectPk,
+            int learningResourceId,
+            bool? allowManualAccess = default,
+            bool? gateAnnotatorDataManager = default,
+            bool? gateAnnotatorLabelStream = default,
+            bool? gateReviewerDataManager = default,
+            bool? gateReviewerLabelStream = default,
+            bool? gateReviewerReviewStream = default,
+            int? insertAfterId = default,
+            int? insertBeforeId = default,
+            int? sortOrder = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.ProjectLearningAssignmentCreateRequest
+            {
+                AllowManualAccess = allowManualAccess,
+                GateAnnotatorDataManager = gateAnnotatorDataManager,
+                GateAnnotatorLabelStream = gateAnnotatorLabelStream,
+                GateReviewerDataManager = gateReviewerDataManager,
+                GateReviewerLabelStream = gateReviewerLabelStream,
+                GateReviewerReviewStream = gateReviewerReviewStream,
+                InsertAfterId = insertAfterId,
+                InsertBeforeId = insertBeforeId,
+                LearningResourceId = learningResourceId,
+                SortOrder = sortOrder,
+            };
+
+            return await ApiProjectsLearningAssignmentsCreateAsync(
+                projectPk: projectPk,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

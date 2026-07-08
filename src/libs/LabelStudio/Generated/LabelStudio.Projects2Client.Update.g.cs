@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectUpdate> UpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectResponse> UpdateAsync(
             int id,
 
             global::LabelStudio.PatchedLseProjectUpdateRequest request,
@@ -90,7 +90,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectUpdate>> UpdateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectResponse>> UpdateAsResponseAsync(
             int id,
 
             global::LabelStudio.PatchedLseProjectUpdateRequest request,
@@ -386,9 +386,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.LseProjectUpdate.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.LseProjectResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectUpdate>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -418,9 +418,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.LseProjectUpdate.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.LseProjectResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectUpdate>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -622,7 +622,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectUpdate> UpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectResponse> UpdateAsync(
             int id,
             int? membersLimit = default,
             global::LabelStudio.AgreementMethodologyEnum? agreementMethodology = default,
