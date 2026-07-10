@@ -134,7 +134,7 @@ namespace LabelStudio
         public int? CustomTaskLockTtl { get; set; }
 
         /// <summary>
-        /// Description
+        /// Description (Public)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -162,6 +162,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
+
+        /// <summary>
+        /// Description (Internal)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("internal_description")]
+        public object? InternalDescription { get; set; }
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -425,7 +431,7 @@ namespace LabelStudio
         /// Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
         /// </param>
         /// <param name="description">
-        /// Description
+        /// Description (Public)
         /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow empty annotations
@@ -437,6 +443,9 @@ namespace LabelStudio
         /// Instructions
         /// </param>
         /// <param name="inputSchema"></param>
+        /// <param name="internalDescription">
+        /// Description (Internal)
+        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -549,6 +558,7 @@ namespace LabelStudio
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
             object? inputSchema,
+            object? internalDescription,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -605,6 +615,7 @@ namespace LabelStudio
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
             this.InputSchema = inputSchema;
+            this.InternalDescription = internalDescription;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
             this.LabelConfig = labelConfig;
