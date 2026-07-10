@@ -453,7 +453,7 @@ namespace LabelStudio
         /// <param name="customInterfaceCompiled"></param>
         /// <param name="customInterfaceParams"></param>
         /// <param name="description">
-        /// Project Description
+        /// Description (Public)
         /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow annotators to submit empty annotations
@@ -465,6 +465,9 @@ namespace LabelStudio
         /// Labeling instructions in HTML format
         /// </param>
         /// <param name="inputSchema"></param>
+        /// <param name="internalDescription">
+        /// Description (Internal)
+        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -542,6 +545,7 @@ namespace LabelStudio
             bool? evaluatePredictionsAutomatically = default,
             string? expertInstruction = default,
             object? inputSchema = default,
+            object? internalDescription = default,
             bool? isDraft = default,
             bool? isPublished = default,
             string? labelConfig = default,
@@ -584,6 +588,7 @@ namespace LabelStudio
                 EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically,
                 ExpertInstruction = expertInstruction,
                 InputSchema = inputSchema,
+                InternalDescription = internalDescription,
                 IsDraft = isDraft,
                 IsPublished = isPublished,
                 LabelConfig = labelConfig,

@@ -164,7 +164,7 @@ namespace LabelStudio
         public object? DataTypes { get; set; }
 
         /// <summary>
-        /// Description
+        /// Description (Public)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -227,6 +227,13 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
+
+        /// <summary>
+        /// Description (Internal)<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("internal_description")]
+        public global::System.Collections.Generic.IList<object>? InternalDescription { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -626,7 +633,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="description">
-        /// Description
+        /// Description (Public)
         /// </param>
         /// <param name="duplicationDone">
         /// Default Value: false
@@ -642,6 +649,10 @@ namespace LabelStudio
         /// Instructions
         /// </param>
         /// <param name="inputSchema"></param>
+        /// <param name="internalDescription">
+        /// Description (Internal)<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -840,6 +851,7 @@ namespace LabelStudio
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
             object? inputSchema,
+            global::System.Collections.Generic.IList<object>? internalDescription,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -928,6 +940,7 @@ namespace LabelStudio
             this.GroundTruthNumber = groundTruthNumber;
             this.Id = id;
             this.InputSchema = inputSchema;
+            this.InternalDescription = internalDescription;
             this.IsDimensionsEnabled = isDimensionsEnabled;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;

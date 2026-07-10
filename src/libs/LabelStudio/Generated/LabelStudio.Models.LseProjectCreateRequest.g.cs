@@ -54,7 +54,7 @@ namespace LabelStudio
         public object? CustomInterfaceParams { get; set; }
 
         /// <summary>
-        /// Project Description
+        /// Description (Public)
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -82,6 +82,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
+
+        /// <summary>
+        /// Description (Internal)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("internal_description")]
+        public object? InternalDescription { get; set; }
 
         /// <summary>
         /// Whether or not the project is in the middle of being created
@@ -265,7 +271,7 @@ namespace LabelStudio
         /// <param name="customInterfaceCompiled"></param>
         /// <param name="customInterfaceParams"></param>
         /// <param name="description">
-        /// Project Description
+        /// Description (Public)
         /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow annotators to submit empty annotations
@@ -277,6 +283,9 @@ namespace LabelStudio
         /// Labeling instructions in HTML format
         /// </param>
         /// <param name="inputSchema"></param>
+        /// <param name="internalDescription">
+        /// Description (Internal)
+        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -354,6 +363,7 @@ namespace LabelStudio
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
             object? inputSchema,
+            object? internalDescription,
             bool? isDraft,
             bool? isPublished,
             string? labelConfig,
@@ -392,6 +402,7 @@ namespace LabelStudio
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
             this.InputSchema = inputSchema;
+            this.InternalDescription = internalDescription;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
             this.LabelConfig = labelConfig;

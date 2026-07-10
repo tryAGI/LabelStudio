@@ -523,7 +523,7 @@ namespace LabelStudio
         /// Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
         /// </param>
         /// <param name="description">
-        /// Description
+        /// Description (Public)
         /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow empty annotations
@@ -535,6 +535,9 @@ namespace LabelStudio
         /// Instructions
         /// </param>
         /// <param name="inputSchema"></param>
+        /// <param name="internalDescription">
+        /// Description (Internal)
+        /// </param>
         /// <param name="isDraft">
         /// Whether or not the project is in the middle of being created
         /// </param>
@@ -649,6 +652,7 @@ namespace LabelStudio
             bool? evaluatePredictionsAutomatically = default,
             string? expertInstruction = default,
             object? inputSchema = default,
+            object? internalDescription = default,
             bool? isDraft = default,
             bool? isPublished = default,
             string? labelConfig = default,
@@ -709,6 +713,7 @@ namespace LabelStudio
                 EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically,
                 ExpertInstruction = expertInstruction,
                 InputSchema = inputSchema,
+                InternalDescription = internalDescription,
                 IsDraft = isDraft,
                 IsPublished = isPublished,
                 LabelConfig = labelConfig,
