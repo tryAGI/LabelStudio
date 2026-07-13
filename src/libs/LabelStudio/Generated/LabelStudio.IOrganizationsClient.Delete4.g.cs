@@ -15,13 +15,13 @@ namespace LabelStudio
         /// Delete the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task Delete4Async(
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,13 +35,13 @@ namespace LabelStudio
         /// Delete the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> Delete4AsResponseAsync(
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -28,13 +28,13 @@ namespace LabelStudio
         partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            ref string permission,
+            ref string permissionKey,
             global::LabelStudio.PatchedOrganizationPermissionRequest request);
         partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.PatchedOrganizationPermissionRequest request);
         partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -56,14 +56,14 @@ namespace LabelStudio
         /// Partially update the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> Update4Async(
             int id,
-            string permission,
+            string permissionKey,
 
             global::LabelStudio.PatchedOrganizationPermissionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -71,7 +71,7 @@ namespace LabelStudio
         {
             var __response = await Update4AsResponseAsync(
                 id: id,
-                permission: permission,
+                permissionKey: permissionKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -91,14 +91,14 @@ namespace LabelStudio
         /// Partially update the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.OrganizationPermission>> Update4AsResponseAsync(
             int id,
-            string permission,
+            string permissionKey,
 
             global::LabelStudio.PatchedOrganizationPermissionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -111,7 +111,7 @@ namespace LabelStudio
             PrepareUpdate4Arguments(
                 httpClient: HttpClient,
                 id: ref id,
-                permission: ref permission,
+                permissionKey: ref permissionKey,
                 request: request);
 
 
@@ -138,7 +138,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/organizations/{id}/permissions/{permission}",
+                                path: $"/api/organizations/{id}/permissions/{permissionKey}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -187,7 +187,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
-                    permission: permission!,
+                    permissionKey: permissionKey!,
                     request: request);
 
                 return __httpRequest;
@@ -207,7 +207,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -241,7 +241,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -282,7 +282,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,7 +330,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,7 +352,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -570,8 +570,8 @@ namespace LabelStudio
         /// Partially update the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="permission"></param>
-        /// <param name="requestPermission"></param>
         /// <param name="roles">
         /// Organization roles
         /// </param>
@@ -580,21 +580,21 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> Update4Async(
             int id,
-            string permission,
-            string? requestPermission = default,
+            string permissionKey,
+            string? permission = default,
             global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::LabelStudio.PatchedOrganizationPermissionRequest
             {
-                Permission = requestPermission,
+                Permission = permission,
                 Roles = roles,
             };
 
             return await Update4Async(
                 id: id,
-                permission: permission,
+                permissionKey: permissionKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

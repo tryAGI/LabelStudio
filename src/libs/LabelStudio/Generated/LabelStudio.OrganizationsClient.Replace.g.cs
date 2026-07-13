@@ -28,13 +28,13 @@ namespace LabelStudio
         partial void PrepareReplaceArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            ref string permission,
+            ref string permissionKey,
             global::LabelStudio.OrganizationPermissionRequest request);
         partial void PrepareReplaceRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.OrganizationPermissionRequest request);
         partial void ProcessReplaceResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -56,14 +56,14 @@ namespace LabelStudio
         /// Replace the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> ReplaceAsync(
             int id,
-            string permission,
+            string permissionKey,
 
             global::LabelStudio.OrganizationPermissionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -71,7 +71,7 @@ namespace LabelStudio
         {
             var __response = await ReplaceAsResponseAsync(
                 id: id,
-                permission: permission,
+                permissionKey: permissionKey,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -91,14 +91,14 @@ namespace LabelStudio
         /// Replace the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.OrganizationPermission>> ReplaceAsResponseAsync(
             int id,
-            string permission,
+            string permissionKey,
 
             global::LabelStudio.OrganizationPermissionRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -111,7 +111,7 @@ namespace LabelStudio
             PrepareReplaceArguments(
                 httpClient: HttpClient,
                 id: ref id,
-                permission: ref permission,
+                permissionKey: ref permissionKey,
                 request: request);
 
 
@@ -138,7 +138,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/organizations/{id}/permissions/{permission}",
+                                path: $"/api/organizations/{id}/permissions/{permissionKey}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -187,7 +187,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
-                    permission: permission!,
+                    permissionKey: permissionKey!,
                     request: request);
 
                 return __httpRequest;
@@ -207,7 +207,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Replace",
                                 methodName: "ReplaceAsync",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -241,7 +241,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Replace",
                                 methodName: "ReplaceAsync",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -282,7 +282,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Replace",
                                 methodName: "ReplaceAsync",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -330,7 +330,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Replace",
                                 methodName: "ReplaceAsync",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -352,7 +352,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Replace",
                                 methodName: "ReplaceAsync",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -570,8 +570,8 @@ namespace LabelStudio
         /// Replace the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="permission"></param>
-        /// <param name="requestPermission"></param>
         /// <param name="roles">
         /// Organization roles
         /// </param>
@@ -580,21 +580,21 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> ReplaceAsync(
             int id,
+            string permissionKey,
             string permission,
-            string requestPermission,
             global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>? roles = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::LabelStudio.OrganizationPermissionRequest
             {
-                Permission = requestPermission,
+                Permission = permission,
                 Roles = roles,
             };
 
             return await ReplaceAsync(
                 id: id,
-                permission: permission,
+                permissionKey: permissionKey,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
