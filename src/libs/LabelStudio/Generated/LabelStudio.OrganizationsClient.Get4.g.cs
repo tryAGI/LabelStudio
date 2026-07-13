@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareGet4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            ref string permission);
+            ref string permissionKey);
         partial void PrepareGet4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            string permission);
+            string permissionKey);
         partial void ProcessGet4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,19 +54,19 @@ namespace LabelStudio
         /// Retrieve the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.OrganizationPermission> Get4Async(
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get4AsResponseAsync(
                 id: id,
-                permission: permission,
+                permissionKey: permissionKey,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -84,13 +84,13 @@ namespace LabelStudio
         /// Retrieve the organization-level permission override for a given permission key.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="permission"></param>
+        /// <param name="permissionKey"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.OrganizationPermission>> Get4AsResponseAsync(
             int id,
-            string permission,
+            string permissionKey,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -99,7 +99,7 @@ namespace LabelStudio
             PrepareGet4Arguments(
                 httpClient: HttpClient,
                 id: ref id,
-                permission: ref permission);
+                permissionKey: ref permissionKey);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -125,7 +125,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/organizations/{id}/permissions/{permission}",
+                                path: $"/api/organizations/{id}/permissions/{permissionKey}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -168,7 +168,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
-                    permission: permission!);
+                    permissionKey: permissionKey!);
 
                 return __httpRequest;
             }
@@ -187,7 +187,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -221,7 +221,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -262,7 +262,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -310,7 +310,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -332,7 +332,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permission}\"",
+                                pathTemplate: "$\"/api/organizations/{id}/permissions/{permissionKey}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,

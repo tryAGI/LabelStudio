@@ -134,16 +134,14 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_role")]
-        public string ProjectRole { get; set; } = default!;
+        public string? ProjectRole { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_role_source")]
-        public string ProjectRoleSource { get; set; } = default!;
+        public string? ProjectRoleSource { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -193,6 +191,12 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="phone"></param>
+        /// <param name="projectRole">
+        /// Included only in responses
+        /// </param>
+        /// <param name="projectRoleSource">
+        /// Included only in responses
+        /// </param>
         /// <param name="userType">
         /// Included only in responses
         /// </param>
@@ -218,12 +222,6 @@ namespace LabelStudio
         /// <param name="organizationMembership">
         /// Included only in responses
         /// </param>
-        /// <param name="projectRole">
-        /// Included only in responses
-        /// </param>
-        /// <param name="projectRoleSource">
-        /// Included only in responses
-        /// </param>
         /// <param name="tags">
         /// Included only in responses
         /// </param>
@@ -242,6 +240,8 @@ namespace LabelStudio
             string? lastName,
             object? pause,
             string? phone,
+            string? projectRole,
+            string? projectRoleSource,
             string? userType,
             global::System.Collections.Generic.Dictionary<string, string> activeOrganizationMeta = default!,
             int id = default!,
@@ -250,8 +250,6 @@ namespace LabelStudio
             global::System.DateTime lastActivity = default!,
             global::LabelStudio.LseFields lseFields = default!,
             global::LabelStudio.OrganizationMembership organizationMembership = default!,
-            string projectRole = default!,
-            string projectRoleSource = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
         {
             this.ActiveOrganization = activeOrganization;
