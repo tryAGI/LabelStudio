@@ -454,6 +454,15 @@ namespace LabelStudio
         /// Dataset ID
         /// </param>
         /// <param name="filterGroup"></param>
+        /// <param name="isLocked">
+        /// Whether this data manager tab is locked against configuration changes
+        /// </param>
+        /// <param name="lockedAt">
+        /// Time when this view was locked
+        /// </param>
+        /// <param name="lockedBy">
+        /// User who locked this view
+        /// </param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </param>
@@ -474,6 +483,9 @@ namespace LabelStudio
             object? data = default,
             int? dataset = default,
             global::LabelStudio.FilterGroupRequest? filterGroup = default,
+            bool? isLocked = default,
+            global::System.DateTime? lockedAt = default,
+            int? lockedBy = default,
             int? order = default,
             object? ordering = default,
             object? selectedItems = default,
@@ -486,6 +498,9 @@ namespace LabelStudio
                 Data = data,
                 Dataset = dataset,
                 FilterGroup = filterGroup,
+                IsLocked = isLocked,
+                LockedAt = lockedAt,
+                LockedBy = lockedBy,
                 Order = order,
                 Ordering = ordering,
                 SelectedItems = selectedItems,

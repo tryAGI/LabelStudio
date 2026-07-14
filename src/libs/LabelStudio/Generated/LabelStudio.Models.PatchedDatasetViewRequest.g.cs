@@ -27,6 +27,24 @@ namespace LabelStudio
         public global::LabelStudio.FilterGroupRequest? FilterGroup { get; set; }
 
         /// <summary>
+        /// Whether this data manager tab is locked against configuration changes
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_locked")]
+        public bool? IsLocked { get; set; }
+
+        /// <summary>
+        /// Time when this view was locked
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("locked_at")]
+        public global::System.DateTime? LockedAt { get; set; }
+
+        /// <summary>
+        /// User who locked this view
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("locked_by")]
+        public int? LockedBy { get; set; }
+
+        /// <summary>
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("order")]
@@ -66,6 +84,15 @@ namespace LabelStudio
         /// Dataset ID
         /// </param>
         /// <param name="filterGroup"></param>
+        /// <param name="isLocked">
+        /// Whether this data manager tab is locked against configuration changes
+        /// </param>
+        /// <param name="lockedAt">
+        /// Time when this view was locked
+        /// </param>
+        /// <param name="lockedBy">
+        /// User who locked this view
+        /// </param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </param>
@@ -85,6 +112,9 @@ namespace LabelStudio
             object? data,
             int? dataset,
             global::LabelStudio.FilterGroupRequest? filterGroup,
+            bool? isLocked,
+            global::System.DateTime? lockedAt,
+            int? lockedBy,
             int? order,
             object? ordering,
             object? selectedItems,
@@ -93,6 +123,9 @@ namespace LabelStudio
             this.Data = data;
             this.Dataset = dataset;
             this.FilterGroup = filterGroup;
+            this.IsLocked = isLocked;
+            this.LockedAt = lockedAt;
+            this.LockedBy = lockedBy;
             this.Order = order;
             this.Ordering = ordering;
             this.SelectedItems = selectedItems;
