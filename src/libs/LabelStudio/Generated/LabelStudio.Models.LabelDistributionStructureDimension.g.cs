@@ -24,6 +24,12 @@ namespace LabelStudio
         public required global::System.Collections.Generic.IList<string> Choices { get; set; }
 
         /// <summary>
+        /// Dimension primary key used by Dimension-backed Data Manager result filters.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dimension_id")]
+        public int? DimensionId { get; set; }
+
+        /// <summary>
         /// Original from_name from labeling config or observed annotation results.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
@@ -57,6 +63,9 @@ namespace LabelStudio
         /// <param name="name">
         /// Original from_name from labeling config or observed annotation results.
         /// </param>
+        /// <param name="dimensionId">
+        /// Dimension primary key used by Dimension-backed Data Manager result filters.
+        /// </param>
         /// <param name="type">
         /// Result item type for this dimension when available.
         /// </param>
@@ -73,12 +82,14 @@ namespace LabelStudio
         public LabelDistributionStructureDimension(
             global::System.Collections.Generic.IList<string> choices,
             string name,
+            int? dimensionId,
             string? type,
             string? unsupportedReason,
             global::System.Collections.Generic.IList<string> choiceKeys = default!)
         {
             this.ChoiceKeys = choiceKeys;
             this.Choices = choices ?? throw new global::System.ArgumentNullException(nameof(choices));
+            this.DimensionId = dimensionId;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
             this.UnsupportedReason = unsupportedReason;
