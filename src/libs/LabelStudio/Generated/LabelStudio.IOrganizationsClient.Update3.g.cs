@@ -15,8 +15,8 @@ namespace LabelStudio
         /// Update organization membership or role for a specific user ID.<br/>
         /// **User Rotation Best Practices for API Usage**<br/>
         /// To maintain compliance with our licensing terms and ensure optimal performance of HumanSignal's APIs, please consider the following guidelines when managing user assignments:<br/>
-        /// * **Maintain a 7-Day Minimum Assignment**: Once a licensed seat is assigned to a user, maintain that assignment for at least seven consecutive days before rotating it to another user.<br/>
-        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the seven-day minimum period.<br/>
+        /// * **Maintain the Minimum Assignment duration**: Once a licensed seat is assigned to a user, maintain that assignment for at least the minimum consecutive days before rotating the user. This duration can be found in your enterprise contract language.<br/>
+        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the aforementioned minimum period.<br/>
         /// * **Adhere to API Update Frequency and Wait Periods**: When updating user assignments via our APIs, follow the recommended frequency and wait period guidelines provided in the HumanSignal API documentation. Avoid sending rapid, successive requests that might overload the endpoint. Instead, incorporate appropriate delays between calls as specified in the documentation.<br/>
         /// * **Avoid Overloading the API Endpoint**: Design your integration to batch or schedule updates where possible, and implement backoff strategies if the API indicates rate limiting. This helps prevent service disruptions and ensures a smooth operation.
         /// </summary>
@@ -42,8 +42,8 @@ namespace LabelStudio
         /// Update organization membership or role for a specific user ID.<br/>
         /// **User Rotation Best Practices for API Usage**<br/>
         /// To maintain compliance with our licensing terms and ensure optimal performance of HumanSignal's APIs, please consider the following guidelines when managing user assignments:<br/>
-        /// * **Maintain a 7-Day Minimum Assignment**: Once a licensed seat is assigned to a user, maintain that assignment for at least seven consecutive days before rotating it to another user.<br/>
-        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the seven-day minimum period.<br/>
+        /// * **Maintain the Minimum Assignment duration**: Once a licensed seat is assigned to a user, maintain that assignment for at least the minimum consecutive days before rotating the user. This duration can be found in your enterprise contract language.<br/>
+        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the aforementioned minimum period.<br/>
         /// * **Adhere to API Update Frequency and Wait Periods**: When updating user assignments via our APIs, follow the recommended frequency and wait period guidelines provided in the HumanSignal API documentation. Avoid sending rapid, successive requests that might overload the endpoint. Instead, incorporate appropriate delays between calls as specified in the documentation.<br/>
         /// * **Avoid Overloading the API Endpoint**: Design your integration to batch or schedule updates where possible, and implement backoff strategies if the API indicates rate limiting. This helps prevent service disruptions and ensures a smooth operation.
         /// </summary>
@@ -69,8 +69,8 @@ namespace LabelStudio
         /// Update organization membership or role for a specific user ID.<br/>
         /// **User Rotation Best Practices for API Usage**<br/>
         /// To maintain compliance with our licensing terms and ensure optimal performance of HumanSignal's APIs, please consider the following guidelines when managing user assignments:<br/>
-        /// * **Maintain a 7-Day Minimum Assignment**: Once a licensed seat is assigned to a user, maintain that assignment for at least seven consecutive days before rotating it to another user.<br/>
-        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the seven-day minimum period.<br/>
+        /// * **Maintain the Minimum Assignment duration**: Once a licensed seat is assigned to a user, maintain that assignment for at least the minimum consecutive days before rotating the user. This duration can be found in your enterprise contract language.<br/>
+        /// * **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the aforementioned minimum period.<br/>
         /// * **Adhere to API Update Frequency and Wait Periods**: When updating user assignments via our APIs, follow the recommended frequency and wait period guidelines provided in the HumanSignal API documentation. Avoid sending rapid, successive requests that might overload the endpoint. Instead, incorporate appropriate delays between calls as specified in the documentation.<br/>
         /// * **Avoid Overloading the API Endpoint**: Design your integration to batch or schedule updates where possible, and implement backoff strategies if the API indicates rate limiting. This helps prevent service disruptions and ensures a smooth operation.
         /// </summary>
