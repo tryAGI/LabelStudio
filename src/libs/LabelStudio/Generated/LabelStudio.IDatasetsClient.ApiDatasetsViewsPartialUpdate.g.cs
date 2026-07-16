@@ -52,9 +52,6 @@ namespace LabelStudio
         /// <param name="lockedAt">
         /// Time when this view was locked
         /// </param>
-        /// <param name="lockedBy">
-        /// User who locked this view
-        /// </param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
         /// </param>
@@ -77,7 +74,6 @@ namespace LabelStudio
             global::LabelStudio.FilterGroupRequest? filterGroup = default,
             bool? isLocked = default,
             global::System.DateTime? lockedAt = default,
-            int? lockedBy = default,
             int? order = default,
             object? ordering = default,
             object? selectedItems = default,
