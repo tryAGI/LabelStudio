@@ -517,6 +517,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatasetTasksMetadataResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatasetView))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.FilterGroup))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatasetViewLockedBy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DatasetViewRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.FilterGroupRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DefaultModelVersionNameResponse))]
@@ -880,7 +881,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SerializationOptionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SessionTimeoutPolicy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillCancelResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillErrorResponse))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1263,6 +1263,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_d4cd88601b7727f2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_42876ca72ef469f3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant1, global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant2>?), TypeInfoPropertyName = "ApiProjectsStatsTotalAgreementRetrieveResponseVariant2_34675e999e90b30b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillJobItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillJobItemResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillProgress))]
@@ -1294,6 +1295,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ValueCountsBackfillJob))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.VersionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.View))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ViewLockedBy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ViewOrderRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.Webhook))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.WebhookRequest))]
@@ -1758,8 +1760,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ActivityLogResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.KPIMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnalyticsView>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnnotationReview>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiAnnotationsBulkCreateResponseItem>))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -2142,6 +2142,8 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_d4cd88601b7727f2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_42876ca72ef469f3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant1, global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant2>?), TypeInfoPropertyName = "ApiProjectsStatsTotalAgreementRetrieveResponseVariant2_34675e999e90b30b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnnotationReview>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiAnnotationsBulkCreateResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.MaybeExpandedComment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AzureDatasetStorage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.GCSDatasetStorage>))]

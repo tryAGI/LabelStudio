@@ -47,10 +47,10 @@ namespace LabelStudio
         public global::System.DateTime? LockedAt { get; set; }
 
         /// <summary>
-        /// User who locked this view
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("locked_by")]
-        public int? LockedBy { get; set; }
+        public global::LabelStudio.DatasetViewLockedBy? LockedBy { get; set; }
 
         /// <summary>
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
@@ -99,7 +99,7 @@ namespace LabelStudio
         /// Time when this view was locked
         /// </param>
         /// <param name="lockedBy">
-        /// User who locked this view
+        /// Included only in responses
         /// </param>
         /// <param name="order">
         /// Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
@@ -125,7 +125,7 @@ namespace LabelStudio
             global::LabelStudio.FilterGroup? filterGroup,
             bool? isLocked,
             global::System.DateTime? lockedAt,
-            int? lockedBy,
+            global::LabelStudio.DatasetViewLockedBy? lockedBy,
             int? order,
             object? ordering,
             object? selectedItems,
