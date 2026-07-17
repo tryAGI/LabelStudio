@@ -15,6 +15,13 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::LabelStudio.ActionsEnum>? Actions { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("consecutive_failures")]
+        public int ConsecutiveFailures { get; set; } = default!;
+
+        /// <summary>
         /// Creation time<br/>
         /// Included only in responses
         /// </summary>
@@ -109,6 +116,9 @@ namespace LabelStudio
         /// <param name="sendPayload">
         /// If value is False send only action
         /// </param>
+        /// <param name="consecutiveFailures">
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Creation time<br/>
         /// Included only in responses
@@ -134,12 +144,14 @@ namespace LabelStudio
             int? project,
             bool? sendForAllActions,
             bool? sendPayload,
+            int consecutiveFailures = default!,
             global::System.DateTime createdAt = default!,
             int id = default!,
             int organization = default!,
             global::System.DateTime updatedAt = default!)
         {
             this.Actions = actions;
+            this.ConsecutiveFailures = consecutiveFailures;
             this.CreatedAt = createdAt;
             this.Headers = headers;
             this.Id = id;
