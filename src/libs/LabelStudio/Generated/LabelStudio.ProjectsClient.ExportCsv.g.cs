@@ -1,0 +1,905 @@
+
+#nullable enable
+
+namespace LabelStudio
+{
+    public partial class ProjectsClient
+    {
+
+
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ExportCsvSecurityRequirement0 =
+            new global::LabelStudio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
+                {                    new global::LabelStudio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        SchemeId = "Token",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ExportCsvSecurityRequirements =
+            new global::LabelStudio.EndPointSecurityRequirement[]
+            {                s_ExportCsvSecurityRequirement0,
+            };
+        partial void PrepareExportCsvArguments(
+            global::System.Net.Http.HttpClient httpClient,
+            ref int id,
+            ref string? ids,
+            ref bool? @implicit,
+            ref string? lastActivityGte,
+            ref string? lastActivityLte,
+            ref string? ordering,
+            ref string? role,
+            ref string? search,
+            ref string? tags,
+            ref string? userType,
+            ref bool? withDeleted);
+        partial void PrepareExportCsvRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            int id,
+            string? ids,
+            bool? @implicit,
+            string? lastActivityGte,
+            string? lastActivityLte,
+            string? ordering,
+            string? role,
+            string? search,
+            string? tags,
+            string? userType,
+            bool? withDeleted);
+        partial void ProcessExportCsvResponse(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+        partial void ProcessExportCsvResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref byte[] content);
+
+        /// <summary>
+        /// ✨ Export project members as CSV<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Download every member of a project matching the supplied member-list filters as a CSV file. This endpoint is restricted to users who can manage project settings.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="implicit"></param>
+        /// <param name="lastActivityGte"></param>
+        /// <param name="lastActivityLte"></param>
+        /// <param name="ordering"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userType"></param>
+        /// <param name="withDeleted"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<byte[]> ExportCsvAsync(
+            int id,
+            string? ids = default,
+            bool? @implicit = default,
+            string? lastActivityGte = default,
+            string? lastActivityLte = default,
+            string? ordering = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userType = default,
+            bool? withDeleted = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __response = await ExportCsvAsResponseAsync(
+                id: id,
+                ids: ids,
+                @implicit: @implicit,
+                lastActivityGte: lastActivityGte,
+                lastActivityLte: lastActivityLte,
+                ordering: ordering,
+                role: role,
+                search: search,
+                tags: tags,
+                userType: userType,
+                withDeleted: withDeleted,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// ✨ Export project members as CSV<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Download every member of a project matching the supplied member-list filters as a CSV file. This endpoint is restricted to users who can manage project settings.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="implicit"></param>
+        /// <param name="lastActivityGte"></param>
+        /// <param name="lastActivityLte"></param>
+        /// <param name="ordering"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userType"></param>
+        /// <param name="withDeleted"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::System.IO.Stream> ExportCsvAsStreamAsync(
+            int id,
+            string? ids = default,
+            bool? @implicit = default,
+            string? lastActivityGte = default,
+            string? lastActivityLte = default,
+            string? ordering = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userType = default,
+            bool? withDeleted = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            PrepareArguments(
+                client: HttpClient);
+            PrepareExportCsvArguments(
+                httpClient: HttpClient,
+                id: ref id,
+                ids: ref ids,
+                @implicit: ref @implicit,
+                lastActivityGte: ref lastActivityGte,
+                lastActivityLte: ref lastActivityLte,
+                ordering: ref ordering,
+                role: ref role,
+                search: ref search,
+                tags: ref tags,
+                userType: ref userType,
+                withDeleted: ref withDeleted);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ExportCsvSecurityRequirements,
+                operationName: "ExportCsvAsync");
+
+            using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::LabelStudio.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::LabelStudio.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: true);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+
+                            var __pathBuilder = new global::LabelStudio.PathBuilder(
+                                path: $"/api/projects/{id}/members/export/",
+                                baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("ids", ids)
+                                .AddOptionalParameter("implicit", @implicit?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("last_activity__gte", lastActivityGte)
+                                .AddOptionalParameter("last_activity__lte", lastActivityLte)
+                                .AddOptionalParameter("ordering", ordering)
+                                .AddOptionalParameter("role", role)
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user_type", userType)
+                                .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
+                                ;
+                            var __path = __pathBuilder.ToString();
+                __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Get,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in __authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                } 
+            }
+                global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
+
+                PrepareRequest(
+                    client: HttpClient,
+                    request: __httpRequest);
+                PrepareExportCsvRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    id: id!,
+                    ids: ids,
+                    @implicit: @implicit,
+                    lastActivityGte: lastActivityGte,
+                    lastActivityLte: lastActivityLte,
+                    ordering: ordering,
+                    role: role,
+                    search: search,
+                    tags: tags,
+                    userType: userType,
+                    withDeleted: withDeleted);
+
+                return __httpRequest;
+            }
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
+            {
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
+                {
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                    try
+                    {
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseHeadersRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                    }
+                    catch (global::System.Net.Http.HttpRequestException __exception)
+                    {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::LabelStudio.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
+                    {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
+                }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                try
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessExportCsvResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+
+                            try
+                            {
+                                __response.EnsureSuccessStatusCode();
+
+                                var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                return new global::LabelStudio.ResponseStream(__response, __content);
+                            }
+                            catch (global::System.Exception __ex)
+                            {
+                                string? __content = null;
+                                try
+                                {
+                                    __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+                                }
+                                catch (global::System.Exception)
+                                {
+                                }
+
+                                throw global::LabelStudio.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __ex,
+                                    responseBody: __content,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+
+                }
+                catch
+                {
+                    __response.Dispose();
+                    throw;
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
+            }
+        }
+        /// <summary>
+        /// ✨ Export project members as CSV<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Download every member of a project matching the supplied member-list filters as a CSV file. This endpoint is restricted to users who can manage project settings.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="ids"></param>
+        /// <param name="implicit"></param>
+        /// <param name="lastActivityGte"></param>
+        /// <param name="lastActivityLte"></param>
+        /// <param name="ordering"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userType"></param>
+        /// <param name="withDeleted"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<byte[]>> ExportCsvAsResponseAsync(
+            int id,
+            string? ids = default,
+            bool? @implicit = default,
+            string? lastActivityGte = default,
+            string? lastActivityLte = default,
+            string? ordering = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userType = default,
+            bool? withDeleted = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            PrepareArguments(
+                client: HttpClient);
+            PrepareExportCsvArguments(
+                httpClient: HttpClient,
+                id: ref id,
+                ids: ref ids,
+                @implicit: ref @implicit,
+                lastActivityGte: ref lastActivityGte,
+                lastActivityLte: ref lastActivityLte,
+                ordering: ref ordering,
+                role: ref role,
+                search: ref search,
+                tags: ref tags,
+                userType: ref userType,
+                withDeleted: ref withDeleted);
+
+
+            var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ExportCsvSecurityRequirements,
+                operationName: "ExportCsvAsync");
+
+            using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken);
+            var __effectiveCancellationToken = __timeoutCancellationTokenSource?.Token ?? cancellationToken;
+            var __effectiveReadResponseAsString = global::LabelStudio.AutoSDKRequestOptionsSupport.GetReadResponseAsString(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                fallbackValue: ReadResponseAsString);
+            var __maxAttempts = global::LabelStudio.AutoSDKRequestOptionsSupport.GetMaxAttempts(
+                clientOptions: Options,
+                requestOptions: requestOptions,
+                supportsRetry: true);
+
+            global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
+            {
+
+                            var __pathBuilder = new global::LabelStudio.PathBuilder(
+                                path: $"/api/projects/{id}/members/export/",
+                                baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("ids", ids)
+                                .AddOptionalParameter("implicit", @implicit?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("last_activity__gte", lastActivityGte)
+                                .AddOptionalParameter("last_activity__lte", lastActivityLte)
+                                .AddOptionalParameter("ordering", ordering)
+                                .AddOptionalParameter("role", role)
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user_type", userType)
+                                .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
+                                ;
+                            var __path = __pathBuilder.ToString();
+                __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
+                    path: __path,
+                    clientParameters: Options.QueryParameters,
+                    requestParameters: requestOptions?.QueryParameters);
+                var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
+                    method: global::System.Net.Http.HttpMethod.Get,
+                    requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
+#if NET6_0_OR_GREATER
+                __httpRequest.Version = global::System.Net.HttpVersion.Version11;
+                __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
+#endif
+
+            foreach (var __authorization in __authorizations)
+            {
+                if (__authorization.Type == "Http" ||
+                    __authorization.Type == "OAuth2" ||
+                    __authorization.Type == "OpenIdConnect")
+                {
+                    __httpRequest.Headers.Authorization = new global::System.Net.Http.Headers.AuthenticationHeaderValue(
+                        scheme: __authorization.Name,
+                        parameter: __authorization.Value);
+                }
+                else if (__authorization.Type == "ApiKey" &&
+                         __authorization.Location == "Header")
+                {
+                    __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
+                } 
+            }
+                global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
+                    request: __httpRequest,
+                    clientHeaders: Options.Headers,
+                    requestHeaders: requestOptions?.Headers);
+
+                PrepareRequest(
+                    client: HttpClient,
+                    request: __httpRequest);
+                PrepareExportCsvRequest(
+                    httpClient: HttpClient,
+                    httpRequestMessage: __httpRequest,
+                    id: id!,
+                    ids: ids,
+                    @implicit: @implicit,
+                    lastActivityGte: lastActivityGte,
+                    lastActivityLte: lastActivityLte,
+                    ordering: ordering,
+                    role: role,
+                    search: search,
+                    tags: tags,
+                    userType: userType,
+                    withDeleted: withDeleted);
+
+                return __httpRequest;
+            }
+
+            global::System.Net.Http.HttpRequestMessage? __httpRequest = null;
+            global::System.Net.Http.HttpResponseMessage? __response = null;
+            var __attemptNumber = 0;
+            try
+            {
+                for (var __attempt = 1; __attempt <= __maxAttempts; __attempt++)
+                {
+                    __attemptNumber = __attempt;
+                    __httpRequest = __CreateHttpRequest();
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                    try
+                    {
+                        __response = await HttpClient.SendAsync(
+                request: __httpRequest,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                    }
+                    catch (global::System.Net.Http.HttpRequestException __exception)
+                    {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
+                        var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: null,
+                                exception: __exception,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        if (!__willRetry)
+                        {
+                            throw;
+                        }
+
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    if (__response != null &&
+                        __attempt < __maxAttempts &&
+                        global::LabelStudio.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
+                    {
+                        var __retryDelay = global::LabelStudio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attempt,
+                                maxAttempts: __maxAttempts,
+                                willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                        __response.Dispose();
+                        __response = null;
+                        __httpRequest.Dispose();
+                        __httpRequest = null;
+                        await global::LabelStudio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
+                            retryDelay: __retryDelay,
+                            cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
+                        continue;
+                    }
+
+                    break;
+                }
+
+                if (__response == null)
+                {
+                    throw new global::System.InvalidOperationException("No response received.");
+                }
+
+                using (__response)
+                {
+
+                ProcessResponse(
+                    client: HttpClient,
+                    response: __response);
+                ProcessExportCsvResponse(
+                    httpClient: HttpClient,
+                    httpResponseMessage: __response);
+                if (__response.IsSuccessStatusCode)
+                {
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+                else
+                {
+                    await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
+                            clientOptions: Options,
+                            context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
+                                operationId: "ExportCsv",
+                                methodName: "ExportCsvAsync",
+                                pathTemplate: "$\"/api/projects/{id}/members/export/\"",
+                                httpMethod: "GET",
+                                baseUri: BaseUri,
+                                request: __httpRequest!,
+                                response: __response,
+                                exception: null,
+                                clientOptions: Options,
+                                requestOptions: requestOptions,
+                                attempt: __attemptNumber,
+                                maxAttempts: __maxAttempts,
+                                willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
+                                cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
+                }
+
+                            if (__effectiveReadResponseAsString)
+                            {
+                                var __content = await __response.Content.ReadAsByteArrayAsync(
+                #if NET5_0_OR_GREATER
+                                    __effectiveCancellationToken
+                #endif
+                                ).ConfigureAwait(false);
+
+                                ProcessExportCsvResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
+
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+
+                                    return new global::LabelStudio.AutoSDKHttpResponse<byte[]>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    throw global::LabelStudio.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: null,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    __response.EnsureSuccessStatusCode();
+                                    var __content = await __response.Content.ReadAsByteArrayAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    return new global::LabelStudio.AutoSDKHttpResponse<byte[]>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    string? __content = null;
+                                    try
+                                    {
+                                        __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                            __effectiveCancellationToken
+                #endif
+                                        ).ConfigureAwait(false);
+                                    }
+                                    catch (global::System.Exception)
+                                    {
+                                    }
+
+                                    throw global::LabelStudio.ApiException.Create(
+                                        statusCode: __response.StatusCode,
+                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        innerException: __ex,
+                                        responseBody: __content,
+                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                            __response.Headers,
+                                            h => h.Key,
+                                            h => h.Value));
+                                }
+                            }
+
+                }
+            }
+            finally
+            {
+                __httpRequest?.Dispose();
+            }
+        }
+    }
+}
