@@ -501,7 +501,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganizationMemberList> Update3Async(
             int id,
-            global::LabelStudio.OrganizationRoleEnum? role = default,
+            global::LabelStudio.AssignableOrganizationRoleEnum? role = default,
             int? userId = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

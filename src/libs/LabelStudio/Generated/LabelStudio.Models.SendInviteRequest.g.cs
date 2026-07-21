@@ -32,9 +32,9 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.OrganizationRoleEnum Role { get; set; }
+        public required global::LabelStudio.AssignableOrganizationRoleEnum Role { get; set; }
 
         /// <summary>
         /// Workspace IDs to grant access to
@@ -75,7 +75,7 @@ namespace LabelStudio
 #endif
         public SendInviteRequest(
             global::System.Collections.Generic.IList<string> emails,
-            global::LabelStudio.OrganizationRoleEnum role,
+            global::LabelStudio.AssignableOrganizationRoleEnum role,
             global::System.Collections.Generic.IList<int>? projects,
             global::System.Collections.Generic.IList<int>? workspaces)
         {

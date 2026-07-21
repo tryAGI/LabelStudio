@@ -34,7 +34,8 @@ namespace LabelStudio
         /// * `RE` - Reviewer<br/>
         /// * `AN` - Annotator<br/>
         /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated
+        /// * `NO` - Not Activated<br/>
+        /// * `VO` - View Only
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
@@ -136,7 +137,8 @@ namespace LabelStudio
         /// * `RE` - Reviewer<br/>
         /// * `AN` - Annotator<br/>
         /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated
+        /// * `NO` - Not Activated<br/>
+        /// * `VO` - View Only
         /// </param>
         /// <param name="emailNotificationSettings">
         /// Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}

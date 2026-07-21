@@ -13,7 +13,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum> Default { get; set; }
+        public required global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> Default { get; set; }
 
         /// <summary>
         /// 
@@ -32,7 +32,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("options")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum> Options { get; set; }
+        public required global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> Options { get; set; }
 
         /// <summary>
         /// 
@@ -66,8 +66,8 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConfigurablePermissionOption(
-            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum> @default,
-            global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum> options,
+            global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> @default,
+            global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> options,
             string permission,
             string? group,
             string? label,

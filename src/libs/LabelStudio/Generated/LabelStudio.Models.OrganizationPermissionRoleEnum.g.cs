@@ -36,6 +36,10 @@ namespace LabelStudio
         /// 
         /// </summary>
         Re,
+        /// <summary>
+        /// 
+        /// </summary>
+        Vo,
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ namespace LabelStudio
                 OrganizationPermissionRoleEnum.No => "NO",
                 OrganizationPermissionRoleEnum.Ow => "OW",
                 OrganizationPermissionRoleEnum.Re => "RE",
+                OrganizationPermissionRoleEnum.Vo => "VO",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -74,6 +79,7 @@ namespace LabelStudio
                 "NO" => OrganizationPermissionRoleEnum.No,
                 "OW" => OrganizationPermissionRoleEnum.Ow,
                 "RE" => OrganizationPermissionRoleEnum.Re,
+                "VO" => OrganizationPermissionRoleEnum.Vo,
                 _ => null,
             };
         }

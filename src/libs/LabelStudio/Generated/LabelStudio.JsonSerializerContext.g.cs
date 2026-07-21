@@ -25,6 +25,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.AuthMethodEnumJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.AuthMethodEnumNullableJsonConverter),
@@ -434,6 +438,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AnnotationRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AnnotationReview))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AnnotationReviewRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AssignableOrganizationRoleEnum), TypeInfoPropertyName = "AssignableOrganizationRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LabelStreamTaskDistributionEnum), TypeInfoPropertyName = "LabelStreamTaskDistributionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AssignmentSettingsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AssociatedProject))]
@@ -476,8 +481,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CommentSerializerWithExpandedUser))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LseUser))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ConfigurablePermissionOption))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationRoleEnum), TypeInfoPropertyName = "OrganizationRoleEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ControlTagWeightRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ConvertedFormat))]
@@ -522,6 +526,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.FilterGroupRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DefaultModelVersionNameResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DefaultRole))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationRoleEnum), TypeInfoPropertyName = "OrganizationRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.Dimension))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DimensionCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DimensionList))]
@@ -719,6 +724,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationPermission))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.OrganizationPermissionRoleEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationPermissionRoleEnum), TypeInfoPropertyName = "OrganizationPermissionRoleEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.OrganizationRoleEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationPermissionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PaginatedAllRolesProjectListList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.AllRolesProjectList>))]
@@ -832,6 +838,8 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectMemberBulkAssignRolesRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberIdentityVerificationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectReimport))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectRole))]
@@ -877,10 +885,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ScimSettingsUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ScimSettingsUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SendInviteRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SerializationOption))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SerializationOptionRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SessionTimeoutPolicy))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillCancelResponse))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -903,6 +907,10 @@ namespace LabelStudio
             typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumNullableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumNullableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.AuthMethodEnumJsonConverter),
 
@@ -1263,6 +1271,10 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_d4cd88601b7727f2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_42876ca72ef469f3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant1, global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant2>?), TypeInfoPropertyName = "ApiProjectsStatsTotalAgreementRetrieveResponseVariant2_34675e999e90b30b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SerializationOption))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SerializationOptionRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SessionTimeoutPolicy))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillCancelResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillErrorResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillJobItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillJobItemResponse))]
@@ -1489,7 +1501,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsImportCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsImportPredictionsCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsMembersBulkDestroyResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsMembersBulkCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsModelStatsAgreementRetrieveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsModelStatsAgreementGroundtruthRetrieveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsModelStatsPredictionRetrieveResponse))]
@@ -1591,15 +1602,16 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(long?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AnnotationHistoryActionEnum?), TypeInfoPropertyName = "NullableAnnotationHistoryActionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AssignableOrganizationRoleEnum?), TypeInfoPropertyName = "NullableAssignableOrganizationRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LabelStreamTaskDistributionEnum?), TypeInfoPropertyName = "NullableLabelStreamTaskDistributionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AuthMethodEnum?), TypeInfoPropertyName = "NullableAuthMethodEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AuthTypeEnum?), TypeInfoPropertyName = "NullableAuthTypeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StorageStatusEnum?), TypeInfoPropertyName = "NullableStorageStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PromptsStatusEnum?), TypeInfoPropertyName = "NullablePromptsStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.BudgetResetPeriodEnum?), TypeInfoPropertyName = "NullableBudgetResetPeriodEnum2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationRoleEnum?), TypeInfoPropertyName = "NullableOrganizationRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectImportStatusEnum?), TypeInfoPropertyName = "NullableProjectImportStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DataManagerFilterModeEnum?), TypeInfoPropertyName = "NullableDataManagerFilterModeEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OrganizationRoleEnum?), TypeInfoPropertyName = "NullableOrganizationRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EditionEnum?), TypeInfoPropertyName = "NullableEditionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum?), TypeInfoPropertyName = "NullableEstimatedDurationUnitEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SegmentationEnum?), TypeInfoPropertyName = "NullableSegmentationEnum2")]
@@ -1678,7 +1690,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.BlueprintList>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.BulkIndicatorRun>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.OrganizationRoleEnum>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AssignableOrganizationRoleEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<int>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DataQualityConfusionPair>))]
@@ -1716,6 +1728,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.OrganizationMemberContributedToProject>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.OrganizationMemberCreatedProject>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.OrganizationPermissionRoleEnum>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.OrganizationRoleEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AllRolesProjectList>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnnotationHistory>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Certificate>))]
@@ -1755,11 +1768,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiDmViewsPartialUpdateRequestDataOrderingItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiDmViewsUpdateRequestDataOrderingItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LabelCreateRequest>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateRequestMessage>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ImportApiRequest>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestFiltersItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ActivityLogResponse>))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1782,6 +1790,10 @@ namespace LabelStudio
             typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumNullableJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumNullableJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.AuthMethodEnumJsonConverter),
 
@@ -2142,6 +2154,11 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_d4cd88601b7727f2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_42876ca72ef469f3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant1, global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant2>?), TypeInfoPropertyName = "ApiProjectsStatsTotalAgreementRetrieveResponseVariant2_34675e999e90b30b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LabelCreateRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateRequestMessage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ImportApiRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestFiltersItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ActivityLogResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.KPIMetadata>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnalyticsView>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.AnnotationReview>))]
@@ -2262,6 +2279,8 @@ namespace LabelStudio
             options.Converters.Add(new global::LabelStudio.JsonConverters.AgreementMethodologyEnumNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumNullableJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.AuthMethodEnumJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.AuthMethodEnumNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.AuthTypeEnumJsonConverter());

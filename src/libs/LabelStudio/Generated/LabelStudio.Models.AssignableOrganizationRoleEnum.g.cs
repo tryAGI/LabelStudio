@@ -10,10 +10,9 @@ namespace LabelStudio
     /// * `RE` - Reviewer<br/>
     /// * `AN` - Annotator<br/>
     /// * `DI` - Deactivated<br/>
-    /// * `NO` - Not Activated<br/>
-    /// * `VO` - View Only
+    /// * `NO` - Not Activated
     /// </summary>
-    public enum OrganizationRoleEnum
+    public enum AssignableOrganizationRoleEnum
     {
         /// <summary>
         /// 
@@ -43,50 +42,44 @@ namespace LabelStudio
         /// 
         /// </summary>
         Re,
-        /// <summary>
-        /// 
-        /// </summary>
-        Vo,
     }
 
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class OrganizationRoleEnumExtensions
+    public static class AssignableOrganizationRoleEnumExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this OrganizationRoleEnum value)
+        public static string ToValueString(this AssignableOrganizationRoleEnum value)
         {
             return value switch
             {
-                OrganizationRoleEnum.Ad => "AD",
-                OrganizationRoleEnum.An => "AN",
-                OrganizationRoleEnum.Di => "DI",
-                OrganizationRoleEnum.Ma => "MA",
-                OrganizationRoleEnum.No => "NO",
-                OrganizationRoleEnum.Ow => "OW",
-                OrganizationRoleEnum.Re => "RE",
-                OrganizationRoleEnum.Vo => "VO",
+                AssignableOrganizationRoleEnum.Ad => "AD",
+                AssignableOrganizationRoleEnum.An => "AN",
+                AssignableOrganizationRoleEnum.Di => "DI",
+                AssignableOrganizationRoleEnum.Ma => "MA",
+                AssignableOrganizationRoleEnum.No => "NO",
+                AssignableOrganizationRoleEnum.Ow => "OW",
+                AssignableOrganizationRoleEnum.Re => "RE",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static OrganizationRoleEnum? ToEnum(string value)
+        public static AssignableOrganizationRoleEnum? ToEnum(string value)
         {
             return value switch
             {
-                "AD" => OrganizationRoleEnum.Ad,
-                "AN" => OrganizationRoleEnum.An,
-                "DI" => OrganizationRoleEnum.Di,
-                "MA" => OrganizationRoleEnum.Ma,
-                "NO" => OrganizationRoleEnum.No,
-                "OW" => OrganizationRoleEnum.Ow,
-                "RE" => OrganizationRoleEnum.Re,
-                "VO" => OrganizationRoleEnum.Vo,
+                "AD" => AssignableOrganizationRoleEnum.Ad,
+                "AN" => AssignableOrganizationRoleEnum.An,
+                "DI" => AssignableOrganizationRoleEnum.Di,
+                "MA" => AssignableOrganizationRoleEnum.Ma,
+                "NO" => AssignableOrganizationRoleEnum.No,
+                "OW" => AssignableOrganizationRoleEnum.Ow,
+                "RE" => AssignableOrganizationRoleEnum.Re,
                 _ => null,
             };
         }
