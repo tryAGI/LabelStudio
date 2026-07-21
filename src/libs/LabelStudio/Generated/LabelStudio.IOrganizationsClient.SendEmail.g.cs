@@ -76,7 +76,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task SendEmailAsync(
             global::System.Collections.Generic.IList<string> emails,
-            global::LabelStudio.OrganizationRoleEnum role,
+            global::LabelStudio.AssignableOrganizationRoleEnum role,
             global::System.Collections.Generic.IList<int>? projects = default,
             global::System.Collections.Generic.IList<int>? workspaces = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

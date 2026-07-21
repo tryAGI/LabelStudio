@@ -474,7 +474,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectRole> AddAsync(
             int project,
-            global::LabelStudio.OrganizationRoleEnum role,
+            global::LabelStudio.AssignableOrganizationRoleEnum role,
             int user,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

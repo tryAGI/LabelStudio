@@ -12303,6 +12303,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProjectMember'
           description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectMemberIdentityVerificationError'
+          description: ''
       security:
         - Token: []
       summary: ✨ Add project member
@@ -12477,10 +12483,7 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  assignments:
-                    type: integer
-                type: object
+                $ref: '#/components/schemas/ProjectMemberBulkAssignResponse'
           description: ''
       security:
         - Token: []
@@ -26571,6 +26574,24 @@ components:
       required:
         - annotation
       type: object
+    AssignableOrganizationRoleEnum:
+      description: |-
+        * `OW` - Owner
+        * `AD` - Administrator
+        * `MA` - Manager
+        * `RE` - Reviewer
+        * `AN` - Annotator
+        * `DI` - Deactivated
+        * `NO` - Not Activated
+      enum:
+        - OW
+        - AD
+        - MA
+        - RE
+        - AN
+        - DI
+        - 'NO'
+      type: string
     AssignmentSettings:
       properties:
         id:
@@ -28153,7 +28174,7 @@ components:
       properties:
         default:
           items:
-            $ref: '#/components/schemas/OrganizationRoleEnum'
+            $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
           type: array
         group:
           type: string
@@ -28161,7 +28182,7 @@ components:
           type: string
         options:
           items:
-            $ref: '#/components/schemas/OrganizationRoleEnum'
+            $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
           type: array
         permission:
           type: string
@@ -29296,6 +29317,7 @@ components:
             * `AN` - Annotator
             * `DI` - Deactivated
             * `NO` - Not Activated
+            * `VO` - View Only
         email_notification_settings:
           description: 'Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}'
           nullable: true
@@ -33107,6 +33129,7 @@ components:
             * `AN` - Annotator
             * `DI` - Deactivated
             * `NO` - Not Activated
+            * `VO` - View Only
         email_notification_settings:
           additionalProperties: {}
           description: |-
@@ -37079,6 +37102,7 @@ components:
         - AN
         - DI
         - 'NO'
+        - VO
       type: string
     OrganizationRoleEnum:
       description: |-
@@ -37089,6 +37113,7 @@ components:
         * `AN` - Annotator
         * `DI` - Deactivated
         * `NO` - Not Activated
+        * `VO` - View Only
       enum:
         - OW
         - AD
@@ -37097,6 +37122,7 @@ components:
         - AN
         - DI
         - 'NO'
+        - VO
       type: string
     PaginatedAllRolesProjectListList:
       properties:
@@ -38333,6 +38359,7 @@ components:
             * `AN` - Annotator
             * `DI` - Deactivated
             * `NO` - Not Activated
+            * `VO` - View Only
         email_notification_settings:
           description: 'Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}'
           nullable: true
@@ -39750,7 +39777,7 @@ components:
       properties:
         role:
           allOf:
-            - $ref: '#/components/schemas/OrganizationRoleEnum'
+            - $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
           description: |-
             Organization role
 
@@ -40863,11 +40890,23 @@ components:
       required:
         - all
       type: object
+    ProjectMemberBulkAssignResponse:
+      properties:
+        assignments:
+          type: integer
+        skipped_user_ids:
+          items:
+            type: integer
+          type: array
+      required:
+        - assignments
+        - skipped_user_ids
+      type: object
     ProjectMemberBulkAssignRolesRequest:
       properties:
         role:
           allOf:
-            - $ref: '#/components/schemas/OrganizationRoleEnum'
+            - $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
           description: |-
             Role
 
@@ -40885,6 +40924,15 @@ components:
       required:
         - role
         - user_id
+      type: object
+    ProjectMemberIdentityVerificationError:
+      properties:
+        skipped_user_ids:
+          items:
+            type: integer
+          type: array
+      required:
+        - skipped_user_ids
       type: object
     ProjectMemberRequest:
       properties:
@@ -40938,7 +40986,7 @@ components:
         project:
           type: integer
         role:
-          $ref: '#/components/schemas/OrganizationRoleEnum'
+          $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
         role_source:
           readOnly: true
           type: string
@@ -40956,7 +41004,7 @@ components:
         project:
           type: integer
         role:
-          $ref: '#/components/schemas/OrganizationRoleEnum'
+          $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
         user:
           type: integer
       required:
@@ -42645,7 +42693,7 @@ components:
           type: array
         role:
           allOf:
-            - $ref: '#/components/schemas/OrganizationRoleEnum'
+            - $ref: '#/components/schemas/AssignableOrganizationRoleEnum'
           description: |-
             Organization role
 
