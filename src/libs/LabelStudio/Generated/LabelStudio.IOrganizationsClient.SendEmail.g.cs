@@ -59,7 +59,7 @@ namespace LabelStudio
         /// Project IDs to grant access to
         /// </param>
         /// <param name="role">
-        /// Organization role<br/>
+        /// Organization role. Required unless user_type is viewonly.<br/>
         /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
@@ -67,6 +67,12 @@ namespace LabelStudio
         /// * `AN` - Annotator<br/>
         /// * `DI` - Deactivated<br/>
         /// * `NO` - Not Activated
+        /// </param>
+        /// <param name="userType">
+        /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `viewonly` - View Only<br/>
+        /// Default Value: standard
         /// </param>
         /// <param name="workspaces">
         /// Workspace IDs to grant access to
@@ -76,8 +82,9 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task SendEmailAsync(
             global::System.Collections.Generic.IList<string> emails,
-            global::LabelStudio.AssignableOrganizationRoleEnum role,
             global::System.Collections.Generic.IList<int>? projects = default,
+            global::LabelStudio.AssignableOrganizationRoleEnum? role = default,
+            global::LabelStudio.AssignableUserTypeEnum? userType = default,
             global::System.Collections.Generic.IList<int>? workspaces = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -22,7 +22,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<int>? Projects { get; set; }
 
         /// <summary>
-        /// Organization role<br/>
+        /// Organization role. Required unless user_type is viewonly.<br/>
         /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
@@ -33,8 +33,17 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.AssignableOrganizationRoleEnum Role { get; set; }
+        public global::LabelStudio.AssignableOrganizationRoleEnum? Role { get; set; }
+
+        /// <summary>
+        /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `viewonly` - View Only<br/>
+        /// Default Value: standard
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AssignableUserTypeEnumJsonConverter))]
+        public global::LabelStudio.AssignableUserTypeEnum? UserType { get; set; }
 
         /// <summary>
         /// Workspace IDs to grant access to
@@ -54,8 +63,11 @@ namespace LabelStudio
         /// <param name="emails">
         /// Email addresses
         /// </param>
+        /// <param name="projects">
+        /// Project IDs to grant access to
+        /// </param>
         /// <param name="role">
-        /// Organization role<br/>
+        /// Organization role. Required unless user_type is viewonly.<br/>
         /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
@@ -64,8 +76,11 @@ namespace LabelStudio
         /// * `DI` - Deactivated<br/>
         /// * `NO` - Not Activated
         /// </param>
-        /// <param name="projects">
-        /// Project IDs to grant access to
+        /// <param name="userType">
+        /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `viewonly` - View Only<br/>
+        /// Default Value: standard
         /// </param>
         /// <param name="workspaces">
         /// Workspace IDs to grant access to
@@ -75,13 +90,15 @@ namespace LabelStudio
 #endif
         public SendInviteRequest(
             global::System.Collections.Generic.IList<string> emails,
-            global::LabelStudio.AssignableOrganizationRoleEnum role,
             global::System.Collections.Generic.IList<int>? projects,
+            global::LabelStudio.AssignableOrganizationRoleEnum? role,
+            global::LabelStudio.AssignableUserTypeEnum? userType,
             global::System.Collections.Generic.IList<int>? workspaces)
         {
             this.Emails = emails ?? throw new global::System.ArgumentNullException(nameof(emails));
             this.Projects = projects;
             this.Role = role;
+            this.UserType = userType;
             this.Workspaces = workspaces;
         }
 

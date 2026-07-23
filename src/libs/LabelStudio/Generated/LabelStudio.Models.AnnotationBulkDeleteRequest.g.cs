@@ -9,7 +9,7 @@ namespace LabelStudio
     public sealed partial class AnnotationBulkDeleteRequest
     {
         /// <summary>
-        /// List of annotation IDs to delete
+        /// List of annotation IDs to delete. Maximum 100 IDs per request.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,7 +32,7 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="AnnotationBulkDeleteRequest" /> class.
         /// </summary>
         /// <param name="ids">
-        /// List of annotation IDs to delete
+        /// List of annotation IDs to delete. Maximum 100 IDs per request.
         /// </param>
         /// <param name="project"></param>
 #if NET7_0_OR_GREATER
