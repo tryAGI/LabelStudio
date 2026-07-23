@@ -496,6 +496,10 @@ namespace LabelStudio
         /// <param name="userId">
         /// Member
         /// </param>
+        /// <param name="userType">
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -503,6 +507,7 @@ namespace LabelStudio
             int id,
             global::LabelStudio.AssignableOrganizationRoleEnum? role = default,
             int? userId = default,
+            global::LabelStudio.StandardUserTypeEnum? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -510,6 +515,7 @@ namespace LabelStudio
             {
                 Role = role,
                 UserId = userId,
+                UserType = userType,
             };
 
             return await Update3Async(

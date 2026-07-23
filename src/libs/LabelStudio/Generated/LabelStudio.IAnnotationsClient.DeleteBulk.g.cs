@@ -6,7 +6,7 @@ namespace LabelStudio
     {
         /// <summary>
         /// Bulk delete annotations by IDs<br/>
-        /// Delete multiple annotations by their IDs. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
+        /// Delete multiple annotations by their IDs. At most 100 annotation IDs can be submitted in one request. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -19,7 +19,7 @@ namespace LabelStudio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Bulk delete annotations by IDs<br/>
-        /// Delete multiple annotations by their IDs. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
+        /// Delete multiple annotations by their IDs. At most 100 annotation IDs can be submitted in one request. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -32,10 +32,10 @@ namespace LabelStudio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Bulk delete annotations by IDs<br/>
-        /// Delete multiple annotations by their IDs. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
+        /// Delete multiple annotations by their IDs. At most 100 annotation IDs can be submitted in one request. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
         /// </summary>
         /// <param name="ids">
-        /// List of annotation IDs to delete
+        /// List of annotation IDs to delete. Maximum 100 IDs per request.
         /// </param>
         /// <param name="project"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

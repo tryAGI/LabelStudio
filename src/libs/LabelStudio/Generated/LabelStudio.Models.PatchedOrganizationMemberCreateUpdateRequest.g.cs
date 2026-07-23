@@ -29,6 +29,14 @@ namespace LabelStudio
         public int? UserId { get; set; }
 
         /// <summary>
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StandardUserTypeEnumJsonConverter))]
+        public global::LabelStudio.StandardUserTypeEnum? UserType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -50,15 +58,21 @@ namespace LabelStudio
         /// <param name="userId">
         /// Member
         /// </param>
+        /// <param name="userType">
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchedOrganizationMemberCreateUpdateRequest(
             global::LabelStudio.AssignableOrganizationRoleEnum? role,
-            int? userId)
+            int? userId,
+            global::LabelStudio.StandardUserTypeEnum? userType)
         {
             this.Role = role;
             this.UserId = userId;
+            this.UserType = userType;
         }
 
         /// <summary>
