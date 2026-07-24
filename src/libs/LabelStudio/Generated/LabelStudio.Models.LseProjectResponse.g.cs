@@ -345,6 +345,13 @@ namespace LabelStudio
         public bool? PauseOnFailedAnnotatorEvaluation { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("permissions")]
+        public global::System.Collections.Generic.IList<string> Permissions { get; set; } = default!;
+
+        /// <summary>
         /// Pinned date and time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pinned_at")]
@@ -815,6 +822,9 @@ namespace LabelStudio
         /// JSON-formatted labeling configuration<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="permissions">
+        /// Included only in responses
+        /// </param>
         /// <param name="queueDone">
         /// Included only in responses
         /// </param>
@@ -937,6 +947,7 @@ namespace LabelStudio
             int membersCount = default!,
             int numTasksWithAnnotations = default!,
             object parsedLabelConfig = default!,
+            global::System.Collections.Generic.IList<string> permissions = default!,
             int queueDone = default!,
             int queueLeft = default!,
             int queueTotal = default!,
@@ -1003,6 +1014,7 @@ namespace LabelStudio
             this.OverlapCohortPercentage = overlapCohortPercentage;
             this.ParsedLabelConfig = parsedLabelConfig;
             this.PauseOnFailedAnnotatorEvaluation = pauseOnFailedAnnotatorEvaluation;
+            this.Permissions = permissions;
             this.PinnedAt = pinnedAt;
             this.Prompts = prompts;
             this.QueueDone = queueDone;
