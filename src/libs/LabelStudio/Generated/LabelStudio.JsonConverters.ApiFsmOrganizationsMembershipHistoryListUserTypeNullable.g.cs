@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace LabelStudio.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class ApiFsmOrganizationsMembershipHistoryListUserTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserType?>
+    {
+        /// <inheritdoc />
+        public override global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserType? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserTypeExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserType)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserType?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserType? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListUserTypeExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}
