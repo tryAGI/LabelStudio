@@ -11,8 +11,8 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("child_filter")]
-        public global::LabelStudio.ChildFilterRequest? ChildFilter { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.ChildFilterRequest>? ChildFilters { get; set; }
 
         /// <summary>
         /// Field name
@@ -71,7 +71,7 @@ namespace LabelStudio
         /// <param name="type">
         /// Field type
         /// </param>
-        /// <param name="childFilter"></param>
+        /// <param name="childFilters"></param>
         /// <param name="index">
         /// Display order among root filters only
         /// </param>
@@ -88,12 +88,12 @@ namespace LabelStudio
             string column,
             string @operator,
             string type,
-            global::LabelStudio.ChildFilterRequest? childFilter,
+            global::System.Collections.Generic.IList<global::LabelStudio.ChildFilterRequest>? childFilters,
             int? index,
             int? parent,
             object? value)
         {
-            this.ChildFilter = childFilter;
+            this.ChildFilters = childFilters;
             this.Column = column ?? throw new global::System.ArgumentNullException(nameof(column));
             this.Index = index;
             this.Operator = @operator ?? throw new global::System.ArgumentNullException(nameof(@operator));
