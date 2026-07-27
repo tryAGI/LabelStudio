@@ -40,6 +40,12 @@ namespace LabelStudio
         public required global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> Value { get; set; }
 
         /// <summary>
+        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsCreateRequestDataFiltersItemChildFilter>? ChildFilters { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -60,6 +66,9 @@ namespace LabelStudio
         /// <param name="value">
         /// Value to filter by
         /// </param>
+        /// <param name="childFilters">
+        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -67,12 +76,14 @@ namespace LabelStudio
             global::LabelStudio.ApiDmViewsCreateRequestDataFiltersItemFilter filter,
             global::LabelStudio.ApiDmViewsCreateRequestDataFiltersItemOperator @operator,
             string type,
-            global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> value)
+            global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> value,
+            global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsCreateRequestDataFiltersItemChildFilter>? childFilters)
         {
             this.Filter = filter;
             this.Operator = @operator;
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Value = value;
+            this.ChildFilters = childFilters;
         }
 
         /// <summary>

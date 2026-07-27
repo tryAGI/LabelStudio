@@ -4,25 +4,25 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Example: {"filter":"filter:tasks:id","operator":"greater","type":"Number","value":123}
+    /// 
     /// </summary>
-    public sealed partial class ApiDmViewsUpdateRequestDataFiltersItem
+    public sealed partial class ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter
     {
         /// <summary>
         /// Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:&lt;li&gt;`filter:tasks:agreement` (Number) Agreement for annotation results for a specific task (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:annotations_results` (String) Annotation results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:annotators` (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:cancelled_annotations` (Number) Number of cancelled or skipped annotations for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:comments` (Number) Number of comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:completed_at` (Datetime) Time when a task was fully annotated&lt;/li&gt;&lt;li&gt;`filter:tasks:created_at` (Datetime) Time the task was created at&lt;/li&gt;&lt;li&gt;`filter:tasks:file_upload` (String) Name of the file uploaded to create the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:ground_truth` (Boolean) Ground truth status of the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:id` (Number) Task ID&lt;/li&gt;&lt;li&gt;`filter:tasks:inner_id` (Number) Task Inner ID, it starts from 1 for all projects&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_model_versions` (String) Model version used for the predictions&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_results` (String) Prediction results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_score` (Number) Prediction score for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewed` (Boolean) Whether the tasks have been reviewed (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewers` (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_accepted` (Number) Number of annotations accepted for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_rejected` (Number) Number of annotations rejected for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:total_annotations` (Number) Total number of annotations on a task&lt;/li&gt;&lt;li&gt;`filter:tasks:total_predictions` (Number) Total number of predictions for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:unresolved_comment_count` (Number) Number of unresolved comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:updated_at` (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)&lt;/li&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ApiDmViewsUpdateRequestDataFiltersItemFilterJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterFilterJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemFilter Filter { get; set; }
+        public required global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterFilter Filter { get; set; }
 
         /// <summary>
         /// Filter operator. Possible values:&lt;li&gt;`contains` Contains&lt;/li&gt;&lt;li&gt;`ends_with` Ends with&lt;/li&gt;&lt;li&gt;`equal` Equal to&lt;/li&gt;&lt;li&gt;`exists` Exists&lt;/li&gt;&lt;li&gt;`greater` Greater than&lt;/li&gt;&lt;li&gt;`greater_or_equal` Greater than or equal to&lt;/li&gt;&lt;li&gt;`in` Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`&lt;/li&gt;&lt;li&gt;`in_list` Field value is one of the items in the supplied list. Value must be a JSON array of strings or numbers, e.g. `[1, 2, 3]` or `["a", "b"]`. Supported only for Task ID, Inner ID, and `task.data.*` fields.&lt;/li&gt;&lt;li&gt;`less` Less than&lt;/li&gt;&lt;li&gt;`less_or_equal` Less than or equal to&lt;/li&gt;&lt;li&gt;`not_contains` Does not contain&lt;/li&gt;&lt;li&gt;`not_equal` Not equal to&lt;/li&gt;&lt;li&gt;`not_exists` Does not exist&lt;/li&gt;&lt;li&gt;`not_in` Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`&lt;/li&gt;&lt;li&gt;`not_in_list` Field value is NOT in the supplied list. Value must be a JSON array of strings or numbers. Supported only for Task ID, Inner ID, and `task.data.*` fields.&lt;/li&gt;&lt;li&gt;`starts_with` Starts with&lt;/li&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("operator")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ApiDmViewsUpdateRequestDataFiltersItemOperatorJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterOperatorJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemOperator Operator { get; set; }
+        public required global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterOperator Operator { get; set; }
 
         /// <summary>
         /// Type of the filter value. Possible values:&lt;li&gt;`Boolean` Boolean&lt;/li&gt;&lt;li&gt;`Datetime` Datetime string in `strftime('%Y-%m-%dT%H:%M:%S.%fZ')` format&lt;/li&gt;&lt;li&gt;`List` List of items&lt;/li&gt;&lt;li&gt;`Number` Float or Integer&lt;/li&gt;&lt;li&gt;`String` String&lt;/li&gt;&lt;li&gt;`Unknown` Unknown is explicitly converted to string format&lt;/li&gt;
@@ -40,19 +40,13 @@ namespace LabelStudio
         public required global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> Value { get; set; }
 
         /// <summary>
-        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemChildFilter>? ChildFilters { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiDmViewsUpdateRequestDataFiltersItem" /> class.
+        /// Initializes a new instance of the <see cref="ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter" /> class.
         /// </summary>
         /// <param name="filter">
         /// Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:&lt;li&gt;`filter:tasks:agreement` (Number) Agreement for annotation results for a specific task (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:annotations_results` (String) Annotation results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:annotators` (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:cancelled_annotations` (Number) Number of cancelled or skipped annotations for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:comments` (Number) Number of comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:completed_at` (Datetime) Time when a task was fully annotated&lt;/li&gt;&lt;li&gt;`filter:tasks:created_at` (Datetime) Time the task was created at&lt;/li&gt;&lt;li&gt;`filter:tasks:file_upload` (String) Name of the file uploaded to create the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:ground_truth` (Boolean) Ground truth status of the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:id` (Number) Task ID&lt;/li&gt;&lt;li&gt;`filter:tasks:inner_id` (Number) Task Inner ID, it starts from 1 for all projects&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_model_versions` (String) Model version used for the predictions&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_results` (String) Prediction results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_score` (Number) Prediction score for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewed` (Boolean) Whether the tasks have been reviewed (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewers` (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_accepted` (Number) Number of annotations accepted for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_rejected` (Number) Number of annotations rejected for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:total_annotations` (Number) Total number of annotations on a task&lt;/li&gt;&lt;li&gt;`filter:tasks:total_predictions` (Number) Total number of predictions for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:unresolved_comment_count` (Number) Number of unresolved comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:updated_at` (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)&lt;/li&gt;
@@ -66,30 +60,25 @@ namespace LabelStudio
         /// <param name="value">
         /// Value to filter by
         /// </param>
-        /// <param name="childFilters">
-        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public ApiDmViewsUpdateRequestDataFiltersItem(
-            global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemFilter filter,
-            global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemOperator @operator,
+        public ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter(
+            global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterFilter filter,
+            global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilterOperator @operator,
             string type,
-            global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> value,
-            global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsUpdateRequestDataFiltersItemChildFilter>? childFilters)
+            global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> value)
         {
             this.Filter = filter;
             this.Operator = @operator;
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Value = value;
-            this.ChildFilters = childFilters;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiDmViewsUpdateRequestDataFiltersItem" /> class.
+        /// Initializes a new instance of the <see cref="ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter" /> class.
         /// </summary>
-        public ApiDmViewsUpdateRequestDataFiltersItem()
+        public ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter()
         {
         }
 
