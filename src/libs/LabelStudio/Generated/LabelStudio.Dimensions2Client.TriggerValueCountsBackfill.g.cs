@@ -53,7 +53,7 @@ namespace LabelStudio
         /// - **project_id**: backfill a single specific project.<br/>
         /// - **num_projects**: batched org backfill — queue the next N not-yet-started projects (in ascending project ID order), leaving any currently in-flight jobs untouched. Repeat calls until `projects_remaining` in the response reaches 0.<br/>
         /// - **all_projects**: full org backfill — cancel all in-flight jobs and queue every remaining non-completed project at once.<br/>
-        /// Requires administrator or owner role, the Agreement V2 feature flag, and the value-counts write feature flag.
+        /// Requires administrator or owner role and access to Agreement V2 value counts.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -86,7 +86,7 @@ namespace LabelStudio
         /// - **project_id**: backfill a single specific project.<br/>
         /// - **num_projects**: batched org backfill — queue the next N not-yet-started projects (in ascending project ID order), leaving any currently in-flight jobs untouched. Repeat calls until `projects_remaining` in the response reaches 0.<br/>
         /// - **all_projects**: full org backfill — cancel all in-flight jobs and queue every remaining non-completed project at once.<br/>
-        /// Requires administrator or owner role, the Agreement V2 feature flag, and the value-counts write feature flag.
+        /// Requires administrator or owner role and access to Agreement V2 value counts.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -576,7 +576,7 @@ namespace LabelStudio
         /// - **project_id**: backfill a single specific project.<br/>
         /// - **num_projects**: batched org backfill — queue the next N not-yet-started projects (in ascending project ID order), leaving any currently in-flight jobs untouched. Repeat calls until `projects_remaining` in the response reaches 0.<br/>
         /// - **all_projects**: full org backfill — cancel all in-flight jobs and queue every remaining non-completed project at once.<br/>
-        /// Requires administrator or owner role, the Agreement V2 feature flag, and the value-counts write feature flag.
+        /// Requires administrator or owner role and access to Agreement V2 value counts.
         /// </summary>
         /// <param name="allProjects">
         /// Set to true to trigger a full org backfill (cancels in-flight jobs and queues all remaining projects).
