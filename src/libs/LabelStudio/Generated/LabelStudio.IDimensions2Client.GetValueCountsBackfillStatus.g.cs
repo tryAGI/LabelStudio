@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve the status of a Dimension value-counts backfill job for the authenticated user's active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and the Agreement V2 feature flag.
+        /// Retrieve the status of a Dimension value-counts backfill job for the authenticated user's active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and Agreement V2 access.
         /// </summary>
         /// <param name="jobId"></param>
         /// <param name="projectId"></param>
@@ -32,7 +32,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve the status of a Dimension value-counts backfill job for the authenticated user's active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and the Agreement V2 feature flag.
+        /// Retrieve the status of a Dimension value-counts backfill job for the authenticated user's active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and Agreement V2 access.
         /// </summary>
         /// <param name="jobId"></param>
         /// <param name="projectId"></param>

@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Validation error (feature flag disabled, invalid params, etc.)
+    /// Validation error (Agreement V2 unavailable, invalid params, etc.)
     /// </summary>
     public sealed partial class ApiDimensionsBackfillCreateResponse
     {
