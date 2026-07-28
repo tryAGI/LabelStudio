@@ -490,6 +490,13 @@ namespace LabelStudio
         /// <param name="annotatorEvaluationEnabled">
         /// Evaluate all annotators against ground truth
         /// </param>
+        /// <param name="annotatorEvaluationMetric">
+        /// Metric used to evaluate annotators. Defaults to gt_agreement.<br/>
+        /// * `gt_agreement` - Ground truth agreement<br/>
+        /// * `acceptance_score` - Acceptance score<br/>
+        /// * `rejection_rate` - Rejection rate<br/>
+        /// Default Value: gt_agreement
+        /// </param>
         /// <param name="annotatorEvaluationMinimumScore">
         /// Score required to pass evaluation<br/>
         /// Default Value: 95.00
@@ -634,6 +641,7 @@ namespace LabelStudio
             string? annotationLimitPercent = default,
             int? annotatorEvaluationContinuousTasks = default,
             bool? annotatorEvaluationEnabled = default,
+            global::LabelStudio.AnnotatorEvaluationMetricEnum? annotatorEvaluationMetric = default,
             string? annotatorEvaluationMinimumScore = default,
             int? annotatorEvaluationMinimumTasks = default,
             int? annotatorEvaluationOnboardingTasks = default,
@@ -695,6 +703,7 @@ namespace LabelStudio
                 AnnotationLimitPercent = annotationLimitPercent,
                 AnnotatorEvaluationContinuousTasks = annotatorEvaluationContinuousTasks,
                 AnnotatorEvaluationEnabled = annotatorEvaluationEnabled,
+                AnnotatorEvaluationMetric = annotatorEvaluationMetric,
                 AnnotatorEvaluationMinimumScore = annotatorEvaluationMinimumScore,
                 AnnotatorEvaluationMinimumTasks = annotatorEvaluationMinimumTasks,
                 AnnotatorEvaluationOnboardingTasks = annotatorEvaluationOnboardingTasks,

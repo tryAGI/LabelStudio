@@ -9,6 +9,12 @@ namespace LabelStudio
     public sealed partial class ApiDmViewsPartialUpdateRequestDataFiltersItem
     {
         /// <summary>
+        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter>? ChildFilters { get; set; }
+
+        /// <summary>
         /// Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](api:GET/api/dm/columns/) API endpoint. Possible values:&lt;li&gt;`filter:tasks:agreement` (Number) Agreement for annotation results for a specific task (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:annotations_results` (String) Annotation results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:annotators` (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:cancelled_annotations` (Number) Number of cancelled or skipped annotations for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:comments` (Number) Number of comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:completed_at` (Datetime) Time when a task was fully annotated&lt;/li&gt;&lt;li&gt;`filter:tasks:created_at` (Datetime) Time the task was created at&lt;/li&gt;&lt;li&gt;`filter:tasks:file_upload` (String) Name of the file uploaded to create the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:ground_truth` (Boolean) Ground truth status of the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:id` (Number) Task ID&lt;/li&gt;&lt;li&gt;`filter:tasks:inner_id` (Number) Task Inner ID, it starts from 1 for all projects&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_model_versions` (String) Model version used for the predictions&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_results` (String) Prediction results for the tasks&lt;/li&gt;&lt;li&gt;`filter:tasks:predictions_score` (Number) Prediction score for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewed` (Boolean) Whether the tasks have been reviewed (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviewers` (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_accepted` (Number) Number of annotations accepted for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:reviews_rejected` (Number) Number of annotations rejected for a task in review (Enterprise only)&lt;/li&gt;&lt;li&gt;`filter:tasks:total_annotations` (Number) Total number of annotations on a task&lt;/li&gt;&lt;li&gt;`filter:tasks:total_predictions` (Number) Total number of predictions for the task&lt;/li&gt;&lt;li&gt;`filter:tasks:unresolved_comment_count` (Number) Number of unresolved comments in a task&lt;/li&gt;&lt;li&gt;`filter:tasks:updated_at` (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)&lt;/li&gt;
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter")]
@@ -38,12 +44,6 @@ namespace LabelStudio
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OneOfJsonConverter<string, int?, float?, bool?, object, object>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> Value { get; set; }
-
-        /// <summary>
-        /// Ordered child filters AND-merged with their parent. Child filters cannot be nested.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
-        public global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter>? ChildFilters { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -79,11 +79,11 @@ namespace LabelStudio
             global::LabelStudio.OneOf<string, int?, float?, bool?, object, object> value,
             global::System.Collections.Generic.IList<global::LabelStudio.ApiDmViewsPartialUpdateRequestDataFiltersItemChildFilter>? childFilters)
         {
+            this.ChildFilters = childFilters;
             this.Filter = filter;
             this.Operator = @operator;
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Value = value;
-            this.ChildFilters = childFilters;
         }
 
         /// <summary>

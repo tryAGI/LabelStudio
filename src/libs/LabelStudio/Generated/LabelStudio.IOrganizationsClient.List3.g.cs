@@ -5,14 +5,8 @@ namespace LabelStudio
     public partial interface IOrganizationsClient
     {
         /// <summary>
-        /// ✨ Get organization members/roles<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Retrieve a list of all users and roles in a specific organization.
+        /// Get organization members list<br/>
+        /// Retrieve a list of the organization members and their IDs.
         /// </summary>
         /// <param name="contributedToProjects"></param>
         /// <param name="excludeProjectId"></param>
@@ -23,7 +17,6 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="role"></param>
-        /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="userLastActivityGte"></param>
@@ -35,30 +28,23 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLseOrganizationMemberListList> List3Async(
             int id,
             bool? contributedToProjects = default,
-            int? excludeProjectId = default,
-            int? excludeWorkspaceId = default,
+            double? excludeProjectId = default,
+            double? excludeWorkspaceId = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
-            string? role = default,
-            global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
+            global::System.Collections.Generic.IList<string>? role = default,
             string? search = default,
-            string? tags = default,
+            global::System.Collections.Generic.IList<int>? tags = default,
             global::System.DateTime? userLastActivityGte = default,
             global::System.DateTime? userLastActivityLte = default,
             global::System.Collections.Generic.IList<string>? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// ✨ Get organization members/roles<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Retrieve a list of all users and roles in a specific organization.
+        /// Get organization members list<br/>
+        /// Retrieve a list of the organization members and their IDs.
         /// </summary>
         /// <param name="contributedToProjects"></param>
         /// <param name="excludeProjectId"></param>
@@ -69,7 +55,6 @@ namespace LabelStudio
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
         /// <param name="role"></param>
-        /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="userLastActivityGte"></param>
@@ -81,16 +66,15 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLseOrganizationMemberListList>> List3AsResponseAsync(
             int id,
             bool? contributedToProjects = default,
-            int? excludeProjectId = default,
-            int? excludeWorkspaceId = default,
+            double? excludeProjectId = default,
+            double? excludeWorkspaceId = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
-            string? role = default,
-            global::LabelStudio.ApiOrganizationsMembershipsListScope? scope = default,
+            global::System.Collections.Generic.IList<string>? role = default,
             string? search = default,
-            string? tags = default,
+            global::System.Collections.Generic.IList<int>? tags = default,
             global::System.DateTime? userLastActivityGte = default,
             global::System.DateTime? userLastActivityLte = default,
             global::System.Collections.Generic.IList<string>? userType = default,

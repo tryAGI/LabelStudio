@@ -59,6 +59,17 @@ namespace LabelStudio
         public bool? AnnotatorEvaluationEnabled { get; set; }
 
         /// <summary>
+        /// Metric used to evaluate annotators. Defaults to gt_agreement.<br/>
+        /// * `gt_agreement` - Ground truth agreement<br/>
+        /// * `acceptance_score` - Acceptance score<br/>
+        /// * `rejection_rate` - Rejection rate<br/>
+        /// Default Value: gt_agreement
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_evaluation_metric")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AnnotatorEvaluationMetricEnumJsonConverter))]
+        public global::LabelStudio.AnnotatorEvaluationMetricEnum? AnnotatorEvaluationMetric { get; set; }
+
+        /// <summary>
         /// Score required to pass evaluation<br/>
         /// Default Value: 95.00
         /// </summary>
@@ -634,6 +645,13 @@ namespace LabelStudio
         /// <param name="annotatorEvaluationEnabled">
         /// Evaluate all annotators against ground truth
         /// </param>
+        /// <param name="annotatorEvaluationMetric">
+        /// Metric used to evaluate annotators. Defaults to gt_agreement.<br/>
+        /// * `gt_agreement` - Ground truth agreement<br/>
+        /// * `acceptance_score` - Acceptance score<br/>
+        /// * `rejection_rate` - Rejection rate<br/>
+        /// Default Value: gt_agreement
+        /// </param>
         /// <param name="annotatorEvaluationMinimumScore">
         /// Score required to pass evaluation<br/>
         /// Default Value: 95.00
@@ -881,6 +899,7 @@ namespace LabelStudio
             string? annotationLimitPercent,
             int? annotatorEvaluationContinuousTasks,
             bool? annotatorEvaluationEnabled,
+            global::LabelStudio.AnnotatorEvaluationMetricEnum? annotatorEvaluationMetric,
             string? annotatorEvaluationMinimumScore,
             int? annotatorEvaluationMinimumTasks,
             int? annotatorEvaluationOnboardingTasks,
@@ -970,6 +989,7 @@ namespace LabelStudio
             this.AnnotationLimitPercent = annotationLimitPercent;
             this.AnnotatorEvaluationContinuousTasks = annotatorEvaluationContinuousTasks;
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
+            this.AnnotatorEvaluationMetric = annotatorEvaluationMetric;
             this.AnnotatorEvaluationMinimumScore = annotatorEvaluationMinimumScore;
             this.AnnotatorEvaluationMinimumTasks = annotatorEvaluationMinimumTasks;
             this.AnnotatorEvaluationOnboardingTasks = annotatorEvaluationOnboardingTasks;
