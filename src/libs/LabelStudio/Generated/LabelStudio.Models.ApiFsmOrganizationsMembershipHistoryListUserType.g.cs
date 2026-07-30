@@ -11,6 +11,10 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        Flex,
+        /// <summary>
+        /// 
+        /// </summary>
         Service,
         /// <summary>
         /// 
@@ -34,6 +38,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                ApiFsmOrganizationsMembershipHistoryListUserType.Flex => "flex",
                 ApiFsmOrganizationsMembershipHistoryListUserType.Service => "service",
                 ApiFsmOrganizationsMembershipHistoryListUserType.Standard => "standard",
                 ApiFsmOrganizationsMembershipHistoryListUserType.Viewonly => "viewonly",
@@ -47,6 +52,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                "flex" => ApiFsmOrganizationsMembershipHistoryListUserType.Flex,
                 "service" => ApiFsmOrganizationsMembershipHistoryListUserType.Service,
                 "standard" => ApiFsmOrganizationsMembershipHistoryListUserType.Standard,
                 "viewonly" => ApiFsmOrganizationsMembershipHistoryListUserType.Viewonly,

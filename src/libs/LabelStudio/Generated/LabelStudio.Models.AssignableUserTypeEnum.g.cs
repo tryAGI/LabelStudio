@@ -5,10 +5,15 @@ namespace LabelStudio
 {
     /// <summary>
     /// * `standard` - Standard<br/>
+    /// * `flex` - Flex<br/>
     /// * `viewonly` - View Only
     /// </summary>
     public enum AssignableUserTypeEnum
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        Flex,
         /// <summary>
         /// 
         /// </summary>
@@ -31,6 +36,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                AssignableUserTypeEnum.Flex => "flex",
                 AssignableUserTypeEnum.Standard => "standard",
                 AssignableUserTypeEnum.Viewonly => "viewonly",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -43,6 +49,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                "flex" => AssignableUserTypeEnum.Flex,
                 "standard" => AssignableUserTypeEnum.Standard,
                 "viewonly" => AssignableUserTypeEnum.Viewonly,
                 _ => null,

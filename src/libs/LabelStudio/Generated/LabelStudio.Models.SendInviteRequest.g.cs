@@ -38,6 +38,7 @@ namespace LabelStudio
         /// <summary>
         /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
         /// * `standard` - Standard<br/>
+        /// * `flex` - Flex<br/>
         /// * `viewonly` - View Only<br/>
         /// Default Value: standard
         /// </summary>
@@ -79,6 +80,7 @@ namespace LabelStudio
         /// <param name="userType">
         /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
         /// * `standard` - Standard<br/>
+        /// * `flex` - Flex<br/>
         /// * `viewonly` - View Only<br/>
         /// Default Value: standard
         /// </param>
