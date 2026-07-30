@@ -188,6 +188,13 @@ namespace LabelStudio
         public int ProjectCount { get; set; } = default!;
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("structure_version")]
+        public int StructureVersion { get; set; } = default!;
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
@@ -291,6 +298,9 @@ namespace LabelStudio
         /// <param name="projectCount">
         /// Included only in responses
         /// </param>
+        /// <param name="structureVersion">
+        /// Included only in responses
+        /// </param>
         /// <param name="updatedAt">
         /// Included only in responses
         /// </param>
@@ -331,6 +341,7 @@ namespace LabelStudio
             int organization = default!,
             int pageCount = default!,
             int projectCount = default!,
+            int structureVersion = default!,
             global::System.DateTime updatedAt = default!,
             global::LabelStudio.UserSimple updatedBy = default!)
         {
@@ -361,6 +372,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.PageCount = pageCount;
             this.ProjectCount = projectCount;
+            this.StructureVersion = structureVersion;
             this.Summary = summary;
             this.Title = title;
             this.UpdatedAt = updatedAt;
