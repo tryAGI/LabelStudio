@@ -337,6 +337,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiActivityLogsListMethodNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdNullableJsonConverter),
@@ -1302,6 +1306,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiActivityLogsListMethodNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdNullableJsonConverter),
@@ -1643,6 +1651,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiUsersCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiUsersPartialUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiActivityLogsListMethod), TypeInfoPropertyName = "ApiActivityLogsListMethod2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiAnalyticsKpisRetrieveSegmentByTime), TypeInfoPropertyName = "ApiAnalyticsKpisRetrieveSegmentByTime2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiDmActionsCreateId), TypeInfoPropertyName = "ApiDmActionsCreateId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiFsmOrganizationsIdpAssignmentsHistoryListKind), TypeInfoPropertyName = "ApiFsmOrganizationsIdpAssignmentsHistoryListKind2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListSource), TypeInfoPropertyName = "ApiFsmOrganizationsMembershipHistoryListSource2")]
@@ -1894,6 +1903,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesPartialUpdateRequestType?), TypeInfoPropertyName = "NullableApiProjectsTasksAssigneesPartialUpdateRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestType?), TypeInfoPropertyName = "NullableApiProjectsTasksAssigneesCreateRequestType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiActivityLogsListMethod?), TypeInfoPropertyName = "NullableApiActivityLogsListMethod2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiAnalyticsKpisRetrieveSegmentByTime?), TypeInfoPropertyName = "NullableApiAnalyticsKpisRetrieveSegmentByTime2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiDmActionsCreateId?), TypeInfoPropertyName = "NullableApiDmActionsCreateId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiFsmOrganizationsIdpAssignmentsHistoryListKind?), TypeInfoPropertyName = "NullableApiFsmOrganizationsIdpAssignmentsHistoryListKind2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiFsmOrganizationsMembershipHistoryListSource?), TypeInfoPropertyName = "NullableApiFsmOrganizationsMembershipHistoryListSource2")]
@@ -1930,8 +1940,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DatasetColumn>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DatasetStorageAvailableDataType>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.DatasetStorageColumnType>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ConvertedFormat>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ChildFilter>))]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -2267,6 +2275,10 @@ namespace LabelStudio
 
             typeof(global::LabelStudio.JsonConverters.ApiActivityLogsListMethodNullableJsonConverter),
 
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeJsonConverter),
+
+            typeof(global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeNullableJsonConverter),
+
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdJsonConverter),
 
             typeof(global::LabelStudio.JsonConverters.ApiDmActionsCreateIdNullableJsonConverter),
@@ -2400,6 +2412,8 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_d4cd88601b7727f2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue_42876ca72ef469f3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant1, global::LabelStudio.ApiProjectsStatsTotalAgreementRetrieveResponseVariant2>?), TypeInfoPropertyName = "ApiProjectsStatsTotalAgreementRetrieveResponseVariant2_34675e999e90b30b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ConvertedFormat>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ChildFilter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Filter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.FilterRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.ChildFilterRequest>))]
@@ -2760,6 +2774,8 @@ namespace LabelStudio
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiProjectsTasksAssigneesCreateRequestTypeNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiActivityLogsListMethodJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiActivityLogsListMethodNullableJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeJsonConverter());
+            options.Converters.Add(new global::LabelStudio.JsonConverters.ApiAnalyticsKpisRetrieveSegmentByTimeNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiDmActionsCreateIdJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiDmActionsCreateIdNullableJsonConverter());
             options.Converters.Add(new global::LabelStudio.JsonConverters.ApiFsmOrganizationsIdpAssignmentsHistoryListKindJsonConverter());
