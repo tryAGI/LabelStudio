@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiAnalyticsKpisRetrieveSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ListSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,81 +21,42 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiAnalyticsKpisRetrieveSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ListSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiAnalyticsKpisRetrieveSecurityRequirement0,
+            {                s_ListSecurityRequirement0,
             };
-        partial void PrepareApiAnalyticsKpisRetrieveArguments(
+        partial void PrepareListArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::System.DateTime? end,
-            ref string kpiKey,
-            ref string? members,
-            ref string? projects,
-            ref bool? segmentByProject,
-            ref string? segmentByTime,
-            ref bool? segmentByUser,
-            ref global::System.DateTime? start,
-            ref string tz);
-        partial void PrepareApiAnalyticsKpisRetrieveRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.DateTime? end,
-            string kpiKey,
-            string? members,
-            string? projects,
-            bool? segmentByProject,
-            string? segmentByTime,
-            bool? segmentByUser,
-            global::System.DateTime? start,
-            string tz);
-        partial void ProcessApiAnalyticsKpisRetrieveResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiAnalyticsKpisRetrieveResponseContent(
+        partial void ProcessListResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get KPI data with optional segmentation<br/>
-        /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
+        /// ✨ List all available KPIs<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Returns metadata for all available KPI (Key Performance Indicator) classes. Each KPI includes its key, label, base class, dependencies, and configuration. This endpoint is useful for discovering available metrics and understanding their relationships and requirements.
         /// </summary>
-        /// <param name="end"></param>
-        /// <param name="kpiKey"></param>
-        /// <param name="members"></param>
-        /// <param name="projects"></param>
-        /// <param name="segmentByProject"></param>
-        /// <param name="segmentByTime"></param>
-        /// <param name="segmentByUser"></param>
-        /// <param name="start"></param>
-        /// <param name="tz"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.KPIDetailResponse> ApiAnalyticsKpisRetrieveAsync(
-            string kpiKey,
-            string tz,
-            global::System.DateTime? end = default,
-            string? members = default,
-            string? projects = default,
-            bool? segmentByProject = default,
-            string? segmentByTime = default,
-            bool? segmentByUser = default,
-            global::System.DateTime? start = default,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>> ListAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiAnalyticsKpisRetrieveAsResponseAsync(
-                kpiKey: kpiKey,
-                tz: tz,
-                end: end,
-                members: members,
-                projects: projects,
-                segmentByProject: segmentByProject,
-                segmentByTime: segmentByTime,
-                segmentByUser: segmentByUser,
-                start: start,
+            var __response = await ListAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -103,53 +64,32 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Get KPI data with optional segmentation<br/>
-        /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
+        /// ✨ List all available KPIs<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Returns metadata for all available KPI (Key Performance Indicator) classes. Each KPI includes its key, label, base class, dependencies, and configuration. This endpoint is useful for discovering available metrics and understanding their relationships and requirements.
         /// </summary>
-        /// <param name="end"></param>
-        /// <param name="kpiKey"></param>
-        /// <param name="members"></param>
-        /// <param name="projects"></param>
-        /// <param name="segmentByProject"></param>
-        /// <param name="segmentByTime"></param>
-        /// <param name="segmentByUser"></param>
-        /// <param name="start"></param>
-        /// <param name="tz"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.KPIDetailResponse>> ApiAnalyticsKpisRetrieveAsResponseAsync(
-            string kpiKey,
-            string tz,
-            global::System.DateTime? end = default,
-            string? members = default,
-            string? projects = default,
-            bool? segmentByProject = default,
-            string? segmentByTime = default,
-            bool? segmentByUser = default,
-            global::System.DateTime? start = default,
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>>> ListAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiAnalyticsKpisRetrieveArguments(
-                httpClient: HttpClient,
-                end: ref end,
-                kpiKey: ref kpiKey,
-                members: ref members,
-                projects: ref projects,
-                segmentByProject: ref segmentByProject,
-                segmentByTime: ref segmentByTime,
-                segmentByUser: ref segmentByUser,
-                start: ref start,
-                tz: ref tz);
+            PrepareListArguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiAnalyticsKpisRetrieveSecurityRequirements,
-                operationName: "ApiAnalyticsKpisRetrieveAsync");
+                securityRequirements: s_ListSecurityRequirements,
+                operationName: "ListAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -169,18 +109,8 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/analytics/kpis/{kpiKey}",
+                                path: "/api/analytics/kpis/",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
-                                .AddOptionalParameter("members", members)
-                                .AddOptionalParameter("projects", projects)
-                                .AddOptionalParameter("segment_by_project", segmentByProject?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("segment_by_time", segmentByTime)
-                                .AddOptionalParameter("segment_by_user", segmentByUser?.ToString().ToLowerInvariant())
-                                .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
-                                .AddRequiredParameter("tz", tz)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -218,18 +148,9 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiAnalyticsKpisRetrieveRequest(
+                PrepareListRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    end: end,
-                    kpiKey: kpiKey!,
-                    members: members,
-                    projects: projects,
-                    segmentByProject: segmentByProject,
-                    segmentByTime: segmentByTime,
-                    segmentByUser: segmentByUser,
-                    start: start,
-                    tz: tz!);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -246,9 +167,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiAnalyticsKpisRetrieve",
-                                methodName: "ApiAnalyticsKpisRetrieveAsync",
-                                pathTemplate: "$\"/api/analytics/kpis/{kpiKey}\"",
+                                operationId: "List",
+                                methodName: "ListAsync",
+                                pathTemplate: "\"/api/analytics/kpis/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -280,9 +201,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiAnalyticsKpisRetrieve",
-                                methodName: "ApiAnalyticsKpisRetrieveAsync",
-                                pathTemplate: "$\"/api/analytics/kpis/{kpiKey}\"",
+                                operationId: "List",
+                                methodName: "ListAsync",
+                                pathTemplate: "\"/api/analytics/kpis/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -321,9 +242,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiAnalyticsKpisRetrieve",
-                                methodName: "ApiAnalyticsKpisRetrieveAsync",
-                                pathTemplate: "$\"/api/analytics/kpis/{kpiKey}\"",
+                                operationId: "List",
+                                methodName: "ListAsync",
+                                pathTemplate: "\"/api/analytics/kpis/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -361,7 +282,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiAnalyticsKpisRetrieveResponse(
+                ProcessListResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -369,9 +290,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiAnalyticsKpisRetrieve",
-                                methodName: "ApiAnalyticsKpisRetrieveAsync",
-                                pathTemplate: "$\"/api/analytics/kpis/{kpiKey}\"",
+                                operationId: "List",
+                                methodName: "ListAsync",
+                                pathTemplate: "\"/api/analytics/kpis/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -391,9 +312,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiAnalyticsKpisRetrieve",
-                                methodName: "ApiAnalyticsKpisRetrieveAsync",
-                                pathTemplate: "$\"/api/analytics/kpis/{kpiKey}\"",
+                                operationId: "List",
+                                methodName: "ListAsync",
+                                pathTemplate: "\"/api/analytics/kpis/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -408,70 +329,6 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // 
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -485,7 +342,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiAnalyticsKpisRetrieveResponseContent(
+                                ProcessListResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -494,9 +351,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.KPIDetailResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>), JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.KPIDetailResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -526,9 +383,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.KPIDetailResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>), JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.KPIDetailResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.KPIMetadata>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
