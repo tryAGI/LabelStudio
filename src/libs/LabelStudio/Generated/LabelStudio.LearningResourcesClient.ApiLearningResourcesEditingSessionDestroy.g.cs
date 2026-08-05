@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiLearningResourcesModulesPagesPartialUpdateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiLearningResourcesEditingSessionDestroySecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,64 +21,47 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiLearningResourcesModulesPagesPartialUpdateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiLearningResourcesEditingSessionDestroySecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiLearningResourcesModulesPagesPartialUpdateSecurityRequirement0,
+            {                s_ApiLearningResourcesEditingSessionDestroySecurityRequirement0,
             };
-        partial void PrepareApiLearningResourcesModulesPagesPartialUpdateArguments(
+        partial void PrepareApiLearningResourcesEditingSessionDestroyArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id,
-            ref string moduleId,
-            ref string pageId,
-            global::LabelStudio.PatchedCoursePageUpdateRequest request);
-        partial void PrepareApiLearningResourcesModulesPagesPartialUpdateRequest(
+            ref int id);
+        partial void PrepareApiLearningResourcesEditingSessionDestroyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id,
-            string moduleId,
-            string pageId,
-            global::LabelStudio.PatchedCoursePageUpdateRequest request);
-        partial void ProcessApiLearningResourcesModulesPagesPartialUpdateResponse(
+            int id);
+        partial void ProcessApiLearningResourcesEditingSessionDestroyResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiLearningResourcesModulesPagesPartialUpdateResponseContent(
+        partial void ProcessApiLearningResourcesEditingSessionDestroyResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Save one page of a module<br/>
+        /// ✨ Heartbeat or release an editing session for a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Replace only the supplied keys of a single page. Rejects a write to a page another author holds the editing lock on with 409 `page_in_use`, a stale `page_version` with 409 `page_version_conflict`, and a page that moved to another module with 410 `page_moved`.
+        /// POST claims or refreshes presence on a (module, page). A bare heartbeat only tracks presence — it never claims the write lock. Pass `wants_to_edit` to actually claim it: the first session on a free page to ask becomes the writer, later ones stay read-only unless `takeover` is set (which itself implies `wants_to_edit`). Sessions expire 60 seconds after the last heartbeat. DELETE releases the caller's own session.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="pageId"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.CoursePageSaveResponse> ApiLearningResourcesModulesPagesPartialUpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.CourseEditingSessionResponse> ApiLearningResourcesEditingSessionDestroyAsync(
             int id,
-            string moduleId,
-            string pageId,
-
-            global::LabelStudio.PatchedCoursePageUpdateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiLearningResourcesModulesPagesPartialUpdateAsResponseAsync(
+            var __response = await ApiLearningResourcesEditingSessionDestroyAsResponseAsync(
                 id: id,
-                moduleId: moduleId,
-                pageId: pageId,
-
-                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -86,47 +69,35 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Save one page of a module<br/>
+        /// ✨ Heartbeat or release an editing session for a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Replace only the supplied keys of a single page. Rejects a write to a page another author holds the editing lock on with 409 `page_in_use`, a stale `page_version` with 409 `page_version_conflict`, and a page that moved to another module with 410 `page_moved`.
+        /// POST claims or refreshes presence on a (module, page). A bare heartbeat only tracks presence — it never claims the write lock. Pass `wants_to_edit` to actually claim it: the first session on a free page to ask becomes the writer, later ones stay read-only unless `takeover` is set (which itself implies `wants_to_edit`). Sessions expire 60 seconds after the last heartbeat. DELETE releases the caller's own session.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="pageId"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CoursePageSaveResponse>> ApiLearningResourcesModulesPagesPartialUpdateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseEditingSessionResponse>> ApiLearningResourcesEditingSessionDestroyAsResponseAsync(
             int id,
-            string moduleId,
-            string pageId,
-
-            global::LabelStudio.PatchedCoursePageUpdateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiLearningResourcesModulesPagesPartialUpdateArguments(
+            PrepareApiLearningResourcesEditingSessionDestroyArguments(
                 httpClient: HttpClient,
-                id: ref id,
-                moduleId: ref moduleId,
-                pageId: ref pageId,
-                request: request);
+                id: ref id);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiLearningResourcesModulesPagesPartialUpdateSecurityRequirements,
-                operationName: "ApiLearningResourcesModulesPagesPartialUpdateAsync");
+                securityRequirements: s_ApiLearningResourcesEditingSessionDestroySecurityRequirements,
+                operationName: "ApiLearningResourcesEditingSessionDestroyAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -146,7 +117,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/",
+                                path: $"/api/learning-resources/{id}/editing-session/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -154,7 +125,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Delete,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -177,12 +148,6 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -191,13 +156,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiLearningResourcesModulesPagesPartialUpdateRequest(
+                PrepareApiLearningResourcesEditingSessionDestroyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!,
-                    moduleId: moduleId!,
-                    pageId: pageId!,
-                    request: request);
+                    id: id!);
 
                 return __httpRequest;
             }
@@ -214,10 +176,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesModulesPagesPartialUpdate",
-                                methodName: "ApiLearningResourcesModulesPagesPartialUpdateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiLearningResourcesEditingSessionDestroy",
+                                methodName: "ApiLearningResourcesEditingSessionDestroyAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/editing-session/\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -248,10 +210,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesModulesPagesPartialUpdate",
-                                methodName: "ApiLearningResourcesModulesPagesPartialUpdateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiLearningResourcesEditingSessionDestroy",
+                                methodName: "ApiLearningResourcesEditingSessionDestroyAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/editing-session/\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -289,10 +251,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesModulesPagesPartialUpdate",
-                                methodName: "ApiLearningResourcesModulesPagesPartialUpdateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiLearningResourcesEditingSessionDestroy",
+                                methodName: "ApiLearningResourcesEditingSessionDestroyAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/editing-session/\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -329,7 +291,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiLearningResourcesModulesPagesPartialUpdateResponse(
+                ProcessApiLearningResourcesEditingSessionDestroyResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -337,10 +299,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesModulesPagesPartialUpdate",
-                                methodName: "ApiLearningResourcesModulesPagesPartialUpdateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiLearningResourcesEditingSessionDestroy",
+                                methodName: "ApiLearningResourcesEditingSessionDestroyAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/editing-session/\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -359,10 +321,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiLearningResourcesModulesPagesPartialUpdate",
-                                methodName: "ApiLearningResourcesModulesPagesPartialUpdateAsync",
-                                pathTemplate: "$\"/api/learning-resources/{id}/modules/{moduleId}/pages/{pageId}/\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiLearningResourcesEditingSessionDestroy",
+                                methodName: "ApiLearningResourcesEditingSessionDestroyAsync",
+                                pathTemplate: "$\"/api/learning-resources/{id}/editing-session/\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -389,7 +351,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiLearningResourcesModulesPagesPartialUpdateResponseContent(
+                                ProcessApiLearningResourcesEditingSessionDestroyResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -398,9 +360,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.CoursePageSaveResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.CourseEditingSessionResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CoursePageSaveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseEditingSessionResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -430,9 +392,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.CoursePageSaveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.CourseEditingSessionResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CoursePageSaveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.CourseEditingSessionResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,53 +433,6 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// ✨ Save one page of a module<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Replace only the supplied keys of a single page. Rejects a write to a page another author holds the editing lock on with 409 `page_in_use`, a stale `page_version` with 409 `page_version_conflict`, and a page that moved to another module with 410 `page_moved`.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="moduleId"></param>
-        /// <param name="pageId"></param>
-        /// <param name="blocks"></param>
-        /// <param name="pageVersion"></param>
-        /// <param name="summary"></param>
-        /// <param name="title"></param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.CoursePageSaveResponse> ApiLearningResourcesModulesPagesPartialUpdateAsync(
-            int id,
-            string moduleId,
-            string pageId,
-            global::System.Collections.Generic.IList<object>? blocks = default,
-            int? pageVersion = default,
-            string? summary = default,
-            string? title = default,
-            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::LabelStudio.PatchedCoursePageUpdateRequest
-            {
-                Blocks = blocks,
-                PageVersion = pageVersion,
-                Summary = summary,
-                Title = title,
-            };
-
-            return await ApiLearningResourcesModulesPagesPartialUpdateAsync(
-                id: id,
-                moduleId: moduleId,
-                pageId: pageId,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
