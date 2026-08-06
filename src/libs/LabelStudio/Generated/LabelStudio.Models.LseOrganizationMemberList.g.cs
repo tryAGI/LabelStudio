@@ -28,6 +28,13 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListCreatedProject>? CreatedProjects { get; set; }
 
         /// <summary>
+        /// Per-member Flex claim/window state for Members UI (FIT-2339).<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("flex")]
+        public object? Flex { get; set; }
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -105,6 +112,10 @@ namespace LabelStudio
         /// <param name="createdProjects">
         /// Included only in responses
         /// </param>
+        /// <param name="flex">
+        /// Per-member Flex claim/window state for Members UI (FIT-2339).<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="userType">
         /// Included only in responses
         /// </param>
@@ -129,6 +140,7 @@ namespace LabelStudio
             object? concurrency,
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListContributedToProject>? contributedToProjects,
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListCreatedProject>? createdProjects,
+            object? flex,
             string? userType,
             int id = default!,
             string role = default!,
@@ -138,6 +150,7 @@ namespace LabelStudio
             this.Concurrency = concurrency;
             this.ContributedToProjects = contributedToProjects;
             this.CreatedProjects = createdProjects;
+            this.Flex = flex;
             this.Id = id;
             this.Organization = organization;
             this.Role = role;
