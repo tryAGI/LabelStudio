@@ -16,6 +16,13 @@ namespace LabelStudio
         public bool Active { get; set; } = default!;
 
         /// <summary>
+        /// Flex claim/window state for FE expired-seat UX (FIT-2339). Non-Flex → null.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("flex")]
+        public object? Flex { get; set; }
+
+        /// <summary>
         /// Organization ID<br/>
         /// Included only in responses
         /// </summary>
@@ -31,6 +38,12 @@ namespace LabelStudio
         public required string Role { get; set; }
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
+        public string? UserType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,6 +53,13 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="OrganizationMembership" /> class.
         /// </summary>
         /// <param name="role"></param>
+        /// <param name="flex">
+        /// Flex claim/window state for FE expired-seat UX (FIT-2339). Non-Flex → null.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="userType">
+        /// Included only in responses
+        /// </param>
         /// <param name="active">
         /// Included only in responses
         /// </param>
@@ -52,12 +72,16 @@ namespace LabelStudio
 #endif
         public OrganizationMembership(
             string role,
+            object? flex,
+            string? userType,
             bool active = default!,
             int organizationId = default!)
         {
             this.Active = active;
+            this.Flex = flex;
             this.OrganizationId = organizationId;
             this.Role = role ?? throw new global::System.ArgumentNullException(nameof(role));
+            this.UserType = userType;
         }
 
         /// <summary>
