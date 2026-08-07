@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.DatabricksExportStorageRequest request);
+            global::LabelStudio.DatabricksExportStorageWriteRequest request);
         partial void PrepareCreate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.DatabricksExportStorageRequest request);
+            global::LabelStudio.DatabricksExportStorageWriteRequest request);
         partial void ProcessCreate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -57,7 +57,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.DatabricksExportStorage> Create2Async(
 
-            global::LabelStudio.DatabricksExportStorageRequest request,
+            global::LabelStudio.DatabricksExportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -86,7 +86,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.DatabricksExportStorage>> Create2AsResponseAsync(
 
-            global::LabelStudio.DatabricksExportStorageRequest request,
+            global::LabelStudio.DatabricksExportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -481,18 +481,6 @@ namespace LabelStudio
         /// <param name="host">
         /// Databricks workspace base URL (https://...)
         /// </param>
-        /// <param name="lastSync">
-        /// Last sync finished time
-        /// </param>
-        /// <param name="lastSyncCount">
-        /// Count of tasks synced last time
-        /// </param>
-        /// <param name="lastSyncJob">
-        /// Last sync job ID
-        /// </param>
-        /// <param name="meta">
-        /// Meta and debug information about storage processes
-        /// </param>
         /// <param name="prefix">
         /// Export path prefix under the volume
         /// </param>
@@ -505,14 +493,6 @@ namespace LabelStudio
         /// <param name="requestTimeoutS"></param>
         /// <param name="schema">
         /// UC schema name
-        /// </param>
-        /// <param name="status">
-        /// * `initialized` - Initialized<br/>
-        /// * `queued` - Queued<br/>
-        /// * `in_progress` - In progress<br/>
-        /// * `failed` - Failed<br/>
-        /// * `completed` - Completed<br/>
-        /// * `completed_with_errors` - Completed with errors
         /// </param>
         /// <param name="streamChunkBytes"></param>
         /// <param name="synchronizable">
@@ -527,9 +507,6 @@ namespace LabelStudio
         /// <param name="token">
         /// Databricks personal access token (required for PAT mode)<br/>
         /// Included only in requests
-        /// </param>
-        /// <param name="traceback">
-        /// Traceback report for the last failed sync
         /// </param>
         /// <param name="useBlobUrls">
         /// Generate blob URLs in tasks
@@ -555,25 +532,19 @@ namespace LabelStudio
             bool? canDeleteObjects = default,
             string? clientId = default,
             string? description = default,
-            global::System.DateTime? lastSync = default,
-            int? lastSyncCount = default,
-            string? lastSyncJob = default,
-            object? meta = default,
             string? prefix = default,
             string? regexFilter = default,
             int? requestTimeoutS = default,
-            global::LabelStudio.StorageStatusEnum? status = default,
             long? streamChunkBytes = default,
             bool? synchronizable = default,
             string? tenantId = default,
             string? title = default,
-            string? traceback = default,
             bool? useBlobUrls = default,
             bool? verifyTls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.DatabricksExportStorageRequest
+            var __request = new global::LabelStudio.DatabricksExportStorageWriteRequest
             {
                 AuthType = authType,
                 CanDeleteObjects = canDeleteObjects,
@@ -582,22 +553,16 @@ namespace LabelStudio
                 ClientSecret = clientSecret,
                 Description = description,
                 Host = host,
-                LastSync = lastSync,
-                LastSyncCount = lastSyncCount,
-                LastSyncJob = lastSyncJob,
-                Meta = meta,
                 Prefix = prefix,
                 Project = project,
                 RegexFilter = regexFilter,
                 RequestTimeoutS = requestTimeoutS,
                 Schema = schema,
-                Status = status,
                 StreamChunkBytes = streamChunkBytes,
                 Synchronizable = synchronizable,
                 TenantId = tenantId,
                 Title = title,
                 Token = token,
-                Traceback = traceback,
                 UseBlobUrls = useBlobUrls,
                 VerifyTls = verifyTls,
                 Volume = volume,

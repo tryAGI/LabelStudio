@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id,
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request);
+            global::LabelStudio.PatchedViewRequestRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string id,
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request);
+            global::LabelStudio.PatchedViewRequestRequest request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,7 +55,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.View> UpdateAsync(
             string id,
 
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request,
+            global::LabelStudio.PatchedViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +81,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.View>> UpdateAsResponseAsync(
             string id,
 
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request,
+            global::LabelStudio.PatchedViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -448,7 +448,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="data">
-        /// Custom view data
+        /// Established public view payload nested under ``data``.
         /// </param>
         /// <param name="project">
         /// Project ID
@@ -458,12 +458,12 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.View> UpdateAsync(
             string id,
-            global::LabelStudio.ApiDmViewsPartialUpdateRequestData? data = default,
+            global::LabelStudio.ViewDataRequestRequest? data = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiDmViewsPartialUpdateRequest
+            var __request = new global::LabelStudio.PatchedViewRequestRequest
             {
                 Data = data,
                 Project = project,

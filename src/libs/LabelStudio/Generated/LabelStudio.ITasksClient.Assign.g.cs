@@ -24,7 +24,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
+            global::LabelStudio.TaskAssigneesMutationRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -47,7 +47,7 @@ namespace LabelStudio
             int id,
             int taskPk,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequest request,
+            global::LabelStudio.TaskAssigneesMutationRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -63,18 +63,17 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="taskPk"></param>
         /// <param name="type">
-        /// Assignment type. Use AN for annotate or RE for review.
+        /// * `AN` - Annotate<br/>
+        /// * `RE` - Review
         /// </param>
-        /// <param name="users">
-        /// List of user IDs to assign
-        /// </param>
+        /// <param name="users"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.TaskAssignment> AssignAsync(
             int id,
             int taskPk,
-            global::LabelStudio.ApiProjectsTasksAssigneesCreateRequestType type,
+            global::LabelStudio.AssignmentTypeEnum type,
             global::System.Collections.Generic.IList<int> users,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

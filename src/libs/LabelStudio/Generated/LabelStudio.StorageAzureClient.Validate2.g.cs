@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareValidate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiStoragesExportAzureValidateCreateRequest request);
+            global::LabelStudio.AzureBlobExportStorageValidateRequest request);
         partial void PrepareValidate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiStoragesExportAzureValidateCreateRequest request);
+            global::LabelStudio.AzureBlobExportStorageValidateRequest request);
         partial void ProcessValidate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,7 +46,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task Validate2Async(
 
-            global::LabelStudio.ApiStoragesExportAzureValidateCreateRequest request,
+            global::LabelStudio.AzureBlobExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,7 +67,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> Validate2AsResponseAsync(
 
-            global::LabelStudio.ApiStoragesExportAzureValidateCreateRequest request,
+            global::LabelStudio.AzureBlobExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -421,14 +421,13 @@ namespace LabelStudio
         /// Azure Blob account name
         /// </param>
         /// <param name="canDeleteObjects">
-        /// Deletion from storage enabled<br/>
-        /// Default Value: false
+        /// Deletion from storage enabled
         /// </param>
         /// <param name="container">
         /// Azure blob container
         /// </param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="id">
         /// Storage ID. If set, storage with specified ID will be updated
@@ -437,15 +436,25 @@ namespace LabelStudio
         /// Azure blob prefix name
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="regexFilter">
+        /// Cloud storage regex for filtering objects
+        /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
         /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
+        /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task Validate2Async(
+            int project,
             string? accountKey = default,
             string? accountName = default,
             bool? canDeleteObjects = default,
@@ -453,12 +462,14 @@ namespace LabelStudio
             string? description = default,
             int? id = default,
             string? prefix = default,
-            int? project = default,
+            string? regexFilter = default,
+            bool? synchronizable = default,
             string? title = default,
+            bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiStoragesExportAzureValidateCreateRequest
+            var __request = new global::LabelStudio.AzureBlobExportStorageValidateRequest
             {
                 AccountKey = accountKey,
                 AccountName = accountName,
@@ -468,7 +479,10 @@ namespace LabelStudio
                 Id = id,
                 Prefix = prefix,
                 Project = project,
+                RegexFilter = regexFilter,
+                Synchronizable = synchronizable,
                 Title = title,
+                UseBlobUrls = useBlobUrls,
             };
 
             await Validate2Async(

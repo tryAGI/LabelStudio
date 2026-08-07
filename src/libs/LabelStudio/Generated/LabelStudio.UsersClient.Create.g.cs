@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiUsersCreateRequest request);
+            global::LabelStudio.LseUserRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiUsersCreateRequest request);
+            global::LabelStudio.LseUserRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,7 +51,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> CreateAsync(
 
-            global::LabelStudio.ApiUsersCreateRequest request,
+            global::LabelStudio.LseUserRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,7 +74,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>> CreateAsResponseAsync(
 
-            global::LabelStudio.ApiUsersCreateRequest request,
+            global::LabelStudio.LseUserRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -437,58 +437,49 @@ namespace LabelStudio
         /// Create new user<br/>
         /// Create a user in Label Studio.
         /// </summary>
+        /// <param name="activeOrganization"></param>
         /// <param name="allowNewsletters">
-        /// Whether the user allows newsletters
+        /// Allow sending newsletters to user
         /// </param>
-        /// <param name="avatar">
-        /// Avatar URL of the user
+        /// <param name="customHotkeys">
+        /// Custom keyboard shortcuts configuration for the user interface
         /// </param>
-        /// <param name="email">
-        /// Email of the user
+        /// <param name="dateJoined"></param>
+        /// <param name="email"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password">
+        /// Included only in requests
         /// </param>
-        /// <param name="firstName">
-        /// First name of the user
-        /// </param>
-        /// <param name="id">
-        /// User ID
-        /// </param>
-        /// <param name="initials">
-        /// Initials of the user
-        /// </param>
-        /// <param name="lastName">
-        /// Last name of the user
-        /// </param>
-        /// <param name="phone">
-        /// Phone number of the user
-        /// </param>
-        /// <param name="username">
-        /// Username of the user
-        /// </param>
+        /// <param name="phone"></param>
+        /// <param name="username"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> CreateAsync(
+            string password,
+            string username,
+            int? activeOrganization = default,
             bool? allowNewsletters = default,
-            string? avatar = default,
+            object? customHotkeys = default,
+            global::System.DateTime? dateJoined = default,
             string? email = default,
             string? firstName = default,
-            int? id = default,
-            string? initials = default,
             string? lastName = default,
             string? phone = default,
-            string? username = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiUsersCreateRequest
+            var __request = new global::LabelStudio.LseUserRequest
             {
+                ActiveOrganization = activeOrganization,
                 AllowNewsletters = allowNewsletters,
-                Avatar = avatar,
+                CustomHotkeys = customHotkeys,
+                DateJoined = dateJoined,
                 Email = email,
                 FirstName = firstName,
-                Id = id,
-                Initials = initials,
                 LastName = lastName,
+                Password = password,
                 Phone = phone,
                 Username = username,
             };

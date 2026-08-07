@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.ApiAnnotationsPartialUpdateRequest request);
+            global::LabelStudio.PatchedAnnotationRequest request);
         partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.ApiAnnotationsPartialUpdateRequest request);
+            global::LabelStudio.PatchedAnnotationRequest request);
         partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,7 +55,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Annotation> UpdateAsync(
             int id,
 
-            global::LabelStudio.ApiAnnotationsPartialUpdateRequest request,
+            global::LabelStudio.PatchedAnnotationRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +81,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Annotation>> UpdateAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiAnnotationsPartialUpdateRequest request,
+            global::LabelStudio.PatchedAnnotationRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -447,25 +447,55 @@ namespace LabelStudio
         /// Update existing attributes on an annotation.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="completedBy">
-        /// User ID of the person who created this annotation
+        /// <param name="bulkCreated">
+        /// Annotation was created in bulk mode
+        /// </param>
+        /// <param name="completedBy"></param>
+        /// <param name="draftCreatedAt">
+        /// Draft creation time
         /// </param>
         /// <param name="groundTruth">
-        /// This annotation is a Ground Truth
+        /// This annotation is a Ground Truth (ground_truth)
+        /// </param>
+        /// <param name="importId">
+        /// Original annotation ID that was at the import step or NULL if this annotation wasn't imported
+        /// </param>
+        /// <param name="lastAction">
+        /// Action which was performed in the last annotation history item<br/>
+        /// * `prediction` - Created from prediction<br/>
+        /// * `propagated_annotation` - Created from another annotation<br/>
+        /// * `imported` - Imported<br/>
+        /// * `submitted` - Submitted<br/>
+        /// * `updated` - Updated<br/>
+        /// * `skipped` - Skipped<br/>
+        /// * `accepted` - Accepted<br/>
+        /// * `rejected` - Rejected<br/>
+        /// * `fixed_and_accepted` - Fixed and accepted<br/>
+        /// * `deleted_review` - Deleted review
+        /// </param>
+        /// <param name="lastCreatedBy">
+        /// User who created the last annotation history item
         /// </param>
         /// <param name="leadTime">
-        /// How much time it took to annotate the task (in seconds)<br/>
-        /// Example: 100.5
+        /// How much time it took to annotate the task
+        /// </param>
+        /// <param name="parentAnnotation">
+        /// Points to the parent annotation from which this annotation was created
+        /// </param>
+        /// <param name="parentPrediction">
+        /// Points to the prediction from which this annotation was created
         /// </param>
         /// <param name="project">
         /// Project ID for this annotation
         /// </param>
         /// <param name="result">
-        /// Labeling result in JSON format. Read more about the format in [the Label Studio documentation.](https://labelstud.io/guide/task_format)<br/>
-        /// Example: [{"from_name":"bboxes","image_rotation":0,"original_height":1080,"original_width":1920,"to_name":"image","type":"rectanglelabels","value":{"height":60,"rotation":0,"values":{"rectanglelabels":["Person"]},"width":50,"x":20,"y":30}}]
+        /// List of annotation results for the task
         /// </param>
         /// <param name="task">
         /// Corresponding task for this annotation
+        /// </param>
+        /// <param name="uniqueId">
+        /// Included only in requests
         /// </param>
         /// <param name="updatedBy">
         /// Last user who updated this annotation
@@ -478,9 +508,17 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Annotation> UpdateAsync(
             int id,
+            string uniqueId,
+            bool? bulkCreated = default,
             int? completedBy = default,
+            global::System.DateTime? draftCreatedAt = default,
             bool? groundTruth = default,
+            long? importId = default,
+            global::LabelStudio.AnnotationHistoryActionEnum? lastAction = default,
+            int? lastCreatedBy = default,
             double? leadTime = default,
+            int? parentAnnotation = default,
+            int? parentPrediction = default,
             int? project = default,
             global::System.Collections.Generic.IList<object>? result = default,
             int? task = default,
@@ -489,14 +527,22 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiAnnotationsPartialUpdateRequest
+            var __request = new global::LabelStudio.PatchedAnnotationRequest
             {
+                BulkCreated = bulkCreated,
                 CompletedBy = completedBy,
+                DraftCreatedAt = draftCreatedAt,
                 GroundTruth = groundTruth,
+                ImportId = importId,
+                LastAction = lastAction,
+                LastCreatedBy = lastCreatedBy,
                 LeadTime = leadTime,
+                ParentAnnotation = parentAnnotation,
+                ParentPrediction = parentPrediction,
                 Project = project,
                 Result = result,
                 Task = task,
+                UniqueId = uniqueId,
                 UpdatedBy = updatedBy,
                 WasCancelled = wasCancelled,
             };

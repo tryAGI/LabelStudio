@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareCreateProjectFromTemplateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request);
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request);
         partial void PrepareCreateProjectFromTemplateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request);
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request);
         partial void ProcessCreateProjectFromTemplateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -61,7 +61,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProject> CreateProjectFromTemplateAsync(
             int id,
 
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request,
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -93,7 +93,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProject>> CreateProjectFromTemplateAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request,
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -480,12 +480,12 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProject> CreateProjectFromTemplateAsync(
             int id,
             string title,
-            int workspaceId,
             string? description = default,
+            int? workspaceId = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest
+            var __request = new global::LabelStudio.CreateProjectFromTemplateRequestRequest
             {
                 Description = description,
                 Title = title,

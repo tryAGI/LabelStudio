@@ -14,7 +14,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.GCSImportStorage> Create2Async(
 
-            global::LabelStudio.ApiStoragesGcsCreateRequest request,
+            global::LabelStudio.GCSImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -27,7 +27,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.GCSImportStorage>> Create2AsResponseAsync(
 
-            global::LabelStudio.ApiStoragesGcsCreateRequest request,
+            global::LabelStudio.GCSImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -38,10 +38,10 @@ namespace LabelStudio
         /// GCS bucket name
         /// </param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="googleApplicationCredentials">
-        /// The content of GOOGLE_APPLICATION_CREDENTIALS json file. Check official Google Cloud Authentication documentation for more details.
+        /// The content of GOOGLE_APPLICATION_CREDENTIALS json file
         /// </param>
         /// <param name="googleProjectId">
         /// Google project ID
@@ -50,30 +50,34 @@ namespace LabelStudio
         /// GCS bucket prefix
         /// </param>
         /// <param name="presign">
-        /// Presign URLs for direct download<br/>
         /// Default Value: true
         /// </param>
         /// <param name="presignTtl">
-        /// Presign TTL in minutes<br/>
-        /// Default Value: 1
+        /// Presigned URLs TTL (in minutes)
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="recursiveScan">
+        /// Perform recursive scan over the bucket content
         /// </param>
         /// <param name="regexFilter">
-        /// Cloud storage regex for filtering objects. You must specify it otherwise no objects will be imported.
+        /// Cloud storage regex for filtering objects
+        /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
         /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
         /// </param>
         /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs. For example, if your bucket contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.<br/>
-        /// Default Value: false
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.GCSImportStorage> Create2Async(
+            int project,
             string? bucket = default,
             string? description = default,
             string? googleApplicationCredentials = default,
@@ -81,8 +85,9 @@ namespace LabelStudio
             string? prefix = default,
             bool? presign = default,
             int? presignTtl = default,
-            int? project = default,
+            bool? recursiveScan = default,
             string? regexFilter = default,
+            bool? synchronizable = default,
             string? title = default,
             bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

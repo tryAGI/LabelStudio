@@ -481,7 +481,9 @@ namespace LabelStudio
         /// <param name="result">
         /// List of annotation results for the task
         /// </param>
-        /// <param name="selectedItems"></param>
+        /// <param name="selectedItems">
+        /// Task selection by IDs. If filters are applied, the selection will be applied to the filtered tasks.If "all" is `false`, `"included"` must be used. If "all" is `true`, `"excluded"` must be used.Examples: `{"all": false, "included": [1, 2, 3]}` or `{"all": true, "excluded": [4, 5]}`
+        /// </param>
         /// <param name="task">
         /// Corresponding task for this annotation
         /// </param>
@@ -512,7 +514,7 @@ namespace LabelStudio
             int? parentPrediction = default,
             int? project = default,
             global::System.Collections.Generic.IList<object>? result = default,
-            global::LabelStudio.SelectedItemsRequest? selectedItems = default,
+            global::LabelStudio.OneOf<global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllFalse, global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllTrue>? selectedItems = default,
             int? task = default,
             global::System.Collections.Generic.IList<int>? tasks = default,
             int? updatedBy = default,

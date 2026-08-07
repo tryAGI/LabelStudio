@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiMlCreateRequest request);
+            global::LabelStudio.MLBackendRequestRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiMlCreateRequest request);
+            global::LabelStudio.MLBackendRequestRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -56,7 +56,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MLBackend> CreateAsync(
 
-            global::LabelStudio.ApiMlCreateRequest request,
+            global::LabelStudio.MLBackendRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -84,7 +84,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MLBackend>> CreateAsResponseAsync(
 
-            global::LabelStudio.ApiMlCreateRequest request,
+            global::LabelStudio.MLBackendRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -453,60 +453,69 @@ namespace LabelStudio
         ///     
         /// </summary>
         /// <param name="authMethod">
-        /// Auth method
+        /// * `NONE` - None<br/>
+        /// * `BASIC_AUTH` - Basic Auth
+        /// </param>
+        /// <param name="autoUpdate">
+        /// If false, model version is set by the user, if true - getting latest version from backend.
         /// </param>
         /// <param name="basicAuthPass">
-        /// Basic auth password
+        /// Included only in requests
         /// </param>
         /// <param name="basicAuthUser">
-        /// Basic auth user
+        /// HTTP Basic Auth user
         /// </param>
         /// <param name="description">
-        /// Description
+        /// Description for the machine learning backend
         /// </param>
         /// <param name="extraParams">
-        /// Extra parameters
+        /// Any extra parameters passed to the ML Backend during the setup
         /// </param>
         /// <param name="isInteractive">
-        /// Is interactive
+        /// Used to interactively annotate tasks. If true, model returns one list with results
         /// </param>
-        /// <param name="project">
-        /// Project ID
+        /// <param name="modelVersion">
+        /// Current model version associated with this machine learning backend
         /// </param>
+        /// <param name="project"></param>
         /// <param name="timeout">
         /// Response model timeout
         /// </param>
         /// <param name="title">
-        /// Title
+        /// Name of the machine learning backend
         /// </param>
         /// <param name="url">
-        /// ML backend URL
+        /// URL for the machine learning model server
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MLBackend> CreateAsync(
-            global::LabelStudio.ApiMlCreateRequestAuthMethod? authMethod = default,
-            string? basicAuthPass = default,
+            string? basicAuthPass,
+            int project,
+            string url,
+            global::LabelStudio.AuthMethodEnum? authMethod = default,
+            bool? autoUpdate = default,
             string? basicAuthUser = default,
             string? description = default,
             object? extraParams = default,
             bool? isInteractive = default,
-            int? project = default,
-            int? timeout = default,
+            string? modelVersion = default,
+            double? timeout = default,
             string? title = default,
-            string? url = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiMlCreateRequest
+            var __request = new global::LabelStudio.MLBackendRequestRequest
             {
                 AuthMethod = authMethod,
+                AutoUpdate = autoUpdate,
                 BasicAuthPass = basicAuthPass,
                 BasicAuthUser = basicAuthUser,
                 Description = description,
                 ExtraParams = extraParams,
                 IsInteractive = isInteractive,
+                ModelVersion = modelVersion,
                 Project = project,
                 Timeout = timeout,
                 Title = title,

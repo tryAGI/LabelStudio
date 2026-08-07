@@ -22,7 +22,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.LseProject> CreateProjectFromTemplateAsync(
             int id,
 
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request,
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -43,7 +43,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProject>> CreateProjectFromTemplateAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiProjectTemplatesCreateProjectCreateRequest request,
+            global::LabelStudio.CreateProjectFromTemplateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -72,8 +72,8 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.LseProject> CreateProjectFromTemplateAsync(
             int id,
             string title,
-            int workspaceId,
             string? description = default,
+            int? workspaceId = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

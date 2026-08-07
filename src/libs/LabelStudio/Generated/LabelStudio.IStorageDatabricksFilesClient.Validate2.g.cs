@@ -20,7 +20,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task Validate2Async(
 
-            global::LabelStudio.DatabricksExportStorageRequest request,
+            global::LabelStudio.DatabricksExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -39,7 +39,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> Validate2AsResponseAsync(
 
-            global::LabelStudio.DatabricksExportStorageRequest request,
+            global::LabelStudio.DatabricksExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -78,17 +78,8 @@ namespace LabelStudio
         /// <param name="host">
         /// Databricks workspace base URL (https://...)
         /// </param>
-        /// <param name="lastSync">
-        /// Last sync finished time
-        /// </param>
-        /// <param name="lastSyncCount">
-        /// Count of tasks synced last time
-        /// </param>
-        /// <param name="lastSyncJob">
-        /// Last sync job ID
-        /// </param>
-        /// <param name="meta">
-        /// Meta and debug information about storage processes
+        /// <param name="id">
+        /// Storage ID. If set, storage with specified ID will be updated
         /// </param>
         /// <param name="prefix">
         /// Export path prefix under the volume
@@ -103,14 +94,6 @@ namespace LabelStudio
         /// <param name="schema">
         /// UC schema name
         /// </param>
-        /// <param name="status">
-        /// * `initialized` - Initialized<br/>
-        /// * `queued` - Queued<br/>
-        /// * `in_progress` - In progress<br/>
-        /// * `failed` - Failed<br/>
-        /// * `completed` - Completed<br/>
-        /// * `completed_with_errors` - Completed with errors
-        /// </param>
         /// <param name="streamChunkBytes"></param>
         /// <param name="synchronizable">
         /// Default Value: true
@@ -124,9 +107,6 @@ namespace LabelStudio
         /// <param name="token">
         /// Databricks personal access token (required for PAT mode)<br/>
         /// Included only in requests
-        /// </param>
-        /// <param name="traceback">
-        /// Traceback report for the last failed sync
         /// </param>
         /// <param name="useBlobUrls">
         /// Generate blob URLs in tasks
@@ -152,19 +132,14 @@ namespace LabelStudio
             bool? canDeleteObjects = default,
             string? clientId = default,
             string? description = default,
-            global::System.DateTime? lastSync = default,
-            int? lastSyncCount = default,
-            string? lastSyncJob = default,
-            object? meta = default,
+            int? id = default,
             string? prefix = default,
             string? regexFilter = default,
             int? requestTimeoutS = default,
-            global::LabelStudio.StorageStatusEnum? status = default,
             long? streamChunkBytes = default,
             bool? synchronizable = default,
             string? tenantId = default,
             string? title = default,
-            string? traceback = default,
             bool? useBlobUrls = default,
             bool? verifyTls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

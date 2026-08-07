@@ -22,7 +22,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse> BulkAssignAsync(
             int id,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequest request,
+            global::LabelStudio.BulkTaskAssigneesRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -43,7 +43,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse>> BulkAssignAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequest request,
+            global::LabelStudio.BulkTaskAssigneesRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -57,27 +57,24 @@ namespace LabelStudio
         /// Assign multiple users to a collection of tasks within a specific project.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="filters">
-        /// Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`
-        /// </param>
+        /// <param name="filters"></param>
         /// <param name="selectedItems">
         /// Task selection by IDs. If filters are applied, the selection will be applied to the filtered tasks.If "all" is `false`, `"included"` must be used. If "all" is `true`, `"excluded"` must be used.Examples: `{"all": false, "included": [1, 2, 3]}` or `{"all": true, "excluded": [4, 5]}`
         /// </param>
         /// <param name="type">
-        /// Assignment type. Use AN for annotate or RE for review.
+        /// * `AN` - Annotate<br/>
+        /// * `RE` - Review
         /// </param>
-        /// <param name="users">
-        /// List of user IDs to assign
-        /// </param>
+        /// <param name="users"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse> BulkAssignAsync(
             int id,
-            global::LabelStudio.OneOf<global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestSelectedItemsAllTrue> selectedItems,
-            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestType type,
+            global::LabelStudio.OneOf<global::LabelStudio.BulkTaskAssigneesRequestRequestSelectedItemsAllFalse, global::LabelStudio.BulkTaskAssigneesRequestRequestSelectedItemsAllTrue> selectedItems,
+            global::LabelStudio.AssignmentTypeEnum type,
             global::System.Collections.Generic.IList<int> users,
-            global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateRequestFilters? filters = default,
+            global::LabelStudio.PrepareParamsFiltersRequest? filters = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
