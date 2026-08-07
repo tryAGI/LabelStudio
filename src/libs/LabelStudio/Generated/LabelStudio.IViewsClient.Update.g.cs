@@ -16,7 +16,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.View> UpdateAsync(
             string id,
 
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request,
+            global::LabelStudio.PatchedViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -31,7 +31,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.View>> UpdateAsResponseAsync(
             string id,
 
-            global::LabelStudio.ApiDmViewsPartialUpdateRequest request,
+            global::LabelStudio.PatchedViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -40,7 +40,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="data">
-        /// Custom view data
+        /// Established public view payload nested under ``data``.
         /// </param>
         /// <param name="project">
         /// Project ID
@@ -50,7 +50,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.View> UpdateAsync(
             string id,
-            global::LabelStudio.ApiDmViewsPartialUpdateRequestData? data = default,
+            global::LabelStudio.ViewDataRequestRequest? data = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

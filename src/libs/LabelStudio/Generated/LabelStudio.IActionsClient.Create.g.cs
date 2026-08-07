@@ -19,7 +19,7 @@ namespace LabelStudio
             global::LabelStudio.ApiDmActionsCreateId id,
             int project,
 
-            global::LabelStudio.ApiDmActionsCreateRequest request,
+            global::LabelStudio.PrepareParamsRequestRequest request,
             int? view = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -38,7 +38,7 @@ namespace LabelStudio
             global::LabelStudio.ApiDmActionsCreateId id,
             int project,
 
-            global::LabelStudio.ApiDmActionsCreateRequest request,
+            global::LabelStudio.PrepareParamsRequestRequest request,
             int? view = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -49,12 +49,8 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="project"></param>
         /// <param name="view"></param>
-        /// <param name="filters">
-        /// Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`
-        /// </param>
-        /// <param name="ordering">
-        /// List of fields to order by. Fields are similar to filters but without the `filter:` prefix. To reverse the order, add a minus sign before the field name, e.g. `-tasks:created_at`.
-        /// </param>
+        /// <param name="filters"></param>
+        /// <param name="ordering"></param>
         /// <param name="selectedItems">
         /// Task selection by IDs. If filters are applied, the selection will be applied to the filtered tasks.If "all" is `false`, `"included"` must be used. If "all" is `true`, `"excluded"` must be used.Examples: `{"all": false, "included": [1, 2, 3]}` or `{"all": true, "excluded": [4, 5]}`
         /// </param>
@@ -65,9 +61,9 @@ namespace LabelStudio
             global::LabelStudio.ApiDmActionsCreateId id,
             int project,
             int? view = default,
-            global::LabelStudio.ApiDmActionsCreateRequestFilters? filters = default,
-            global::System.Collections.Generic.IList<global::LabelStudio.ApiDmActionsCreateRequestOrderingItem>? ordering = default,
-            global::LabelStudio.OneOf<global::LabelStudio.ApiDmActionsCreateRequestSelectedItemsAllFalse, global::LabelStudio.ApiDmActionsCreateRequestSelectedItemsAllTrue>? selectedItems = default,
+            global::LabelStudio.PrepareParamsFiltersRequest? filters = default,
+            global::System.Collections.Generic.IList<global::LabelStudio.PrepareParamsOrderingRequestItem>? ordering = default,
+            global::LabelStudio.OneOf<global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllFalse, global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllTrue>? selectedItems = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

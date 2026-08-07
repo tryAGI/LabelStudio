@@ -50,6 +50,13 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model_version")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ModelVersion { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
 
@@ -143,6 +150,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelRun" /> class.
         /// </summary>
+        /// <param name="modelVersion"></param>
         /// <param name="project"></param>
         /// <param name="completedAt">
         /// Included only in responses
@@ -196,6 +204,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ModelRun(
+            int modelVersion,
             int project,
             global::System.DateTime? completedAt,
             object? filtersJson,
@@ -222,6 +231,7 @@ namespace LabelStudio
             this.FiltersJson = filtersJson;
             this.Id = id;
             this.JobId = jobId;
+            this.ModelVersion = modelVersion;
             this.Organization = organization;
             this.ParentModel = parentModel;
             this.PredictionsUpdatedAt = predictionsUpdatedAt;
@@ -242,18 +252,6 @@ namespace LabelStudio
         /// </summary>
         public ModelRun()
         {
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="ModelRun"/> from its single non-const required field,
-        /// hardcoding any const discriminator fields.
-        /// </summary>
-        public static ModelRun FromProject(int project)
-        {
-            return new ModelRun
-            {
-                Project = project,
-            };
         }
 
     }

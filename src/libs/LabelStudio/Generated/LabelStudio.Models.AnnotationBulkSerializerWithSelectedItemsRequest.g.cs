@@ -94,10 +94,11 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<object>? Result { get; set; }
 
         /// <summary>
-        /// 
+        /// Task selection by IDs. If filters are applied, the selection will be applied to the filtered tasks.If "all" is `false`, `"included"` must be used. If "all" is `true`, `"excluded"` must be used.Examples: `{"all": false, "included": [1, 2, 3]}` or `{"all": true, "excluded": [4, 5]}`
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("selected_items")]
-        public global::LabelStudio.SelectedItemsRequest? SelectedItems { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OneOfJsonConverter<global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllFalse, global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllTrue>))]
+        public global::LabelStudio.OneOf<global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllFalse, global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllTrue>? SelectedItems { get; set; }
 
         /// <summary>
         /// Corresponding task for this annotation
@@ -182,7 +183,9 @@ namespace LabelStudio
         /// <param name="result">
         /// List of annotation results for the task
         /// </param>
-        /// <param name="selectedItems"></param>
+        /// <param name="selectedItems">
+        /// Task selection by IDs. If filters are applied, the selection will be applied to the filtered tasks.If "all" is `false`, `"included"` must be used. If "all" is `true`, `"excluded"` must be used.Examples: `{"all": false, "included": [1, 2, 3]}` or `{"all": true, "excluded": [4, 5]}`
+        /// </param>
         /// <param name="task">
         /// Corresponding task for this annotation
         /// </param>
@@ -212,7 +215,7 @@ namespace LabelStudio
             int? parentPrediction,
             int? project,
             global::System.Collections.Generic.IList<object>? result,
-            global::LabelStudio.SelectedItemsRequest? selectedItems,
+            global::LabelStudio.OneOf<global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllFalse, global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllTrue>? selectedItems,
             int? task,
             global::System.Collections.Generic.IList<int>? tasks,
             string? uniqueId,

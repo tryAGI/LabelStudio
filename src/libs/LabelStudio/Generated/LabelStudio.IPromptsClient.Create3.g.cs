@@ -24,7 +24,7 @@ namespace LabelStudio
             int promptId,
             int versionId,
 
-            global::LabelStudio.ModelRunRequest request,
+            global::LabelStudio.ModelRunRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -47,7 +47,7 @@ namespace LabelStudio
             int promptId,
             int versionId,
 
-            global::LabelStudio.ModelRunRequest request,
+            global::LabelStudio.ModelRunRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

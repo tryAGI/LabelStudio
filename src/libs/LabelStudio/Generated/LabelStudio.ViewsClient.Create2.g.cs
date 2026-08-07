@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiDmViewsCreateRequest request);
+            global::LabelStudio.ViewRequestRequest request);
         partial void PrepareCreate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiDmViewsCreateRequest request);
+            global::LabelStudio.ViewRequestRequest request);
         partial void ProcessCreate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,7 +51,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.View> Create2Async(
 
-            global::LabelStudio.ApiDmViewsCreateRequest request,
+            global::LabelStudio.ViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,7 +74,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.View>> Create2AsResponseAsync(
 
-            global::LabelStudio.ApiDmViewsCreateRequest request,
+            global::LabelStudio.ViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -438,7 +438,7 @@ namespace LabelStudio
         /// Create a view for a specific project.
         /// </summary>
         /// <param name="data">
-        /// Custom view data
+        /// Established public view payload nested under ``data``.
         /// </param>
         /// <param name="project">
         /// Project ID
@@ -447,12 +447,12 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.View> Create2Async(
-            global::LabelStudio.ApiDmViewsCreateRequestData? data = default,
+            global::LabelStudio.ViewDataRequestRequest? data = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiDmViewsCreateRequest
+            var __request = new global::LabelStudio.ViewRequestRequest
             {
                 Data = data,
                 Project = project,

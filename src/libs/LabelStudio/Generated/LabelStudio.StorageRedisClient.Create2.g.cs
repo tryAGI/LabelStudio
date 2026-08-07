@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareCreate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiStoragesRedisCreateRequest request);
+            global::LabelStudio.RedisImportStorageWriteRequest request);
         partial void PrepareCreate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiStoragesRedisCreateRequest request);
+            global::LabelStudio.RedisImportStorageWriteRequest request);
         partial void ProcessCreate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,7 +51,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.RedisImportStorage> Create2Async(
 
-            global::LabelStudio.ApiStoragesRedisCreateRequest request,
+            global::LabelStudio.RedisImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,7 +74,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.RedisImportStorage>> Create2AsResponseAsync(
 
-            global::LabelStudio.ApiStoragesRedisCreateRequest request,
+            global::LabelStudio.RedisImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -437,8 +437,11 @@ namespace LabelStudio
         /// Create import storage<br/>
         /// Create a new Redis import storage connection.
         /// </summary>
+        /// <param name="db">
+        /// Server Database
+        /// </param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="host">
         /// Server Host IP (optional)
@@ -453,36 +456,41 @@ namespace LabelStudio
         /// Server Port (optional)
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
         /// </param>
         /// <param name="regexFilter">
-        /// Cloud storage regex for filtering objects. You must specify it otherwise no objects will be imported.
+        /// Cloud storage regex for filtering objects
+        /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
         /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
         /// </param>
         /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs. For example, if your bucket contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.<br/>
-        /// Default Value: false
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.RedisImportStorage> Create2Async(
+            int project,
+            int? db = default,
             string? description = default,
             string? host = default,
             string? password = default,
             string? path = default,
             string? port = default,
-            int? project = default,
             string? regexFilter = default,
+            bool? synchronizable = default,
             string? title = default,
             bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiStoragesRedisCreateRequest
+            var __request = new global::LabelStudio.RedisImportStorageWriteRequest
             {
+                Db = db,
                 Description = description,
                 Host = host,
                 Password = password,
@@ -490,6 +498,7 @@ namespace LabelStudio
                 Port = port,
                 Project = project,
                 RegexFilter = regexFilter,
+                Synchronizable = synchronizable,
                 Title = title,
                 UseBlobUrls = useBlobUrls,
             };

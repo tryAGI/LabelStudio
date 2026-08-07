@@ -29,13 +29,13 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             ref int promptId,
             ref int versionId,
-            global::LabelStudio.ModelRunRequest request);
+            global::LabelStudio.ModelRunRequestRequest request);
         partial void PrepareCreate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int promptId,
             int versionId,
-            global::LabelStudio.ModelRunRequest request);
+            global::LabelStudio.ModelRunRequestRequest request);
         partial void ProcessCreate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -65,7 +65,7 @@ namespace LabelStudio
             int promptId,
             int versionId,
 
-            global::LabelStudio.ModelRunRequest request,
+            global::LabelStudio.ModelRunRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -100,7 +100,7 @@ namespace LabelStudio
             int promptId,
             int versionId,
 
-            global::LabelStudio.ModelRunRequest request,
+            global::LabelStudio.ModelRunRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -521,7 +521,7 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ModelRunRequest
+            var __request = new global::LabelStudio.ModelRunRequestRequest
             {
                 FiltersJson = filtersJson,
                 JobId = jobId,

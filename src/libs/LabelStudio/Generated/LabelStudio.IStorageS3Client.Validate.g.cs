@@ -14,7 +14,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task ValidateAsync(
 
-            global::LabelStudio.ApiStoragesExportS3ValidateCreateRequest request,
+            global::LabelStudio.S3ExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -27,7 +27,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ValidateAsResponseAsync(
 
-            global::LabelStudio.ApiStoragesExportS3ValidateCreateRequest request,
+            global::LabelStudio.S3ExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -50,11 +50,10 @@ namespace LabelStudio
         /// S3 bucket name
         /// </param>
         /// <param name="canDeleteObjects">
-        /// Deletion from storage enabled.<br/>
-        /// Default Value: false
+        /// Deletion from storage enabled
         /// </param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="id">
         /// Storage ID. If set, storage with specified ID will be updated
@@ -63,7 +62,10 @@ namespace LabelStudio
         /// S3 bucket prefix
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="regexFilter">
+        /// Cloud storage regex for filtering objects
         /// </param>
         /// <param name="regionName">
         /// AWS Region
@@ -71,13 +73,20 @@ namespace LabelStudio
         /// <param name="s3Endpoint">
         /// S3 Endpoint
         /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
+        /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
+        /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task ValidateAsync(
+            int project,
             string? awsAccessKeyId = default,
             string? awsSecretAccessKey = default,
             string? awsSessionToken = default,
@@ -87,10 +96,12 @@ namespace LabelStudio
             string? description = default,
             int? id = default,
             string? prefix = default,
-            int? project = default,
+            string? regexFilter = default,
             string? regionName = default,
             string? s3Endpoint = default,
+            bool? synchronizable = default,
             string? title = default,
+            bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

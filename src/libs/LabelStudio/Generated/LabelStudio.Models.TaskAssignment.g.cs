@@ -55,8 +55,8 @@ namespace LabelStudio
         /// * `RE` - Review
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.TypeEnumJsonConverter))]
-        public global::LabelStudio.TypeEnum? Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AssignmentTypeEnumJsonConverter))]
+        public global::LabelStudio.AssignmentTypeEnum? Type { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,7 +94,7 @@ namespace LabelStudio
         public TaskAssignment(
             int assignee,
             int task,
-            global::LabelStudio.TypeEnum? type,
+            global::LabelStudio.AssignmentTypeEnum? type,
             global::System.DateTime createdAt = default!,
             int id = default!,
             string state = default!)

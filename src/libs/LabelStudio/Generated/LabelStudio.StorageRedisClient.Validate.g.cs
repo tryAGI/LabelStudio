@@ -27,11 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareValidateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.ApiStoragesExportRedisValidateCreateRequest request);
+            global::LabelStudio.RedisExportStorageValidateRequest request);
         partial void PrepareValidateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.ApiStoragesExportRedisValidateCreateRequest request);
+            global::LabelStudio.RedisExportStorageValidateRequest request);
         partial void ProcessValidateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,7 +46,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task ValidateAsync(
 
-            global::LabelStudio.ApiStoragesExportRedisValidateCreateRequest request,
+            global::LabelStudio.RedisExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -67,7 +67,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> ValidateAsResponseAsync(
 
-            global::LabelStudio.ApiStoragesExportRedisValidateCreateRequest request,
+            global::LabelStudio.RedisExportStorageValidateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -415,14 +415,13 @@ namespace LabelStudio
         /// Validate a specific Redis export storage connection.
         /// </summary>
         /// <param name="canDeleteObjects">
-        /// Deletion from storage enabled.<br/>
-        /// Default Value: false
+        /// Deletion from storage enabled
         /// </param>
         /// <param name="db">
-        /// Database ID of database to use
+        /// Server Database
         /// </param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="host">
         /// Server Host IP (optional)
@@ -440,15 +439,25 @@ namespace LabelStudio
         /// Server Port (optional)
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="regexFilter">
+        /// Cloud storage regex for filtering objects
+        /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
         /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
+        /// </param>
+        /// <param name="useBlobUrls">
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task ValidateAsync(
+            int project,
             bool? canDeleteObjects = default,
             int? db = default,
             string? description = default,
@@ -457,12 +466,14 @@ namespace LabelStudio
             string? password = default,
             string? path = default,
             string? port = default,
-            int? project = default,
+            string? regexFilter = default,
+            bool? synchronizable = default,
             string? title = default,
+            bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiStoragesExportRedisValidateCreateRequest
+            var __request = new global::LabelStudio.RedisExportStorageValidateRequest
             {
                 CanDeleteObjects = canDeleteObjects,
                 Db = db,
@@ -473,7 +484,10 @@ namespace LabelStudio
                 Path = path,
                 Port = port,
                 Project = project,
+                RegexFilter = regexFilter,
+                Synchronizable = synchronizable,
                 Title = title,
+                UseBlobUrls = useBlobUrls,
             };
 
             await ValidateAsync(

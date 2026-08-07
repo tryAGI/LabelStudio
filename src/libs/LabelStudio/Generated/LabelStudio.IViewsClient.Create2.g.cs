@@ -14,7 +14,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.View> Create2Async(
 
-            global::LabelStudio.ApiDmViewsCreateRequest request,
+            global::LabelStudio.ViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -27,7 +27,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.View>> Create2AsResponseAsync(
 
-            global::LabelStudio.ApiDmViewsCreateRequest request,
+            global::LabelStudio.ViewRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +35,7 @@ namespace LabelStudio
         /// Create a view for a specific project.
         /// </summary>
         /// <param name="data">
-        /// Custom view data
+        /// Established public view payload nested under ``data``.
         /// </param>
         /// <param name="project">
         /// Project ID
@@ -44,7 +44,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.View> Create2Async(
-            global::LabelStudio.ApiDmViewsCreateRequestData? data = default,
+            global::LabelStudio.ViewDataRequestRequest? data = default,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareTrainArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.ApiMlTrainCreateRequest request);
+            global::LabelStudio.MLBackendTrainRequestRequest request);
         partial void PrepareTrainRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.ApiMlTrainCreateRequest request);
+            global::LabelStudio.MLBackendTrainRequestRequest request);
         partial void ProcessTrainResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,7 +54,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task TrainAsync(
             int id,
 
-            global::LabelStudio.ApiMlTrainCreateRequest request,
+            global::LabelStudio.MLBackendTrainRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,7 +82,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> TrainAsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiMlTrainCreateRequest request,
+            global::LabelStudio.MLBackendTrainRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -474,7 +474,8 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="useGroundTruth">
-        /// Whether to include ground truth annotations in training
+        /// Whether to include ground truth annotations in training<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -485,7 +486,7 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiMlTrainCreateRequest
+            var __request = new global::LabelStudio.MLBackendTrainRequestRequest
             {
                 UseGroundTruth = useGroundTruth,
             };

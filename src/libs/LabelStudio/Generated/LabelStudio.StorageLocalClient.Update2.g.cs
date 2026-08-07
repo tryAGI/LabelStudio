@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareUpdate2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.ApiStoragesLocalfilesPartialUpdateRequest request);
+            global::LabelStudio.PatchedLocalFilesImportStorageWriteRequest request);
         partial void PrepareUpdate2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.ApiStoragesLocalfilesPartialUpdateRequest request);
+            global::LabelStudio.PatchedLocalFilesImportStorageWriteRequest request);
         partial void ProcessUpdate2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,7 +55,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LocalFilesImportStorage> Update2Async(
             int id,
 
-            global::LabelStudio.ApiStoragesLocalfilesPartialUpdateRequest request,
+            global::LabelStudio.PatchedLocalFilesImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +81,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LocalFilesImportStorage>> Update2AsResponseAsync(
             int id,
 
-            global::LabelStudio.ApiStoragesLocalfilesPartialUpdateRequest request,
+            global::LabelStudio.PatchedLocalFilesImportStorageWriteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -448,23 +448,28 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="description">
-        /// Storage description
+        /// Cloud storage description
         /// </param>
         /// <param name="path">
-        /// Path to local directory
+        /// Local path
         /// </param>
         /// <param name="project">
-        /// Project ID
+        /// A unique integer value identifying this project.
+        /// </param>
+        /// <param name="recursiveScan">
+        /// Perform recursive scan over the directory content
         /// </param>
         /// <param name="regexFilter">
         /// Regex for filtering objects
         /// </param>
+        /// <param name="synchronizable">
+        /// Default Value: true
+        /// </param>
         /// <param name="title">
-        /// Storage title
+        /// Cloud storage title
         /// </param>
         /// <param name="useBlobUrls">
-        /// Interpret objects as BLOBs and generate URLs. For example, if your directory contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.<br/>
-        /// Default Value: false
+        /// Interpret objects as BLOBs and generate URLs
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -474,18 +479,22 @@ namespace LabelStudio
             string? description = default,
             string? path = default,
             int? project = default,
+            bool? recursiveScan = default,
             string? regexFilter = default,
+            bool? synchronizable = default,
             string? title = default,
             bool? useBlobUrls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.ApiStoragesLocalfilesPartialUpdateRequest
+            var __request = new global::LabelStudio.PatchedLocalFilesImportStorageWriteRequest
             {
                 Description = description,
                 Path = path,
                 Project = project,
+                RecursiveScan = recursiveScan,
                 RegexFilter = regexFilter,
+                Synchronizable = synchronizable,
                 Title = title,
                 UseBlobUrls = useBlobUrls,
             };
