@@ -38,10 +38,9 @@ namespace LabelStudio
 
         /// <summary>
         /// CRUD endpoints for per-user analytics saved views.<br/>
-        /// All routes are gated behind the ``fflag_feat_fit_1424_analytics_saved_views``<br/>
-        /// feature flag AND the same ``should_check_analytics_permission`` helper used<br/>
-        /// by the KPI endpoints, so a user who cannot access the analytics dashboard<br/>
-        /// cannot read view metadata even via a shared link.<br/>
+        /// All routes are gated behind the same ``should_check_analytics_permission``<br/>
+        /// helper used by the KPI endpoints, so a user who cannot access the analytics<br/>
+        /// dashboard cannot read view metadata even via a shared link.<br/>
         /// Lookup uses ``uuid`` (not PK) so the primary key is never exposed.<br/>
         /// Access rules<br/>
         /// ------------<br/>
@@ -67,10 +66,9 @@ namespace LabelStudio
         }
         /// <summary>
         /// CRUD endpoints for per-user analytics saved views.<br/>
-        /// All routes are gated behind the ``fflag_feat_fit_1424_analytics_saved_views``<br/>
-        /// feature flag AND the same ``should_check_analytics_permission`` helper used<br/>
-        /// by the KPI endpoints, so a user who cannot access the analytics dashboard<br/>
-        /// cannot read view metadata even via a shared link.<br/>
+        /// All routes are gated behind the same ``should_check_analytics_permission``<br/>
+        /// helper used by the KPI endpoints, so a user who cannot access the analytics<br/>
+        /// dashboard cannot read view metadata even via a shared link.<br/>
         /// Lookup uses ``uuid`` (not PK) so the primary key is never exposed.<br/>
         /// Access rules<br/>
         /// ------------<br/>
