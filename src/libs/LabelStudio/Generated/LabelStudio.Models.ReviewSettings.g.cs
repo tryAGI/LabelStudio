@@ -9,6 +9,12 @@ namespace LabelStudio
     public sealed partial class ReviewSettings
     {
         /// <summary>
+        /// Percent of an annotator’s work to review before moving to another annotator
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_batch_percent")]
+        public string? AnnotatorBatchPercent { get; set; }
+
+        /// <summary>
         /// Hide annotator names from annotations while review
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("anonymize_annotations")]
@@ -84,9 +90,10 @@ namespace LabelStudio
         public string? ReviewTaskLimitPercent { get; set; }
 
         /// <summary>
-        /// By Task ID / Random<br/>
+        /// By Task ID / Random / By Annotator<br/>
         /// * `task_id` - By Task ID<br/>
-        /// * `random` - Random
+        /// * `random` - Random<br/>
+        /// * `by_annotator` - By Annotator
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ReviewSettingsSamplingEnumJsonConverter))]
@@ -125,6 +132,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ReviewSettings" /> class.
         /// </summary>
+        /// <param name="annotatorBatchPercent">
+        /// Percent of an annotator’s work to review before moving to another annotator
+        /// </param>
         /// <param name="anonymizeAnnotations">
         /// Hide annotator names from annotations while review
         /// </param>
@@ -156,9 +166,10 @@ namespace LabelStudio
         /// Task limit (%)
         /// </param>
         /// <param name="sampling">
-        /// By Task ID / Random<br/>
+        /// By Task ID / Random / By Annotator<br/>
         /// * `task_id` - By Task ID<br/>
-        /// * `random` - Random
+        /// * `random` - Random<br/>
+        /// * `by_annotator` - By Annotator
         /// </param>
         /// <param name="showAgreementToReviewers">
         /// Show agreement to reviewers in the Data Manager
@@ -182,6 +193,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ReviewSettings(
+            string? annotatorBatchPercent,
             bool? anonymizeAnnotations,
             string? instruction,
             bool? onlyFinishedTasks,
@@ -199,6 +211,7 @@ namespace LabelStudio
             int id = default!,
             bool requeueRejectedTasksToAnnotator = default!)
         {
+            this.AnnotatorBatchPercent = annotatorBatchPercent;
             this.AnonymizeAnnotations = anonymizeAnnotations;
             this.Id = id;
             this.Instruction = instruction;

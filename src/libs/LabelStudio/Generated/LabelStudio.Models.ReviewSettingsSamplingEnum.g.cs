@@ -5,10 +5,15 @@ namespace LabelStudio
 {
     /// <summary>
     /// * `task_id` - By Task ID<br/>
-    /// * `random` - Random
+    /// * `random` - Random<br/>
+    /// * `by_annotator` - By Annotator
     /// </summary>
     public enum ReviewSettingsSamplingEnum
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        ByAnnotator,
         /// <summary>
         /// 
         /// </summary>
@@ -31,6 +36,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                ReviewSettingsSamplingEnum.ByAnnotator => "by_annotator",
                 ReviewSettingsSamplingEnum.Random => "random",
                 ReviewSettingsSamplingEnum.TaskId => "task_id",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -43,6 +49,7 @@ namespace LabelStudio
         {
             return value switch
             {
+                "by_annotator" => ReviewSettingsSamplingEnum.ByAnnotator,
                 "random" => ReviewSettingsSamplingEnum.Random,
                 "task_id" => ReviewSettingsSamplingEnum.TaskId,
                 _ => null,
