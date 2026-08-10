@@ -53,14 +53,15 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        public string Role { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
+        public global::LabelStudio.OrganizationRoleEnum Role { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_source")]
-        public string RoleSource { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.RoleSourceEnumJsonConverter))]
+        public global::LabelStudio.RoleSourceEnum? RoleSource { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -116,6 +117,9 @@ namespace LabelStudio
         /// Per-member Flex claim/window state for Members UI (FIT-2339).<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="roleSource">
+        /// Included only in responses
+        /// </param>
         /// <param name="userType">
         /// Included only in responses
         /// </param>
@@ -123,9 +127,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="role">
-        /// Included only in responses
-        /// </param>
-        /// <param name="roleSource">
         /// Included only in responses
         /// </param>
         /// <param name="tags">
@@ -141,10 +142,10 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListContributedToProject>? contributedToProjects,
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListCreatedProject>? createdProjects,
             object? flex,
+            global::LabelStudio.RoleSourceEnum? roleSource,
             string? userType,
             int id = default!,
-            string role = default!,
-            string roleSource = default!,
+            global::LabelStudio.OrganizationRoleEnum role = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.SimpleOrganizationMemberTag> tags = default!)
         {
             this.Concurrency = concurrency;
