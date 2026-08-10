@@ -39,9 +39,9 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("role_source")]
-        public string RoleSource { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.RoleSourceEnumJsonConverter))]
+        public global::LabelStudio.RoleSourceEnum? RoleSource { get; set; }
 
         /// <summary>
         /// 
@@ -70,10 +70,10 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </param>
         /// <param name="user"></param>
-        /// <param name="id">
+        /// <param name="roleSource">
         /// Included only in responses
         /// </param>
-        /// <param name="roleSource">
+        /// <param name="id">
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -83,8 +83,8 @@ namespace LabelStudio
             int project,
             global::LabelStudio.AssignableOrganizationRoleEnum role,
             int user,
-            int id = default!,
-            string roleSource = default!)
+            global::LabelStudio.RoleSourceEnum? roleSource,
+            int id = default!)
         {
             this.Id = id;
             this.Project = project;
