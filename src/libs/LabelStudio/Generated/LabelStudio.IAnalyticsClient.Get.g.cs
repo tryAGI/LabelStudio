@@ -14,6 +14,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
         /// </summary>
+        /// <param name="all"></param>
         /// <param name="end"></param>
         /// <param name="kpiKey"></param>
         /// <param name="members"></param>
@@ -29,6 +30,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.KPIDetailResponse> GetAsync(
             string kpiKey,
             string tz,
+            bool? all = default,
             global::System.DateTime? end = default,
             string? members = default,
             string? projects = default,
@@ -48,6 +50,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
         /// </summary>
+        /// <param name="all"></param>
         /// <param name="end"></param>
         /// <param name="kpiKey"></param>
         /// <param name="members"></param>
@@ -63,6 +66,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.KPIDetailResponse>> GetAsResponseAsync(
             string kpiKey,
             string tz,
+            bool? all = default,
             global::System.DateTime? end = default,
             string? members = default,
             string? projects = default,

@@ -10,6 +10,12 @@ namespace LabelStudio
     public sealed partial class KPIUserSegment
     {
         /// <summary>
+        /// When all=true, total members with performance data before the breakdown cap.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total")]
+        public int? Total { get; set; }
+
+        /// <summary>
         /// Array of user information
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("users")]
@@ -38,13 +44,18 @@ namespace LabelStudio
         /// <param name="values">
         /// Array of KPI values, one per user (parallel to users array)
         /// </param>
+        /// <param name="total">
+        /// When all=true, total members with performance data before the breakdown cap.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public KPIUserSegment(
             global::System.Collections.Generic.IList<global::LabelStudio.KPIUserInfo> users,
-            global::System.Collections.Generic.IList<double> values)
+            global::System.Collections.Generic.IList<double> values,
+            int? total)
         {
+            this.Total = total;
             this.Users = users ?? throw new global::System.ArgumentNullException(nameof(users));
             this.Values = values ?? throw new global::System.ArgumentNullException(nameof(values));
         }
