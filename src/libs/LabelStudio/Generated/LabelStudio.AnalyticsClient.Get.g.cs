@@ -27,6 +27,7 @@ namespace LabelStudio
             };
         partial void PrepareGetArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? all,
             ref global::System.DateTime? end,
             ref string kpiKey,
             ref string? members,
@@ -39,6 +40,7 @@ namespace LabelStudio
         partial void PrepareGetRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? all,
             global::System.DateTime? end,
             string kpiKey,
             string? members,
@@ -67,6 +69,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
         /// </summary>
+        /// <param name="all"></param>
         /// <param name="end"></param>
         /// <param name="kpiKey"></param>
         /// <param name="members"></param>
@@ -82,6 +85,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.KPIDetailResponse> GetAsync(
             string kpiKey,
             string tz,
+            bool? all = default,
             global::System.DateTime? end = default,
             string? members = default,
             string? projects = default,
@@ -95,6 +99,7 @@ namespace LabelStudio
             var __response = await GetAsResponseAsync(
                 kpiKey: kpiKey,
                 tz: tz,
+                all: all,
                 end: end,
                 members: members,
                 projects: projects,
@@ -118,6 +123,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Retrieve data for a specific KPI with support for filtering and segmentation. Can segment by time (hourly, daily, weekly, monthly, yearly), by user, or both (2D matrix). If no segmentation is specified, returns a single total value. Supports filtering by projects, members, and date range. Date filters are interpreted in the specified timezone (required parameter). Maximum 50 projects allowed per request for performance reasons.
         /// </summary>
+        /// <param name="all"></param>
         /// <param name="end"></param>
         /// <param name="kpiKey"></param>
         /// <param name="members"></param>
@@ -133,6 +139,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.KPIDetailResponse>> GetAsResponseAsync(
             string kpiKey,
             string tz,
+            bool? all = default,
             global::System.DateTime? end = default,
             string? members = default,
             string? projects = default,
@@ -147,6 +154,7 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareGetArguments(
                 httpClient: HttpClient,
+                all: ref all,
                 end: ref end,
                 kpiKey: ref kpiKey,
                 members: ref members,
@@ -184,6 +192,7 @@ namespace LabelStudio
                                 path: $"/api/analytics/kpis/{kpiKey}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("all", all?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("members", members)
                                 .AddOptionalParameter("projects", projects)
@@ -233,6 +242,7 @@ namespace LabelStudio
                 PrepareGetRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    all: all,
                     end: end,
                     kpiKey: kpiKey!,
                     members: members,
