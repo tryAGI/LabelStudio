@@ -10,6 +10,12 @@ namespace LabelStudio
     public sealed partial class LseProjectCounts
     {
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duplication_status")]
+        public string? DuplicationStatus { get; set; }
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -119,6 +125,7 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseProjectCounts" /> class.
         /// </summary>
+        /// <param name="duplicationStatus"></param>
         /// <param name="numTasksWithAnnotations">
         /// Included only in responses
         /// </param>
@@ -170,6 +177,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseProjectCounts(
+            string? duplicationStatus,
             int? numTasksWithAnnotations,
             int? queueLeft,
             int? reviewTotalTasks,
@@ -186,6 +194,7 @@ namespace LabelStudio
             int totalAnnotationsNumber = default!,
             int totalPredictionsNumber = default!)
         {
+            this.DuplicationStatus = duplicationStatus;
             this.FinishedTaskNumber = finishedTaskNumber;
             this.GroundTruthNumber = groundTruthNumber;
             this.Id = id;
