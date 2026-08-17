@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// List org-level courses.
+        /// List org-level courses without page content.
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -23,7 +23,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLearningResourceList> ApiLearningResourcesListAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLearningResourceListList> ApiLearningResourcesListAsync(
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -40,7 +40,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// List org-level courses.
+        /// List org-level courses without page content.
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -51,7 +51,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceList>> ApiLearningResourcesListAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceListList>> ApiLearningResourcesListAsResponseAsync(
             string? ordering = default,
             int? page = default,
             int? pageSize = default,

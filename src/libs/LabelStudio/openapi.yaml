@@ -6275,7 +6275,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        List org-level courses.
+        List org-level courses without page content.
       operationId: api_learning_resources_list
       parameters:
         - description: Which field to use when ordering the results.
@@ -6315,7 +6315,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedLearningResourceList'
+                $ref: '#/components/schemas/PaginatedLearningResourceListList'
           description: ''
       security:
         - Token: []
@@ -31855,7 +31855,16 @@ components:
         - updated_by
       type: object
     LearningResourceAssignmentSummary:
+      description: |-
+        Lean nested resource for project assignment lists (gating / on-demand UI).
+
+        Includes the current user's progress so clients can evaluate gates without
+        N extra GET /learning-resources/:id/ detail calls.
       properties:
+        color:
+          nullable: true
+          readOnly: true
+          type: string
         default_allow_manual_access:
           readOnly: true
           type: boolean
@@ -31885,10 +31894,16 @@ components:
         is_published:
           readOnly: true
           type: boolean
+        progress:
+          allOf:
+            - $ref: '#/components/schemas/UserLearningProgress'
+          nullable: true
+          readOnly: true
         title:
           readOnly: true
           type: string
       required:
+        - color
         - default_allow_manual_access
         - default_gate_annotator_data_manager
         - default_gate_annotator_label_stream
@@ -31897,6 +31912,7 @@ components:
         - default_gate_reviewer_review_stream
         - id
         - is_published
+        - progress
         - title
       type: object
     LearningResourceCreate:
@@ -32107,6 +32123,125 @@ components:
         - project_count
         - structure_version
         - unpublished_module_ids
+        - updated_at
+        - updated_by
+      type: object
+    LearningResourceList:
+      description: 'Admin list payload: metadata and counts, without aggregated page content.'
+      properties:
+        allow_standalone:
+          type: boolean
+        color:
+          maxLength: 16
+          nullable: true
+          type: string
+        content_version:
+          readOnly: true
+          type: integer
+        cover_image_url:
+          maxLength: 1024
+          type: string
+        created_at:
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        default_allow_manual_access:
+          type: boolean
+        default_gate_annotator_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_annotator_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_data_manager:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_label_stream:
+          nullable: true
+          type: boolean
+        default_gate_reviewer_review_stream:
+          nullable: true
+          type: boolean
+        estimated_duration_unit:
+          $ref: '#/components/schemas/EstimatedDurationUnitEnum'
+        estimated_duration_value:
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+          type: integer
+        generate_certificate_on_completion:
+          type: boolean
+        has_unpublished_changes:
+          nullable: true
+          readOnly: true
+          type: boolean
+        hide_completed_quizzes:
+          type: boolean
+        id:
+          readOnly: true
+          type: integer
+        is_published:
+          readOnly: true
+          type: boolean
+        learner_count:
+          readOnly: true
+          type: integer
+        learners_completed_count:
+          readOnly: true
+          type: integer
+        learners_started_count:
+          readOnly: true
+          type: integer
+        module_count:
+          readOnly: true
+          type: integer
+        organization:
+          readOnly: true
+          type: integer
+        page_count:
+          readOnly: true
+          type: integer
+        project_count:
+          readOnly: true
+          type: integer
+        structure_version:
+          readOnly: true
+          type: integer
+        summary:
+          type: string
+        title:
+          maxLength: 255
+          type: string
+        updated_at:
+          format: date-time
+          readOnly: true
+          type: string
+        updated_by:
+          allOf:
+            - $ref: '#/components/schemas/UserSimple'
+          readOnly: true
+        workspace:
+          nullable: true
+          type: integer
+      required:
+        - content_version
+        - created_at
+        - created_by
+        - has_unpublished_changes
+        - id
+        - is_published
+        - learner_count
+        - learners_completed_count
+        - learners_started_count
+        - module_count
+        - organization
+        - page_count
+        - project_count
+        - structure_version
         - updated_at
         - updated_by
       type: object
@@ -37435,7 +37570,7 @@ components:
         - count
         - results
       type: object
-    PaginatedLearningResourceList:
+    PaginatedLearningResourceListList:
       properties:
         count:
           example: 123
@@ -37452,7 +37587,7 @@ components:
           type: string
         results:
           items:
-            $ref: '#/components/schemas/LearningResource'
+            $ref: '#/components/schemas/LearningResourceList'
           type: array
       required:
         - count
@@ -42979,6 +43114,14 @@ components:
         - remove
         - flexible
       type: string
+    RetakeReasonEnum:
+      description: |-
+        * `manual` - Manual invalidation
+        * `gt_agreement` - Ground truth / agreement threshold
+      enum:
+        - manual
+        - gt_agreement
+      type: string
     RetakeScopeEnum:
       description: |-
         * `none` - none
@@ -45372,6 +45515,57 @@ components:
         - raw_response
         - task_id
         - usage
+      type: object
+    UserLearningProgress:
+      properties:
+        completed_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        imported_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        invalidated_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        is_stale:
+          readOnly: true
+          type: boolean
+        pages_visited:
+          readOnly: true
+        quiz_results:
+          readOnly: true
+        resource_version:
+          readOnly: true
+          type: integer
+        retake_reason:
+          allOf:
+            - $ref: '#/components/schemas/RetakeReasonEnum'
+          readOnly: true
+        started_at:
+          format: date-time
+          nullable: true
+          readOnly: true
+          type: string
+        time_spent_seconds:
+          readOnly: true
+          type: integer
+      required:
+        - completed_at
+        - imported_at
+        - invalidated_at
+        - is_stale
+        - pages_visited
+        - quiz_results
+        - resource_version
+        - retake_reason
+        - started_at
+        - time_spent_seconds
       type: object
     UserLearningProgressList:
       properties:

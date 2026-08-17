@@ -6,7 +6,7 @@ namespace LabelStudio
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class PaginatedLearningResourceList
+    public sealed partial class PaginatedLearningResourceListList
     {
         /// <summary>
         /// Example: 123
@@ -35,7 +35,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::LabelStudio.LearningResource> Results { get; set; }
+        public required global::System.Collections.Generic.IList<global::LabelStudio.LearningResourceList> Results { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -44,7 +44,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaginatedLearningResourceList" /> class.
+        /// Initializes a new instance of the <see cref="PaginatedLearningResourceListList" /> class.
         /// </summary>
         /// <param name="count">
         /// Example: 123
@@ -59,9 +59,9 @@ namespace LabelStudio
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public PaginatedLearningResourceList(
+        public PaginatedLearningResourceListList(
             int count,
-            global::System.Collections.Generic.IList<global::LabelStudio.LearningResource> results,
+            global::System.Collections.Generic.IList<global::LabelStudio.LearningResourceList> results,
             string? next,
             string? previous)
         {
@@ -72,9 +72,9 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaginatedLearningResourceList" /> class.
+        /// Initializes a new instance of the <see cref="PaginatedLearningResourceListList" /> class.
         /// </summary>
-        public PaginatedLearningResourceList()
+        public PaginatedLearningResourceListList()
         {
         }
 
