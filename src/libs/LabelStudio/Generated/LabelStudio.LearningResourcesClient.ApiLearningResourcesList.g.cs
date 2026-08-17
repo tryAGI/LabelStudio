@@ -59,7 +59,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// List org-level courses.
+        /// List org-level courses without page content.
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -70,7 +70,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLearningResourceList> ApiLearningResourcesListAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLearningResourceListList> ApiLearningResourcesListAsync(
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -101,7 +101,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// List org-level courses.
+        /// List org-level courses without page content.
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -112,7 +112,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceList>> ApiLearningResourcesListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceListList>> ApiLearningResourcesListAsResponseAsync(
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -413,9 +413,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.PaginatedLearningResourceList.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.PaginatedLearningResourceListList.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceList>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceListList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -445,9 +445,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.PaginatedLearningResourceList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.PaginatedLearningResourceListList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceList>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLearningResourceListList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

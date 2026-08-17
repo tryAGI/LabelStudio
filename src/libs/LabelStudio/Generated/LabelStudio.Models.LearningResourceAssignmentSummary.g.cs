@@ -4,10 +4,18 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    /// Lean nested resource for project assignment lists (gating / on-demand UI).<br/>
+    /// Includes the current user's progress so clients can evaluate gates without<br/>
+    /// N extra GET /learning-resources/:id/ detail calls.
     /// </summary>
     public sealed partial class LearningResourceAssignmentSummary
     {
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("color")]
+        public string? Color { get; set; }
+
         /// <summary>
         /// Included only in responses
         /// </summary>
@@ -62,6 +70,12 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("progress")]
+        public global::LabelStudio.UserLearningProgress? Progress { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string Title { get; set; } = default!;
@@ -75,6 +89,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LearningResourceAssignmentSummary" /> class.
         /// </summary>
+        /// <param name="color">
+        /// Included only in responses
+        /// </param>
         /// <param name="defaultGateAnnotatorDataManager">
         /// Included only in responses
         /// </param>
@@ -88,6 +105,9 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="defaultGateReviewerReviewStream">
+        /// Included only in responses
+        /// </param>
+        /// <param name="progress">
         /// Included only in responses
         /// </param>
         /// <param name="defaultAllowManualAccess">
@@ -106,16 +126,19 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LearningResourceAssignmentSummary(
+            string? color,
             bool? defaultGateAnnotatorDataManager,
             bool? defaultGateAnnotatorLabelStream,
             bool? defaultGateReviewerDataManager,
             bool? defaultGateReviewerLabelStream,
             bool? defaultGateReviewerReviewStream,
+            global::LabelStudio.UserLearningProgress? progress,
             bool defaultAllowManualAccess = default!,
             int id = default!,
             bool isPublished = default!,
             string title = default!)
         {
+            this.Color = color;
             this.DefaultAllowManualAccess = defaultAllowManualAccess;
             this.DefaultGateAnnotatorDataManager = defaultGateAnnotatorDataManager;
             this.DefaultGateAnnotatorLabelStream = defaultGateAnnotatorLabelStream;
@@ -124,6 +147,7 @@ namespace LabelStudio
             this.DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream;
             this.Id = id;
             this.IsPublished = isPublished;
+            this.Progress = progress;
             this.Title = title;
         }
 

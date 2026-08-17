@@ -2,7 +2,7 @@
 
 namespace LabelStudio
 {
-    public sealed partial class PaginatedLearningResourceList
+    public sealed partial class UserLearningProgressPagesVisited
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -47,20 +47,20 @@ namespace LabelStudio
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::LabelStudio.PaginatedLearningResourceList? FromJson(
+        public static global::LabelStudio.UserLearningProgressPagesVisited? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::LabelStudio.PaginatedLearningResourceList),
-                jsonSerializerContext) as global::LabelStudio.PaginatedLearningResourceList;
+                typeof(global::LabelStudio.UserLearningProgressPagesVisited),
+                jsonSerializerContext) as global::LabelStudio.UserLearningProgressPagesVisited;
         }
 
         /// <summary>
         /// Deserializes a JSON string using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::LabelStudio.PaginatedLearningResourceList? FromJson(
+        public static global::LabelStudio.UserLearningProgressPagesVisited? FromJson(
             string json)
         {
             return FromJson(
@@ -75,7 +75,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::LabelStudio.PaginatedLearningResourceList? FromJson(
+        public static global::LabelStudio.UserLearningProgressPagesVisited? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -86,7 +86,7 @@ namespace LabelStudio
                     global::LabelStudio.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::LabelStudio.PaginatedLearningResourceList>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::LabelStudio.UserLearningProgressPagesVisited>(
                 json,
                 jsonSerializerOptions);
         }
@@ -94,20 +94,20 @@ namespace LabelStudio
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::LabelStudio.PaginatedLearningResourceList?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::LabelStudio.UserLearningProgressPagesVisited?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::LabelStudio.PaginatedLearningResourceList),
-                jsonSerializerContext).ConfigureAwait(false)) as global::LabelStudio.PaginatedLearningResourceList;
+                typeof(global::LabelStudio.UserLearningProgressPagesVisited),
+                jsonSerializerContext).ConfigureAwait(false)) as global::LabelStudio.UserLearningProgressPagesVisited;
         }
 
         /// <summary>
         /// Deserializes a JSON stream using the generated default JsonSerializerContext.
         /// </summary>
-        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.PaginatedLearningResourceList?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.UserLearningProgressPagesVisited?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream)
         {
             return FromJsonStreamAsync(
@@ -122,7 +122,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.PaginatedLearningResourceList?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::LabelStudio.UserLearningProgressPagesVisited?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
@@ -133,7 +133,7 @@ namespace LabelStudio
                     global::LabelStudio.SourceGenerationContext.Default);
             }
 
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::LabelStudio.PaginatedLearningResourceList?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::LabelStudio.UserLearningProgressPagesVisited?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
