@@ -4,7 +4,9 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// Admin list payload: metadata and counts, without aggregated page content.
+    /// Admin list payload: core metadata + cheap annotated counts (no page content).<br/>
+    /// Learner progress counts and page_count are deferred to GET .../counts/?ids=... so the<br/>
+    /// list path stays flat as modules/learners grow. Those fields are null here for FE skeletons.
     /// </summary>
     public sealed partial class LearningResourceList
     {
@@ -134,23 +136,20 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learner_count")]
-        public int LearnerCount { get; set; } = default!;
+        public int? LearnerCount { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_completed_count")]
-        public int LearnersCompletedCount { get; set; } = default!;
+        public int? LearnersCompletedCount { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_started_count")]
-        public int LearnersStartedCount { get; set; } = default!;
+        public int? LearnersStartedCount { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -169,9 +168,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("page_count")]
-        public int PageCount { get; set; } = default!;
+        public int? PageCount { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -249,6 +247,18 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="hideCompletedQuizzes"></param>
+        /// <param name="learnerCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="learnersCompletedCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="learnersStartedCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="pageCount">
+        /// Included only in responses
+        /// </param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -267,22 +277,10 @@ namespace LabelStudio
         /// <param name="isPublished">
         /// Included only in responses
         /// </param>
-        /// <param name="learnerCount">
-        /// Included only in responses
-        /// </param>
-        /// <param name="learnersCompletedCount">
-        /// Included only in responses
-        /// </param>
-        /// <param name="learnersStartedCount">
-        /// Included only in responses
-        /// </param>
         /// <param name="moduleCount">
         /// Included only in responses
         /// </param>
         /// <param name="organization">
-        /// Included only in responses
-        /// </param>
-        /// <param name="pageCount">
         /// Included only in responses
         /// </param>
         /// <param name="projectCount">
@@ -315,6 +313,10 @@ namespace LabelStudio
             bool? generateCertificateOnCompletion,
             bool? hasUnpublishedChanges,
             bool? hideCompletedQuizzes,
+            int? learnerCount,
+            int? learnersCompletedCount,
+            int? learnersStartedCount,
+            int? pageCount,
             string? summary,
             string? title,
             int? workspace,
@@ -323,12 +325,8 @@ namespace LabelStudio
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
             bool isPublished = default!,
-            int learnerCount = default!,
-            int learnersCompletedCount = default!,
-            int learnersStartedCount = default!,
             int moduleCount = default!,
             int organization = default!,
-            int pageCount = default!,
             int projectCount = default!,
             int structureVersion = default!,
             global::System.DateTime updatedAt = default!,
