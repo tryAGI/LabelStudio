@@ -21,6 +21,12 @@ namespace LabelStudio
         public bool? Async { get; set; }
 
         /// <summary>
+        /// Task IDs included in this assignment request.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("task_ids")]
+        public global::System.Collections.Generic.IList<int>? TaskIds { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,15 +37,20 @@ namespace LabelStudio
         /// </summary>
         /// <param name="assignments"></param>
         /// <param name="async"></param>
+        /// <param name="taskIds">
+        /// Task IDs included in this assignment request.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ApiProjectsTasksAssigneesBulkCreateResponse(
             int? assignments,
-            bool? async)
+            bool? async,
+            global::System.Collections.Generic.IList<int>? taskIds)
         {
             this.Assignments = assignments;
             this.Async = async;
+            this.TaskIds = taskIds;
         }
 
         /// <summary>
