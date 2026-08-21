@@ -15,6 +15,7 @@ namespace LabelStudio
         /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
         /// </summary>
         /// <param name="choiceKeys"></param>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="limit"></param>
         /// <param name="offset">
@@ -26,6 +27,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.LabelDistributionCountsResponse> LabelDistributionCountsAsync(
             int id,
             string? choiceKeys = default,
+            object? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -41,6 +43,7 @@ namespace LabelStudio
         /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
         /// </summary>
         /// <param name="choiceKeys"></param>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="limit"></param>
         /// <param name="offset">
@@ -52,6 +55,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LabelDistributionCountsResponse>> LabelDistributionCountsAsResponseAsync(
             int id,
             string? choiceKeys = default,
+            object? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

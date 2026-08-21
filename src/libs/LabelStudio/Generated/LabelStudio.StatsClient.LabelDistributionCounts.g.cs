@@ -28,6 +28,7 @@ namespace LabelStudio
         partial void PrepareLabelDistributionCountsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? choiceKeys,
+            object? filters,
             ref int id,
             ref int? limit,
             ref int? offset);
@@ -35,6 +36,7 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? choiceKeys,
+            object? filters,
             int id,
             int? limit,
             int? offset);
@@ -58,6 +60,7 @@ namespace LabelStudio
         /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
         /// </summary>
         /// <param name="choiceKeys"></param>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="limit"></param>
         /// <param name="offset">
@@ -69,6 +72,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LabelDistributionCountsResponse> LabelDistributionCountsAsync(
             int id,
             string? choiceKeys = default,
+            object? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -77,6 +81,7 @@ namespace LabelStudio
             var __response = await LabelDistributionCountsAsResponseAsync(
                 id: id,
                 choiceKeys: choiceKeys,
+                filters: filters,
                 limit: limit,
                 offset: offset,
                 requestOptions: requestOptions,
@@ -96,6 +101,7 @@ namespace LabelStudio
         /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
         /// </summary>
         /// <param name="choiceKeys"></param>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="limit"></param>
         /// <param name="offset">
@@ -107,6 +113,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LabelDistributionCountsResponse>> LabelDistributionCountsAsResponseAsync(
             int id,
             string? choiceKeys = default,
+            object? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -117,6 +124,7 @@ namespace LabelStudio
             PrepareLabelDistributionCountsArguments(
                 httpClient: HttpClient,
                 choiceKeys: ref choiceKeys,
+                filters: filters,
                 id: ref id,
                 limit: ref limit,
                 offset: ref offset);
@@ -149,6 +157,7 @@ namespace LabelStudio
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("choice_keys", choiceKeys)
+                                .AddOptionalParameter("filters", filters?.ToString())
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("offset", offset?.ToString())
                                 ;
@@ -193,6 +202,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     choiceKeys: choiceKeys,
+                    filters: filters,
                     id: id!,
                     limit: limit,
                     offset: offset);
