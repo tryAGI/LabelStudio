@@ -143,7 +143,11 @@ public static class LabelStudioToolExtensions
 
                 var response = await client.Annotations.CreateAsync(
                     id: taskId,
-                    result: result,
+                    request: new AnnotationRequest
+                    {
+                        Result = result,
+                        Task = taskId,
+                    },
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
                 return new
