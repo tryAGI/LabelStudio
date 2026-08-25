@@ -170,10 +170,6 @@ namespace LabelStudio
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(id, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
-                                name: "\"id\"");
-
-                            __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.BulkTags ?? string.Empty),
                                 name: "\"bulk_tags\"");
 
@@ -713,10 +709,6 @@ namespace LabelStudio
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(id, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
-                                name: "\"id\"");
-
-                            __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.BulkTags ?? string.Empty),
                                 name: "\"bulk_tags\"");
 
@@ -1205,10 +1197,6 @@ namespace LabelStudio
             }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            __httpRequestContent.Add(
-                                content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(id, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
-                                name: "\"id\"");
-
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.BulkTags ?? string.Empty),
                                 name: "\"bulk_tags\"");
