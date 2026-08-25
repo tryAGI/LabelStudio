@@ -514,11 +514,11 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task TestPredictAsync(
             int id,
-            string? basicAuthPass,
             int project,
             string url,
             global::LabelStudio.AuthMethodEnum? authMethod = default,
             bool? autoUpdate = default,
+            string? basicAuthPass = default,
             string? basicAuthUser = default,
             string? description = default,
             string? errorMessage = default,

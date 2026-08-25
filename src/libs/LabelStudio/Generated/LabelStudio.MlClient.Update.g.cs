@@ -499,9 +499,9 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MLBackend> UpdateAsync(
             int id,
-            string? basicAuthPass,
             global::LabelStudio.AuthMethodEnum? authMethod = default,
             bool? autoUpdate = default,
+            string? basicAuthPass = default,
             string? basicAuthUser = default,
             string? description = default,
             object? extraParams = default,

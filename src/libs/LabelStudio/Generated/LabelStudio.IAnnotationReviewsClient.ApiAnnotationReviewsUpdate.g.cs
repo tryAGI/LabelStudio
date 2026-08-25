@@ -76,8 +76,8 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AnnotationReview> ApiAnnotationReviewsUpdateAsync(
             int id,
             int annotation,
-            string? comment,
             bool? accepted = default,
+            string? comment = default,
             int? lastAnnotationHistory = default,
             bool? removeFromQueue = default,
             object? result = default,

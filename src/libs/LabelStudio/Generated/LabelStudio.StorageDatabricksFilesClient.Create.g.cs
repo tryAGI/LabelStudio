@@ -528,14 +528,13 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.DatabricksImportStorage> CreateAsync(
             string catalog,
-            string clientSecret,
             string host,
             int project,
             string schema,
-            string token,
             string volume,
             global::LabelStudio.AuthTypeEnum? authType = default,
             string? clientId = default,
+            string? clientSecret = default,
             string? description = default,
             string? prefix = default,
             bool? presign = default,
@@ -547,6 +546,7 @@ namespace LabelStudio
             bool? synchronizable = default,
             string? tenantId = default,
             string? title = default,
+            string? token = default,
             bool? useBlobUrls = default,
             bool? verifyTls = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

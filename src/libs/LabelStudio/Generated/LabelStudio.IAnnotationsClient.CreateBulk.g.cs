@@ -98,7 +98,6 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ApiAnnotationsBulkCreateResponseItem>> CreateBulkAsync(
-            string uniqueId,
             bool? bulkCreated = default,
             int? completedBy = default,
             global::System.DateTime? draftCreatedAt = default,
@@ -114,6 +113,7 @@ namespace LabelStudio
             global::LabelStudio.OneOf<global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllFalse, global::LabelStudio.AnnotationBulkSerializerWithSelectedItemsRequestSelectedItemsAllTrue>? selectedItems = default,
             int? task = default,
             global::System.Collections.Generic.IList<int>? tasks = default,
+            string? uniqueId = default,
             int? updatedBy = default,
             bool? wasCancelled = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

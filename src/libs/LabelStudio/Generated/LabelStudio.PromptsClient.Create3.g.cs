@@ -507,10 +507,10 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ModelRun> Create3Async(
             int promptId,
             int versionId,
-            bool onlyMissingPredictions,
             int project,
             object? filtersJson = default,
             string? jobId = default,
+            bool? onlyMissingPredictions = default,
             int? organization = default,
             global::System.DateTime? predictionsUpdatedAt = default,
             global::LabelStudio.ProjectSubsetEnum? projectSubset = default,
