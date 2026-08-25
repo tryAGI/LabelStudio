@@ -480,13 +480,13 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>> ApiProjectsLearningAssignmentsReorderPartialUpdateAsync(
             int projectPk,
-            int learningResourceId,
             bool? allowManualAccess = default,
             bool? gateAnnotatorDataManager = default,
             bool? gateAnnotatorLabelStream = default,
             bool? gateReviewerDataManager = default,
             bool? gateReviewerLabelStream = default,
             bool? gateReviewerReviewStream = default,
+            int? learningResourceId = default,
             int? sortOrder = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

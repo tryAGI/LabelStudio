@@ -483,9 +483,9 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AnnotationReview> UpdateAsync(
             int id,
-            string? comment,
             bool? accepted = default,
             int? annotation = default,
+            string? comment = default,
             int? lastAnnotationHistory = default,
             bool? removeFromQueue = default,
             object? result = default,

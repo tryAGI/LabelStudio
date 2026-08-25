@@ -484,12 +484,12 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectTemplate> CreateAsync(
             string name,
-            int projectId,
             object? assignmentSettings = default,
             int? createdBy = default,
             string? customScript = default,
             string? description = default,
             int? organization = default,
+            int? projectId = default,
             object? projectSettings = default,
             bool? requireCommentOnSkip = default,
             object? reviewSettings = default,

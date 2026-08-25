@@ -80,16 +80,16 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseUserAPI> UpdateCurrentUserAsync(
-            object emailNotificationSettings,
-            bool? isEmailVerified,
-            string? onboardingState,
-            string password,
             int? activeOrganization = default,
             bool? allowNewsletters = default,
             object? customHotkeys = default,
             global::System.DateTime? dateJoined = default,
+            object? emailNotificationSettings = default,
             string? firstName = default,
+            bool? isEmailVerified = default,
             string? lastName = default,
+            string? onboardingState = default,
+            string? password = default,
             string? phone = default,
             string? username = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

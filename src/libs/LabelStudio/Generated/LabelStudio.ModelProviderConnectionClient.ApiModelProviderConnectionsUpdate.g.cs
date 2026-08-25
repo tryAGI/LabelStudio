@@ -517,13 +517,13 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ModelProviderConnection> ApiModelProviderConnectionsUpdateAsync(
             int id,
-            string? apiKey,
-            string? authToken,
-            string? googleApplicationCredentials,
+            string? apiKey = default,
+            string? authToken = default,
             double? budgetAlertThreshold = default,
             string? cachedAvailableModels = default,
             string? deploymentName = default,
             string? endpoint = default,
+            string? googleApplicationCredentials = default,
             string? googleLocation = default,
             string? googleProjectId = default,
             bool? isInternal = default,

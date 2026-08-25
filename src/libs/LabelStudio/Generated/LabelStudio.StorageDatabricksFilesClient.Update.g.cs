@@ -538,11 +538,10 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.DatabricksImportStorage> UpdateAsync(
             int id,
-            string clientSecret,
-            string token,
             global::LabelStudio.AuthTypeEnum? authType = default,
             string? catalog = default,
             string? clientId = default,
+            string? clientSecret = default,
             string? description = default,
             string? host = default,
             string? prefix = default,
@@ -557,6 +556,7 @@ namespace LabelStudio
             bool? synchronizable = default,
             string? tenantId = default,
             string? title = default,
+            string? token = default,
             bool? useBlobUrls = default,
             bool? verifyTls = default,
             string? volume = default,

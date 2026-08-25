@@ -54,7 +54,6 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> CreateAsync(
-            string password,
             string username,
             int? activeOrganization = default,
             bool? allowNewsletters = default,
@@ -63,6 +62,7 @@ namespace LabelStudio
             string? email = default,
             string? firstName = default,
             string? lastName = default,
+            string? password = default,
             string? phone = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -491,11 +491,11 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.MLBackend> CreateAsync(
-            string? basicAuthPass,
             int project,
             string url,
             global::LabelStudio.AuthMethodEnum? authMethod = default,
             bool? autoUpdate = default,
+            string? basicAuthPass = default,
             string? basicAuthUser = default,
             string? description = default,
             object? extraParams = default,

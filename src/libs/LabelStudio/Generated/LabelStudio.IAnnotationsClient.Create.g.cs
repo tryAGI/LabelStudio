@@ -139,7 +139,6 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.Annotation> CreateAsync(
             int id,
-            string uniqueId,
             bool? bulkCreated = default,
             int? completedBy = default,
             global::System.DateTime? draftCreatedAt = default,
@@ -153,6 +152,7 @@ namespace LabelStudio
             int? project = default,
             global::System.Collections.Generic.IList<object>? result = default,
             int? task = default,
+            string? uniqueId = default,
             int? updatedBy = default,
             bool? wasCancelled = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

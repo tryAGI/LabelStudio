@@ -461,8 +461,8 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.Blueprint> UpdateAsync(
             int id,
-            global::System.Collections.Generic.IList<int> taskIds,
             string? description = default,
+            global::System.Collections.Generic.IList<int>? taskIds = default,
             string? title = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
