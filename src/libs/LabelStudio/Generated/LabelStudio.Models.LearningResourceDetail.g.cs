@@ -214,6 +214,12 @@ namespace LabelStudio
         public int ProjectCount { get; set; } = default!;
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("single_page_review")]
+        public bool? SinglePageReview { get; set; }
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -295,6 +301,7 @@ namespace LabelStudio
         /// <param name="progress">
         /// Included only in responses
         /// </param>
+        /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -375,6 +382,7 @@ namespace LabelStudio
             bool? hideCompletedQuizzes,
             object? learnerContent,
             object? progress,
+            bool? singlePageReview,
             string? summary,
             string? title,
             int? workspace,
@@ -429,6 +437,7 @@ namespace LabelStudio
             this.Progress = progress;
             this.ProjectAssignments = projectAssignments;
             this.ProjectCount = projectCount;
+            this.SinglePageReview = singlePageReview;
             this.StructureVersion = structureVersion;
             this.Summary = summary;
             this.Title = title;
