@@ -93,6 +93,12 @@ namespace LabelStudio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("single_page_review")]
+        public bool? SinglePageReview { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
@@ -135,6 +141,7 @@ namespace LabelStudio
         /// <param name="estimatedDurationValue"></param>
         /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hideCompletedQuizzes"></param>
+        /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -155,6 +162,7 @@ namespace LabelStudio
             int? estimatedDurationValue,
             bool? generateCertificateOnCompletion,
             bool? hideCompletedQuizzes,
+            bool? singlePageReview,
             string? summary,
             string? title,
             int? workspace)
@@ -172,6 +180,7 @@ namespace LabelStudio
             this.EstimatedDurationValue = estimatedDurationValue;
             this.GenerateCertificateOnCompletion = generateCertificateOnCompletion;
             this.HideCompletedQuizzes = hideCompletedQuizzes;
+            this.SinglePageReview = singlePageReview;
             this.Summary = summary;
             this.Title = title;
             this.Workspace = workspace;

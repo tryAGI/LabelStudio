@@ -470,6 +470,7 @@ namespace LabelStudio
         /// <param name="estimatedDurationValue"></param>
         /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hideCompletedQuizzes"></param>
+        /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
         /// <param name="title"></param>
         /// <param name="workspace"></param>
@@ -492,6 +493,7 @@ namespace LabelStudio
             int? estimatedDurationValue = default,
             bool? generateCertificateOnCompletion = default,
             bool? hideCompletedQuizzes = default,
+            bool? singlePageReview = default,
             string? summary = default,
             string? title = default,
             int? workspace = default,
@@ -513,6 +515,7 @@ namespace LabelStudio
                 EstimatedDurationValue = estimatedDurationValue,
                 GenerateCertificateOnCompletion = generateCertificateOnCompletion,
                 HideCompletedQuizzes = hideCompletedQuizzes,
+                SinglePageReview = singlePageReview,
                 Summary = summary,
                 Title = title,
                 Workspace = workspace,
