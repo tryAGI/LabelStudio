@@ -368,6 +368,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<object>? Prompts { get; set; }
 
         /// <summary>
+        /// Annotator-only: tasks this user has completed in the labeling queue for the project.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -375,6 +376,7 @@ namespace LabelStudio
         public int QueueDone { get; set; } = default!;
 
         /// <summary>
+        /// Reviewer-only: remaining tasks in this user's manually assigned review queue. Returns 0 when no manual assignments apply; the project card then uses `review_total_tasks` and `reviewed_number` for auto-review progress. Not the same as the project-wide `tasks_pending_review` KPI.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -382,6 +384,7 @@ namespace LabelStudio
         public int QueueLeft { get; set; } = default!;
 
         /// <summary>
+        /// Role-dependent queue size. Annotators: total tasks in the labeling queue. Reviewers (list/counts): total manually assigned review tasks (same pool as `reviewer_queue_total`). Not the same as `task_number` (all project tasks) or `review_total_tasks` (auto-review stream pool).<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -409,6 +412,7 @@ namespace LabelStudio
         public required global::LabelStudio.ReviewSettings ReviewSettings { get; set; }
 
         /// <summary>
+        /// Tasks manually assigned to this user for review (`reviewer_queue_total_count`). Null for annotators.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -806,15 +810,19 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="queueDone">
+        /// Annotator-only: tasks this user has completed in the labeling queue for the project.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="queueLeft">
+        /// Reviewer-only: remaining tasks in this user's manually assigned review queue. Returns 0 when no manual assignments apply; the project card then uses `review_total_tasks` and `reviewed_number` for auto-review progress. Not the same as the project-wide `tasks_pending_review` KPI.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="queueTotal">
+        /// Role-dependent queue size. Annotators: total tasks in the labeling queue. Reviewers (list/counts): total manually assigned review tasks (same pool as `reviewer_queue_total`). Not the same as `task_number` (all project tasks) or `review_total_tasks` (auto-review stream pool).<br/>
         /// Included only in responses
         /// </param>
         /// <param name="reviewerQueueTotal">
+        /// Tasks manually assigned to this user for review (`reviewer_queue_total_count`). Null for annotators.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="skippedAnnotationsNumber">
