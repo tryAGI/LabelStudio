@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiProjectsStatsTotalAgreementRetrieveResponseVariant2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_agreement")]
         public global::System.Collections.Generic.Dictionary<string, double>? TotalAgreement { get; set; }

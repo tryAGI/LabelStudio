@@ -56,7 +56,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>
@@ -98,7 +98,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>
@@ -197,7 +197,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -500,7 +500,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>

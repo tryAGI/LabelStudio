@@ -85,7 +85,7 @@ namespace LabelStudio
         public int? AnnotatorEvaluationOnboardingTasks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignment_settings")]
         public global::LabelStudio.AssignmentSettingsRequest? AssignmentSettings { get; set; }
@@ -97,7 +97,7 @@ namespace LabelStudio
         public string? Color { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("comment_classification_config")]
         public string? CommentClassificationConfig { get; set; }
@@ -115,19 +115,19 @@ namespace LabelStudio
         public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
         public string? CustomInterfaceCode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
         public string? CustomInterfaceCompiled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
         public object? CustomInterfaceParams { get; set; }
@@ -169,7 +169,7 @@ namespace LabelStudio
         public string? ExpertInstruction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
@@ -223,13 +223,13 @@ namespace LabelStudio
         public string? ModelVersion { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public object? OutputSchema { get; set; }
@@ -267,13 +267,13 @@ namespace LabelStudio
         public bool? RevealPreannotationsInteractively { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_settings")]
         public global::LabelStudio.ReviewSettingsRequest? ReviewSettings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
@@ -323,14 +323,14 @@ namespace LabelStudio
         public bool? ShowUnusedDataColumnsToAnnotators { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_queue")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SkipQueueEnumJsonConverter))]
         public global::LabelStudio.SkipQueueEnum? SkipQueue { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
         public int? SourceInterfaceId { get; set; }

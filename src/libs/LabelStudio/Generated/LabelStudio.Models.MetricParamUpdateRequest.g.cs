@@ -6,7 +6,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class MetricParamUpdateRequest
     {
@@ -17,14 +17,14 @@ namespace LabelStudio
         public object? AdditionalParams { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agreement_threshold")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public int? AgreementThreshold { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_additional_annotators_assignable")]
         [global::System.Obsolete("This property marked as deprecated.")]

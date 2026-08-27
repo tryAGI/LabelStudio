@@ -15,7 +15,7 @@ namespace LabelStudio
         public string? AssignedRole { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assigned_role_display")]
         public string? AssignedRoleDisplay { get; set; }
@@ -28,7 +28,7 @@ namespace LabelStudio
         public required int AssignmentId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -58,7 +58,7 @@ namespace LabelStudio
         public required global::LabelStudio.MappingStatusEnum MappingStatus { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mapping_status_display")]
         [global::System.Text.Json.Serialization.JsonRequired]

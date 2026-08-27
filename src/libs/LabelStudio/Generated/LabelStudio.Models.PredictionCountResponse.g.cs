@@ -4,26 +4,26 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PredictionCountResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("existing_predictions")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ExistingPredictions { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tasks_to_run")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TasksToRun { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_tasks")]
         [global::System.Text.Json.Serialization.JsonRequired]

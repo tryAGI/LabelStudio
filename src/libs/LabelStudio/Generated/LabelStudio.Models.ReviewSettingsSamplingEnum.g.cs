@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum ReviewSettingsSamplingEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ByAnnotator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Random,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TaskId,
     }

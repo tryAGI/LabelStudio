@@ -12,7 +12,7 @@ namespace LabelStudio
     public sealed partial class AnnotationHistory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("action")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AnnotationHistoryActionEnumJsonConverter))]

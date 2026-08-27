@@ -15,31 +15,31 @@ namespace LabelStudio
     public enum ProviderEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Anthropic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AzureAIFoundry,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AzureOpenAI,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Gemini,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OpenAI,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         VertexAI,
     }

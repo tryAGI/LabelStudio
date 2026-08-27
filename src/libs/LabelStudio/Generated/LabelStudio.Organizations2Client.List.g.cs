@@ -44,7 +44,7 @@ namespace LabelStudio
         /// <summary>
         /// List your organizations<br/>
         ///         Return a list of the organizations you've created or that you have access to.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace LabelStudio
         /// <summary>
         /// List your organizations<br/>
         ///         Return a list of the organizations you've created or that you have access to.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -139,7 +139,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

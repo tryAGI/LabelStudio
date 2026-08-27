@@ -9,31 +9,31 @@ namespace LabelStudio
     public enum ApiProjectsAwsCustomFunctionRetrieveResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inactive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotDeployed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotFound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

@@ -12,7 +12,7 @@ namespace LabelStudio
     public sealed partial class TriggeredBy2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         public string? Email { get; set; }

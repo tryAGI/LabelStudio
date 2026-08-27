@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum DashboardTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MemberPerformance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Overview,
     }

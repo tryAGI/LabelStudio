@@ -14,27 +14,27 @@ namespace LabelStudio
     public enum OnboardingStateEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Complete,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FirstTutorial,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InAppGuidance,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotStarted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Signup,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TrialSignup,
     }

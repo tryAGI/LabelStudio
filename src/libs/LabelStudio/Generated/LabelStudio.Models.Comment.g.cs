@@ -14,7 +14,7 @@ namespace LabelStudio
     public sealed partial class Comment
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation")]
         public int? Annotation { get; set; }
@@ -42,7 +42,7 @@ namespace LabelStudio
         public int CreatedBy { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("draft")]
         public int? Draft { get; set; }

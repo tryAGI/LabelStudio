@@ -13,23 +13,23 @@ namespace LabelStudio
     public enum StateEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Co,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Di,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Er,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tr,
     }

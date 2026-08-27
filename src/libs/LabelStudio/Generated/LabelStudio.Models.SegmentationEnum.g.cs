@@ -14,27 +14,27 @@ namespace LabelStudio
     public enum SegmentationEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Matrix,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectMatrix,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Time,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

@@ -8,7 +8,7 @@ namespace LabelStudio
         /// Update label link<br/>
         ///         Update a label link that links custom labels to a project labeling configuration, for example if the fromName,  <br/>
         ///         toName, or name parameters for a tag in the labeling configuration change. <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -25,7 +25,7 @@ namespace LabelStudio
         /// Update label link<br/>
         ///         Update a label link that links custom labels to a project labeling configuration, for example if the fromName,  <br/>
         ///         toName, or name parameters for a tag in the labeling configuration change. <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -42,7 +42,7 @@ namespace LabelStudio
         /// Update label link<br/>
         ///         Update a label link that links custom labels to a project labeling configuration, for example if the fromName,  <br/>
         ///         toName, or name parameters for a tag in the labeling configuration change. <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="fromName">

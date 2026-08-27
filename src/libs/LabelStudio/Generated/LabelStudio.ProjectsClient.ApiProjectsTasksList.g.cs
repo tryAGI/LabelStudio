@@ -53,7 +53,7 @@ namespace LabelStudio
         ///             ```bash<br/>
         ///             curl -X GET http://localhost:8000/api/projects/{id}/tasks/?page=1&amp;page_size=10 -H 'Authorization: Token abc123'<br/>
         ///             ```<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ordering"></param>
@@ -87,7 +87,7 @@ namespace LabelStudio
         ///             ```bash<br/>
         ///             curl -X GET http://localhost:8000/api/projects/{id}/tasks/?page=1&amp;page_size=10 -H 'Authorization: Token abc123'<br/>
         ///             ```<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ordering"></param>
@@ -171,7 +171,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

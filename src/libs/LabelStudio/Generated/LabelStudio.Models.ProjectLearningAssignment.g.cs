@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectLearningAssignment
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allow_manual_access")]
         public bool? AllowManualAccess { get; set; }
@@ -22,31 +22,31 @@ namespace LabelStudio
         public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gate_annotator_data_manager")]
         public bool? GateAnnotatorDataManager { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gate_annotator_label_stream")]
         public bool? GateAnnotatorLabelStream { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_data_manager")]
         public bool? GateReviewerDataManager { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_label_stream")]
         public bool? GateReviewerLabelStream { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("gate_reviewer_review_stream")]
         public bool? GateReviewerReviewStream { get; set; }
@@ -73,7 +73,7 @@ namespace LabelStudio
         public int Project { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sort_order")]
         public int? SortOrder { get; set; }

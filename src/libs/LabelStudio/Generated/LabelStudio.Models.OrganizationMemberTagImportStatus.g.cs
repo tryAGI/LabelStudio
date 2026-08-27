@@ -9,7 +9,7 @@ namespace LabelStudio
     public sealed partial class OrganizationMemberTagImportStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments_created")]
         public int? AssignmentsCreated { get; set; }
@@ -22,7 +22,7 @@ namespace LabelStudio
         public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finished_at")]
         public global::System.DateTime? FinishedAt { get; set; }
@@ -45,13 +45,13 @@ namespace LabelStudio
         public global::LabelStudio.OrganizationMemberTagImportStatusStatusEnum? Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags_created")]
         public int? TagsCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("users_skipped")]
         public object? UsersSkipped { get; set; }

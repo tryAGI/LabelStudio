@@ -18,7 +18,16 @@ namespace LabelStudio
         public bool? AnnotatorEvaluationEnabled { get; set; }
 
         /// <summary>
-        /// 
+        /// Data Collection project mode (assigned or open). Set only at creation; immutable afterwards. Requires use_custom_interface.<br/>
+        /// * `assigned` - Assigned<br/>
+        /// * `open` - Open
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("collection_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.CollectionModeEnumJsonConverter))]
+        public global::LabelStudio.CollectionModeEnum? CollectionMode { get; set; }
+
+        /// <summary>
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color")]
         public string? Color { get; set; }
@@ -36,19 +45,19 @@ namespace LabelStudio
         public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
         public string? CustomInterfaceCode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
         public string? CustomInterfaceCompiled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
         public object? CustomInterfaceParams { get; set; }
@@ -78,7 +87,7 @@ namespace LabelStudio
         public string? ExpertInstruction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
@@ -126,19 +135,19 @@ namespace LabelStudio
         public string? ModelVersion { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public object? OutputSchema { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overlap_cohort_percentage")]
         public int? OverlapCohortPercentage { get; set; }
@@ -156,7 +165,7 @@ namespace LabelStudio
         public bool? RevealPreannotationsInteractively { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
@@ -188,7 +197,7 @@ namespace LabelStudio
         public bool? ShowInstruction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("show_overlap_first")]
         public bool? ShowOverlapFirst { get; set; }
@@ -200,14 +209,14 @@ namespace LabelStudio
         public bool? ShowSkipButton { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_queue")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SkipQueueEnumJsonConverter))]
         public global::LabelStudio.SkipQueueEnum? SkipQueue { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
         public int? SourceInterfaceId { get; set; }
@@ -259,6 +268,11 @@ namespace LabelStudio
         /// </summary>
         /// <param name="annotatorEvaluationEnabled">
         /// Enable annotator evaluation for the project
+        /// </param>
+        /// <param name="collectionMode">
+        /// Data Collection project mode (assigned or open). Set only at creation; immutable afterwards. Requires use_custom_interface.<br/>
+        /// * `assigned` - Assigned<br/>
+        /// * `open` - Open
         /// </param>
         /// <param name="color"></param>
         /// <param name="controlWeights">
@@ -352,6 +366,7 @@ namespace LabelStudio
 #endif
         public LseProjectCreateRequest(
             bool? annotatorEvaluationEnabled,
+            global::LabelStudio.CollectionModeEnum? collectionMode,
             string? color,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeightRequest>? controlWeights,
             global::LabelStudio.UserSimpleRequest? createdBy,
@@ -391,6 +406,7 @@ namespace LabelStudio
             int? workspace)
         {
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
+            this.CollectionMode = collectionMode;
             this.Color = color;
             this.ControlWeights = controlWeights;
             this.CreatedBy = createdBy;

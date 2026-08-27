@@ -5,7 +5,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct MaybeExpandedComment : global::System.IEquatable<MaybeExpandedComment>
     {
@@ -24,7 +24,7 @@ namespace LabelStudio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Comment))]
@@ -32,7 +32,7 @@ namespace LabelStudio
         public bool IsComment => Comment != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickComment(
 #if NET6_0_OR_GREATER
@@ -45,7 +45,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LabelStudio.Comment PickComment() => IsComment
             ? Comment!
@@ -66,7 +66,7 @@ namespace LabelStudio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(SerializerWithUser))]
@@ -74,7 +74,7 @@ namespace LabelStudio
         public bool IsSerializerWithUser => SerializerWithUser != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickSerializerWithUser(
 #if NET6_0_OR_GREATER
@@ -87,23 +87,23 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LabelStudio.CommentSerializerWithExpandedUser PickSerializerWithUser() => IsSerializerWithUser
             ? SerializerWithUser!
             : throw new global::System.InvalidOperationException($"Expected union variant 'SerializerWithUser' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MaybeExpandedComment(global::LabelStudio.Comment value) => new MaybeExpandedComment((global::LabelStudio.Comment?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LabelStudio.Comment?(MaybeExpandedComment @this) => @this.Comment;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MaybeExpandedComment(global::LabelStudio.Comment? value)
         {
@@ -111,22 +111,22 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MaybeExpandedComment FromComment(global::LabelStudio.Comment? value) => new MaybeExpandedComment(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator MaybeExpandedComment(global::LabelStudio.CommentSerializerWithExpandedUser value) => new MaybeExpandedComment((global::LabelStudio.CommentSerializerWithExpandedUser?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LabelStudio.CommentSerializerWithExpandedUser?(MaybeExpandedComment @this) => @this.SerializerWithUser;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MaybeExpandedComment(global::LabelStudio.CommentSerializerWithExpandedUser? value)
         {
@@ -134,12 +134,12 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static MaybeExpandedComment FromSerializerWithUser(global::LabelStudio.CommentSerializerWithExpandedUser? value) => new MaybeExpandedComment(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MaybeExpandedComment(
             global::LabelStudio.Comment? comment,
@@ -151,23 +151,23 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             SerializerWithUser as object ??
-            Comment as object 
+            Comment as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Comment?.ToString() ??
-            SerializerWithUser?.ToString() 
+            SerializerWithUser?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -175,7 +175,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::LabelStudio.Comment, TResult>? comment = null,
@@ -200,7 +200,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::LabelStudio.Comment>? comment = null,
@@ -224,7 +224,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::LabelStudio.Comment>? comment = null,
@@ -247,7 +247,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -268,18 +268,18 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(MaybeExpandedComment other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::LabelStudio.Comment?>.Default.Equals(Comment, other.Comment) &&
-                global::System.Collections.Generic.EqualityComparer<global::LabelStudio.CommentSerializerWithExpandedUser?>.Default.Equals(SerializerWithUser, other.SerializerWithUser) 
+                global::System.Collections.Generic.EqualityComparer<global::LabelStudio.CommentSerializerWithExpandedUser?>.Default.Equals(SerializerWithUser, other.SerializerWithUser)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(MaybeExpandedComment obj1, MaybeExpandedComment obj2)
         {
@@ -287,7 +287,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(MaybeExpandedComment obj1, MaybeExpandedComment obj2)
         {
@@ -295,7 +295,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

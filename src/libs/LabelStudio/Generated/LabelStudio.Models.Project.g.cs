@@ -18,7 +18,7 @@ namespace LabelStudio
         public bool? AnnotatorEvaluationEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color")]
         public string? Color { get; set; }
@@ -150,13 +150,13 @@ namespace LabelStudio
         public int NumTasksWithAnnotations { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overlap_cohort_percentage")]
         public int? OverlapCohortPercentage { get; set; }
@@ -196,7 +196,7 @@ namespace LabelStudio
         public bool? RevealPreannotationsInteractively { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
@@ -228,7 +228,7 @@ namespace LabelStudio
         public bool? ShowInstruction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("show_overlap_first")]
         public bool? ShowOverlapFirst { get; set; }
@@ -240,7 +240,7 @@ namespace LabelStudio
         public bool? ShowSkipButton { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_queue")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SkipQueueEnumJsonConverter))]

@@ -16,35 +16,35 @@ namespace LabelStudio
     public enum OrganizationRoleEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ad,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         An,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Di,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ma,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         No,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ow,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Re,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Vo,
     }

@@ -9,15 +9,15 @@ namespace LabelStudio
     public enum ApiProjectsAnalyticsDataQualityAgreementAnalysisConfusionMatrixRetrieveMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Accepted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GroundTruth,
     }

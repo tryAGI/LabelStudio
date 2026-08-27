@@ -4,18 +4,18 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LearningResourceDetail
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allow_standalone")]
         public bool? AllowStandalone { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("color")]
         public string? Color { get; set; }
@@ -35,7 +35,7 @@ namespace LabelStudio
         public int ContentVersion { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cover_image_url")]
         public string? CoverImageUrl { get; set; }
@@ -55,37 +55,37 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple CreatedBy { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_allow_manual_access")]
         public bool? DefaultAllowManualAccess { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_annotator_data_manager")]
         public bool? DefaultGateAnnotatorDataManager { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_annotator_label_stream")]
         public bool? DefaultGateAnnotatorLabelStream { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_data_manager")]
         public bool? DefaultGateReviewerDataManager { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_label_stream")]
         public bool? DefaultGateReviewerLabelStream { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_gate_reviewer_review_stream")]
         public bool? DefaultGateReviewerReviewStream { get; set; }
@@ -101,13 +101,13 @@ namespace LabelStudio
         public global::LabelStudio.EstimatedDurationUnitEnum? EstimatedDurationUnit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("estimated_duration_value")]
         public int? EstimatedDurationValue { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generate_certificate_on_completion")]
         public bool? GenerateCertificateOnCompletion { get; set; }
@@ -119,7 +119,7 @@ namespace LabelStudio
         public bool? HasUnpublishedChanges { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hide_completed_quizzes")]
         public bool? HideCompletedQuizzes { get; set; }
@@ -214,7 +214,7 @@ namespace LabelStudio
         public int ProjectCount { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("single_page_review")]
         public bool? SinglePageReview { get; set; }
@@ -227,13 +227,13 @@ namespace LabelStudio
         public int StructureVersion { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary")]
         public string? Summary { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
@@ -260,7 +260,7 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple UpdatedBy { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace")]
         public int? Workspace { get; set; }

@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Bulk update labels<br/>
         ///         If you want to update the labels in saved annotations, use this endpoint.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -21,7 +21,7 @@ namespace LabelStudio
         /// <summary>
         /// Bulk update labels<br/>
         ///         If you want to update the labels in saved annotations, use this endpoint.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -35,7 +35,7 @@ namespace LabelStudio
         /// <summary>
         /// Bulk update labels<br/>
         ///         If you want to update the labels in saved annotations, use this endpoint.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="newLabel"></param>
         /// <param name="oldLabel"></param>

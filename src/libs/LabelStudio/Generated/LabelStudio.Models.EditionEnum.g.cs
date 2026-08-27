@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum EditionEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Community,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enterprise,
     }

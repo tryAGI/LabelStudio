@@ -12,19 +12,19 @@ namespace LabelStudio
     public enum EstimatedDurationUnitEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Days,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Hours,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Minutes,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Weeks,
     }

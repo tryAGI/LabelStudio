@@ -55,7 +55,7 @@ namespace LabelStudio
         ///             --data '[{"url": "http://example.com/test1.csv"}, {"url": "http://example.com/test2.csv"}]'<br/>
         ///             ```<br/>
         ///             <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="commitToProject">
         /// Default Value: true
@@ -129,7 +129,7 @@ namespace LabelStudio
         ///             --data '[{"url": "http://example.com/test1.csv"}, {"url": "http://example.com/test2.csv"}]'<br/>
         ///             ```<br/>
         ///             <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="commitToProject">
         /// Default Value: true

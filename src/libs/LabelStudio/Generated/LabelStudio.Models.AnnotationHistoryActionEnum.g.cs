@@ -18,43 +18,43 @@ namespace LabelStudio
     public enum AnnotationHistoryActionEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Accepted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeletedReview,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FixedAndAccepted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Imported,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Prediction,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PropagatedAnnotation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rejected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Skipped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Submitted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Updated,
     }

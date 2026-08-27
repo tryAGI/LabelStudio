@@ -54,7 +54,7 @@ namespace LabelStudio
         ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="reimportPk"></param>
@@ -87,7 +87,7 @@ namespace LabelStudio
         ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="reimportPk"></param>
@@ -160,7 +160,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

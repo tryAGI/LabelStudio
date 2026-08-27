@@ -9,7 +9,7 @@ namespace LabelStudio
         ///         Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a<br/>
         ///         predicted region based on annotator input. <br/>
         ///         See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -27,7 +27,7 @@ namespace LabelStudio
         ///         Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a<br/>
         ///         predicted region based on annotator input. <br/>
         ///         See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -45,7 +45,7 @@ namespace LabelStudio
         ///         Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a<br/>
         ///         predicted region based on annotator input. <br/>
         ///         See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="context">

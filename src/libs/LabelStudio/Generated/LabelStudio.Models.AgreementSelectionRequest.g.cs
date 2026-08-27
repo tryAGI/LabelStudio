@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AgreementSelectionRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotators")]
         public global::LabelStudio.AgreementSelectionGroupRequest? Annotators { get; set; }
@@ -21,7 +21,7 @@ namespace LabelStudio
         public bool? GroundTruth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("models")]
         public global::LabelStudio.AgreementSelectionGroupRequest? Models { get; set; }

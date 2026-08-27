@@ -76,13 +76,13 @@ namespace LabelStudio
         public int AnnotatorsCount { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_lead_time")]
         public double? AvgLeadTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cancelled_annotations")]
         public int? CancelledAnnotations { get; set; }
@@ -115,7 +115,7 @@ namespace LabelStudio
         public string Comments { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
         public global::System.DateTime? CompletedAt { get; set; }
@@ -136,7 +136,7 @@ namespace LabelStudio
         public required object Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("draft_exists")]
         public bool? DraftExists { get; set; }
@@ -156,7 +156,7 @@ namespace LabelStudio
         public string? FileUpload { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ground_truth")]
         public bool? GroundTruth { get; set; }
@@ -169,7 +169,7 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inner_id")]
         public int? InnerId { get; set; }
@@ -227,7 +227,7 @@ namespace LabelStudio
         public string PredictionsResults { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("predictions_score")]
         public double? PredictionsScore { get; set; }
@@ -245,7 +245,7 @@ namespace LabelStudio
         public int? ReviewTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed")]
         public bool? Reviewed { get; set; }
@@ -265,13 +265,13 @@ namespace LabelStudio
         public int ReviewersCount { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_accepted")]
         public int? ReviewsAccepted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_rejected")]
         public int? ReviewsRejected { get; set; }
@@ -290,13 +290,13 @@ namespace LabelStudio
         public string? StorageFilename { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations")]
         public int? TotalAnnotations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_predictions")]
         public int? TotalPredictions { get; set; }

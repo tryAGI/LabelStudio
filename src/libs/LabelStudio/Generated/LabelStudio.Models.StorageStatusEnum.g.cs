@@ -14,27 +14,27 @@ namespace LabelStudio
     public enum StorageStatusEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Completed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CompletedWithErrors,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InProgress,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Initialized,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Queued,
     }

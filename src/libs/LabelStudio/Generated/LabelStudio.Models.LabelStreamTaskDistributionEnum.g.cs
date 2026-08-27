@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum LabelStreamTaskDistributionEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AssignedOnly,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutoDistribution,
     }

@@ -46,7 +46,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -73,7 +73,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -149,7 +149,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -447,7 +447,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="activeOrganization"></param>

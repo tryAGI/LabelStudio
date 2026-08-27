@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum RetakeReasonEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GtAgreement,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Manual,
     }

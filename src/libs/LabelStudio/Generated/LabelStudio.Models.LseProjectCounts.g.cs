@@ -10,7 +10,7 @@ namespace LabelStudio
     public sealed partial class LseProjectCounts
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duplication_status")]
         public string? DuplicationStatus { get; set; }

@@ -15,31 +15,31 @@ namespace LabelStudio
     public enum PromptsStatusEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AdalaNotConnected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CloudLicensePerOrganizationDisabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DisabledForThisOrganizationff,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         OnPremiseGlobalLicenseDisabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Unknown,
     }

@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -23,7 +23,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -39,7 +39,7 @@ namespace LabelStudio
         /// <summary>
         /// Update user details<br/>
         ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="activeOrganization"></param>

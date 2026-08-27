@@ -10,7 +10,7 @@ namespace LabelStudio
         ///     Use the following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="isInteractive"></param>
         /// <param name="project"></param>
@@ -28,7 +28,7 @@ namespace LabelStudio
         ///     Use the following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="isInteractive"></param>
         /// <param name="project"></param>

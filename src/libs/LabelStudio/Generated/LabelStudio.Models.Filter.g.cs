@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Filter
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("child_filters")]
         public global::System.Collections.Generic.IList<global::LabelStudio.ChildFilter>? ChildFilters { get; set; }

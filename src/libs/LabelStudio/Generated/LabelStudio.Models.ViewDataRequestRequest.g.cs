@@ -9,13 +9,13 @@ namespace LabelStudio
     public sealed partial class ViewDataRequestRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filters")]
         public global::LabelStudio.PrepareParamsFiltersRequest? Filters { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ordering")]
         public global::System.Collections.Generic.IList<global::LabelStudio.PrepareParamsOrderingRequestItem>? Ordering { get; set; }

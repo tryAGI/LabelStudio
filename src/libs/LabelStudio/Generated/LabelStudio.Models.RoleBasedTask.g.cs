@@ -5,7 +5,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct RoleBasedTask : global::System.IEquatable<RoleBasedTask>
     {
@@ -19,7 +19,7 @@ namespace LabelStudio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Lse))]
@@ -27,7 +27,7 @@ namespace LabelStudio
         public bool IsLse => Lse != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLse(
 #if NET6_0_OR_GREATER
@@ -40,7 +40,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LabelStudio.LseTask PickLse() => IsLse
             ? Lse!
@@ -56,7 +56,7 @@ namespace LabelStudio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LseSerializerForReviewers))]
@@ -64,7 +64,7 @@ namespace LabelStudio
         public bool IsLseSerializerForReviewers => LseSerializerForReviewers != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLseSerializerForReviewers(
 #if NET6_0_OR_GREATER
@@ -77,7 +77,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LabelStudio.LseTaskSerializerForReviewers PickLseSerializerForReviewers() => IsLseSerializerForReviewers
             ? LseSerializerForReviewers!
@@ -93,7 +93,7 @@ namespace LabelStudio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(LseSerializerForAnnotators))]
@@ -101,7 +101,7 @@ namespace LabelStudio
         public bool IsLseSerializerForAnnotators => LseSerializerForAnnotators != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickLseSerializerForAnnotators(
 #if NET6_0_OR_GREATER
@@ -114,23 +114,23 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::LabelStudio.LseTaskSerializerForAnnotators PickLseSerializerForAnnotators() => IsLseSerializerForAnnotators
             ? LseSerializerForAnnotators!
             : throw new global::System.InvalidOperationException($"Expected union variant 'LseSerializerForAnnotators' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTask value) => new RoleBasedTask((global::LabelStudio.LseTask?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LabelStudio.LseTask?(RoleBasedTask @this) => @this.Lse;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleBasedTask(global::LabelStudio.LseTask? value)
         {
@@ -138,22 +138,22 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RoleBasedTask FromLse(global::LabelStudio.LseTask? value) => new RoleBasedTask(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTaskSerializerForReviewers value) => new RoleBasedTask((global::LabelStudio.LseTaskSerializerForReviewers?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LabelStudio.LseTaskSerializerForReviewers?(RoleBasedTask @this) => @this.LseSerializerForReviewers;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleBasedTask(global::LabelStudio.LseTaskSerializerForReviewers? value)
         {
@@ -161,22 +161,22 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RoleBasedTask FromLseSerializerForReviewers(global::LabelStudio.LseTaskSerializerForReviewers? value) => new RoleBasedTask(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator RoleBasedTask(global::LabelStudio.LseTaskSerializerForAnnotators value) => new RoleBasedTask((global::LabelStudio.LseTaskSerializerForAnnotators?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::LabelStudio.LseTaskSerializerForAnnotators?(RoleBasedTask @this) => @this.LseSerializerForAnnotators;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleBasedTask(global::LabelStudio.LseTaskSerializerForAnnotators? value)
         {
@@ -184,12 +184,12 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static RoleBasedTask FromLseSerializerForAnnotators(global::LabelStudio.LseTaskSerializerForAnnotators? value) => new RoleBasedTask(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public RoleBasedTask(
             global::LabelStudio.LseTask? lse,
@@ -203,25 +203,25 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             LseSerializerForAnnotators as object ??
             LseSerializerForReviewers as object ??
-            Lse as object 
+            Lse as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Lse?.ToString() ??
             LseSerializerForReviewers?.ToString() ??
-            LseSerializerForAnnotators?.ToString() 
+            LseSerializerForAnnotators?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -229,7 +229,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::LabelStudio.LseTask, TResult>? lse = null,
@@ -259,7 +259,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::LabelStudio.LseTask>? lse = null,
@@ -289,7 +289,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::LabelStudio.LseTask>? lse = null,
@@ -317,7 +317,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -340,19 +340,19 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(RoleBasedTask other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::LabelStudio.LseTask?>.Default.Equals(Lse, other.Lse) &&
                 global::System.Collections.Generic.EqualityComparer<global::LabelStudio.LseTaskSerializerForReviewers?>.Default.Equals(LseSerializerForReviewers, other.LseSerializerForReviewers) &&
-                global::System.Collections.Generic.EqualityComparer<global::LabelStudio.LseTaskSerializerForAnnotators?>.Default.Equals(LseSerializerForAnnotators, other.LseSerializerForAnnotators) 
+                global::System.Collections.Generic.EqualityComparer<global::LabelStudio.LseTaskSerializerForAnnotators?>.Default.Equals(LseSerializerForAnnotators, other.LseSerializerForAnnotators)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(RoleBasedTask obj1, RoleBasedTask obj2)
         {
@@ -360,7 +360,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(RoleBasedTask obj1, RoleBasedTask obj2)
         {
@@ -368,7 +368,7 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

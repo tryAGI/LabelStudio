@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum ScopeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Model,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Organization,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>
@@ -33,7 +33,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>
@@ -59,7 +59,7 @@ namespace LabelStudio
         /// <summary>
         /// Export candidate tasks to project<br/>
         ///     Export Candidate task for a specific dataset to project.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="additionalFilters"></param>
         /// <param name="dataset"></param>

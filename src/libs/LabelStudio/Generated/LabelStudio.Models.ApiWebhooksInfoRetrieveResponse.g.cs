@@ -4,96 +4,96 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ApiWebhooksInfoRetrieveResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ANNOTATIONS_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseAnnotationsCreated? AnnotationsCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ANNOTATIONS_DELETED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseAnnotationsDeleted? AnnotationsDeleted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ANNOTATION_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseAnnotationCreated? AnnotationCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ANNOTATION_UPDATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseAnnotationUpdated? AnnotationUpdated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("LABEL_LINK_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseLabelLinkCreated? LabelLinkCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("LABEL_LINK_DELETED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseLabelLinkDeleted? LabelLinkDeleted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("LABEL_LINK_UPDATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseLabelLinkUpdated? LabelLinkUpdated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("PROJECT_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseProjectCreated? ProjectCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("PROJECT_DELETED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseProjectDeleted? ProjectDeleted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("PROJECT_UPDATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseProjectUpdated? ProjectUpdated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("REVIEWS_DELETED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseReviewsDeleted? ReviewsDeleted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("REVIEW_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseReviewCreated? ReviewCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("REVIEW_UPDATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseReviewUpdated? ReviewUpdated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("TASKS_CREATED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseTasksCreated? TasksCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("TASKS_DELETED")]
         public global::LabelStudio.ApiWebhooksInfoRetrieveResponseTasksDeleted? TasksDeleted { get; set; }

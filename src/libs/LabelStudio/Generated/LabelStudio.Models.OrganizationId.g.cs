@@ -10,7 +10,7 @@ namespace LabelStudio
     public sealed partial class OrganizationId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contact_info")]
         public string? ContactInfo { get; set; }
@@ -30,7 +30,7 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]

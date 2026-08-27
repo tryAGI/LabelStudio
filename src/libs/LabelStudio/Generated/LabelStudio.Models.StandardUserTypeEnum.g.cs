@@ -9,7 +9,7 @@ namespace LabelStudio
     public enum StandardUserTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
     }

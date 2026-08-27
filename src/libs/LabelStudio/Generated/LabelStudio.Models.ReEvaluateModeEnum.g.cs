@@ -12,19 +12,19 @@ namespace LabelStudio
     public enum ReEvaluateModeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Incorrect,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Regressions,
     }

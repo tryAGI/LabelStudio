@@ -13,7 +13,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         List project roles for requested IDs for the current user<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
@@ -34,7 +34,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         List project roles for requested IDs for the current user<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>

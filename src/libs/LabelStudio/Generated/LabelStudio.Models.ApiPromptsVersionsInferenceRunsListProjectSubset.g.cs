@@ -4,20 +4,20 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ApiPromptsVersionsInferenceRunsListProjectSubset
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HasGT,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sample,
     }

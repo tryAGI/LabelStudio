@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum AnnotatorEvaluationMetricEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AcceptanceScore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GtAgreement,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RejectionRate,
     }

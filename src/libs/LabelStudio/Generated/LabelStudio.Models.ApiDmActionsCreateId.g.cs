@@ -4,48 +4,48 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ApiDmActionsCreateId
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteAnnotators,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteGroundTruths,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteReviewers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteTasks,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteTasksAnnotations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteTasksPredictions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteTasksReviews,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PredictionsToAnnotations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RemoveDuplicates,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RetrieveTasksPredictions,
     }

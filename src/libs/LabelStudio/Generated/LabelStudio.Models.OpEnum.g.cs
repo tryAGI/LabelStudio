@@ -18,43 +18,43 @@ namespace LabelStudio
     public enum OpEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddModule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddPage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeleteModule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DeletePage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DuplicateModule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DuplicatePage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MovePage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RenameModule,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReorderModules,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReorderPages,
     }

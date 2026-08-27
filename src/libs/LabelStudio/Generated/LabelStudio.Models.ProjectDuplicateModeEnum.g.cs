@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum ProjectDuplicateModeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Settings,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Settings_data,
     }

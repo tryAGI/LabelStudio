@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum RequeueRejectedTasksModeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flexible,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Remove,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Requeue,
     }

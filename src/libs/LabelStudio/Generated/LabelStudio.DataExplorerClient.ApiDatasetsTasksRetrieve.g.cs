@@ -54,7 +54,7 @@ namespace LabelStudio
         /// <summary>
         /// Get Data Explorer tasks list<br/>
         ///     Retrieve a list of Data Explorer tasks with pagination for a specific view or dataset, by using filters and ordering.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="dataset"></param>
         /// <param name="maxThreshold"></param>
@@ -91,7 +91,7 @@ namespace LabelStudio
         /// <summary>
         /// Get Data Explorer tasks list<br/>
         ///     Retrieve a list of Data Explorer tasks with pagination for a specific view or dataset, by using filters and ordering.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="dataset"></param>
         /// <param name="maxThreshold"></param>
@@ -184,7 +184,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

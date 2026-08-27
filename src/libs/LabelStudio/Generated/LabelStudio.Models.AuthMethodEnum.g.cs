@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum AuthMethodEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

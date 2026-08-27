@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum MappingStatusEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Configured,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MissingMembership,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Orphaned,
     }

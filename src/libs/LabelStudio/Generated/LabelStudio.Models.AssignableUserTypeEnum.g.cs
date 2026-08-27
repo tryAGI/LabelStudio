@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum AssignableUserTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flex,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Viewonly,
     }

@@ -49,7 +49,7 @@ namespace LabelStudio
         ///     Use the following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="isInteractive"></param>
         /// <param name="project"></param>
@@ -77,7 +77,7 @@ namespace LabelStudio
         ///     Use the following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="isInteractive"></param>
         /// <param name="project"></param>
@@ -154,7 +154,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

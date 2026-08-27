@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum SkillNameEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NamedEntityRecognition,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextClassification,
     }

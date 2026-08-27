@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum ProjectGroupRoleEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Annotator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inherit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reviewer,
     }
