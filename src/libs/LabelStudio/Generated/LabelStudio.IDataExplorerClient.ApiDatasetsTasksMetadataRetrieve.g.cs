@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Get Candidate task metadata<br/>
         ///     Retrieve Candidate task metadata for a specific dataset, by using candidate_task_id or weaviate_id.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="candidateTaskId"></param>
         /// <param name="dataset"></param>
@@ -24,7 +24,7 @@ namespace LabelStudio
         /// <summary>
         /// Get Candidate task metadata<br/>
         ///     Retrieve Candidate task metadata for a specific dataset, by using candidate_task_id or weaviate_id.<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="candidateTaskId"></param>
         /// <param name="dataset"></param>

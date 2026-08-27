@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class Dataset
     {
@@ -42,7 +42,7 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
@@ -55,7 +55,7 @@ namespace LabelStudio
         public required string Title { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_entities")]
         public int? TotalEntities { get; set; }

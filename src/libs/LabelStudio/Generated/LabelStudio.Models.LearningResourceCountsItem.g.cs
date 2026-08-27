@@ -4,40 +4,40 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LearningResourceCountsItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learner_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LearnerCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_completed_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LearnersCompletedCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_started_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int LearnersStartedCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("page_count")]
         [global::System.Text.Json.Serialization.JsonRequired]

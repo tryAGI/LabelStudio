@@ -4,100 +4,100 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BillingChecks
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("export_storages")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.CountLimit ExportStorages { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("import_storages")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.CountLimit ImportStorages { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_license_expired")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsLicenseExpired { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_license_warning")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsLicenseWarning { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_prompts_expire")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsPromptsExpire { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_prompts_warning")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool IsPromptsWarning { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("license_expires")]
         public global::System.DateTime? LicenseExpires { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("license_issued")]
         public global::System.DateTime? LicenseIssued { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("license_warning")]
         public global::System.DateTime? LicenseWarning { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization_is_active")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool OrganizationIsActive { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("projects")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.CountLimit Projects { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts_api_keys_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool PromptsApiKeysEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool PromptsEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts_expire")]
         public string? PromptsExpire { get; set; }
@@ -117,27 +117,27 @@ namespace LabelStudio
         public required global::LabelStudio.PromptsStatusEnum PromptsStatus { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompts_warning")]
         public string? PromptsWarning { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.CountLimit Results { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trial_days")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int TrialDays { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("users")]
         [global::System.Text.Json.Serialization.JsonRequired]

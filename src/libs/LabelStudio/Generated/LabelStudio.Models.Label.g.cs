@@ -59,7 +59,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<int> Links { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         [global::System.Text.Json.Serialization.JsonRequired]

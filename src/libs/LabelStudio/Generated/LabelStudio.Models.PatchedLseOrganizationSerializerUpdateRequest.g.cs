@@ -10,13 +10,13 @@ namespace LabelStudio
     public sealed partial class PatchedLseOrganizationSerializerUpdateRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contact_info")]
         public string? ContactInfo { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         public int? CreatedBy { get; set; }
@@ -85,7 +85,7 @@ namespace LabelStudio
         public string? Title { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         public string? Token { get; set; }

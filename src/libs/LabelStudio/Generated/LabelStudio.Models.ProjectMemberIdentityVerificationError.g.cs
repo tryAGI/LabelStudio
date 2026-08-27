@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectMemberIdentityVerificationError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped_user_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]

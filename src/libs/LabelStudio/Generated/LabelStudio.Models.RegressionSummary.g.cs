@@ -4,47 +4,47 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RegressionSummary
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("improvements")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Improvements { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int New { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("regressions")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Regressions { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("removed")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Removed { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stable_correct")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int StableCorrect { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stable_incorrect")]
         [global::System.Text.Json.Serialization.JsonRequired]

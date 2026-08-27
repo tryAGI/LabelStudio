@@ -52,7 +52,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         List project roles for requested IDs for the current user<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
@@ -83,7 +83,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         List project roles for requested IDs for the current user<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
@@ -160,7 +160,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

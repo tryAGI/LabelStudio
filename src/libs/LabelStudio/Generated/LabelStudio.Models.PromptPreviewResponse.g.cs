@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PromptPreviewResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rendered_prompt")]
         [global::System.Text.Json.Serialization.JsonRequired]

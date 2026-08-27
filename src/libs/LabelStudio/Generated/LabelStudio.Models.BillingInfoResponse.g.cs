@@ -4,19 +4,19 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class BillingInfoResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_checks")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.BillingChecks BillingChecks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_flags")]
         [global::System.Text.Json.Serialization.JsonRequired]

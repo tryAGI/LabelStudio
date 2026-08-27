@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum AssignmentTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         An,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Re,
     }

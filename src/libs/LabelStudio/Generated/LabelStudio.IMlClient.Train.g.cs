@@ -10,7 +10,7 @@ namespace LabelStudio
         ///         already-labeled tasks. <br/>
         ///         <br/>
         ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -29,7 +29,7 @@ namespace LabelStudio
         ///         already-labeled tasks. <br/>
         ///         <br/>
         ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -48,7 +48,7 @@ namespace LabelStudio
         ///         already-labeled tasks. <br/>
         ///         <br/>
         ///         Get the ML backend ID by [listing the ML backends for a project](api:GET/api/ml/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="useGroundTruth">

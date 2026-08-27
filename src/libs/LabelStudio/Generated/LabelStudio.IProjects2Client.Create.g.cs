@@ -39,6 +39,11 @@ namespace LabelStudio
         /// <param name="annotatorEvaluationEnabled">
         /// Enable annotator evaluation for the project
         /// </param>
+        /// <param name="collectionMode">
+        /// Data Collection project mode (assigned or open). Set only at creation; immutable afterwards. Requires use_custom_interface.<br/>
+        /// * `assigned` - Assigned<br/>
+        /// * `open` - Open
+        /// </param>
         /// <param name="color"></param>
         /// <param name="controlWeights">
         /// Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
@@ -131,6 +136,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectCreate> CreateAsync(
             bool? annotatorEvaluationEnabled = default,
+            global::LabelStudio.CollectionModeEnum? collectionMode = default,
             string? color = default,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeightRequest>? controlWeights = default,
             global::LabelStudio.UserSimpleRequest? createdBy = default,

@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ReEvaluateRequest
     {
@@ -20,20 +20,20 @@ namespace LabelStudio
         public required global::LabelStudio.ReEvaluateModeEnum Mode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_version_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int ModelVersionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("run_b_id")]
         public int? RunBId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_model_run_id")]
         public int? SourceModelRunId { get; set; }

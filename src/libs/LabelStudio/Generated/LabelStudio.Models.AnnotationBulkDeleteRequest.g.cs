@@ -16,7 +16,7 @@ namespace LabelStudio
         public required global::System.Collections.Generic.IList<int> Ids { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project")]
         [global::System.Text.Json.Serialization.JsonRequired]

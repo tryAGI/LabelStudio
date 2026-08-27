@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum RetakeScopeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ChangedModules,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Full,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
     }

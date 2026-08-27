@@ -50,7 +50,7 @@ namespace LabelStudio
         /// <summary>
         /// Get files list<br/>
         ///         Retrieve the list of uploaded files used to create labeling tasks for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="all"></param>
         /// <param name="id"></param>
@@ -81,7 +81,7 @@ namespace LabelStudio
         /// <summary>
         /// Get files list<br/>
         ///         Retrieve the list of uploaded files used to create labeling tasks for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="all"></param>
         /// <param name="id"></param>
@@ -165,7 +165,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

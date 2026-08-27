@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LseInterfaceList
     {
@@ -23,7 +23,7 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple CreatedBy { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -64,7 +64,7 @@ namespace LabelStudio
         public int? PublishedVersionsCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -91,7 +91,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<object> Versions { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspace")]
         public int? Workspace { get; set; }

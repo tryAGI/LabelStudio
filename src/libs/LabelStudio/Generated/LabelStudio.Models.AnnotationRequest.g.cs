@@ -17,7 +17,7 @@ namespace LabelStudio
         public bool? BulkCreated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completed_by")]
         public int? CompletedBy { get; set; }

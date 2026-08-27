@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchedDatasetRequest
     {
@@ -27,7 +27,7 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
@@ -39,7 +39,7 @@ namespace LabelStudio
         public string? Title { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_entities")]
         public int? TotalEntities { get; set; }

@@ -4,40 +4,40 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class StateBackfillOrgStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completed_projects")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int CompletedProjects { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("failed_projects")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int FailedProjects { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_projects")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int PendingProjects { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("running_projects")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RunningProjects { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_entities_processed")]
         [global::System.Text.Json.Serialization.JsonRequired]

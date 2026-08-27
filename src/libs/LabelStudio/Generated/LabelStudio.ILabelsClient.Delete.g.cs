@@ -8,7 +8,7 @@ namespace LabelStudio
         /// Remove label link<br/>
         ///         Remove a label link that links custom labels to your project labeling configuration. If you remove a label link,<br/>
         ///         the label stops being available for the project it was linked to. You can add a new label link at any time. <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -22,7 +22,7 @@ namespace LabelStudio
         /// Remove label link<br/>
         ///         Remove a label link that links custom labels to your project labeling configuration. If you remove a label link,<br/>
         ///         the label stops being available for the project it was linked to. You can add a new label link at any time. <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

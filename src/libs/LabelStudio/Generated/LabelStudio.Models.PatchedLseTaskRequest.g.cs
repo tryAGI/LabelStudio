@@ -15,13 +15,13 @@ namespace LabelStudio
         public bool? AllowSkip { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("avg_lead_time")]
         public double? AvgLeadTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cancelled_annotations")]
         public int? CancelledAnnotations { get; set; }
@@ -33,7 +33,7 @@ namespace LabelStudio
         public int? CommentCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("completed_at")]
         public global::System.DateTime? CompletedAt { get; set; }
@@ -45,19 +45,19 @@ namespace LabelStudio
         public object? Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("draft_exists")]
         public bool? DraftExists { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("ground_truth")]
         public bool? GroundTruth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inner_id")]
         public int? InnerId { get; set; }
@@ -93,7 +93,7 @@ namespace LabelStudio
         public double? PrecomputedAgreement { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("predictions_score")]
         public double? PredictionsScore { get; set; }
@@ -105,31 +105,31 @@ namespace LabelStudio
         public int? Project { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed")]
         public bool? Reviewed { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_accepted")]
         public int? ReviewsAccepted { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_rejected")]
         public int? ReviewsRejected { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations")]
         public int? TotalAnnotations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_predictions")]
         public int? TotalPredictions { get; set; }

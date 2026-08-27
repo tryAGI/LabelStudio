@@ -12,7 +12,7 @@ namespace LabelStudio
     public sealed partial class PatchedLseUserSerializerUpdateRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("active_organization")]
         public int? ActiveOrganization { get; set; }
@@ -30,7 +30,7 @@ namespace LabelStudio
         public object? CustomHotkeys { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("date_joined")]
         public global::System.DateTime? DateJoined { get; set; }
@@ -42,7 +42,7 @@ namespace LabelStudio
         public object? EmailNotificationSettings { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("first_name")]
         public string? FirstName { get; set; }
@@ -54,7 +54,7 @@ namespace LabelStudio
         public bool? IsEmailVerified { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_name")]
         public string? LastName { get; set; }
@@ -72,13 +72,13 @@ namespace LabelStudio
         public string? Password { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone")]
         public string? Phone { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
         public string? Username { get; set; }

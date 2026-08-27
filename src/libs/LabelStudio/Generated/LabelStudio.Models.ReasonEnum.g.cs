@@ -13,23 +13,23 @@ namespace LabelStudio
     public enum ReasonEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotationLimit,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotatorEvaluation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BehaviorBased,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CustomScript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Manual,
     }

@@ -41,7 +41,7 @@ namespace LabelStudio
         /// <summary>
         /// Test prediction<br/>
         ///         After you add an ML backend, call this API with the ML backend ID to run a test prediction on specific task data               <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -66,7 +66,7 @@ namespace LabelStudio
         /// <summary>
         /// Test prediction<br/>
         ///         After you add an ML backend, call this API with the ML backend ID to run a test prediction on specific task data               <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -142,7 +142,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -461,7 +461,7 @@ namespace LabelStudio
         /// <summary>
         /// Test prediction<br/>
         ///         After you add an ML backend, call this API with the ML backend ID to run a test prediction on specific task data               <br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="authMethod">

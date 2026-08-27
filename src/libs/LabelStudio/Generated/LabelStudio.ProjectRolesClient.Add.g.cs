@@ -50,7 +50,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Create project role for user allowing the user the same access level provided by organization role.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -80,7 +80,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Create project role for user allowing the user the same access level provided by organization role.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -153,7 +153,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -456,7 +456,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Create project role for user allowing the user the same access level provided by organization role.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="project"></param>
         /// <param name="role">

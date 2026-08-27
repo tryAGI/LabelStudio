@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DefaultRole
     {
@@ -72,7 +72,7 @@ namespace LabelStudio
         public string? ExternalId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("extra_data_on_activity_logs")]
         public bool? ExtraDataOnActivityLogs { get; set; }

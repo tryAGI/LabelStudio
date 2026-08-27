@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LseS3ImportStorage
     {
@@ -84,7 +84,7 @@ namespace LabelStudio
         public string? LastSyncJob { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("legacy_auth")]
         public bool? LegacyAuth { get; set; }

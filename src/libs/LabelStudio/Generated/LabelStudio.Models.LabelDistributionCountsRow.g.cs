@@ -4,12 +4,12 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LabelDistributionCountsRow
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("choice")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -23,35 +23,35 @@ namespace LabelStudio
         public string ChoiceKey { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dimension_name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DimensionName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_annotations_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int FromAnnotationsCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_annotations_percent")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double FromAnnotationsPercent { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_predictions_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int FromPredictionsCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from_predictions_percent")]
         [global::System.Text.Json.Serialization.JsonRequired]

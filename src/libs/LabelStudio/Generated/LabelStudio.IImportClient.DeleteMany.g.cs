@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Delete files<br/>
         ///         Delete uploaded files for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -20,7 +20,7 @@ namespace LabelStudio
         /// <summary>
         /// Delete files<br/>
         ///         Delete uploaded files for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

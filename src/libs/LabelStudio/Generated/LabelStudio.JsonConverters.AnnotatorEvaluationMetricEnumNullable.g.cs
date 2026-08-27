@@ -20,7 +20,7 @@ namespace LabelStudio.JsonConverters
                     {
                         return global::LabelStudio.AnnotatorEvaluationMetricEnumExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

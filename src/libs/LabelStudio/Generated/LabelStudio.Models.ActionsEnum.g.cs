@@ -23,63 +23,63 @@ namespace LabelStudio
     public enum ActionsEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotationsCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotationsDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotationCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotationUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LabelLinkCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LabelLinkDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LabelLinkUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ProjectUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReviewsDeleted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReviewCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReviewUpdated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TasksCreated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TasksDeleted,
     }

@@ -4,19 +4,19 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ProjectMemberBulkAssignResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignments")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int Assignments { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped_user_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]

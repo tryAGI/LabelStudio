@@ -6,7 +6,7 @@ namespace LabelStudio
     {
         /// <summary>
         /// Get label link<br/>
-        /// Get label links for a specific project configuration. 
+        /// Get label links for a specific project configuration.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -18,7 +18,7 @@ namespace LabelStudio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get label link<br/>
-        /// Get label links for a specific project configuration. 
+        /// Get label links for a specific project configuration.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

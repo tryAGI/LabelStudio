@@ -4,24 +4,24 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ApiProjectsSubsetTasksListAlignmentOutcome
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FalseNegative,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FalsePositive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TruePositive,
     }

@@ -9,11 +9,11 @@ namespace LabelStudio
     public enum ApiPromptsCompatibleProjectsListProjectType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NamedEntityRecognition,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TextClassification,
     }

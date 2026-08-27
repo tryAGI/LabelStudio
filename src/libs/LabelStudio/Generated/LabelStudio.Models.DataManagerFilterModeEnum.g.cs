@@ -11,11 +11,11 @@ namespace LabelStudio
     public enum DataManagerFilterModeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Exclude,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Only,
     }

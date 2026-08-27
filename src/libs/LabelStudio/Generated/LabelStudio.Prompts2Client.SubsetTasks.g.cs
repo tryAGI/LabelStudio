@@ -78,7 +78,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of tasks, based on project subset. Includes predictions for tasks. For the 'HasGT' subset, accuracy metrics will also be provided.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="alignmentClass"></param>
         /// <param name="alignmentFromName"></param>
@@ -148,7 +148,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of tasks, based on project subset. Includes predictions for tasks. For the 'HasGT' subset, accuracy metrics will also be provided.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="alignmentClass"></param>
         /// <param name="alignmentFromName"></param>
@@ -276,7 +276,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -482,7 +482,7 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;

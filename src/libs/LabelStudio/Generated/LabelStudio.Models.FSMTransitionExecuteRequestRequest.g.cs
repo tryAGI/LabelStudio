@@ -9,13 +9,13 @@ namespace LabelStudio
     public sealed partial class FSMTransitionExecuteRequestRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transition_data")]
         public object? TransitionData { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transition_name")]
         [global::System.Text.Json.Serialization.JsonRequired]

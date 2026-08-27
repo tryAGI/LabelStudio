@@ -15,31 +15,31 @@ namespace LabelStudio
     public enum TrialRoleEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Annotator,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AnnotatorTeamManager,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BusinessAnalyst,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BusinessOrDataTeamLeadership,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataEngineerPlatformEngineer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DataScientist,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
     }

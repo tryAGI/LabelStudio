@@ -4,96 +4,96 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PrepareParamsOrderingRequestItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_agreement,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_annotationsResults,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_annotators,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_cancelledAnnotations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_comments,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_completedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_createdAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_fileUpload,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_groundTruth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_id,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_innerId,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_predictionsModelVersions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_predictionsResults,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_predictionsScore,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_reviewed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_reviewers,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_reviewsAccepted,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_reviewsRejected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_totalAnnotations,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_totalPredictions,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_unresolvedCommentCount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Tasks_updatedAt,
     }

@@ -9,21 +9,21 @@ namespace LabelStudio
     public sealed partial class ActivityLogResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::LabelStudio.ActivityLog> Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recordsFiltered")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int RecordsFiltered { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("recordsTotal")]
         [global::System.Text.Json.Serialization.JsonRequired]

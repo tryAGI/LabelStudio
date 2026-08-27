@@ -45,7 +45,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Remove project role for user allowing the user the same access level provided by organization role.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -71,7 +71,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Remove project role for user allowing the user the same access level provided by organization role.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -141,7 +141,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

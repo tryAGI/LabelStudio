@@ -13,7 +13,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of available subsets for a project along with count of tasks in each subset<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="projectPk"></param>
@@ -34,7 +34,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of available subsets for a project along with count of tasks in each subset<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="ordering"></param>
         /// <param name="projectPk"></param>

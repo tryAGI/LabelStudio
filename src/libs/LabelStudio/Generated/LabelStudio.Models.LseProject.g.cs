@@ -85,11 +85,18 @@ namespace LabelStudio
         public int? AnnotatorEvaluationOnboardingTasks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignment_settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::LabelStudio.AssignmentSettings AssignmentSettings { get; set; }
+
+        /// <summary>
+        /// Data Collection project mode (assigned/open); null for non-collection projects. Set at creation only.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("collection_mode")]
+        public string? CollectionMode { get; set; }
 
         /// <summary>
         /// Color
@@ -98,7 +105,7 @@ namespace LabelStudio
         public string? Color { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("comment_classification_config")]
         public string? CommentClassificationConfig { get; set; }
@@ -139,19 +146,19 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple? CreatedBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_code")]
         public string? CustomInterfaceCode { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_compiled")]
         public string? CustomInterfaceCompiled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_interface_params")]
         public object? CustomInterfaceParams { get; set; }
@@ -187,7 +194,7 @@ namespace LabelStudio
         public bool? DuplicationDone { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duplication_status")]
         public string? DuplicationStatus { get; set; }
@@ -234,7 +241,7 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_schema")]
         public object? InputSchema { get; set; }
@@ -316,13 +323,13 @@ namespace LabelStudio
         public int? NumTasksWithAnnotations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public object? OutputSchema { get; set; }
@@ -405,7 +412,7 @@ namespace LabelStudio
         public bool? RevealPreannotationsInteractively { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_settings")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -420,7 +427,7 @@ namespace LabelStudio
         public int ReviewerQueueTotal { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectSamplingEnumJsonConverter))]
@@ -470,7 +477,7 @@ namespace LabelStudio
         public bool? ShowUnusedDataColumnsToAnnotators { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("skip_queue")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SkipQueueEnumJsonConverter))]
@@ -485,7 +492,7 @@ namespace LabelStudio
         public int SkippedAnnotationsNumber { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_interface_id")]
         public int? SourceInterfaceId { get; set; }
@@ -638,6 +645,10 @@ namespace LabelStudio
         /// <param name="annotatorEvaluationOnboardingTasks">
         /// Onboarding Evaluation: Required tasks<br/>
         /// Default Value: 0
+        /// </param>
+        /// <param name="collectionMode">
+        /// Data Collection project mode (assigned/open); null for non-collection projects. Set at creation only.<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="color">
         /// Color
@@ -871,6 +882,7 @@ namespace LabelStudio
             string? annotatorEvaluationMinimumScore,
             int? annotatorEvaluationMinimumTasks,
             int? annotatorEvaluationOnboardingTasks,
+            string? collectionMode,
             string? color,
             string? commentClassificationConfig,
             global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeight>? controlWeights,
@@ -956,6 +968,7 @@ namespace LabelStudio
             this.AnnotatorEvaluationMinimumTasks = annotatorEvaluationMinimumTasks;
             this.AnnotatorEvaluationOnboardingTasks = annotatorEvaluationOnboardingTasks;
             this.AssignmentSettings = assignmentSettings ?? throw new global::System.ArgumentNullException(nameof(assignmentSettings));
+            this.CollectionMode = collectionMode;
             this.Color = color;
             this.CommentClassificationConfig = commentClassificationConfig;
             this.ConfigHasControlTags = configHasControlTags;

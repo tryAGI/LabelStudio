@@ -4,61 +4,61 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LseProjectStateResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int AnnotationCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_delete_tasks")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanDeleteTasks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_manage_annotations")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanManageAnnotations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_manage_tasks")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool CanManageTasks { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config_has_control_tags")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool ConfigHasControlTags { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_syncing")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool SourceSyncing { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_syncing")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool TargetSyncing { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("task_count")]
         [global::System.Text.Json.Serialization.JsonRequired]

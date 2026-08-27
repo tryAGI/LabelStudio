@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum ProjectSamplingEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SequentialSampling,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UncertaintySampling,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UniformSampling,
     }

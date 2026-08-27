@@ -38,7 +38,7 @@ namespace LabelStudio
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::LabelStudio.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -48,7 +48,7 @@ namespace LabelStudio
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ActionsClient Actions => new ActionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -57,7 +57,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ActivityLogsClient ActivityLogs => new ActivityLogsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -66,7 +66,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnalyticsClient Analytics => new AnalyticsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -75,7 +75,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnnotationHistoryClient AnnotationHistory => new AnnotationHistoryClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -84,7 +84,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnnotationReviewsClient AnnotationReviews => new AnnotationReviewsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -93,7 +93,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnnotationReviews2Client AnnotationReviews2 => new AnnotationReviews2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -102,7 +102,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AnnotationsClient Annotations => new AnnotationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -111,7 +111,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AwsClient Aws => new AwsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -120,7 +120,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BillingClient Billing => new BillingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -129,7 +129,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public BlueprintsClient Blueprints => new BlueprintsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -138,7 +138,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Blueprints2Client Blueprints2 => new Blueprints2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -147,7 +147,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CommentsClient Comments => new CommentsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -156,7 +156,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Comments2Client Comments2 => new Comments2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -165,7 +165,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataExplorerClient DataExplorer => new DataExplorerClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -174,7 +174,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DataManagerClient DataManager => new DataManagerClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -183,7 +183,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DatasetStorageAzureClient DatasetStorageAzure => new DatasetStorageAzureClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -192,7 +192,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DatasetStorageGcsClient DatasetStorageGcs => new DatasetStorageGcsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -201,7 +201,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DatasetStorageS3Client DatasetStorageS3 => new DatasetStorageS3Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -210,7 +210,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DatasetsClient Datasets => new DatasetsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -219,7 +219,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DimensionsClient Dimensions => new DimensionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -228,7 +228,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Dimensions2Client Dimensions2 => new Dimensions2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -237,7 +237,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ExportClient Export => new ExportClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -246,7 +246,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ImportClient Import => new ImportClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -255,7 +255,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public InterfacesClient Interfaces => new InterfacesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -264,7 +264,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public JwtSettingsClient JwtSettings => new JwtSettingsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -273,7 +273,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LabelsClient Labels => new LabelsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -282,7 +282,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Labels2Client Labels2 => new Labels2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -291,7 +291,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LearningResourcesClient LearningResources => new LearningResourcesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -300,7 +300,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public LlmClient Llm => new LlmClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -309,7 +309,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public MlClient Ml => new MlClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -318,7 +318,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ModelProviderConnectionClient ModelProviderConnection => new ModelProviderConnectionClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -327,7 +327,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ModelProvidersClient ModelProviders => new ModelProvidersClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -336,7 +336,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrganizationsClient Organizations => new OrganizationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -345,7 +345,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Organizations2Client Organizations2 => new Organizations2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -354,7 +354,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PausesClient Pauses => new PausesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -363,7 +363,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PredictionsClient Predictions => new PredictionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -372,7 +372,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Predictions2Client Predictions2 => new Predictions2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -381,7 +381,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProjectRolesClient ProjectRoles => new ProjectRolesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -390,7 +390,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProjectTemplatesClient ProjectTemplates => new ProjectTemplatesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -399,7 +399,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProjectsClient Projects => new ProjectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -408,7 +408,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Projects2Client Projects2 => new Projects2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -417,7 +417,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PromptsClient Prompts => new PromptsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -426,7 +426,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Prompts2Client Prompts2 => new Prompts2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -435,7 +435,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ReviewRoutingRulesClient ReviewRoutingRules => new ReviewRoutingRulesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -444,7 +444,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SessionPolicyClient SessionPolicy => new SessionPolicyClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -453,7 +453,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public SsoClient Sso => new SsoClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -462,7 +462,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StatesClient States => new StatesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -471,7 +471,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StatsClient Stats => new StatsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -480,7 +480,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageClient Storage => new StorageClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -489,7 +489,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageAzureClient StorageAzure => new StorageAzureClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -498,7 +498,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageAzureSpiClient StorageAzureSpi => new StorageAzureSpiClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -507,7 +507,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageDatabricksFilesClient StorageDatabricksFiles => new StorageDatabricksFilesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -516,7 +516,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageGcsClient StorageGcs => new StorageGcsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -525,7 +525,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageGcsSaClient StorageGcsSa => new StorageGcsSaClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -534,7 +534,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageGcsWifClient StorageGcsWif => new StorageGcsWifClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -543,7 +543,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageLocalClient StorageLocal => new StorageLocalClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -552,7 +552,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageRedisClient StorageRedis => new StorageRedisClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -561,7 +561,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageS3Client StorageS3 => new StorageS3Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -570,7 +570,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public StorageS3RolesClient StorageS3Roles => new StorageS3RolesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -579,7 +579,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TasksClient Tasks => new TasksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -588,7 +588,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Tasks2Client Tasks2 => new Tasks2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -597,7 +597,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TokensClient Tokens => new TokensClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -606,7 +606,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public UsersClient Users => new UsersClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -615,7 +615,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VersionsClient Versions => new VersionsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -624,7 +624,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ViewsClient Views => new ViewsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -633,7 +633,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WebhooksClient Webhooks => new WebhooksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -642,7 +642,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Webhooks2Client Webhooks2 => new Webhooks2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -651,7 +651,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public WorkspacesClient Workspaces => new WorkspacesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -660,7 +660,7 @@ namespace LabelStudio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Workspaces2Client Workspaces2 => new Workspaces2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

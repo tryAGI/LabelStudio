@@ -4,16 +4,16 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ApiProjectsTasksAssigneesDestroyType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         An,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Re,
     }

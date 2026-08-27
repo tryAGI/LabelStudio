@@ -13,7 +13,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of tasks, based on project subset. Includes predictions for tasks. For the 'HasGT' subset, accuracy metrics will also be provided.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="alignmentClass"></param>
         /// <param name="alignmentFromName"></param>
@@ -60,7 +60,7 @@ namespace LabelStudio
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
         ///         Provides list of tasks, based on project subset. Includes predictions for tasks. For the 'HasGT' subset, accuracy metrics will also be provided.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="alignmentClass"></param>
         /// <param name="alignmentFromName"></param>

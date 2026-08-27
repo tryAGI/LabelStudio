@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum SkipQueueEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         IgnoreSkipped,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequeueForMe,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequeueForOthers,
     }

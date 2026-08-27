@@ -26,7 +26,7 @@ namespace LabelStudio
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
-                { 
+                {
                 },
             };
         private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetSecurityRequirements =
@@ -135,7 +135,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

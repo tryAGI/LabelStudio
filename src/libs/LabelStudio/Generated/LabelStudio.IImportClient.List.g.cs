@@ -7,7 +7,7 @@ namespace LabelStudio
         /// <summary>
         /// Get files list<br/>
         ///         Retrieve the list of uploaded files used to create labeling tasks for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="all"></param>
         /// <param name="id"></param>
@@ -26,7 +26,7 @@ namespace LabelStudio
         /// <summary>
         /// Get files list<br/>
         ///         Retrieve the list of uploaded files used to create labeling tasks for a specific project.<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="all"></param>
         /// <param name="id"></param>

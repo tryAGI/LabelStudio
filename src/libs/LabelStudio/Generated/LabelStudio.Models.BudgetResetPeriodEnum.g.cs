@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum BudgetResetPeriodEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Monthly,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Yearly,
     }

@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum ReviewCriteriaEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         One,
     }

@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class View
     {
@@ -15,7 +15,7 @@ namespace LabelStudio
         public object? Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter_group")]
         public global::LabelStudio.FilterGroup? FilterGroup { get; set; }

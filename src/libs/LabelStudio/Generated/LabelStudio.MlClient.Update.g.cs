@@ -49,7 +49,7 @@ namespace LabelStudio
         ///     ```bash<br/>
         ///     curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\<br/>
         ///     --data '{"url": "http://localhost:9091"}' <br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -79,7 +79,7 @@ namespace LabelStudio
         ///     ```bash<br/>
         ///     curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\<br/>
         ///     --data '{"url": "http://localhost:9091"}' <br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -155,7 +155,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -456,7 +456,7 @@ namespace LabelStudio
         ///     ```bash<br/>
         ///     curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\<br/>
         ///     --data '{"url": "http://localhost:9091"}' <br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="authMethod">

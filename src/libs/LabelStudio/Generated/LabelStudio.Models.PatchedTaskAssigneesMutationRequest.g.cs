@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchedTaskAssigneesMutationRequest
     {
@@ -17,7 +17,7 @@ namespace LabelStudio
         public global::LabelStudio.AssignmentTypeEnum? Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("users")]
         public global::System.Collections.Generic.IList<int>? Users { get; set; }

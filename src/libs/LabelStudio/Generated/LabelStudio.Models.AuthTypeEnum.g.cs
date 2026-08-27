@@ -11,15 +11,15 @@ namespace LabelStudio
     public enum AuthTypeEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AzureAdSp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DbxSp,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pat,
     }

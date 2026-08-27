@@ -10,11 +10,11 @@ namespace LabelStudio
     public enum AgreementMethodologyEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Consensus,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pairwise,
     }

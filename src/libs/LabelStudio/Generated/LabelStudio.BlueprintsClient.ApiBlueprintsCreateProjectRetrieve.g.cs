@@ -11,7 +11,7 @@ namespace LabelStudio
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
-                { 
+                {
                 },
             };
         private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiBlueprintsCreateProjectRetrieveSecurityRequirements =
@@ -295,7 +295,7 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 302)
                             {
                                 string? __content_302 = null;
@@ -327,7 +327,7 @@ namespace LabelStudio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // 
+                            //
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;

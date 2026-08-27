@@ -43,7 +43,7 @@ namespace LabelStudio
 
         /// <summary>
         /// Get label link<br/>
-        /// Get label links for a specific project configuration. 
+        /// Get label links for a specific project configuration.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -64,7 +64,7 @@ namespace LabelStudio
         }
         /// <summary>
         /// Get label link<br/>
-        /// Get label links for a specific project configuration. 
+        /// Get label links for a specific project configuration.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -134,7 +134,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

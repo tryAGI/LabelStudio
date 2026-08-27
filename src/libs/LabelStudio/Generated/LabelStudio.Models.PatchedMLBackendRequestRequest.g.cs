@@ -59,7 +59,7 @@ namespace LabelStudio
         public string? ModelVersion { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project")]
         public int? Project { get; set; }

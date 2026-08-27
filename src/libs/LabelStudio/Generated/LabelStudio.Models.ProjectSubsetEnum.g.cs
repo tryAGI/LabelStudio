@@ -12,19 +12,19 @@ namespace LabelStudio
     public enum ProjectSubsetEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HasGT,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Sample,
     }

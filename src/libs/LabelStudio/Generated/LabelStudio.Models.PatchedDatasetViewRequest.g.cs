@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchedDatasetViewRequest
     {
@@ -21,7 +21,7 @@ namespace LabelStudio
         public int? Dataset { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filter_group")]
         public global::LabelStudio.FilterGroupRequest? FilterGroup { get; set; }

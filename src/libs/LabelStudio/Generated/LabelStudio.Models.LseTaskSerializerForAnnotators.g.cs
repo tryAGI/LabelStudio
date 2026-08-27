@@ -28,7 +28,7 @@ namespace LabelStudio
         public string AnnotationsResults { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cancelled_annotations")]
         public int? CancelledAnnotations { get; set; }
@@ -63,7 +63,7 @@ namespace LabelStudio
         public required object Data { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("draft_exists")]
         public bool? DraftExists { get; set; }
@@ -99,13 +99,13 @@ namespace LabelStudio
         public string PredictionsResults { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("predictions_score")]
         public double? PredictionsScore { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_rejected")]
         public int? ReviewsRejected { get; set; }
@@ -118,13 +118,13 @@ namespace LabelStudio
         public string State { get; set; } = default!;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations")]
         public int? TotalAnnotations { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_predictions")]
         public int? TotalPredictions { get; set; }

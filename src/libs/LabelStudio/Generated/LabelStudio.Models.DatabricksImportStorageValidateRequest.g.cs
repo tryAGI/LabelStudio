@@ -96,7 +96,7 @@ namespace LabelStudio
         public string? RegexFilter { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_timeout_s")]
         public int? RequestTimeoutS { get; set; }
@@ -109,7 +109,7 @@ namespace LabelStudio
         public required string Schema { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("stream_chunk_bytes")]
         public long? StreamChunkBytes { get; set; }

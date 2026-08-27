@@ -20,7 +20,7 @@ namespace LabelStudio.JsonConverters
                     {
                         return global::LabelStudio.AssignableOrganizationRoleEnumExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

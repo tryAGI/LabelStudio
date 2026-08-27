@@ -47,7 +47,7 @@ namespace LabelStudio
         ///     following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -72,7 +72,7 @@ namespace LabelStudio
         ///     following cURL command:<br/>
         ///     ```bash<br/>
         ///     curl http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'<br/>
-        ///     
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -142,7 +142,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

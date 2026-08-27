@@ -14,7 +14,7 @@ namespace LabelStudio
     public sealed partial class CommentRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation")]
         public int? Annotation { get; set; }
@@ -26,7 +26,7 @@ namespace LabelStudio
         public object? Classifications { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("draft")]
         public int? Draft { get; set; }

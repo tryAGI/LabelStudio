@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class AssignmentSettings
     {
@@ -25,7 +25,7 @@ namespace LabelStudio
         public global::LabelStudio.LabelStreamTaskDistributionEnum? LabelStreamTaskDistribution { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("project")]
         public int? Project { get; set; }

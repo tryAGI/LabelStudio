@@ -52,7 +52,7 @@ namespace LabelStudio
         ///         in the path.<br/>
         ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
         ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="exportType"></param>
         /// <param name="exportPk"></param>
@@ -84,7 +84,7 @@ namespace LabelStudio
         ///         in the path.<br/>
         ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
         ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="exportType"></param>
         /// <param name="exportPk"></param>
@@ -163,7 +163,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -415,7 +415,7 @@ namespace LabelStudio
         ///         in the path.<br/>
         ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
         ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
-        ///         
+        ///
         /// </summary>
         /// <param name="exportType"></param>
         /// <param name="exportPk"></param>
@@ -494,7 +494,7 @@ namespace LabelStudio
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

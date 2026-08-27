@@ -14,27 +14,27 @@ namespace LabelStudio
     public enum RoleSourceEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Api,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Billing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ldap,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Manual,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Saml,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Scim,
     }
