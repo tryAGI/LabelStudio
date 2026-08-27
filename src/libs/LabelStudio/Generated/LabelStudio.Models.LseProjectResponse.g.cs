@@ -316,6 +316,7 @@ namespace LabelStudio
         public string? ModelVersion { get; set; }
 
         /// <summary>
+        /// Tasks with at least one annotation. For annotators, counts only tasks this user annotated; for other roles, counts project-wide. For analytics, use annotated_tasks or related KPIs with explicit project/member filters.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -375,6 +376,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<object>? Prompts { get; set; }
 
         /// <summary>
+        /// Annotator-only: tasks this user has completed in the labeling queue for the project.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -382,13 +384,14 @@ namespace LabelStudio
         public int QueueDone { get; set; } = default!;
 
         /// <summary>
+        /// Reviewer-only: remaining tasks in this user's manually assigned review queue. Returns 0 when no manual assignments apply; the project card then uses `review_total_tasks` and `reviewed_number` for auto-review progress. Not the same as the project-wide `tasks_pending_review` KPI.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_left")]
-        public int QueueLeft { get; set; } = default!;
+        public int? QueueLeft { get; set; }
 
         /// <summary>
+        /// Role-dependent queue size. Annotators: total tasks in the labeling queue. Reviewers (list/counts): total manually assigned review tasks (same pool as `reviewer_queue_total`). Not the same as `task_number` (all project tasks) or `review_total_tasks` (auto-review stream pool).<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -430,25 +433,25 @@ namespace LabelStudio
         public required global::LabelStudio.ReviewSettings ReviewSettings { get; set; }
 
         /// <summary>
+        /// Total tasks in this user's reviewer queue for the project (denominator for personal review progress). Respects review sampling limits when configured. Null for annotators. This is not the project-wide reviewed or pending count; see Analytics KPIs tasks_reviewed and tasks_pending_review for org-level totals.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("review_total_tasks")]
-        public int ReviewTotalTasks { get; set; } = default!;
+        public int? ReviewTotalTasks { get; set; }
 
         /// <summary>
+        /// Tasks this user has reviewed in the project (personal reviewer progress shown on the project card). Includes only reviews created by the authenticated user, so the value can be lower than the project-wide reviewed total when multiple reviewers participate. Null for annotators. For all reviewed tasks in the project, use the Analytics KPI tasks_reviewed: GET /api/analytics/kpis/tasks_reviewed?projects={id}&amp;tz=UTC.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_number")]
-        public int ReviewedNumber { get; set; } = default!;
+        public int? ReviewedNumber { get; set; }
 
         /// <summary>
+        /// Tasks manually assigned to this user for review (`reviewer_queue_total_count`). Null for annotators.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_queue_total")]
-        public int ReviewerQueueTotal { get; set; } = default!;
+        public int? ReviewerQueueTotal { get; set; }
 
         /// <summary>
         /// 
@@ -743,12 +746,28 @@ namespace LabelStudio
         /// <param name="prompts">
         /// Included only in responses
         /// </param>
+        /// <param name="queueLeft">
+        /// Reviewer-only: remaining tasks in this user's manually assigned review queue. Returns 0 when no manual assignments apply; the project card then uses `review_total_tasks` and `reviewed_number` for auto-review progress. Not the same as the project-wide `tasks_pending_review` KPI.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="requireCommentOnSkip">
         /// Require comment to skip<br/>
         /// Default Value: false
         /// </param>
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
+        /// </param>
+        /// <param name="reviewTotalTasks">
+        /// Total tasks in this user's reviewer queue for the project (denominator for personal review progress). Respects review sampling limits when configured. Null for annotators. This is not the project-wide reviewed or pending count; see Analytics KPIs tasks_reviewed and tasks_pending_review for org-level totals.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewedNumber">
+        /// Tasks this user has reviewed in the project (personal reviewer progress shown on the project card). Includes only reviews created by the authenticated user, so the value can be lower than the project-wide reviewed total when multiple reviewers participate. Null for annotators. For all reviewed tasks in the project, use the Analytics KPI tasks_reviewed: GET /api/analytics/kpis/tasks_reviewed?projects={id}&amp;tz=UTC.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="reviewerQueueTotal">
+        /// Tasks manually assigned to this user for review (`reviewer_queue_total_count`). Null for annotators.<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
@@ -834,6 +853,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="numTasksWithAnnotations">
+        /// Tasks with at least one annotation. For annotators, counts only tasks this user annotated; for other roles, counts project-wide. For analytics, use annotated_tasks or related KPIs with explicit project/member filters.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="parsedLabelConfig">
@@ -844,27 +864,17 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="queueDone">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueLeft">
+        /// Annotator-only: tasks this user has completed in the labeling queue for the project.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="queueTotal">
+        /// Role-dependent queue size. Annotators: total tasks in the labeling queue. Reviewers (list/counts): total manually assigned review tasks (same pool as `reviewer_queue_total`). Not the same as `task_number` (all project tasks) or `review_total_tasks` (auto-review stream pool).<br/>
         /// Included only in responses
         /// </param>
         /// <param name="ready">
         /// Included only in responses
         /// </param>
         /// <param name="rejected">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewTotalTasks">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewedNumber">
-        /// Included only in responses
-        /// </param>
-        /// <param name="reviewerQueueTotal">
         /// Included only in responses
         /// </param>
         /// <param name="skippedAnnotationsNumber">
@@ -934,8 +944,12 @@ namespace LabelStudio
             bool? pauseOnFailedAnnotatorEvaluation,
             global::System.DateTime? pinnedAt,
             global::System.Collections.Generic.IList<object>? prompts,
+            int? queueLeft,
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
+            int? reviewTotalTasks,
+            int? reviewedNumber,
+            int? reviewerQueueTotal,
             global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
@@ -968,13 +982,9 @@ namespace LabelStudio
             object parsedLabelConfig = default!,
             global::System.Collections.Generic.IList<string> permissions = default!,
             int queueDone = default!,
-            int queueLeft = default!,
             int queueTotal = default!,
             bool ready = default!,
             int rejected = default!,
-            int reviewTotalTasks = default!,
-            int reviewedNumber = default!,
-            int reviewerQueueTotal = default!,
             int skippedAnnotationsNumber = default!,
             bool startTrainingOnAnnotationUpdate = default!,
             string state = default!,

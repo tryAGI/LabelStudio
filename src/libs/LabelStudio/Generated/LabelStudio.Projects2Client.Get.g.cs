@@ -45,7 +45,7 @@ namespace LabelStudio
 
         /// <summary>
         /// Get project by ID<br/>
-        /// Retrieve information about a project by project ID.
+        /// Retrieve information about a project by project ID. Counter fields use per-user or project-wide scope as documented on each field; for all reviewed tasks in the project use `GET /api/analytics/kpis/tasks_reviewed?projects={id}&amp;tz=UTC`.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="membersLimit">
@@ -71,7 +71,7 @@ namespace LabelStudio
         }
         /// <summary>
         /// Get project by ID<br/>
-        /// Retrieve information about a project by project ID.
+        /// Retrieve information about a project by project ID. Counter fields use per-user or project-wide scope as documented on each field; for all reviewed tasks in the project use `GET /api/analytics/kpis/tasks_reviewed?projects={id}&amp;tz=UTC`.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="membersLimit">
