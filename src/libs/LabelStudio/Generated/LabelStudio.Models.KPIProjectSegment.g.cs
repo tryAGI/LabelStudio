@@ -23,7 +23,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("values")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::LabelStudio.OneOf<double?, string>> Values { get; set; }
+        public required global::System.Collections.Generic.IList<global::LabelStudio.OneOf<double?, string>?> Values { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -45,7 +45,7 @@ namespace LabelStudio
 #endif
         public KPIProjectSegment(
             global::System.Collections.Generic.IList<global::LabelStudio.KPIProjectInfo> projects,
-            global::System.Collections.Generic.IList<global::LabelStudio.OneOf<double?, string>> values)
+            global::System.Collections.Generic.IList<global::LabelStudio.OneOf<double?, string>?> values)
         {
             this.Projects = projects ?? throw new global::System.ArgumentNullException(nameof(projects));
             this.Values = values ?? throw new global::System.ArgumentNullException(nameof(values));
