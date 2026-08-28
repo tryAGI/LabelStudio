@@ -290,6 +290,15 @@ namespace LabelStudio
         public string? StorageFilename { get; set; }
 
         /// <summary>
+        /// The file of the latest SUBMITTED annotation, for the collection grid.<br/>
+        /// Read from the annotation (the submission's source of truth); the task<br/>
+        /// itself carries only the brief.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("submission")]
+        public object? Submission { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations")]
@@ -379,6 +388,12 @@ namespace LabelStudio
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
         /// <param name="storageFilename">
+        /// Included only in responses
+        /// </param>
+        /// <param name="submission">
+        /// The file of the latest SUBMITTED annotation, for the collection grid.<br/>
+        /// Read from the annotation (the submission's source of truth); the task<br/>
+        /// itself carries only the brief.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="totalAnnotations"></param>
@@ -487,6 +502,7 @@ namespace LabelStudio
             int? reviewsAccepted,
             int? reviewsRejected,
             string? storageFilename,
+            object? submission,
             int? totalAnnotations,
             int? totalPredictions,
             int? unresolvedCommentCount,
@@ -554,6 +570,7 @@ namespace LabelStudio
             this.ReviewsRejected = reviewsRejected;
             this.State = state;
             this.StorageFilename = storageFilename;
+            this.Submission = submission;
             this.TotalAnnotations = totalAnnotations;
             this.TotalPredictions = totalPredictions;
             this.UnresolvedCommentCount = unresolvedCommentCount;

@@ -21,7 +21,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("values")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<double> Values { get; set; }
+        public required global::System.Collections.Generic.IList<double?> Values { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -43,7 +43,7 @@ namespace LabelStudio
 #endif
         public KPITimeSegment(
             global::System.Collections.Generic.IList<global::System.DateTime> intervalStart,
-            global::System.Collections.Generic.IList<double> values)
+            global::System.Collections.Generic.IList<double?> values)
         {
             this.IntervalStart = intervalStart ?? throw new global::System.ArgumentNullException(nameof(intervalStart));
             this.Values = values ?? throw new global::System.ArgumentNullException(nameof(values));

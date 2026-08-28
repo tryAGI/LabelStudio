@@ -13,7 +13,7 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("matrix")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>> Matrix { get; set; }
+        public required global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double?>> Matrix { get; set; }
 
         /// <summary>
         /// Expanded participant details (annotators and/or model versions)
@@ -41,7 +41,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public TaskAgreementMatrixResponse(
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double>> matrix,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<double?>> matrix,
             global::System.Collections.Generic.IList<object> users)
         {
             this.Matrix = matrix ?? throw new global::System.ArgumentNullException(nameof(matrix));

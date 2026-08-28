@@ -70,6 +70,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("reviews_rejected")) __score0++;
             if (__jsonProps.Contains("state")) __score0++;
             if (__jsonProps.Contains("storage_filename")) __score0++;
+            if (__jsonProps.Contains("submission")) __score0++;
             if (__jsonProps.Contains("total_annotations")) __score0++;
             if (__jsonProps.Contains("total_predictions")) __score0++;
             if (__jsonProps.Contains("unresolved_comment_count")) __score0++;
@@ -118,6 +119,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("reviews_rejected")) __score1++;
             if (__jsonProps.Contains("state")) __score1++;
             if (__jsonProps.Contains("storage_filename")) __score1++;
+            if (__jsonProps.Contains("submission")) __score1++;
             if (__jsonProps.Contains("total_annotations")) __score1++;
             if (__jsonProps.Contains("total_predictions")) __score1++;
             if (__jsonProps.Contains("unresolved_comment_count")) __score1++;
