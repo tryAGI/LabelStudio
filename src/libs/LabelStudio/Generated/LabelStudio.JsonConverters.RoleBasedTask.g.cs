@@ -141,6 +141,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("predictions_score")) __score2++;
             if (__jsonProps.Contains("reviews_rejected")) __score2++;
             if (__jsonProps.Contains("state")) __score2++;
+            if (__jsonProps.Contains("submission")) __score2++;
             if (__jsonProps.Contains("total_annotations")) __score2++;
             if (__jsonProps.Contains("total_predictions")) __score2++;
             if (__jsonProps.Contains("unresolved_comment_count")) __score2++;

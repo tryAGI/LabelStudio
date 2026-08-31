@@ -118,6 +118,19 @@ namespace LabelStudio
         public string State { get; set; } = default!;
 
         /// <summary>
+        /// The contributor's own submitted file, for the collection grid.<br/>
+        /// Read from the annotation (the submission's source of truth); the task<br/>
+        /// itself is untouched input.<br/>
+        /// Scoped to the requester, exactly as ``get_annotations`` scopes the<br/>
+        /// annotation list: a contributor sees the file they submitted and never<br/>
+        /// another contributor's media. The column is only offered to annotators,<br/>
+        /// so this is also the only case that renders.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("submission")]
+        public object? Submission { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations")]
@@ -152,6 +165,16 @@ namespace LabelStudio
         /// <param name="draftExists"></param>
         /// <param name="predictionsScore"></param>
         /// <param name="reviewsRejected"></param>
+        /// <param name="submission">
+        /// The contributor's own submitted file, for the collection grid.<br/>
+        /// Read from the annotation (the submission's source of truth); the task<br/>
+        /// itself is untouched input.<br/>
+        /// Scoped to the requester, exactly as ``get_annotations`` scopes the<br/>
+        /// annotation list: a contributor sees the file they submitted and never<br/>
+        /// another contributor's media. The column is only offered to annotators,<br/>
+        /// so this is also the only case that renders.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="totalAnnotations"></param>
         /// <param name="totalPredictions"></param>
         /// <param name="annotations">
@@ -204,6 +227,7 @@ namespace LabelStudio
             bool? draftExists,
             double? predictionsScore,
             int? reviewsRejected,
+            object? submission,
             int? totalAnnotations,
             int? totalPredictions,
             global::System.Collections.Generic.IList<object> annotations = default!,
@@ -233,6 +257,7 @@ namespace LabelStudio
             this.PredictionsScore = predictionsScore;
             this.ReviewsRejected = reviewsRejected;
             this.State = state;
+            this.Submission = submission;
             this.TotalAnnotations = totalAnnotations;
             this.TotalPredictions = totalPredictions;
             this.UnresolvedCommentCount = unresolvedCommentCount;
