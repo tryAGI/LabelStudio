@@ -13,7 +13,7 @@ namespace LabelStudio
     /// so this is also the only case that renders.<br/>
     /// Included only in responses
     /// </summary>
-    public sealed partial class LseTaskSubmission
+    public sealed partial class LseTaskSerializerForAnnotatorsSubmission
     {
 
         /// <summary>

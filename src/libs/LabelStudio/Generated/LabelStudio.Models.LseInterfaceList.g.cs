@@ -9,6 +9,14 @@ namespace LabelStudio
     public sealed partial class LseInterfaceList
     {
         /// <summary>
+        /// Whether this interface can receive an uploaded file as a submission.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("accepts_submissions")]
+        public bool AcceptsSubmissions { get; set; } = default!;
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -117,6 +125,10 @@ namespace LabelStudio
         /// CamelCase screen component name for list cards (derived from code)
         /// </param>
         /// <param name="workspace"></param>
+        /// <param name="acceptsSubmissions">
+        /// Whether this interface can receive an uploaded file as a submission.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -150,6 +162,7 @@ namespace LabelStudio
             int? publishedVersionsCount,
             string? typeName,
             int? workspace,
+            bool acceptsSubmissions = default!,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
@@ -158,6 +171,7 @@ namespace LabelStudio
             global::System.DateTime updatedAt = default!,
             global::System.Collections.Generic.IList<object> versions = default!)
         {
+            this.AcceptsSubmissions = acceptsSubmissions;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
