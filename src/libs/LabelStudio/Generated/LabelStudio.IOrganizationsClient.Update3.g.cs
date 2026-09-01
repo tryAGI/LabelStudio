@@ -89,8 +89,9 @@ namespace LabelStudio
         /// Member
         /// </param>
         /// <param name="userType">
-        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
-        /// * `standard` - Standard
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. Flex seats keep the working role and consume Flex capacity in assigned claim mode. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `flex` - Flex
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
