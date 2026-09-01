@@ -35,6 +35,12 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("page_version")]
+        public int? PageVersion { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("quiz_id")]
         public string? QuizId { get; set; }
 
@@ -59,6 +65,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="moduleId"></param>
         /// <param name="pageId"></param>
+        /// <param name="pageVersion"></param>
         /// <param name="quizId"></param>
         /// <param name="timeSpentSeconds"></param>
 #if NET7_0_OR_GREATER
@@ -69,6 +76,7 @@ namespace LabelStudio
             bool? markComplete,
             int? moduleId,
             string? pageId,
+            int? pageVersion,
             string? quizId,
             int? timeSpentSeconds)
         {
@@ -76,6 +84,7 @@ namespace LabelStudio
             this.MarkComplete = markComplete;
             this.ModuleId = moduleId;
             this.PageId = pageId;
+            this.PageVersion = pageVersion;
             this.QuizId = quizId;
             this.TimeSpentSeconds = timeSpentSeconds;
         }

@@ -17,6 +17,26 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("completed_page_versions")]
+        public global::System.Collections.Generic.Dictionary<string, int> CompletedPageVersions { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("content_updated_at")]
+        public string? ContentUpdatedAt { get; set; }
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_completed_page_versions")]
+        public bool HasCompletedPageVersions { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("imported_at")]
         public global::System.DateTime? ImportedAt { get; set; }
 
@@ -76,6 +96,13 @@ namespace LabelStudio
         public int TimeSpentSeconds { get; set; } = default!;
 
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("updated_page_ids")]
+        public global::System.Collections.Generic.IList<string> UpdatedPageIds { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +114,9 @@ namespace LabelStudio
         /// <param name="completedAt">
         /// Included only in responses
         /// </param>
+        /// <param name="contentUpdatedAt">
+        /// Included only in responses
+        /// </param>
         /// <param name="importedAt">
         /// Included only in responses
         /// </param>
@@ -94,6 +124,12 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="startedAt">
+        /// Included only in responses
+        /// </param>
+        /// <param name="completedPageVersions">
+        /// Included only in responses
+        /// </param>
+        /// <param name="hasCompletedPageVersions">
         /// Included only in responses
         /// </param>
         /// <param name="isStale">
@@ -114,22 +150,32 @@ namespace LabelStudio
         /// <param name="timeSpentSeconds">
         /// Included only in responses
         /// </param>
+        /// <param name="updatedPageIds">
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UserLearningProgress(
             global::System.DateTime? completedAt,
+            string? contentUpdatedAt,
             global::System.DateTime? importedAt,
             global::System.DateTime? invalidatedAt,
             global::System.DateTime? startedAt,
+            global::System.Collections.Generic.Dictionary<string, int> completedPageVersions = default!,
+            bool hasCompletedPageVersions = default!,
             bool isStale = default!,
             object pagesVisited = default!,
             object quizResults = default!,
             int resourceVersion = default!,
             global::LabelStudio.RetakeReasonEnum retakeReason = default!,
-            int timeSpentSeconds = default!)
+            int timeSpentSeconds = default!,
+            global::System.Collections.Generic.IList<string> updatedPageIds = default!)
         {
             this.CompletedAt = completedAt;
+            this.CompletedPageVersions = completedPageVersions;
+            this.ContentUpdatedAt = contentUpdatedAt;
+            this.HasCompletedPageVersions = hasCompletedPageVersions;
             this.ImportedAt = importedAt;
             this.InvalidatedAt = invalidatedAt;
             this.IsStale = isStale;
@@ -139,6 +185,7 @@ namespace LabelStudio
             this.RetakeReason = retakeReason;
             this.StartedAt = startedAt;
             this.TimeSpentSeconds = timeSpentSeconds;
+            this.UpdatedPageIds = updatedPageIds;
         }
 
         /// <summary>
