@@ -29,8 +29,9 @@ namespace LabelStudio
         public int? UserId { get; set; }
 
         /// <summary>
-        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
-        /// * `standard` - Standard
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. Flex seats keep the working role and consume Flex capacity in assigned claim mode. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `flex` - Flex
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StandardUserTypeEnumJsonConverter))]
@@ -59,8 +60,9 @@ namespace LabelStudio
         /// Member
         /// </param>
         /// <param name="userType">
-        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
-        /// * `standard` - Standard
+        /// Membership seat type. Assigning a working role to a View-Only member upgrades them to a paid Standard seat. Flex seats keep the working role and consume Flex capacity in assigned claim mode. View-Only is not accepted because paid-to-View-Only downgrade is not supported.<br/>
+        /// * `standard` - Standard<br/>
+        /// * `flex` - Flex
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

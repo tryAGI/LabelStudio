@@ -481,7 +481,7 @@ namespace LabelStudio
         /// * `NO` - Not Activated
         /// </param>
         /// <param name="userType">
-        /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role.<br/>
+        /// Seat type for the invited members. View-Only members are free read-only seats scoped to the invited projects/workspaces and cannot be combined with a role. Flex members keep a normal working role and consume Flex capacity in assigned claim mode.<br/>
         /// * `standard` - Standard<br/>
         /// * `flex` - Flex<br/>
         /// * `viewonly` - View Only<br/>
