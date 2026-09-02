@@ -41,6 +41,13 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reject_action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.RejectActionEnumJsonConverter))]
+        public global::LabelStudio.RejectActionEnum? RejectAction { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_from_queue")]
         public bool? RemoveFromQueue { get; set; }
 
@@ -75,6 +82,7 @@ namespace LabelStudio
         /// Included only in requests
         /// </param>
         /// <param name="lastAnnotationHistory"></param>
+        /// <param name="rejectAction"></param>
         /// <param name="removeFromQueue"></param>
         /// <param name="result"></param>
         /// <param name="startedAt"></param>
@@ -86,6 +94,7 @@ namespace LabelStudio
             bool? accepted,
             string? comment,
             int? lastAnnotationHistory,
+            global::LabelStudio.RejectActionEnum? rejectAction,
             bool? removeFromQueue,
             object? result,
             global::System.DateTime? startedAt)
@@ -94,6 +103,7 @@ namespace LabelStudio
             this.Annotation = annotation;
             this.Comment = comment;
             this.LastAnnotationHistory = lastAnnotationHistory;
+            this.RejectAction = rejectAction;
             this.RemoveFromQueue = removeFromQueue;
             this.Result = result;
             this.StartedAt = startedAt;

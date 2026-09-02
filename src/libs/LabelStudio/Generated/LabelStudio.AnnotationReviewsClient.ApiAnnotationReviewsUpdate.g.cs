@@ -475,6 +475,7 @@ namespace LabelStudio
         /// Included only in requests
         /// </param>
         /// <param name="lastAnnotationHistory"></param>
+        /// <param name="rejectAction"></param>
         /// <param name="removeFromQueue"></param>
         /// <param name="result"></param>
         /// <param name="startedAt"></param>
@@ -487,6 +488,7 @@ namespace LabelStudio
             bool? accepted = default,
             string? comment = default,
             int? lastAnnotationHistory = default,
+            global::LabelStudio.RejectActionEnum? rejectAction = default,
             bool? removeFromQueue = default,
             object? result = default,
             global::System.DateTime? startedAt = default,
@@ -499,6 +501,7 @@ namespace LabelStudio
                 Annotation = annotation,
                 Comment = comment,
                 LastAnnotationHistory = lastAnnotationHistory,
+                RejectAction = rejectAction,
                 RemoveFromQueue = removeFromQueue,
                 Result = result,
                 StartedAt = startedAt,
