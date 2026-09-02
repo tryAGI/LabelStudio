@@ -9,6 +9,12 @@ namespace LabelStudio
     public sealed partial class ReviewSettingsRequest
     {
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allowed_reject_actions")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.RejectActionEnum>? AllowedRejectActions { get; set; }
+
+        /// <summary>
         /// Percent of an annotator’s work to review before moving to another annotator
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotator_batch_percent")]
@@ -19,6 +25,16 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("anonymize_annotations")]
         public bool? AnonymizeAnnotations { get; set; }
+
+        /// <summary>
+        /// Reject action a reviewer triggers in one click, without opening the reject options menu<br/>
+        /// * `remove` - Remove<br/>
+        /// * `requeue` - Requeue<br/>
+        /// * `redistribute` - Redistribute
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("default_reject_action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.RejectActionEnumJsonConverter))]
+        public global::LabelStudio.RejectActionEnum? DefaultRejectAction { get; set; }
 
         /// <summary>
         /// Instructions
@@ -39,7 +55,7 @@ namespace LabelStudio
         public int? Project { get; set; }
 
         /// <summary>
-        /// Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
+        /// Deprecated. Prefer allowed_reject_actions. Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
         /// * `requeue` - Requeue<br/>
         /// * `remove` - Remove<br/>
         /// * `flexible` - Flexible
@@ -118,11 +134,18 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="ReviewSettingsRequest" /> class.
         /// </summary>
+        /// <param name="allowedRejectActions"></param>
         /// <param name="annotatorBatchPercent">
         /// Percent of an annotator’s work to review before moving to another annotator
         /// </param>
         /// <param name="anonymizeAnnotations">
         /// Hide annotator names from annotations while review
+        /// </param>
+        /// <param name="defaultRejectAction">
+        /// Reject action a reviewer triggers in one click, without opening the reject options menu<br/>
+        /// * `remove` - Remove<br/>
+        /// * `requeue` - Requeue<br/>
+        /// * `redistribute` - Redistribute
         /// </param>
         /// <param name="instruction">
         /// Instructions
@@ -132,7 +155,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="project"></param>
         /// <param name="requeueRejectedTasksMode">
-        /// Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
+        /// Deprecated. Prefer allowed_reject_actions. Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
         /// * `requeue` - Requeue<br/>
         /// * `remove` - Remove<br/>
         /// * `flexible` - Flexible
@@ -173,8 +196,10 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ReviewSettingsRequest(
+            global::System.Collections.Generic.IList<global::LabelStudio.RejectActionEnum>? allowedRejectActions,
             string? annotatorBatchPercent,
             bool? anonymizeAnnotations,
+            global::LabelStudio.RejectActionEnum? defaultRejectAction,
             string? instruction,
             bool? onlyFinishedTasks,
             int? project,
@@ -189,8 +214,10 @@ namespace LabelStudio
             bool? showInstruction,
             bool? showUnusedDataColumnsToReviewers)
         {
+            this.AllowedRejectActions = allowedRejectActions;
             this.AnnotatorBatchPercent = annotatorBatchPercent;
             this.AnonymizeAnnotations = anonymizeAnnotations;
+            this.DefaultRejectAction = defaultRejectAction;
             this.Instruction = instruction;
             this.OnlyFinishedTasks = onlyFinishedTasks;
             this.Project = project;

@@ -28,6 +28,7 @@ namespace LabelStudio
         public string? ContentUpdatedAt { get; set; }
 
         /// <summary>
+        /// True only when the baseline covers the outline, so the client can list edited pages.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -130,6 +131,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="hasCompletedPageVersions">
+        /// True only when the baseline covers the outline, so the client can list edited pages.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="isStale">
