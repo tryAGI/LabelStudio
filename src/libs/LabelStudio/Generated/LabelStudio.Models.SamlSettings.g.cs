@@ -114,6 +114,20 @@ namespace LabelStudio
         public string? Token { get; set; }
 
         /// <summary>
+        /// Live seat usage and limits by seat type (Standard, View Only, Flex).<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type_capacities")]
+        public global::System.Collections.Generic.Dictionary<string, object> UserTypeCapacities { get; set; } = default!;
+
+        /// <summary>
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type_groups")]
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? UserTypeGroups { get; set; }
+
+        /// <summary>
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspaces_groups")]
@@ -174,10 +188,17 @@ namespace LabelStudio
         /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
         /// <param name="token"></param>
+        /// <param name="userTypeGroups">
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </param>
         /// <param name="workspacesGroups">
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
         /// <param name="nameidFormat">
+        /// Included only in responses
+        /// </param>
+        /// <param name="userTypeCapacities">
+        /// Live seat usage and limits by seat type (Standard, View Only, Flex).<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -200,8 +221,10 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? projectsGroups,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups,
             string? token,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? userTypeGroups,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups,
-            string nameidFormat = default!)
+            string nameidFormat = default!,
+            global::System.Collections.Generic.Dictionary<string, object> userTypeCapacities = default!)
         {
             this.AcsUrl = acsUrl;
             this.Domain = domain;
@@ -220,6 +243,8 @@ namespace LabelStudio
             this.ProjectsGroups = projectsGroups;
             this.RolesGroups = rolesGroups;
             this.Token = token;
+            this.UserTypeCapacities = userTypeCapacities;
+            this.UserTypeGroups = userTypeGroups;
             this.WorkspacesGroups = workspacesGroups;
         }
 

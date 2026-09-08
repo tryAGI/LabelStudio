@@ -85,6 +85,9 @@ namespace LabelStudio
         /// <param name="rolesGroups">
         /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
+        /// <param name="userTypeGroups">
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </param>
         /// <param name="workspacesGroups">
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
@@ -103,6 +106,7 @@ namespace LabelStudio
             string? metadataXml = default,
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroupRequest>? projectsGroups = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups = default,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? userTypeGroups = default,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

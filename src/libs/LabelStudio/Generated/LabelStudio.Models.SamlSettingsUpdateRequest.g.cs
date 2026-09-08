@@ -75,6 +75,12 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? RolesGroups { get; set; }
 
         /// <summary>
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type_groups")]
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? UserTypeGroups { get; set; }
+
+        /// <summary>
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspaces_groups")]
@@ -122,6 +128,9 @@ namespace LabelStudio
         /// <param name="rolesGroups">
         /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
+        /// <param name="userTypeGroups">
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </param>
         /// <param name="workspacesGroups">
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </param>
@@ -140,6 +149,7 @@ namespace LabelStudio
             string? metadataXml,
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroupRequest>? projectsGroups,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? userTypeGroups,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups)
         {
             this.Domain = domain;
@@ -153,6 +163,7 @@ namespace LabelStudio
             this.MetadataXml = metadataXml;
             this.ProjectsGroups = projectsGroups;
             this.RolesGroups = rolesGroups;
+            this.UserTypeGroups = userTypeGroups;
             this.WorkspacesGroups = workspacesGroups;
         }
 

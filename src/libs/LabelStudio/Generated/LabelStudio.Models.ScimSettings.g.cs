@@ -21,6 +21,20 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? RolesGroups { get; set; }
 
         /// <summary>
+        /// Live seat usage and limits by seat type (Standard, View Only, Flex).<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type_capacities")]
+        public global::System.Collections.Generic.Dictionary<string, object> UserTypeCapacities { get; set; } = default!;
+
+        /// <summary>
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_type_groups")]
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? UserTypeGroups { get; set; }
+
+        /// <summary>
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workspaces_groups")]
@@ -41,8 +55,15 @@ namespace LabelStudio
         /// <param name="rolesGroups">
         /// Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
         /// </param>
+        /// <param name="userTypeGroups">
+        /// Seat Types to Groups Mapping. List of [seat_type, group_name] pairs.
+        /// </param>
         /// <param name="workspacesGroups">
         /// Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+        /// </param>
+        /// <param name="userTypeCapacities">
+        /// Live seat usage and limits by seat type (Standard, View Only, Flex).<br/>
+        /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -50,10 +71,14 @@ namespace LabelStudio
         public ScimSettings(
             global::System.Collections.Generic.IList<global::LabelStudio.ProjectGroup>? projectsGroups,
             global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? rolesGroups,
-            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups)
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? userTypeGroups,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.IList<string>>? workspacesGroups,
+            global::System.Collections.Generic.Dictionary<string, object> userTypeCapacities = default!)
         {
             this.ProjectsGroups = projectsGroups;
             this.RolesGroups = rolesGroups;
+            this.UserTypeCapacities = userTypeCapacities;
+            this.UserTypeGroups = userTypeGroups;
             this.WorkspacesGroups = workspacesGroups;
         }
 
