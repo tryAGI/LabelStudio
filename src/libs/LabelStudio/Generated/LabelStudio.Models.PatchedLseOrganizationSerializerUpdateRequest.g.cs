@@ -16,12 +16,6 @@ namespace LabelStudio
         public string? ContactInfo { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
-        public int? CreatedBy { get; set; }
-
-        /// <summary>
         /// Enable or disable custom interfaces for this organization<br/>
         /// Included only in requests
         /// </summary>
@@ -100,7 +94,6 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="PatchedLseOrganizationSerializerUpdateRequest" /> class.
         /// </summary>
         /// <param name="contactInfo"></param>
-        /// <param name="createdBy"></param>
         /// <param name="customInterfacesEnabled">
         /// Enable or disable custom interfaces for this organization<br/>
         /// Included only in requests
@@ -143,7 +136,6 @@ namespace LabelStudio
 #endif
         public PatchedLseOrganizationSerializerUpdateRequest(
             string? contactInfo,
-            int? createdBy,
             bool? customInterfacesEnabled,
             bool? customScriptsEnabled,
             object? emailNotificationSettings,
@@ -156,7 +148,6 @@ namespace LabelStudio
             string? token)
         {
             this.ContactInfo = contactInfo;
-            this.CreatedBy = createdBy;
             this.CustomInterfacesEnabled = customInterfacesEnabled;
             this.CustomScriptsEnabled = customScriptsEnabled;
             this.EmailNotificationSettings = emailNotificationSettings;

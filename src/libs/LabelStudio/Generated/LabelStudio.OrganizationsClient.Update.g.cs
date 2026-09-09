@@ -562,7 +562,6 @@ namespace LabelStudio
         /// </summary>
         /// <param name="id"></param>
         /// <param name="contactInfo"></param>
-        /// <param name="createdBy"></param>
         /// <param name="customInterfacesEnabled">
         /// Enable or disable custom interfaces for this organization<br/>
         /// Included only in requests
@@ -606,7 +605,6 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganization> UpdateAsync(
             int id,
             string? contactInfo = default,
-            int? createdBy = default,
             bool? customInterfacesEnabled = default,
             bool? customScriptsEnabled = default,
             object? emailNotificationSettings = default,
@@ -623,7 +621,6 @@ namespace LabelStudio
             var __request = new global::LabelStudio.PatchedLseOrganizationSerializerUpdateRequest
             {
                 ContactInfo = contactInfo,
-                CreatedBy = createdBy,
                 CustomInterfacesEnabled = customInterfacesEnabled,
                 CustomScriptsEnabled = customScriptsEnabled,
                 EmailNotificationSettings = emailNotificationSettings,
