@@ -17,6 +17,13 @@ namespace LabelStudio
         public int? Annotation { get; set; }
 
         /// <summary>
+        /// Draft annotation ID associated with this event (alias for annotation_draft_id)<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotation_draft")]
+        public int? AnnotationDraft { get; set; }
+
+        /// <summary>
         /// Draft annotation ID associated with this event
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotation_draft_id")]
@@ -66,6 +73,10 @@ namespace LabelStudio
         /// <param name="annotation">
         /// Annotation ID associated with this event
         /// </param>
+        /// <param name="annotationDraft">
+        /// Draft annotation ID associated with this event (alias for annotation_draft_id)<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotationDraftId">
         /// Draft annotation ID associated with this event
         /// </param>
@@ -82,11 +93,13 @@ namespace LabelStudio
             string eventKey,
             global::System.DateTime eventTime,
             int? annotation,
+            int? annotationDraft,
             int? annotationDraftId,
             object? meta,
             int? review)
         {
             this.Annotation = annotation;
+            this.AnnotationDraft = annotationDraft;
             this.AnnotationDraftId = annotationDraftId;
             this.EventKey = eventKey ?? throw new global::System.ArgumentNullException(nameof(eventKey));
             this.EventTime = eventTime;
