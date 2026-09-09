@@ -153,6 +153,10 @@ namespace LabelStudio
         /// <param name="annotation">
         /// Annotation ID associated with this event
         /// </param>
+        /// <param name="annotationDraft">
+        /// Draft annotation ID associated with this event (alias for annotation_draft_id)<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotationDraftId">
         /// Draft annotation ID associated with this event
         /// </param>
@@ -176,6 +180,7 @@ namespace LabelStudio
             string eventKey,
             global::System.DateTime eventTime,
             int? annotation = default,
+            int? annotationDraft = default,
             int? annotationDraftId = default,
             object? meta = default,
             int? review = default,

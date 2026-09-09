@@ -3,11 +3,11 @@
 
 namespace LabelStudio
 {
-    public partial class Tasks2Client
+    public partial class OrganizationsClient
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_CreateEventSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_SearchSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,82 +21,45 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_CreateEventSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_SearchSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_CreateEventSecurityRequirement0,
+            {                s_SearchSecurityRequirement0,
             };
-        partial void PrepareCreateEventArguments(
+        partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.TaskEventRequest request);
-        partial void PrepareCreateEventRequest(
+            global::LabelStudio.OrganizationMemberFilterRequestRequest request);
+        partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.TaskEventRequest request);
-        partial void ProcessCreateEventResponse(
+            global::LabelStudio.OrganizationMemberFilterRequestRequest request);
+        partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateEventResponseContent(
+        partial void ProcessSearchResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create task event<br/>
-        ///     Create a new task event to track user interactions and system events during annotation.<br/>
-        ///     This endpoint is designed to receive events from the frontend labeling interface to enable<br/>
-        ///     accurate lead time calculation and detailed annotation analytics.<br/>
-        ///     ## Event Types<br/>
-        ///     **Core Annotation Events:**<br/>
-        ///     - `annotation_loaded` - When annotation interface is loaded<br/>
-        ///     - `annotation_created` - When annotation is submitted<br/>
-        ///     - `annotation_updated` - When annotation is modified<br/>
-        ///     - `annotation_reviewed` - When annotation is reviewed<br/>
-        ///     **User Activity Events:**<br/>
-        ///     - `visibility_change` - When page visibility changes (tab switch, minimize)<br/>
-        ///     - `idle_detected` - When user goes idle<br/>
-        ///     - `idle_resumed` - When user returns from idle<br/>
-        ///     **Interaction Events:**<br/>
-        ///     - `region_finished_drawing` - When annotation region is completed<br/>
-        ///     - `region_deleted` - When annotation regions are removed<br/>
-        ///     - `hotkey_pressed` - When keyboard shortcuts are used<br/>
-        ///     **Media Events:**<br/>
-        ///     - `video_playback_start/end` - Video playback control<br/>
-        ///     - `audio_playback_start/end` - Audio playback control<br/>
-        ///     - `video_scrub` - Video timeline scrubbing<br/>
-        ///     ## Usage<br/>
-        ///     Events are automatically associated with the task specified in the URL path.<br/>
-        ///     The current user is automatically set as the actor. Project and organization<br/>
-        ///     are derived from the task context.<br/>
-        ///     ## Example Request<br/>
-        ///     ```json<br/>
-        ///     {<br/>
-        ///         "event_key": "annotation_loaded",<br/>
-        ///         "event_time": "2024-01-15T10:30:00Z",<br/>
-        ///         "annotation": 123,<br/>
-        ///         "meta": {<br/>
-        ///             "annotation_count": 5,<br/>
-        ///             "estimated_time": 300<br/>
-        ///         }<br/>
-        ///     }<br/>
-        ///     ```<br/>
-        ///
+        /// Search organization members using reusable filters<br/>
+        /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.TaskEvent> CreateEventAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganizationMemberList> SearchAsync(
             int id,
 
-            global::LabelStudio.TaskEventRequest request,
+            global::LabelStudio.OrganizationMemberFilterRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await CreateEventAsResponseAsync(
+            var __response = await SearchAsResponseAsync(
                 id: id,
 
                 request: request,
@@ -107,55 +70,18 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Create task event<br/>
-        ///     Create a new task event to track user interactions and system events during annotation.<br/>
-        ///     This endpoint is designed to receive events from the frontend labeling interface to enable<br/>
-        ///     accurate lead time calculation and detailed annotation analytics.<br/>
-        ///     ## Event Types<br/>
-        ///     **Core Annotation Events:**<br/>
-        ///     - `annotation_loaded` - When annotation interface is loaded<br/>
-        ///     - `annotation_created` - When annotation is submitted<br/>
-        ///     - `annotation_updated` - When annotation is modified<br/>
-        ///     - `annotation_reviewed` - When annotation is reviewed<br/>
-        ///     **User Activity Events:**<br/>
-        ///     - `visibility_change` - When page visibility changes (tab switch, minimize)<br/>
-        ///     - `idle_detected` - When user goes idle<br/>
-        ///     - `idle_resumed` - When user returns from idle<br/>
-        ///     **Interaction Events:**<br/>
-        ///     - `region_finished_drawing` - When annotation region is completed<br/>
-        ///     - `region_deleted` - When annotation regions are removed<br/>
-        ///     - `hotkey_pressed` - When keyboard shortcuts are used<br/>
-        ///     **Media Events:**<br/>
-        ///     - `video_playback_start/end` - Video playback control<br/>
-        ///     - `audio_playback_start/end` - Audio playback control<br/>
-        ///     - `video_scrub` - Video timeline scrubbing<br/>
-        ///     ## Usage<br/>
-        ///     Events are automatically associated with the task specified in the URL path.<br/>
-        ///     The current user is automatically set as the actor. Project and organization<br/>
-        ///     are derived from the task context.<br/>
-        ///     ## Example Request<br/>
-        ///     ```json<br/>
-        ///     {<br/>
-        ///         "event_key": "annotation_loaded",<br/>
-        ///         "event_time": "2024-01-15T10:30:00Z",<br/>
-        ///         "annotation": 123,<br/>
-        ///         "meta": {<br/>
-        ///             "annotation_count": 5,<br/>
-        ///             "estimated_time": 300<br/>
-        ///         }<br/>
-        ///     }<br/>
-        ///     ```<br/>
-        ///
+        /// Search organization members using reusable filters<br/>
+        /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TaskEvent>> CreateEventAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseOrganizationMemberList>> SearchAsResponseAsync(
             int id,
 
-            global::LabelStudio.TaskEventRequest request,
+            global::LabelStudio.OrganizationMemberFilterRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -163,7 +89,7 @@ namespace LabelStudio
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateEventArguments(
+            PrepareSearchArguments(
                 httpClient: HttpClient,
                 id: ref id,
                 request: request);
@@ -171,8 +97,8 @@ namespace LabelStudio
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_CreateEventSecurityRequirements,
-                operationName: "CreateEventAsync");
+                securityRequirements: s_SearchSecurityRequirements,
+                operationName: "SearchAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -192,7 +118,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/tasks/{id}/events/",
+                                path: $"/api/organizations/{id}/memberships/search",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -237,7 +163,7 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareCreateEventRequest(
+                PrepareSearchRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id!,
@@ -258,9 +184,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "CreateEvent",
-                                methodName: "CreateEventAsync",
-                                pathTemplate: "$\"/api/tasks/{id}/events/\"",
+                                operationId: "Search",
+                                methodName: "SearchAsync",
+                                pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -292,9 +218,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "CreateEvent",
-                                methodName: "CreateEventAsync",
-                                pathTemplate: "$\"/api/tasks/{id}/events/\"",
+                                operationId: "Search",
+                                methodName: "SearchAsync",
+                                pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -333,9 +259,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "CreateEvent",
-                                methodName: "CreateEventAsync",
-                                pathTemplate: "$\"/api/tasks/{id}/events/\"",
+                                operationId: "Search",
+                                methodName: "SearchAsync",
+                                pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -373,7 +299,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessCreateEventResponse(
+                ProcessSearchResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -381,9 +307,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "CreateEvent",
-                                methodName: "CreateEventAsync",
-                                pathTemplate: "$\"/api/tasks/{id}/events/\"",
+                                operationId: "Search",
+                                methodName: "SearchAsync",
+                                pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -403,9 +329,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "CreateEvent",
-                                methodName: "CreateEventAsync",
-                                pathTemplate: "$\"/api/tasks/{id}/events/\"",
+                                operationId: "Search",
+                                methodName: "SearchAsync",
+                                pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -420,134 +346,6 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            //
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            //
-                            if ((int)__response.StatusCode == 401)
-                            {
-                                string? __content_401 = null;
-                                global::System.Exception? __exception_401 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_401 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_401,
-                                    responseBody: __content_401,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            //
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            //
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::LabelStudio.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
 
                             if (__effectiveReadResponseAsString)
                             {
@@ -561,7 +359,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessCreateEventResponseContent(
+                                ProcessSearchResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -570,9 +368,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.TaskEvent.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.LseOrganizationMemberList.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TaskEvent>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseOrganizationMemberList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -602,9 +400,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.TaskEvent.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.LseOrganizationMemberList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.TaskEvent>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseOrganizationMemberList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -645,96 +443,26 @@ namespace LabelStudio
             }
         }
         /// <summary>
-        /// Create task event<br/>
-        ///     Create a new task event to track user interactions and system events during annotation.<br/>
-        ///     This endpoint is designed to receive events from the frontend labeling interface to enable<br/>
-        ///     accurate lead time calculation and detailed annotation analytics.<br/>
-        ///     ## Event Types<br/>
-        ///     **Core Annotation Events:**<br/>
-        ///     - `annotation_loaded` - When annotation interface is loaded<br/>
-        ///     - `annotation_created` - When annotation is submitted<br/>
-        ///     - `annotation_updated` - When annotation is modified<br/>
-        ///     - `annotation_reviewed` - When annotation is reviewed<br/>
-        ///     **User Activity Events:**<br/>
-        ///     - `visibility_change` - When page visibility changes (tab switch, minimize)<br/>
-        ///     - `idle_detected` - When user goes idle<br/>
-        ///     - `idle_resumed` - When user returns from idle<br/>
-        ///     **Interaction Events:**<br/>
-        ///     - `region_finished_drawing` - When annotation region is completed<br/>
-        ///     - `region_deleted` - When annotation regions are removed<br/>
-        ///     - `hotkey_pressed` - When keyboard shortcuts are used<br/>
-        ///     **Media Events:**<br/>
-        ///     - `video_playback_start/end` - Video playback control<br/>
-        ///     - `audio_playback_start/end` - Audio playback control<br/>
-        ///     - `video_scrub` - Video timeline scrubbing<br/>
-        ///     ## Usage<br/>
-        ///     Events are automatically associated with the task specified in the URL path.<br/>
-        ///     The current user is automatically set as the actor. Project and organization<br/>
-        ///     are derived from the task context.<br/>
-        ///     ## Example Request<br/>
-        ///     ```json<br/>
-        ///     {<br/>
-        ///         "event_key": "annotation_loaded",<br/>
-        ///         "event_time": "2024-01-15T10:30:00Z",<br/>
-        ///         "annotation": 123,<br/>
-        ///         "meta": {<br/>
-        ///             "annotation_count": 5,<br/>
-        ///             "estimated_time": 300<br/>
-        ///         }<br/>
-        ///     }<br/>
-        ///     ```<br/>
-        ///
+        /// Search organization members using reusable filters<br/>
+        /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="annotation">
-        /// Annotation ID associated with this event
-        /// </param>
-        /// <param name="annotationDraft">
-        /// Draft annotation ID associated with this event (alias for annotation_draft_id)<br/>
-        /// Included only in requests
-        /// </param>
-        /// <param name="annotationDraftId">
-        /// Draft annotation ID associated with this event
-        /// </param>
-        /// <param name="eventKey">
-        /// Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
-        /// </param>
-        /// <param name="eventTime">
-        /// Timestamp when the event occurred (frontend time)
-        /// </param>
-        /// <param name="meta">
-        /// Additional event metadata (region data, hotkey info, etc.)
-        /// </param>
-        /// <param name="review">
-        /// Review ID associated with this event
-        /// </param>
+        /// <param name="filters"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.TaskEvent> CreateEventAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganizationMemberList> SearchAsync(
             int id,
-            string eventKey,
-            global::System.DateTime eventTime,
-            int? annotation = default,
-            int? annotationDraft = default,
-            int? annotationDraftId = default,
-            object? meta = default,
-            int? review = default,
+            object filters,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.TaskEventRequest
+            var __request = new global::LabelStudio.OrganizationMemberFilterRequestRequest
             {
-                Annotation = annotation,
-                AnnotationDraft = annotationDraft,
-                AnnotationDraftId = annotationDraftId,
-                EventKey = eventKey,
-                EventTime = eventTime,
-                Meta = meta,
-                Review = review,
+                Filters = filters,
             };
 
-            return await CreateEventAsync(
+            return await SearchAsync(
                 id: id,
                 request: __request,
                 requestOptions: requestOptions,
