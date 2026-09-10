@@ -16,6 +16,14 @@ namespace LabelStudio
         public required global::LabelStudio.CountLimit ExportStorages { get; set; }
 
         /// <summary>
+        /// Flex entitlement snapshot for License &amp; Usage (FIT-2340).<br/>
+        /// ``enabled`` is False for Starter/non-Enterprise, flag-off, or absent/expired<br/>
+        /// windows so the UI can hide Flex licensing lines.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("flex")]
+        public global::LabelStudio.FlexChecks? Flex { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("import_storages")]
@@ -174,6 +182,11 @@ namespace LabelStudio
         /// <param name="results"></param>
         /// <param name="trialDays"></param>
         /// <param name="users"></param>
+        /// <param name="flex">
+        /// Flex entitlement snapshot for License &amp; Usage (FIT-2340).<br/>
+        /// ``enabled`` is False for Starter/non-Enterprise, flag-off, or absent/expired<br/>
+        /// windows so the UI can hide Flex licensing lines.
+        /// </param>
         /// <param name="licenseExpires"></param>
         /// <param name="licenseIssued"></param>
         /// <param name="licenseWarning"></param>
@@ -197,6 +210,7 @@ namespace LabelStudio
             global::LabelStudio.CountLimit results,
             int trialDays,
             global::LabelStudio.CountLimit users,
+            global::LabelStudio.FlexChecks? flex,
             global::System.DateTime? licenseExpires,
             global::System.DateTime? licenseIssued,
             global::System.DateTime? licenseWarning,
@@ -204,6 +218,7 @@ namespace LabelStudio
             string? promptsWarning)
         {
             this.ExportStorages = exportStorages ?? throw new global::System.ArgumentNullException(nameof(exportStorages));
+            this.Flex = flex;
             this.ImportStorages = importStorages ?? throw new global::System.ArgumentNullException(nameof(importStorages));
             this.IsLicenseExpired = isLicenseExpired;
             this.IsLicenseWarning = isLicenseWarning;
