@@ -15,6 +15,15 @@ namespace LabelStudio
         public string? AccountName { get; set; }
 
         /// <summary>
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// * `service_principal` - Service Principal<br/>
+        /// * `workload_identity` - Workload identity
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AuthModeEnumJsonConverter))]
+        public global::LabelStudio.AuthModeEnum? AuthMode { get; set; }
+
+        /// <summary>
         /// Azure Blob Service Principal Client ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
@@ -162,6 +171,11 @@ namespace LabelStudio
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
+        /// <param name="authMode">
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// * `service_principal` - Service Principal<br/>
+        /// * `workload_identity` - Workload identity
+        /// </param>
         /// <param name="clientId">
         /// Azure Blob Service Principal Client ID
         /// </param>
@@ -233,6 +247,7 @@ namespace LabelStudio
         public AzureServicePrincipalImportStorageRequest(
             int project,
             string? accountName,
+            global::LabelStudio.AuthModeEnum? authMode,
             string? clientId,
             string? clientSecret,
             string? container,
@@ -255,6 +270,7 @@ namespace LabelStudio
             string? userDelegationKey)
         {
             this.AccountName = accountName;
+            this.AuthMode = authMode;
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
             this.Container = container;

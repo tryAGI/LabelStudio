@@ -27,6 +27,7 @@ namespace LabelStudio
             };
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref bool? hasPublishedVersions,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
@@ -36,6 +37,7 @@ namespace LabelStudio
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? hasPublishedVersions,
             string? ordering,
             int? page,
             int? pageSize,
@@ -61,6 +63,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List saved interfaces for the current organization.
         /// </summary>
+        /// <param name="hasPublishedVersions"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -71,6 +74,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLseInterfaceListList> ListAsync(
+            bool? hasPublishedVersions = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -81,6 +85,7 @@ namespace LabelStudio
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
+                hasPublishedVersions: hasPublishedVersions,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
@@ -103,6 +108,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List saved interfaces for the current organization.
         /// </summary>
+        /// <param name="hasPublishedVersions"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -113,6 +119,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLseInterfaceListList>> ListAsResponseAsync(
+            bool? hasPublishedVersions = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -126,6 +133,7 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareListArguments(
                 httpClient: HttpClient,
+                hasPublishedVersions: ref hasPublishedVersions,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
@@ -160,6 +168,7 @@ namespace LabelStudio
                                 path: "/api/interfaces/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("has_published_versions", hasPublishedVersions?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -207,6 +216,7 @@ namespace LabelStudio
                 PrepareListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    hasPublishedVersions: hasPublishedVersions,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,

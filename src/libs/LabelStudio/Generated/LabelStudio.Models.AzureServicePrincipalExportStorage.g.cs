@@ -15,6 +15,15 @@ namespace LabelStudio
         public string? AccountName { get; set; }
 
         /// <summary>
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// * `service_principal` - Service Principal<br/>
+        /// * `workload_identity` - Workload identity
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth_mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AuthModeEnumJsonConverter))]
+        public global::LabelStudio.AuthModeEnum? AuthMode { get; set; }
+
+        /// <summary>
         /// Deletion from storage enabled
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("can_delete_objects")]
@@ -173,6 +182,11 @@ namespace LabelStudio
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
+        /// <param name="authMode">
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// * `service_principal` - Service Principal<br/>
+        /// * `workload_identity` - Workload identity
+        /// </param>
         /// <param name="canDeleteObjects">
         /// Deletion from storage enabled
         /// </param>
@@ -249,6 +263,7 @@ namespace LabelStudio
         public AzureServicePrincipalExportStorage(
             int project,
             string? accountName,
+            global::LabelStudio.AuthModeEnum? authMode,
             bool? canDeleteObjects,
             string? clientId,
             string? clientSecret,
@@ -272,6 +287,7 @@ namespace LabelStudio
             string type = default!)
         {
             this.AccountName = accountName;
+            this.AuthMode = authMode;
             this.CanDeleteObjects = canDeleteObjects;
             this.ClientId = clientId;
             this.ClientSecret = clientSecret;
