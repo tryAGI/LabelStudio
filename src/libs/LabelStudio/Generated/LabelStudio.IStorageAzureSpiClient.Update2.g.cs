@@ -60,6 +60,11 @@ namespace LabelStudio
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
+        /// <param name="authMode">
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// * `service_principal` - Service Principal<br/>
+        /// * `workload_identity` - Workload identity
+        /// </param>
         /// <param name="canDeleteObjects">
         /// Deletion from storage enabled
         /// </param>
@@ -128,6 +133,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AzureServicePrincipalExportStorage> Update2Async(
             int id,
             string? accountName = default,
+            global::LabelStudio.AuthModeEnum? authMode = default,
             bool? canDeleteObjects = default,
             string? clientId = default,
             string? clientSecret = default,

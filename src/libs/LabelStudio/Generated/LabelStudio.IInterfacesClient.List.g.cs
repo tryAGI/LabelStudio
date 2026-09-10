@@ -14,6 +14,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List saved interfaces for the current organization.
         /// </summary>
+        /// <param name="hasPublishedVersions"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -24,6 +25,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedLseInterfaceListList> ListAsync(
+            bool? hasPublishedVersions = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -42,6 +44,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// List saved interfaces for the current organization.
         /// </summary>
+        /// <param name="hasPublishedVersions"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -52,6 +55,7 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedLseInterfaceListList>> ListAsResponseAsync(
+            bool? hasPublishedVersions = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
