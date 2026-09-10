@@ -413,6 +413,7 @@ namespace LabelStudio
         public bool Ready { get; set; } = default!;
 
         /// <summary>
+        /// Annotator-only: this user's annotations rejected by reviewers.<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -886,6 +887,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="rejected">
+        /// Annotator-only: this user's annotations rejected by reviewers.<br/>
         /// Included only in responses
         /// </param>
         /// <param name="skippedAnnotationsNumber">
