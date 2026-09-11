@@ -28,7 +28,7 @@ namespace LabelStudio
         partial void PrepareLabelDistributionCountsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? choiceKeys,
-            object? filters,
+            ref string? filters,
             ref int id,
             ref int? limit,
             ref int? offset);
@@ -36,7 +36,7 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? choiceKeys,
-            object? filters,
+            string? filters,
             int id,
             int? limit,
             int? offset);
@@ -57,7 +57,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
+        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior.
         /// </summary>
         /// <param name="choiceKeys"></param>
         /// <param name="filters"></param>
@@ -72,7 +72,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LabelDistributionCountsResponse> LabelDistributionCountsAsync(
             int id,
             string? choiceKeys = default,
-            object? filters = default,
+            string? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -98,7 +98,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
+        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior.
         /// </summary>
         /// <param name="choiceKeys"></param>
         /// <param name="filters"></param>
@@ -113,7 +113,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LabelDistributionCountsResponse>> LabelDistributionCountsAsResponseAsync(
             int id,
             string? choiceKeys = default,
-            object? filters = default,
+            string? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -124,7 +124,7 @@ namespace LabelStudio
             PrepareLabelDistributionCountsArguments(
                 httpClient: HttpClient,
                 choiceKeys: ref choiceKeys,
-                filters: filters,
+                filters: ref filters,
                 id: ref id,
                 limit: ref limit,
                 offset: ref offset);
@@ -157,7 +157,7 @@ namespace LabelStudio
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("choice_keys", choiceKeys)
-                                .AddOptionalParameter("filters", filters?.ToString())
+                                .AddOptionalParameter("filters", filters)
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("offset", offset?.ToString())
                                 ;
@@ -384,6 +384,80 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            // Invalid JSON or filter plan. Plans use AND semantics, reject OR/nested filters, and require field-compatible values including timezone-aware source timestamp ranges.
+                            if ((int)__response.StatusCode == 400)
+                            {
+                                string? __content_400 = null;
+                                global::System.Exception? __exception_400 = null;
+                                global::LabelStudio.LabelDistributionValidationError? __value_400 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_400 = global::LabelStudio.LabelDistributionValidationError.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_400 = global::LabelStudio.LabelDistributionValidationError.FromJson(__content_400, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_400 = __ex;
+                                }
+
+
+                                throw global::LabelStudio.ApiException<global::LabelStudio.LabelDistributionValidationError>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_400,
+                                    responseBody: __content_400,
+                                    responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Filtered Label Distribution is temporarily unavailable because dimension source readiness is incomplete. Retry later or omit `filters` to request unfiltered cached counts.
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                global::LabelStudio.FilteredLabelDistributionUnavailable? __value_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_409 = global::LabelStudio.FilteredLabelDistributionUnavailable.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_409 = global::LabelStudio.FilteredLabelDistributionUnavailable.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+
+                                throw global::LabelStudio.ApiException<global::LabelStudio.FilteredLabelDistributionUnavailable>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    responseBody: __content_409,
+                                    responseObject: __value_409,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
 
                             if (__effectiveReadResponseAsString)
                             {
