@@ -49,7 +49,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create an Azure export storage connection with Service Principal authentication to store annotations.
+        /// Create an Azure export storage connection with Service Principal or workload-identity authentication to store annotations. Supports auth_mode=service_principal (default; requires tenant_id, client_id, and client_secret) and auth_mode=workload_identity (secretless; client_secret must be omitted, tenant_id is not required, optional client_id selects a user-assigned managed identity). GET responses never include client_secret.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -78,7 +78,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create an Azure export storage connection with Service Principal authentication to store annotations.
+        /// Create an Azure export storage connection with Service Principal or workload-identity authentication to store annotations. Supports auth_mode=service_principal (default; requires tenant_id, client_id, and client_secret) and auth_mode=workload_identity (secretless; client_secret must be omitted, tenant_id is not required, optional client_id selects a user-assigned managed identity). GET responses never include client_secret.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -453,13 +453,13 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create an Azure export storage connection with Service Principal authentication to store annotations.
+        /// Create an Azure export storage connection with Service Principal or workload-identity authentication to store annotations. Supports auth_mode=service_principal (default; requires tenant_id, client_id, and client_secret) and auth_mode=workload_identity (secretless; client_secret must be omitted, tenant_id is not required, optional client_id selects a user-assigned managed identity). GET responses never include client_secret.
         /// </summary>
         /// <param name="accountName">
         /// Azure Blob account name
         /// </param>
         /// <param name="authMode">
-        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses constrained DefaultAzureCredential (workload identity + managed identity only). Defaults to service_principal.<br/>
         /// * `service_principal` - Service Principal<br/>
         /// * `workload_identity` - Workload identity
         /// </param>
@@ -467,10 +467,10 @@ namespace LabelStudio
         /// Deletion from storage enabled
         /// </param>
         /// <param name="clientId">
-        /// Azure Blob Service Principal Client ID
+        /// For service_principal: Azure app registration client ID. For workload_identity: optional user-assigned managed identity client ID.
         /// </param>
         /// <param name="clientSecret">
-        /// Azure Blob Service Principal Client Secret
+        /// Azure Blob Service Principal client secret. Required when auth_mode is service_principal (or omitted). Must be omitted when auth_mode is workload_identity.
         /// </param>
         /// <param name="container">
         /// Azure blob container
@@ -511,7 +511,7 @@ namespace LabelStudio
         /// Default Value: true
         /// </param>
         /// <param name="tenantId">
-        /// Azure Tenant ID
+        /// Azure Tenant ID. Required for service_principal; not used for workload_identity.
         /// </param>
         /// <param name="title">
         /// Cloud storage title
