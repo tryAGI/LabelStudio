@@ -4,7 +4,7 @@
 namespace LabelStudio
 {
     /// <summary>
-    ///
+    /// Mode-aware auth validation shared by import and export Azure SPI serializers.
     /// </summary>
     public sealed partial class AzureServicePrincipalExportStorage
     {
@@ -15,7 +15,7 @@ namespace LabelStudio
         public string? AccountName { get; set; }
 
         /// <summary>
-        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses constrained DefaultAzureCredential (workload identity + managed identity only). Defaults to service_principal.<br/>
         /// * `service_principal` - Service Principal<br/>
         /// * `workload_identity` - Workload identity
         /// </summary>
@@ -30,13 +30,13 @@ namespace LabelStudio
         public bool? CanDeleteObjects { get; set; }
 
         /// <summary>
-        /// Azure Blob Service Principal Client ID
+        /// For service_principal: Azure app registration client ID. For workload_identity: optional user-assigned managed identity client ID.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
         public string? ClientId { get; set; }
 
         /// <summary>
-        /// Azure Blob Service Principal Client Secret
+        /// Azure Blob Service Principal client secret. Required when auth_mode is service_principal (or omitted). Must be omitted when auth_mode is workload_identity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_secret")]
         public string? ClientSecret { get; set; }
@@ -130,7 +130,7 @@ namespace LabelStudio
         public bool? Synchronizable { get; set; }
 
         /// <summary>
-        /// Azure Tenant ID
+        /// Azure Tenant ID. Required for service_principal; not used for workload_identity.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tenant_id")]
         public string? TenantId { get; set; }
@@ -183,7 +183,7 @@ namespace LabelStudio
         /// Azure Blob account name
         /// </param>
         /// <param name="authMode">
-        /// Authentication mode. service_principal uses a client secret. workload_identity uses secretless DefaultAzureCredential (workload identity and managed identity only). Defaults to service_principal.<br/>
+        /// Authentication mode. service_principal uses a client secret. workload_identity uses constrained DefaultAzureCredential (workload identity + managed identity only). Defaults to service_principal.<br/>
         /// * `service_principal` - Service Principal<br/>
         /// * `workload_identity` - Workload identity
         /// </param>
@@ -191,10 +191,10 @@ namespace LabelStudio
         /// Deletion from storage enabled
         /// </param>
         /// <param name="clientId">
-        /// Azure Blob Service Principal Client ID
+        /// For service_principal: Azure app registration client ID. For workload_identity: optional user-assigned managed identity client ID.
         /// </param>
         /// <param name="clientSecret">
-        /// Azure Blob Service Principal Client Secret
+        /// Azure Blob Service Principal client secret. Required when auth_mode is service_principal (or omitted). Must be omitted when auth_mode is workload_identity.
         /// </param>
         /// <param name="container">
         /// Azure blob container
@@ -232,7 +232,7 @@ namespace LabelStudio
         /// Default Value: true
         /// </param>
         /// <param name="tenantId">
-        /// Azure Tenant ID
+        /// Azure Tenant ID. Required for service_principal; not used for workload_identity.
         /// </param>
         /// <param name="title">
         /// Cloud storage title
