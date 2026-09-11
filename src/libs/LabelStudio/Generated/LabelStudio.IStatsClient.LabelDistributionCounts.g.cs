@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
+        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior.
         /// </summary>
         /// <param name="choiceKeys"></param>
         /// <param name="filters"></param>
@@ -27,7 +27,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.LabelDistributionCountsResponse> LabelDistributionCountsAsync(
             int id,
             string? choiceKeys = default,
-            object? filters = default,
+            string? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -40,7 +40,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.
+        /// Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior.
         /// </summary>
         /// <param name="choiceKeys"></param>
         /// <param name="filters"></param>
@@ -55,7 +55,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LabelDistributionCountsResponse>> LabelDistributionCountsAsResponseAsync(
             int id,
             string? choiceKeys = default,
-            object? filters = default,
+            string? filters = default,
             int? limit = default,
             int? offset = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
