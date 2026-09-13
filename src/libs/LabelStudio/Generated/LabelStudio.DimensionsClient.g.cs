@@ -34,7 +34,7 @@ namespace LabelStudio
         /// <inheritdoc/>
         public global::LabelStudio.AutoSDKClientOptions Options { get; }
 
-        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::LabelStudio.SourceGenerationContext.Default);
+        internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::LabelStudio.DimensionsSourceGenerationContext.Default);
 
         /// <summary>
         ///
