@@ -33,6 +33,7 @@ namespace LabelStudio
             ref global::System.DateTime? lastActivityGte,
             ref global::System.DateTime? lastActivityLte,
             ref bool? noAnnotators,
+            ref bool? noViewOnly,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
@@ -50,6 +51,7 @@ namespace LabelStudio
             global::System.DateTime? lastActivityGte,
             global::System.DateTime? lastActivityLte,
             bool? noAnnotators,
+            bool? noViewOnly,
             string? ordering,
             int? page,
             int? pageSize,
@@ -89,6 +91,7 @@ namespace LabelStudio
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
+        /// <param name="noViewOnly"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -107,6 +110,7 @@ namespace LabelStudio
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,
+            bool? noViewOnly = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -125,6 +129,7 @@ namespace LabelStudio
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
                 noAnnotators: noAnnotators,
+                noViewOnly: noViewOnly,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
@@ -161,6 +166,7 @@ namespace LabelStudio
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
+        /// <param name="noViewOnly"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -179,6 +185,7 @@ namespace LabelStudio
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,
+            bool? noViewOnly = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -200,6 +207,7 @@ namespace LabelStudio
                 lastActivityGte: ref lastActivityGte,
                 lastActivityLte: ref lastActivityLte,
                 noAnnotators: ref noAnnotators,
+                noViewOnly: ref noViewOnly,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
@@ -241,6 +249,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("last_activity__gte", lastActivityGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("no_annotators", noAnnotators?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("no_view_only", noViewOnly?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -296,6 +305,7 @@ namespace LabelStudio
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,
                     noAnnotators: noAnnotators,
+                    noViewOnly: noViewOnly,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
