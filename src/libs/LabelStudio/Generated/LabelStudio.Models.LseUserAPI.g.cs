@@ -80,9 +80,8 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_activity")]
-        public global::System.DateTime LastActivity { get; set; } = default!;
+        public global::System.DateTime? LastActivity { get; set; }
 
         /// <summary>
         ///
@@ -141,6 +140,9 @@ namespace LabelStudio
         /// <param name="dateJoined"></param>
         /// <param name="email"></param>
         /// <param name="firstName"></param>
+        /// <param name="lastActivity">
+        /// Included only in responses
+        /// </param>
         /// <param name="lastName"></param>
         /// <param name="phone"></param>
         /// <param name="activeOrganizationMeta">
@@ -151,9 +153,6 @@ namespace LabelStudio
         /// </param>
         /// <param name="initials">
         /// Default Value: ?<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="lastActivity">
         /// Included only in responses
         /// </param>
         /// <param name="organizationMembership">
@@ -171,12 +170,12 @@ namespace LabelStudio
             global::System.DateTime? dateJoined,
             string? email,
             string? firstName,
+            global::System.DateTime? lastActivity,
             string? lastName,
             string? phone,
             global::System.Collections.Generic.Dictionary<string, string> activeOrganizationMeta = default!,
             int id = default!,
             string initials = default!,
-            global::System.DateTime lastActivity = default!,
             global::LabelStudio.OrganizationMembership organizationMembership = default!)
         {
             this.ActiveOrganization = activeOrganization;
