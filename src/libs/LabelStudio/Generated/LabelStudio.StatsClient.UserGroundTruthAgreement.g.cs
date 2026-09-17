@@ -56,7 +56,9 @@ namespace LabelStudio
         /// Get ground truth agreement statistics for a specific user within a project.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="perLabel"></param>
+        /// <param name="perLabel">
+        /// Default Value: false
+        /// </param>
         /// <param name="userPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -89,7 +91,9 @@ namespace LabelStudio
         /// Get ground truth agreement statistics for a specific user within a project.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="perLabel"></param>
+        /// <param name="perLabel">
+        /// Default Value: false
+        /// </param>
         /// <param name="userPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
