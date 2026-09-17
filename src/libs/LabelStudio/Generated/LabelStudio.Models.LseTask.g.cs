@@ -251,6 +251,12 @@ namespace LabelStudio
         public bool? Reviewed { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_at")]
+        public global::System.DateTime? ReviewedAt { get; set; }
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -389,6 +395,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="reviewed"></param>
+        /// <param name="reviewedAt"></param>
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
         /// <param name="storageFilename">
@@ -507,6 +514,7 @@ namespace LabelStudio
             int? project,
             int? reviewTime,
             bool? reviewed,
+            global::System.DateTime? reviewedAt,
             int? reviewsAccepted,
             int? reviewsRejected,
             string? storageFilename,
@@ -572,6 +580,7 @@ namespace LabelStudio
             this.Project = project;
             this.ReviewTime = reviewTime;
             this.Reviewed = reviewed;
+            this.ReviewedAt = reviewedAt;
             this.Reviewers = reviewers;
             this.ReviewersCount = reviewersCount;
             this.ReviewsAccepted = reviewsAccepted;

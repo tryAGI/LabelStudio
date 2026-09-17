@@ -64,6 +64,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("project")) __score0++;
             if (__jsonProps.Contains("review_time")) __score0++;
             if (__jsonProps.Contains("reviewed")) __score0++;
+            if (__jsonProps.Contains("reviewed_at")) __score0++;
             if (__jsonProps.Contains("reviewers")) __score0++;
             if (__jsonProps.Contains("reviewers_count")) __score0++;
             if (__jsonProps.Contains("reviews_accepted")) __score0++;
@@ -113,6 +114,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("project")) __score1++;
             if (__jsonProps.Contains("review_time")) __score1++;
             if (__jsonProps.Contains("reviewed")) __score1++;
+            if (__jsonProps.Contains("reviewed_at")) __score1++;
             if (__jsonProps.Contains("reviewers")) __score1++;
             if (__jsonProps.Contains("reviewers_count")) __score1++;
             if (__jsonProps.Contains("reviews_accepted")) __score1++;

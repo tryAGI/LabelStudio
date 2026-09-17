@@ -482,6 +482,7 @@ namespace LabelStudio
         /// Project ID for this task
         /// </param>
         /// <param name="reviewed"></param>
+        /// <param name="reviewedAt"></param>
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
         /// <param name="totalAnnotations"></param>
@@ -511,6 +512,7 @@ namespace LabelStudio
             double? predictionsScore = default,
             int? project = default,
             bool? reviewed = default,
+            global::System.DateTime? reviewedAt = default,
             int? reviewsAccepted = default,
             int? reviewsRejected = default,
             int? totalAnnotations = default,
@@ -538,6 +540,7 @@ namespace LabelStudio
                 PredictionsScore = predictionsScore,
                 Project = project,
                 Reviewed = reviewed,
+                ReviewedAt = reviewedAt,
                 ReviewsAccepted = reviewsAccepted,
                 ReviewsRejected = reviewsRejected,
                 TotalAnnotations = totalAnnotations,

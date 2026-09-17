@@ -113,6 +113,12 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewed_at")]
+        public global::System.DateTime? ReviewedAt { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("reviews_accepted")]
         public int? ReviewsAccepted { get; set; }
 
@@ -184,6 +190,7 @@ namespace LabelStudio
         /// Project ID for this task
         /// </param>
         /// <param name="reviewed"></param>
+        /// <param name="reviewedAt"></param>
         /// <param name="reviewsAccepted"></param>
         /// <param name="reviewsRejected"></param>
         /// <param name="totalAnnotations"></param>
@@ -212,6 +219,7 @@ namespace LabelStudio
             double? predictionsScore,
             int? project,
             bool? reviewed,
+            global::System.DateTime? reviewedAt,
             int? reviewsAccepted,
             int? reviewsRejected,
             int? totalAnnotations,
@@ -235,6 +243,7 @@ namespace LabelStudio
             this.PredictionsScore = predictionsScore;
             this.Project = project;
             this.Reviewed = reviewed;
+            this.ReviewedAt = reviewedAt;
             this.ReviewsAccepted = reviewsAccepted;
             this.ReviewsRejected = reviewsRejected;
             this.TotalAnnotations = totalAnnotations;
