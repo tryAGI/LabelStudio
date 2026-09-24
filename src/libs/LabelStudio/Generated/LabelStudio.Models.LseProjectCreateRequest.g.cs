@@ -69,6 +69,12 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dm_column_defaults")]
+        public global::LabelStudio.LseProjectCreateRequestDmColumnDefaults? DmColumnDefaults { get; set; }
+
+        /// <summary>
         /// Allow annotators to submit empty annotations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_empty_annotation")]
@@ -287,6 +293,9 @@ namespace LabelStudio
         /// <param name="description">
         /// Description (Public)
         /// </param>
+        /// <param name="dmColumnDefaults">
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow annotators to submit empty annotations
         /// </param>
@@ -374,6 +383,7 @@ namespace LabelStudio
             string? customInterfaceCompiled,
             object? customInterfaceParams,
             string? description,
+            global::LabelStudio.LseProjectCreateRequestDmColumnDefaults? dmColumnDefaults,
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
@@ -414,6 +424,7 @@ namespace LabelStudio
             this.CustomInterfaceCompiled = customInterfaceCompiled;
             this.CustomInterfaceParams = customInterfaceParams;
             this.Description = description;
+            this.DmColumnDefaults = dmColumnDefaults;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
