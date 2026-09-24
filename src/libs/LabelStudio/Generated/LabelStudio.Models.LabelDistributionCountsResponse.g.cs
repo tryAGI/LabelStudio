@@ -9,7 +9,7 @@ namespace LabelStudio
     public sealed partial class LabelDistributionCountsResponse
     {
         /// <summary>
-        /// Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        /// Next offset for pagination when using limit/offset mode; null when there are no more results, when filtering by explicit `choice_keys`, or for filtered (aggregation-complete / non-paginated) responses.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_offset")]
         public int? NextOffset { get; set; }
@@ -40,7 +40,7 @@ namespace LabelStudio
         /// <param name="results"></param>
         /// <param name="totals"></param>
         /// <param name="nextOffset">
-        /// Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        /// Next offset for pagination when using limit/offset mode; null when there are no more results, when filtering by explicit `choice_keys`, or for filtered (aggregation-complete / non-paginated) responses.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

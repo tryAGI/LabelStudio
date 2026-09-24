@@ -57,6 +57,9 @@ namespace LabelStudio
         /// <param name="description">
         /// Description (Public)
         /// </param>
+        /// <param name="dmColumnDefaults">
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow annotators to submit empty annotations
         /// </param>
@@ -144,6 +147,7 @@ namespace LabelStudio
             string? customInterfaceCompiled = default,
             object? customInterfaceParams = default,
             string? description = default,
+            global::LabelStudio.LseProjectCreateRequestDmColumnDefaults? dmColumnDefaults = default,
             bool? enableEmptyAnnotation = default,
             bool? evaluatePredictionsAutomatically = default,
             string? expertInstruction = default,
