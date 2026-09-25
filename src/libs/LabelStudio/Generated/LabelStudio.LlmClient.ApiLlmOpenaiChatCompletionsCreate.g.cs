@@ -49,7 +49,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> ApiLlmOpenaiChatCompletionsCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse> ApiLlmOpenaiChatCompletionsCreateAsync(
 
             global::LabelStudio.ChatCompletionRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -72,7 +72,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<string>> ApiLlmOpenaiChatCompletionsCreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse>> ApiLlmOpenaiChatCompletionsCreateAsResponseAsync(
 
             global::LabelStudio.ChatCompletionRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -337,24 +337,24 @@ namespace LabelStudio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            //
+                            // Bad request - missing required fields or invalid provider
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
                                 global::System.Exception? __exception_400 = null;
-                                string? __value_400 = null;
+                                global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse2? __value_400 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse2.FromJson(__content_400, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_400 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_400, typeof(string), JsonSerializerContext);
+                                        __value_400 = global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse2.FromJson(__content_400, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -363,7 +363,7 @@ namespace LabelStudio
                                 }
 
 
-                                throw global::LabelStudio.ApiException<string>.Create(
+                                throw global::LabelStudio.ApiException<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse2>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_400,
@@ -396,11 +396,13 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::LabelStudio.AutoSDKHttpResponse<string>(
+                                    var __value = global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -420,17 +422,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::LabelStudio.AutoSDKHttpResponse<string>(
+                                    var __value = await global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -479,7 +483,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> ApiLlmOpenaiChatCompletionsCreateAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse> ApiLlmOpenaiChatCompletionsCreateAsync(
             global::System.Collections.Generic.IList<global::LabelStudio.ChatMessageRequest> messages,
             string model,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
