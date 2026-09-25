@@ -12,7 +12,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> ApiLlmOpenaiChatCompletionsCreateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse> ApiLlmOpenaiChatCompletionsCreateAsync(
 
             global::LabelStudio.ChatCompletionRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -25,7 +25,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<string>> ApiLlmOpenaiChatCompletionsCreateAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse>> ApiLlmOpenaiChatCompletionsCreateAsResponseAsync(
 
             global::LabelStudio.ChatCompletionRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -43,7 +43,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<string> ApiLlmOpenaiChatCompletionsCreateAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse> ApiLlmOpenaiChatCompletionsCreateAsync(
             global::System.Collections.Generic.IList<global::LabelStudio.ChatMessageRequest> messages,
             string model,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
