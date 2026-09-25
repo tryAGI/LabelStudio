@@ -209,6 +209,12 @@ namespace LabelStudio
         public string DescriptionShort { get; set; } = default!;
 
         /// <summary>
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dm_column_defaults")]
+        public global::LabelStudio.AllRolesProjectListDmColumnDefaults? DmColumnDefaults { get; set; }
+
+        /// <summary>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("duplication_done")]
@@ -705,6 +711,9 @@ namespace LabelStudio
         /// <param name="description">
         /// Description (Public)
         /// </param>
+        /// <param name="dmColumnDefaults">
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </param>
         /// <param name="duplicationDone">
         /// Default Value: false
         /// </param>
@@ -939,6 +948,7 @@ namespace LabelStudio
             int? customTaskLockTtl,
             object? dataTypes,
             string? description,
+            global::LabelStudio.AllRolesProjectListDmColumnDefaults? dmColumnDefaults,
             bool? duplicationDone,
             string? duplicationStatus,
             bool? enableEmptyAnnotation,
@@ -1036,6 +1046,7 @@ namespace LabelStudio
             this.DataTypes = dataTypes;
             this.Description = description;
             this.DescriptionShort = descriptionShort;
+            this.DmColumnDefaults = dmColumnDefaults;
             this.DuplicationDone = duplicationDone;
             this.DuplicationStatus = duplicationStatus;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;

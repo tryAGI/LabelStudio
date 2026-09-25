@@ -7642,71 +7642,65 @@ paths:
           content:
             application/json:
               schema:
-                content:
-                  application/json:
-                    properties:
-                      choices:
-                        description: Array of completion choices
-                        items:
+                properties:
+                  choices:
+                    description: Array of completion choices
+                    items:
+                      properties:
+                        finish_reason:
+                          description: The reason the completion finished
+                          type: string
+                        index:
+                          description: The index of the choice
+                          type: integer
+                        message:
                           properties:
-                            finish_reason:
-                              description: The reason the completion finished
+                            content:
+                              description: The content of the message
                               type: string
-                            index:
-                              description: The index of the choice
-                              type: integer
-                            message:
-                              properties:
-                                content:
-                                  description: The content of the message
-                                  type: string
-                                role:
-                                  description: The role of the message author
-                                  type: string
-                              type: object
+                            role:
+                              description: The role of the message author
+                              type: string
                           type: object
-                        type: array
-                      created:
-                        description: Unix timestamp of when the completion was created
+                      type: object
+                    type: array
+                  created:
+                    description: Unix timestamp of when the completion was created
+                    type: integer
+                  id:
+                    description: Unique identifier for the chat completion
+                    type: string
+                  model:
+                    description: The model used for the completion
+                    type: string
+                  object:
+                    description: Object type, always "chat.completion"
+                    type: string
+                  usage:
+                    description: Token usage statistics
+                    properties:
+                      completion_tokens:
+                        description: Number of tokens in the completion
                         type: integer
-                      id:
-                        description: Unique identifier for the chat completion
-                        type: string
-                      model:
-                        description: The model used for the completion
-                        type: string
-                      object:
-                        description: Object type, always "chat.completion"
-                        type: string
-                      usage:
-                        description: Token usage statistics
-                        properties:
-                          completion_tokens:
-                            description: Number of tokens in the completion
-                            type: integer
-                          prompt_tokens:
-                            description: Number of tokens in the prompt
-                            type: integer
-                          total_tokens:
-                            description: Total number of tokens used
-                            type: integer
-                        type: object
+                      prompt_tokens:
+                        description: Number of tokens in the prompt
+                        type: integer
+                      total_tokens:
+                        description: Total number of tokens used
+                        type: integer
                     type: object
-                description: Chat completion response
-          description: ''
+                type: object
+          description: Chat completion response
         '400':
           content:
             application/json:
               schema:
-                content:
-                  application/json:
-                    properties:
-                      detail:
-                        description: Error message describing the issue
-                        type: string
-                    type: object
-                description: Bad request - missing required fields or invalid provider
-          description: ''
+                properties:
+                  detail:
+                    description: Error message describing the issue
+                    type: string
+                type: object
+          description: Bad request - missing required fields or invalid provider
       security:
         - Token: []
       summary: Proxy to OpenAI-Compatible Chat Completions
@@ -13863,7 +13857,7 @@ paths:
                     This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
                 </p>
             </Card>
-        Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior.
+        Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`. Omitting `filters` preserves the unfiltered cached-count behavior. When a non-empty `filters` plan is provided, filtered aggregation is aggregation-complete and non-paginated: the response includes all structure choice keys and `next_offset` is always null (limit/offset are ignored for filtered requests).
       operationId: api_projects_stats_label_distribution_counts_retrieve
       parameters:
         - description: 'Explicit choice keys to fetch, joined by "___PIPE___" (for example: "label___SEP___pos___PIPE___quality___SEP___4"). When provided, pagination params are ignored.'
@@ -13885,13 +13879,13 @@ paths:
           required: true
           schema:
             type: integer
-        - description: Maximum number of choice keys to return for pagination. Ignored when `choice_keys` is provided.
+        - description: Maximum number of choice keys to return for pagination. Ignored when `choice_keys` is provided. Also ignored for filtered requests (non-empty `filters`), which always return the full aggregation-complete choice set.
           in: query
           name: limit
           schema:
             minimum: 1
             type: integer
-        - description: Zero-based offset into the structure `choice_keys` list. Used only when `choice_keys` is not provided.
+        - description: Zero-based offset into the structure `choice_keys` list. Used only when `choice_keys` is not provided. Ignored for filtered requests (non-empty `filters`).
           in: query
           name: offset
           schema:
@@ -24915,6 +24909,46 @@ components:
         description_short:
           readOnly: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         duplication_done:
           default: false
           type: boolean
@@ -29089,7 +29123,6 @@ components:
         project:
           type: integer
         view:
-          default: ''
           type: integer
       required:
         - dataset
@@ -32082,7 +32115,7 @@ components:
     LabelDistributionCountsResponse:
       properties:
         next_offset:
-          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+          description: Next offset for pagination when using limit/offset mode; null when there are no more results, when filtering by explicit `choice_keys`, or for filtered (aggregation-complete / non-paginated) responses.
           nullable: true
           type: integer
         results:
@@ -34143,6 +34176,46 @@ components:
           description: Description (Public)
           nullable: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         duplication_done:
           default: false
           type: boolean
@@ -34554,6 +34627,46 @@ components:
           description: Description (Public)
           nullable: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         enable_empty_annotation:
           description: Allow annotators to submit empty annotations
           type: boolean
@@ -34783,6 +34896,46 @@ components:
           description: Description (Public)
           nullable: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         enable_empty_annotation:
           description: Allow annotators to submit empty annotations
           type: boolean
@@ -35059,6 +35212,46 @@ components:
           description: Description (Public)
           nullable: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         duplication_done:
           default: false
           type: boolean
@@ -40803,6 +40996,46 @@ components:
           description: Description (Public)
           nullable: true
           type: string
+        dm_column_defaults:
+          additionalProperties: false
+          description: Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+          nullable: true
+          properties:
+            explore:
+              additionalProperties: false
+              description: Main Data Manager grid.
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+            labeling:
+              additionalProperties: false
+              description: Quick View (reserved).
+              properties:
+                order:
+                  description: Shared column id order for this surface.
+                  items:
+                    type: string
+                  type: array
+                visible:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  description: Public organization role to visible column ids.
+                  type: object
+              type: object
+          type: object
         enable_empty_annotation:
           description: Allow empty annotations
           type: boolean

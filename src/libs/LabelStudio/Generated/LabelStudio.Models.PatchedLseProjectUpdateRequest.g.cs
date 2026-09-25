@@ -151,6 +151,12 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dm_column_defaults")]
+        public global::LabelStudio.PatchedLseProjectUpdateRequestDmColumnDefaults? DmColumnDefaults { get; set; }
+
+        /// <summary>
         /// Allow empty annotations
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_empty_annotation")]
@@ -451,6 +457,9 @@ namespace LabelStudio
         /// <param name="description">
         /// Description (Public)
         /// </param>
+        /// <param name="dmColumnDefaults">
+        /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
+        /// </param>
         /// <param name="enableEmptyAnnotation">
         /// Allow empty annotations
         /// </param>
@@ -573,6 +582,7 @@ namespace LabelStudio
             string? customScript,
             int? customTaskLockTtl,
             string? description,
+            global::LabelStudio.PatchedLseProjectUpdateRequestDmColumnDefaults? dmColumnDefaults,
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
@@ -631,6 +641,7 @@ namespace LabelStudio
             this.CustomScript = customScript;
             this.CustomTaskLockTtl = customTaskLockTtl;
             this.Description = description;
+            this.DmColumnDefaults = dmColumnDefaults;
             this.EnableEmptyAnnotation = enableEmptyAnnotation;
             this.EvaluatePredictionsAutomatically = evaluatePredictionsAutomatically;
             this.ExpertInstruction = expertInstruction;
