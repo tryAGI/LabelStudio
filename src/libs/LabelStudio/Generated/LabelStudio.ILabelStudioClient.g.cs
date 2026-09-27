@@ -88,6 +88,11 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        public BackgroundJobsClient BackgroundJobs { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public BillingClient Billing { get; }
 
         /// <summary>
