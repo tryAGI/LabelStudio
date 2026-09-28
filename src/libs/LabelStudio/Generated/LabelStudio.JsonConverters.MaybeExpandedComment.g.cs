@@ -179,13 +179,13 @@ namespace LabelStudio.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.Comment), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.Comment?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.Comment).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Comment!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickComment(), typeInfo);
             }
             else if (value.IsSerializerWithUser)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::LabelStudio.CommentSerializerWithExpandedUser), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::LabelStudio.CommentSerializerWithExpandedUser?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::LabelStudio.CommentSerializerWithExpandedUser).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.SerializerWithUser!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSerializerWithUser(), typeInfo);
             }
         }
     }

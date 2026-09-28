@@ -131,7 +131,7 @@ namespace LabelStudio
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddRequiredParameter("id", id.ToValueString())
-                                .AddRequiredParameter("project", project.ToString()!)
+                                .AddRequiredParameter("project", project.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 .AddOptionalParameter("view", view?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -180,8 +180,8 @@ namespace LabelStudio
                 PrepareCreateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!,
-                    project: project!,
+                    id: id,
+                    project: project,
                     view: view,
                     request: request);
 
@@ -205,7 +205,7 @@ namespace LabelStudio
                                 pathTemplate: "\"/api/dm/actions/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -239,7 +239,7 @@ namespace LabelStudio
                                 pathTemplate: "\"/api/dm/actions/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -280,7 +280,7 @@ namespace LabelStudio
                                 pathTemplate: "\"/api/dm/actions/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -328,7 +328,7 @@ namespace LabelStudio
                                 pathTemplate: "\"/api/dm/actions/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -350,7 +350,7 @@ namespace LabelStudio
                                 pathTemplate: "\"/api/dm/actions/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

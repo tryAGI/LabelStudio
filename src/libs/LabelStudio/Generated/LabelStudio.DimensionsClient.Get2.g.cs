@@ -187,9 +187,9 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     dimension: dimension,
-                    projectPk: projectPk!,
-                    selection: selection!,
-                    taskPk: taskPk!);
+                    projectPk: projectPk,
+                    selection: selection,
+                    taskPk: taskPk);
 
                 return __httpRequest;
             }
@@ -211,7 +211,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/projects/{projectPk}/tasks/{taskPk}/agreement-matrix\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -245,7 +245,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/projects/{projectPk}/tasks/{taskPk}/agreement-matrix\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -286,7 +286,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/projects/{projectPk}/tasks/{taskPk}/agreement-matrix\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -334,7 +334,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/projects/{projectPk}/tasks/{taskPk}/agreement-matrix\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -356,7 +356,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/projects/{projectPk}/tasks/{taskPk}/agreement-matrix\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
