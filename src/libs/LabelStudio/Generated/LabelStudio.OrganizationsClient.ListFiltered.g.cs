@@ -221,7 +221,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("role", role, delimiter: ",", explode: false)
                                 .AddOptionalParameter("search", search)
-                                .AddOptionalParameter("tags", tags, selector: static x => x.ToString()!, delimiter: ",", explode: false)
+                                .AddOptionalParameter("tags", tags, selector: static x => x.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."), delimiter: ",", explode: false)
                                 .AddOptionalParameter("user__last_activity__gte", userLastActivityGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("user__last_activity__lte", userLastActivityLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("user_type", userType, delimiter: ",", explode: false)
@@ -269,7 +269,7 @@ namespace LabelStudio
                     excludeProjectId: excludeProjectId,
                     excludeWorkspaceId: excludeWorkspaceId,
                     filters: filters,
-                    id: id!,
+                    id: id,
                     isDeleted: isDeleted,
                     ordering: ordering,
                     page: page,
@@ -301,7 +301,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -335,7 +335,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -376,7 +376,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -424,7 +424,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -446,7 +446,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/organizations/{id}/memberships/search\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,

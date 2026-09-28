@@ -47,8 +47,8 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        public global::LabelStudio.Comment PickComment() => IsComment
-            ? Comment!
+        public global::LabelStudio.Comment PickComment() => Comment is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Comment' but the value was {ToString()}.");
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        public global::LabelStudio.CommentSerializerWithExpandedUser PickSerializerWithUser() => IsSerializerWithUser
-            ? SerializerWithUser!
+        public global::LabelStudio.CommentSerializerWithExpandedUser PickSerializerWithUser() => SerializerWithUser is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'SerializerWithUser' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -187,13 +187,13 @@ namespace LabelStudio
                 Validate();
             }
 
-            if (IsComment && comment != null)
+            if (Comment is { } __value0 && comment != null)
             {
-                return comment(Comment!);
+                return comment(__value0);
             }
-            else if (IsSerializerWithUser && serializerWithUser != null)
+            else if (SerializerWithUser is { } __value1 && serializerWithUser != null)
             {
-                return serializerWithUser(SerializerWithUser!);
+                return serializerWithUser(__value1);
             }
 
             return default(TResult);
@@ -213,13 +213,13 @@ namespace LabelStudio
                 Validate();
             }
 
-            if (IsComment)
+            if (Comment is { } __value0)
             {
-                comment?.Invoke(Comment!);
+                comment?.Invoke(__value0);
             }
-            else if (IsSerializerWithUser)
+            else if (SerializerWithUser is { } __value1)
             {
-                serializerWithUser?.Invoke(SerializerWithUser!);
+                serializerWithUser?.Invoke(__value1);
             }
         }
 
@@ -236,13 +236,13 @@ namespace LabelStudio
                 Validate();
             }
 
-            if (IsComment)
+            if (Comment is { } __value0)
             {
-                comment?.Invoke(Comment!);
+                comment?.Invoke(__value0);
             }
-            else if (IsSerializerWithUser)
+            else if (SerializerWithUser is { } __value1)
             {
-                serializerWithUser?.Invoke(SerializerWithUser!);
+                serializerWithUser?.Invoke(__value1);
             }
         }
 

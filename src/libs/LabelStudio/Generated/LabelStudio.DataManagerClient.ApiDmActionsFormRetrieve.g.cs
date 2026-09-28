@@ -116,7 +116,7 @@ namespace LabelStudio
                                 path: $"/api/dm/actions/{actionId}/form/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("project", project.ToString()!)
+                                .AddRequiredParameter("project", project.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -158,8 +158,8 @@ namespace LabelStudio
                 PrepareApiDmActionsFormRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    actionId: actionId!,
-                    project: project!);
+                    actionId: actionId,
+                    project: project);
 
                 return __httpRequest;
             }
@@ -181,7 +181,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/dm/actions/{actionId}/form/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -215,7 +215,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/dm/actions/{actionId}/form/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -256,7 +256,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/dm/actions/{actionId}/form/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -304,7 +304,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/dm/actions/{actionId}/form/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -326,7 +326,7 @@ namespace LabelStudio
                                 pathTemplate: "$\"/api/dm/actions/{actionId}/form/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
