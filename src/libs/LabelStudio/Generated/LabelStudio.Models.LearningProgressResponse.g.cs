@@ -55,6 +55,12 @@ namespace LabelStudio
         public required bool IsStale { get; set; }
 
         /// <summary>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_attempts_exceeded")]
+        public bool? MaxAttemptsExceeded { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("module_progress")]
@@ -118,6 +124,9 @@ namespace LabelStudio
         /// <param name="courseReset">
         /// Default Value: false
         /// </param>
+        /// <param name="maxAttemptsExceeded">
+        /// Default Value: false
+        /// </param>
         /// <param name="moduleProgress"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -135,6 +144,7 @@ namespace LabelStudio
             global::System.DateTime? completedAt,
             global::System.DateTime? contentUpdatedAt,
             bool? courseReset,
+            bool? maxAttemptsExceeded,
             object? moduleProgress)
         {
             this.CompletedAt = completedAt;
@@ -144,6 +154,7 @@ namespace LabelStudio
             this.Gating = gating ?? throw new global::System.ArgumentNullException(nameof(gating));
             this.HasCompletedPageVersions = hasCompletedPageVersions;
             this.IsStale = isStale;
+            this.MaxAttemptsExceeded = maxAttemptsExceeded;
             this.ModuleProgress = moduleProgress;
             this.PagesVisited = pagesVisited ?? throw new global::System.ArgumentNullException(nameof(pagesVisited));
             this.QuizResults = quizResults ?? throw new global::System.ArgumentNullException(nameof(quizResults));

@@ -58,6 +58,13 @@ namespace LabelStudio
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("max_attempts_exceeded")]
+        public bool MaxAttemptsExceeded { get; set; } = default!;
+
+        /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("pages_visited")]
         public object PagesVisited { get; set; } = default!;
 
@@ -137,6 +144,9 @@ namespace LabelStudio
         /// <param name="isStale">
         /// Included only in responses
         /// </param>
+        /// <param name="maxAttemptsExceeded">
+        /// Included only in responses
+        /// </param>
         /// <param name="pagesVisited">
         /// Included only in responses
         /// </param>
@@ -167,6 +177,7 @@ namespace LabelStudio
             global::System.Collections.Generic.Dictionary<string, int> completedPageVersions = default!,
             bool hasCompletedPageVersions = default!,
             bool isStale = default!,
+            bool maxAttemptsExceeded = default!,
             object pagesVisited = default!,
             object quizResults = default!,
             int resourceVersion = default!,
@@ -181,6 +192,7 @@ namespace LabelStudio
             this.ImportedAt = importedAt;
             this.InvalidatedAt = invalidatedAt;
             this.IsStale = isStale;
+            this.MaxAttemptsExceeded = maxAttemptsExceeded;
             this.PagesVisited = pagesVisited;
             this.QuizResults = quizResults;
             this.ResourceVersion = resourceVersion;

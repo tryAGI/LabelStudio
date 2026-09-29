@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DuplicateSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ClassicReplacementsSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,54 +21,42 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DuplicateSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ClassicReplacementsSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_DuplicateSecurityRequirement0,
+            {                s_ClassicReplacementsSecurityRequirement0,
             };
-        partial void PrepareDuplicateArguments(
+        partial void PrepareClassicReplacementsArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareClassicReplacementsRequest(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id,
-            global::LabelStudio.LseInterfaceDuplicateRequestRequest request);
-        partial void PrepareDuplicateRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id,
-            global::LabelStudio.LseInterfaceDuplicateRequestRequest request);
-        partial void ProcessDuplicateResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessClassicReplacementsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDuplicateResponseContent(
+        partial void ProcessClassicReplacementsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
+        /// ✨ List classic template replacements<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
+        /// Map each classic labeling template (keyed by "&lt;category&gt;/&lt;name&gt;") to the system interface template and preset parameters that replace it. Empty when modern interface components are not available to the caller.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> DuplicateAsync(
-            int id,
-
-            global::LabelStudio.LseInterfaceDuplicateRequestRequest request,
+        public async global::System.Threading.Tasks.Task<string> ClassicReplacementsAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DuplicateAsResponseAsync(
-                id: id,
-
-                request: request,
+            var __response = await ClassicReplacementsAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -76,41 +64,32 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
+        /// ✨ List classic template replacements<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
+        /// Map each classic labeling template (keyed by "&lt;category&gt;/&lt;name&gt;") to the system interface template and preset parameters that replace it. Empty when modern interface components are not available to the caller.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> DuplicateAsResponseAsync(
-            int id,
-
-            global::LabelStudio.LseInterfaceDuplicateRequestRequest request,
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<string>> ClassicReplacementsAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareDuplicateArguments(
-                httpClient: HttpClient,
-                id: ref id,
-                request: request);
+            PrepareClassicReplacementsArguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DuplicateSecurityRequirements,
-                operationName: "DuplicateAsync");
+                securityRequirements: s_ClassicReplacementsSecurityRequirements,
+                operationName: "ClassicReplacementsAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -130,7 +109,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/interfaces/{id}/duplicate/",
+                                path: "/api/interfaces/classic-replacements/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -138,7 +117,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Post,
+                    method: global::System.Net.Http.HttpMethod.Get,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -161,12 +140,6 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -175,11 +148,9 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDuplicateRequest(
+                PrepareClassicReplacementsRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    id: id,
-                    request: request);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -196,10 +167,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Duplicate",
-                                methodName: "DuplicateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
-                                httpMethod: "POST",
+                                operationId: "ClassicReplacements",
+                                methodName: "ClassicReplacementsAsync",
+                                pathTemplate: "\"/api/interfaces/classic-replacements/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -230,10 +201,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Duplicate",
-                                methodName: "DuplicateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
-                                httpMethod: "POST",
+                                operationId: "ClassicReplacements",
+                                methodName: "ClassicReplacementsAsync",
+                                pathTemplate: "\"/api/interfaces/classic-replacements/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -271,10 +242,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Duplicate",
-                                methodName: "DuplicateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
-                                httpMethod: "POST",
+                                operationId: "ClassicReplacements",
+                                methodName: "ClassicReplacementsAsync",
+                                pathTemplate: "\"/api/interfaces/classic-replacements/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -311,7 +282,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDuplicateResponse(
+                ProcessClassicReplacementsResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -319,10 +290,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Duplicate",
-                                methodName: "DuplicateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
-                                httpMethod: "POST",
+                                operationId: "ClassicReplacements",
+                                methodName: "ClassicReplacementsAsync",
+                                pathTemplate: "\"/api/interfaces/classic-replacements/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -341,10 +312,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Duplicate",
-                                methodName: "DuplicateAsync",
-                                pathTemplate: "$\"/api/interfaces/{id}/duplicate/\"",
-                                httpMethod: "POST",
+                                operationId: "ClassicReplacements",
+                                methodName: "ClassicReplacementsAsync",
+                                pathTemplate: "\"/api/interfaces/classic-replacements/\"",
+                                httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -371,7 +342,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDuplicateResponseContent(
+                                ProcessClassicReplacementsResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -380,13 +351,11 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.LseInterface.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -406,19 +375,17 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.LseInterface.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -453,67 +420,6 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// ✨ Duplicate a saved interface<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Create a copy of an existing saved interface.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="compiled">
-        /// Client-compiled bundle, accepted only when the source has none stored (system templates).
-        /// </param>
-        /// <param name="description">
-        /// Description for the copy. Defaults to the source interface's description.
-        /// </param>
-        /// <param name="mode">
-        /// 'last' (default) copies only the current state; 'all' carries the full version history.<br/>
-        /// * `last` - last<br/>
-        /// * `all` - all
-        /// </param>
-        /// <param name="params">
-        /// Initial screen params (an object) seeded on the copy. Can't be combined with mode='all'.
-        /// </param>
-        /// <param name="title">
-        /// Title for the copy. Defaults to "&lt;source title&gt; (Copy)" when omitted or blank.
-        /// </param>
-        /// <param name="workspace">
-        /// Workspace ID to duplicate into. Omit or null for no workspace.
-        /// </param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> DuplicateAsync(
-            int id,
-            string? compiled = default,
-            string? description = default,
-            global::LabelStudio.LseInterfaceDuplicateRequestModeEnum? mode = default,
-            object? @params = default,
-            string? title = default,
-            int? workspace = default,
-            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::LabelStudio.LseInterfaceDuplicateRequestRequest
-            {
-                Compiled = compiled,
-                Description = description,
-                Mode = mode,
-                Params = @params,
-                Title = title,
-                Workspace = workspace,
-            };
-
-            return await DuplicateAsync(
-                id: id,
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
