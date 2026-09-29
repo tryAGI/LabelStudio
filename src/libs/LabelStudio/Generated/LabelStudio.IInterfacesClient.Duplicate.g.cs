@@ -22,7 +22,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> DuplicateAsync(
             int id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceDuplicateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -43,7 +43,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseInterface>> DuplicateAsResponseAsync(
             int id,
 
-            global::LabelStudio.LseInterfaceRequest request,
+            global::LabelStudio.LseInterfaceDuplicateRequestRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -57,50 +57,36 @@ namespace LabelStudio
         /// Create a copy of an existing saved interface.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="artifacts">
-        /// AI-produced code snapshots for session continuity
+        /// <param name="compiled">
+        /// Client-compiled bundle, accepted only when the source has none stored (system templates).
         /// </param>
-        /// <param name="code">
-        /// JSX source code for the interface screen module
+        /// <param name="description">
+        /// Description for the copy. Defaults to the source interface's description.
         /// </param>
-        /// <param name="compiled"></param>
-        /// <param name="dataSample">
-        /// Sample task data for preview
+        /// <param name="mode">
+        /// 'last' (default) copies only the current state; 'all' carries the full version history.<br/>
+        /// * `last` - last<br/>
+        /// * `all` - all
         /// </param>
-        /// <param name="description"></param>
-        /// <param name="inputSchema">
-        /// JSON Schema declaring expected task data field types for import validation
+        /// <param name="params">
+        /// Initial screen params (an object) seeded on the copy. Can't be combined with mode='all'.
         /// </param>
-        /// <param name="messages">
-        /// Chat conversation history
+        /// <param name="title">
+        /// Title for the copy. Defaults to "&lt;source title&gt; (Copy)" when omitted or blank.
         /// </param>
-        /// <param name="metadata">
-        /// Arbitrary metadata for this interface
+        /// <param name="workspace">
+        /// Workspace ID to duplicate into. Omit or null for no workspace.
         /// </param>
-        /// <param name="outputSchema">
-        /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
-        /// </param>
-        /// <param name="title"></param>
-        /// <param name="versions">
-        /// Code version history
-        /// </param>
-        /// <param name="workspace"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseInterface> DuplicateAsync(
             int id,
-            string code,
-            string compiled,
-            string title,
-            object? artifacts = default,
-            object? dataSample = default,
+            string? compiled = default,
             string? description = default,
-            object? inputSchema = default,
-            object? messages = default,
-            object? metadata = default,
-            object? outputSchema = default,
-            object? versions = default,
+            global::LabelStudio.LseInterfaceDuplicateRequestModeEnum? mode = default,
+            object? @params = default,
+            string? title = default,
             int? workspace = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
