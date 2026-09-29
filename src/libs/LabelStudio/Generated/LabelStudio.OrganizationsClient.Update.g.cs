@@ -561,6 +561,10 @@ namespace LabelStudio
         /// Update organization details including title, embed domains, and Plugins settings.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="allowUnsafeInstructionTags">
+        /// Keep script, iframe, style and other active tags in project instructions<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="contactInfo"></param>
         /// <param name="customInterfacesEnabled">
         /// Enable or disable custom interfaces for this organization<br/>
@@ -604,6 +608,7 @@ namespace LabelStudio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganization> UpdateAsync(
             int id,
+            bool? allowUnsafeInstructionTags = default,
             string? contactInfo = default,
             bool? customInterfacesEnabled = default,
             bool? customScriptsEnabled = default,
@@ -620,6 +625,7 @@ namespace LabelStudio
         {
             var __request = new global::LabelStudio.PatchedLseOrganizationSerializerUpdateRequest
             {
+                AllowUnsafeInstructionTags = allowUnsafeInstructionTags,
                 ContactInfo = contactInfo,
                 CustomInterfacesEnabled = customInterfacesEnabled,
                 CustomScriptsEnabled = customScriptsEnabled,
