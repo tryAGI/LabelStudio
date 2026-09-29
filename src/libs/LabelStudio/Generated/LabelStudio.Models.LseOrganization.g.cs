@@ -9,6 +9,13 @@ namespace LabelStudio
     public sealed partial class LseOrganization
     {
         /// <summary>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allow_unsafe_instruction_tags")]
+        public bool AllowUnsafeInstructionTags { get; set; } = default!;
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing")]
@@ -169,6 +176,9 @@ namespace LabelStudio
         /// <param name="interfaceSettings">
         /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
         /// </param>
+        /// <param name="allowUnsafeInstructionTags">
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -217,6 +227,7 @@ namespace LabelStudio
             object? embedSettings,
             string? externalId,
             object? interfaceSettings,
+            bool allowUnsafeInstructionTags = default!,
             global::System.DateTime createdAt = default!,
             bool customScriptsEnabled = default!,
             object emailNotificationSettings = default!,
@@ -225,6 +236,7 @@ namespace LabelStudio
             string title = default!,
             string token = default!)
         {
+            this.AllowUnsafeInstructionTags = allowUnsafeInstructionTags;
             this.Billing = billing ?? throw new global::System.ArgumentNullException(nameof(billing));
             this.CreatedAt = createdAt;
             this.CustomInterfacesEnabled = customInterfacesEnabled;

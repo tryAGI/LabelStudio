@@ -10,6 +10,13 @@ namespace LabelStudio
     public sealed partial class PatchedLseOrganizationSerializerUpdateRequest
     {
         /// <summary>
+        /// Keep script, iframe, style and other active tags in project instructions<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allow_unsafe_instruction_tags")]
+        public bool? AllowUnsafeInstructionTags { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("contact_info")]
@@ -93,6 +100,10 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="PatchedLseOrganizationSerializerUpdateRequest" /> class.
         /// </summary>
+        /// <param name="allowUnsafeInstructionTags">
+        /// Keep script, iframe, style and other active tags in project instructions<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="contactInfo"></param>
         /// <param name="customInterfacesEnabled">
         /// Enable or disable custom interfaces for this organization<br/>
@@ -135,6 +146,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchedLseOrganizationSerializerUpdateRequest(
+            bool? allowUnsafeInstructionTags,
             string? contactInfo,
             bool? customInterfacesEnabled,
             bool? customScriptsEnabled,
@@ -147,6 +159,7 @@ namespace LabelStudio
             string? title,
             string? token)
         {
+            this.AllowUnsafeInstructionTags = allowUnsafeInstructionTags;
             this.ContactInfo = contactInfo;
             this.CustomInterfacesEnabled = customInterfacesEnabled;
             this.CustomScriptsEnabled = customScriptsEnabled;
