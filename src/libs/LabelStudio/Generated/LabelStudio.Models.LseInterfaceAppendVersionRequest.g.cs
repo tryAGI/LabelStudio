@@ -73,6 +73,12 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scenarios")]
+        public string? Scenarios { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("screenParams")]
         public object? ScreenParams { get; set; }
 
@@ -101,6 +107,7 @@ namespace LabelStudio
         /// <param name="op"></param>
         /// <param name="outputSchema"></param>
         /// <param name="paramsSchema"></param>
+        /// <param name="scenarios"></param>
         /// <param name="screenParams"></param>
         /// <param name="unpublished"></param>
 #if NET7_0_OR_GREATER
@@ -117,6 +124,7 @@ namespace LabelStudio
             string? op,
             object? outputSchema,
             object? paramsSchema,
+            string? scenarios,
             object? screenParams,
             bool? unpublished)
         {
@@ -130,6 +138,7 @@ namespace LabelStudio
             this.Op = op;
             this.OutputSchema = outputSchema;
             this.ParamsSchema = paramsSchema;
+            this.Scenarios = scenarios;
             this.ScreenParams = screenParams;
             this.Unpublished = unpublished;
         }

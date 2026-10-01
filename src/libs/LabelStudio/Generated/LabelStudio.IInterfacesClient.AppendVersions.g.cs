@@ -65,6 +65,7 @@ namespace LabelStudio
         /// <param name="messages"></param>
         /// <param name="metadata"></param>
         /// <param name="outputSchema"></param>
+        /// <param name="scenarios"></param>
         /// <param name="title"></param>
         /// <param name="versions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -81,6 +82,7 @@ namespace LabelStudio
             object? messages = default,
             object? metadata = default,
             object? outputSchema = default,
+            string? scenarios = default,
             string? title = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

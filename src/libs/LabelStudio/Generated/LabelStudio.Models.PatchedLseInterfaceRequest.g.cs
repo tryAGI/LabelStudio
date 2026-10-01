@@ -65,6 +65,12 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scenarios")]
+        public string? Scenarios { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
@@ -112,6 +118,7 @@ namespace LabelStudio
         /// <param name="outputSchema">
         /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
         /// </param>
+        /// <param name="scenarios"></param>
         /// <param name="title"></param>
         /// <param name="versions">
         /// Code version history
@@ -130,6 +137,7 @@ namespace LabelStudio
             object? messages,
             object? metadata,
             object? outputSchema,
+            string? scenarios,
             string? title,
             object? versions,
             int? workspace)
@@ -143,6 +151,7 @@ namespace LabelStudio
             this.Messages = messages;
             this.Metadata = metadata;
             this.OutputSchema = outputSchema;
+            this.Scenarios = scenarios;
             this.Title = title;
             this.Versions = versions;
             this.Workspace = workspace;
