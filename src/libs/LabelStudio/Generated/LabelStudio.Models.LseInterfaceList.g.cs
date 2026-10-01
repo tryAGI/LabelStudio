@@ -37,6 +37,14 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
+        /// Whether this interface has browser scenarios available to run.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_scenarios")]
+        public bool HasScenarios { get; set; } = default!;
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -135,6 +143,10 @@ namespace LabelStudio
         /// <param name="createdBy">
         /// Included only in responses
         /// </param>
+        /// <param name="hasScenarios">
+        /// Whether this interface has browser scenarios available to run.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -165,6 +177,7 @@ namespace LabelStudio
             bool acceptsSubmissions = default!,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
+            bool hasScenarios = default!,
             int id = default!,
             bool isSystem = default!,
             int projectsCount = default!,
@@ -175,6 +188,7 @@ namespace LabelStudio
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
+            this.HasScenarios = hasScenarios;
             this.Id = id;
             this.IsSystem = isSystem;
             this.Metadata = metadata;

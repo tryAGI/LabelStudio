@@ -80,6 +80,7 @@ namespace LabelStudio
         /// <param name="outputSchema">
         /// JSON Schema declaring the annotation output fields this interface produces (for Prompter/auto-labeling)
         /// </param>
+        /// <param name="scenarios"></param>
         /// <param name="title"></param>
         /// <param name="versions">
         /// Code version history
@@ -99,6 +100,7 @@ namespace LabelStudio
             object? messages = default,
             object? metadata = default,
             object? outputSchema = default,
+            string? scenarios = default,
             string? title = default,
             object? versions = default,
             int? workspace = default,
