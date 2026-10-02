@@ -5,7 +5,7 @@ namespace LabelStudio
     public partial interface ITasks2Client
     {
         /// <summary>
-        /// Get project import status <br/>
+        /// Get project import status<br/>
         ///             Poll the status of an asynchronous project import operation.<br/>
         ///             <br/>
         ///             **Usage:**<br/>
@@ -15,6 +15,8 @@ namespace LabelStudio
         ///             4. **Import errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the import including task counts, status, and any error messages.<br/>
+        ///             While an import is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
         ///
         /// </summary>
         /// <param name="id"></param>
@@ -28,7 +30,7 @@ namespace LabelStudio
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get project import status <br/>
+        /// Get project import status<br/>
         ///             Poll the status of an asynchronous project import operation.<br/>
         ///             <br/>
         ///             **Usage:**<br/>
@@ -38,6 +40,8 @@ namespace LabelStudio
         ///             4. **Import errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the import including task counts, status, and any error messages.<br/>
+        ///             While an import is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
         ///
         /// </summary>
         /// <param name="id"></param>
