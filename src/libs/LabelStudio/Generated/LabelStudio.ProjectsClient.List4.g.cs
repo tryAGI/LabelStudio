@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiProjectsReimportsRetrieveSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_List4SecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,55 +21,56 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiProjectsReimportsRetrieveSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_List4SecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ApiProjectsReimportsRetrieveSecurityRequirement0,
+            {                s_List4SecurityRequirement0,
             };
-        partial void PrepareApiProjectsReimportsRetrieveArguments(
+        partial void PrepareList4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            ref int reimportPk);
-        partial void PrepareApiProjectsReimportsRetrieveRequest(
+            ref int? page,
+            ref int? pageSize,
+            ref string? status);
+        partial void PrepareList4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            int reimportPk);
-        partial void ProcessApiProjectsReimportsRetrieveResponse(
+            int? page,
+            int? pageSize,
+            string? status);
+        partial void ProcessList4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessApiProjectsReimportsRetrieveResponseContent(
+        partial void ProcessList4ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///
+        /// List project reimports<br/>
+        /// List asynchronous reimport jobs for a project (paginated). Optionally filter by `status`. Use `page` / `page_size` query params.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectReimport> ApiProjectsReimportsRetrieveAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedProjectReimportListList> List4Async(
             int id,
-            int reimportPk,
+            int? page = default,
+            int? pageSize = default,
+            string? status = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ApiProjectsReimportsRetrieveAsResponseAsync(
+            var __response = await List4AsResponseAsync(
                 id: id,
-                reimportPk: reimportPk,
+                page: page,
+                pageSize: pageSize,
+                status: status,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -77,41 +78,38 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///
+        /// List project reimports<br/>
+        /// List asynchronous reimport jobs for a project (paginated). Optionally filter by `status`. Use `page` / `page_size` query params.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="status"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>> ApiProjectsReimportsRetrieveAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedProjectReimportListList>> List4AsResponseAsync(
             int id,
-            int reimportPk,
+            int? page = default,
+            int? pageSize = default,
+            string? status = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareApiProjectsReimportsRetrieveArguments(
+            PrepareList4Arguments(
                 httpClient: HttpClient,
                 id: ref id,
-                reimportPk: ref reimportPk);
+                page: ref page,
+                pageSize: ref pageSize,
+                status: ref status);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ApiProjectsReimportsRetrieveSecurityRequirements,
-                operationName: "ApiProjectsReimportsRetrieveAsync");
+                securityRequirements: s_List4SecurityRequirements,
+                operationName: "List4Async");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -131,8 +129,13 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/reimports/{reimportPk}/",
+                                path: $"/api/projects/{id}/reimports/",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("page", page?.ToString())
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("status", status)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -170,11 +173,13 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareApiProjectsReimportsRetrieveRequest(
+                PrepareList4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id,
-                    reimportPk: reimportPk);
+                    page: page,
+                    pageSize: pageSize,
+                    status: status);
 
                 return __httpRequest;
             }
@@ -191,9 +196,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiProjectsReimportsRetrieve",
-                                methodName: "ApiProjectsReimportsRetrieveAsync",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                operationId: "List4",
+                                methodName: "List4Async",
+                                pathTemplate: "$\"/api/projects/{id}/reimports/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -225,9 +230,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiProjectsReimportsRetrieve",
-                                methodName: "ApiProjectsReimportsRetrieveAsync",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                operationId: "List4",
+                                methodName: "List4Async",
+                                pathTemplate: "$\"/api/projects/{id}/reimports/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -266,9 +271,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiProjectsReimportsRetrieve",
-                                methodName: "ApiProjectsReimportsRetrieveAsync",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                operationId: "List4",
+                                methodName: "List4Async",
+                                pathTemplate: "$\"/api/projects/{id}/reimports/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +311,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessApiProjectsReimportsRetrieveResponse(
+                ProcessList4Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -314,9 +319,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiProjectsReimportsRetrieve",
-                                methodName: "ApiProjectsReimportsRetrieveAsync",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                operationId: "List4",
+                                methodName: "List4Async",
+                                pathTemplate: "$\"/api/projects/{id}/reimports/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -336,9 +341,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ApiProjectsReimportsRetrieve",
-                                methodName: "ApiProjectsReimportsRetrieveAsync",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                operationId: "List4",
+                                methodName: "List4Async",
+                                pathTemplate: "$\"/api/projects/{id}/reimports/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,7 +371,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessApiProjectsReimportsRetrieveResponseContent(
+                                ProcessList4ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -375,9 +380,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ProjectReimport.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.PaginatedProjectReimportListList.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedProjectReimportListList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -407,9 +412,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ProjectReimport.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.PaginatedProjectReimportListList.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedProjectReimportListList>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

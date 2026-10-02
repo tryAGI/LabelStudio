@@ -15,6 +15,8 @@ namespace LabelStudio
         ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
+        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
         ///
         /// </summary>
         /// <param name="id"></param>
@@ -22,7 +24,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ProjectReimport> ApiProjectsReimportsRetrieveAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ProjectReimport> Get5Async(
             int id,
             int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -38,6 +40,8 @@ namespace LabelStudio
         ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
         ///             <br/>
         ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
+        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
         ///
         /// </summary>
         /// <param name="id"></param>
@@ -45,7 +49,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>> ApiProjectsReimportsRetrieveAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>> Get5AsResponseAsync(
             int id,
             int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

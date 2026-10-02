@@ -15,6 +15,13 @@ namespace LabelStudio
         public int? AnnotationCount { get; set; }
 
         /// <summary>
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("data_columns")]
@@ -43,6 +50,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("files_as_tasks_list")]
         public bool? FilesAsTasksList { get; set; }
+
+        /// <summary>
+        /// Complete or fail time
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("finished_at")]
+        public global::System.DateTime? FinishedAt { get; set; }
 
         /// <summary>
         ///
@@ -86,6 +99,12 @@ namespace LabelStudio
         public int? TaskCount { get; set; }
 
         /// <summary>
+        /// Last time reimport progress or terminal status was updated
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("updated_at")]
+        public global::System.DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -95,11 +114,18 @@ namespace LabelStudio
         /// Initializes a new instance of the <see cref="ProjectReimport" /> class.
         /// </summary>
         /// <param name="annotationCount"></param>
+        /// <param name="createdAt">
+        /// Creation time<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="dataColumns"></param>
         /// <param name="duration"></param>
         /// <param name="error"></param>
         /// <param name="fileUploadIds"></param>
         /// <param name="filesAsTasksList"></param>
+        /// <param name="finishedAt">
+        /// Complete or fail time
+        /// </param>
         /// <param name="foundFormats"></param>
         /// <param name="predictionCount"></param>
         /// <param name="project"></param>
@@ -110,6 +136,9 @@ namespace LabelStudio
         /// * `completed` - Completed
         /// </param>
         /// <param name="taskCount"></param>
+        /// <param name="updatedAt">
+        /// Last time reimport progress or terminal status was updated
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -118,30 +147,36 @@ namespace LabelStudio
 #endif
         public ProjectReimport(
             int? annotationCount,
+            global::System.DateTime? createdAt,
             object? dataColumns,
             int? duration,
             string? error,
             object? fileUploadIds,
             bool? filesAsTasksList,
+            global::System.DateTime? finishedAt,
             object? foundFormats,
             int? predictionCount,
             int? project,
             global::LabelStudio.ProjectImportStatusEnum? status,
             int? taskCount,
+            global::System.DateTime? updatedAt,
             int id = default!)
         {
             this.AnnotationCount = annotationCount;
+            this.CreatedAt = createdAt;
             this.DataColumns = dataColumns;
             this.Duration = duration;
             this.Error = error;
             this.FileUploadIds = fileUploadIds;
             this.FilesAsTasksList = filesAsTasksList;
+            this.FinishedAt = finishedAt;
             this.FoundFormats = foundFormats;
             this.Id = id;
             this.PredictionCount = predictionCount;
             this.Project = project;
             this.Status = status;
             this.TaskCount = taskCount;
+            this.UpdatedAt = updatedAt;
         }
 
         /// <summary>
