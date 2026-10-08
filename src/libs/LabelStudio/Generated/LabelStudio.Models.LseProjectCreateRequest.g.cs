@@ -12,6 +12,20 @@ namespace LabelStudio
     public sealed partial class LseProjectCreateRequest
     {
         /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_column_access_grant")]
+        public global::System.Collections.Generic.IList<string>? AnnotatorColumnAccessGrant { get; set; }
+
+        /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_column_access_revoke")]
+        public global::System.Collections.Generic.IList<string>? AnnotatorColumnAccessRevoke { get; set; }
+
+        /// <summary>
         /// Enable annotator evaluation for the project
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("annotator_evaluation_enabled")]
@@ -171,6 +185,20 @@ namespace LabelStudio
         public bool? RevealPreannotationsInteractively { get; set; }
 
         /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_column_access_grant")]
+        public global::System.Collections.Generic.IList<string>? ReviewerColumnAccessGrant { get; set; }
+
+        /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_column_access_revoke")]
+        public global::System.Collections.Generic.IList<string>? ReviewerColumnAccessRevoke { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
@@ -272,6 +300,14 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="LseProjectCreateRequest" /> class.
         /// </summary>
+        /// <param name="annotatorColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="annotatorColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotatorEvaluationEnabled">
         /// Enable annotator evaluation for the project
         /// </param>
@@ -336,6 +372,14 @@ namespace LabelStudio
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
         /// </param>
+        /// <param name="reviewerColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="reviewerColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
         /// Show annotation history to annotator
@@ -374,6 +418,8 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LseProjectCreateRequest(
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessGrant,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessRevoke,
             bool? annotatorEvaluationEnabled,
             global::LabelStudio.CollectionModeEnum? collectionMode,
             string? color,
@@ -400,6 +446,8 @@ namespace LabelStudio
             int? overlapCohortPercentage,
             global::System.DateTime? pinnedAt,
             bool? revealPreannotationsInteractively,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessGrant,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessRevoke,
             global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
@@ -415,6 +463,8 @@ namespace LabelStudio
             bool? useCustomInterface,
             int? workspace)
         {
+            this.AnnotatorColumnAccessGrant = annotatorColumnAccessGrant;
+            this.AnnotatorColumnAccessRevoke = annotatorColumnAccessRevoke;
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
             this.CollectionMode = collectionMode;
             this.Color = color;
@@ -441,6 +491,8 @@ namespace LabelStudio
             this.OverlapCohortPercentage = overlapCohortPercentage;
             this.PinnedAt = pinnedAt;
             this.RevealPreannotationsInteractively = revealPreannotationsInteractively;
+            this.ReviewerColumnAccessGrant = reviewerColumnAccessGrant;
+            this.ReviewerColumnAccessRevoke = reviewerColumnAccessRevoke;
             this.Sampling = sampling;
             this.ShowAnnotationHistory = showAnnotationHistory;
             this.ShowCollabPredictions = showCollabPredictions;

@@ -194,6 +194,14 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
+        /// Effective Annotator/Reviewer column deny lists. Managers+ see both roles.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dm_column_access")]
+        public object DmColumnAccess { get; set; } = default!;
+
+        /// <summary>
         /// Soft Data Manager column visibility and order defaults. Returned on project reads for every role so Data Manager can apply them at runtime; Managers and above may set this. explore is the main grid (shared order, role-keyed visible lists). labeling is reserved for independent Quick View defaults. On update, omitted surfaces keep their stored values; send null to clear both surfaces.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dm_column_defaults")]
@@ -853,6 +861,10 @@ namespace LabelStudio
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
+        /// <param name="dmColumnAccess">
+        /// Effective Annotator/Reviewer column deny lists. Managers+ see both roles.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="finishedTaskNumber">
         /// Finished tasks<br/>
         /// Included only in responses
@@ -996,6 +1008,7 @@ namespace LabelStudio
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
             global::System.DateTime createdAt = default!,
+            object dmColumnAccess = default!,
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
             int id = default!,
@@ -1043,6 +1056,7 @@ namespace LabelStudio
             this.CustomTaskLockTtl = customTaskLockTtl;
             this.DataTypes = dataTypes;
             this.Description = description;
+            this.DmColumnAccess = dmColumnAccess;
             this.DmColumnDefaults = dmColumnDefaults;
             this.DuplicationDone = duplicationDone;
             this.DuplicationStatus = duplicationStatus;

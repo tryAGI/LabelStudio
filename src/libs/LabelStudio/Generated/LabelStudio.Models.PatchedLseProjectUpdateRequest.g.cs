@@ -40,6 +40,20 @@ namespace LabelStudio
         public string? AnnotationLimitPercent { get; set; }
 
         /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_column_access_grant")]
+        public global::System.Collections.Generic.IList<string>? AnnotatorColumnAccessGrant { get; set; }
+
+        /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_column_access_revoke")]
+        public global::System.Collections.Generic.IList<string>? AnnotatorColumnAccessRevoke { get; set; }
+
+        /// <summary>
         /// Continuous Evaluation: Required tasks<br/>
         /// Default Value: 0
         /// </summary>
@@ -279,6 +293,20 @@ namespace LabelStudio
         public global::LabelStudio.ReviewSettingsRequest? ReviewSettings { get; set; }
 
         /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_column_access_grant")]
+        public global::System.Collections.Generic.IList<string>? ReviewerColumnAccessGrant { get; set; }
+
+        /// <summary>
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reviewer_column_access_revoke")]
+        public global::System.Collections.Generic.IList<string>? ReviewerColumnAccessRevoke { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sampling")]
@@ -408,6 +436,14 @@ namespace LabelStudio
         /// <param name="annotationLimitPercent">
         /// Limit by percentage of tasks
         /// </param>
+        /// <param name="annotatorColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="annotatorColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotatorEvaluationContinuousTasks">
         /// Continuous Evaluation: Required tasks<br/>
         /// Default Value: 0
@@ -514,6 +550,14 @@ namespace LabelStudio
         /// Reveal pre-annotations interactively
         /// </param>
         /// <param name="reviewSettings"></param>
+        /// <param name="reviewerColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="reviewerColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
         /// Show Data Manager to Annotators
@@ -565,6 +609,8 @@ namespace LabelStudio
             string? agreementThreshold,
             int? annotationLimitCount,
             string? annotationLimitPercent,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessGrant,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessRevoke,
             int? annotatorEvaluationContinuousTasks,
             bool? annotatorEvaluationEnabled,
             global::LabelStudio.AnnotatorEvaluationMetricEnum? annotatorEvaluationMetric,
@@ -603,6 +649,8 @@ namespace LabelStudio
             bool? requireCommentOnSkip,
             bool? revealPreannotationsInteractively,
             global::LabelStudio.ReviewSettingsRequest? reviewSettings,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessGrant,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessRevoke,
             global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
             bool? showCollabPredictions,
@@ -624,6 +672,8 @@ namespace LabelStudio
             this.AgreementThreshold = agreementThreshold;
             this.AnnotationLimitCount = annotationLimitCount;
             this.AnnotationLimitPercent = annotationLimitPercent;
+            this.AnnotatorColumnAccessGrant = annotatorColumnAccessGrant;
+            this.AnnotatorColumnAccessRevoke = annotatorColumnAccessRevoke;
             this.AnnotatorEvaluationContinuousTasks = annotatorEvaluationContinuousTasks;
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
             this.AnnotatorEvaluationMetric = annotatorEvaluationMetric;
@@ -662,6 +712,8 @@ namespace LabelStudio
             this.RequireCommentOnSkip = requireCommentOnSkip;
             this.RevealPreannotationsInteractively = revealPreannotationsInteractively;
             this.ReviewSettings = reviewSettings;
+            this.ReviewerColumnAccessGrant = reviewerColumnAccessGrant;
+            this.ReviewerColumnAccessRevoke = reviewerColumnAccessRevoke;
             this.Sampling = sampling;
             this.ShowAnnotationHistory = showAnnotationHistory;
             this.ShowCollabPredictions = showCollabPredictions;

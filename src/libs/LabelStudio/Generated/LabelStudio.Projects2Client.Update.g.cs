@@ -483,6 +483,14 @@ namespace LabelStudio
         /// <param name="annotationLimitPercent">
         /// Limit by percentage of tasks
         /// </param>
+        /// <param name="annotatorColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="annotatorColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotatorEvaluationContinuousTasks">
         /// Continuous Evaluation: Required tasks<br/>
         /// Default Value: 0
@@ -589,6 +597,14 @@ namespace LabelStudio
         /// Reveal pre-annotations interactively
         /// </param>
         /// <param name="reviewSettings"></param>
+        /// <param name="reviewerColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="reviewerColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
         /// Show Data Manager to Annotators
@@ -642,6 +658,8 @@ namespace LabelStudio
             string? agreementThreshold = default,
             int? annotationLimitCount = default,
             string? annotationLimitPercent = default,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessGrant = default,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessRevoke = default,
             int? annotatorEvaluationContinuousTasks = default,
             bool? annotatorEvaluationEnabled = default,
             global::LabelStudio.AnnotatorEvaluationMetricEnum? annotatorEvaluationMetric = default,
@@ -680,6 +698,8 @@ namespace LabelStudio
             bool? requireCommentOnSkip = default,
             bool? revealPreannotationsInteractively = default,
             global::LabelStudio.ReviewSettingsRequest? reviewSettings = default,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessGrant = default,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessRevoke = default,
             global::LabelStudio.ProjectSamplingEnum? sampling = default,
             bool? showAnnotationHistory = default,
             bool? showCollabPredictions = default,
@@ -705,6 +725,8 @@ namespace LabelStudio
                 AgreementThreshold = agreementThreshold,
                 AnnotationLimitCount = annotationLimitCount,
                 AnnotationLimitPercent = annotationLimitPercent,
+                AnnotatorColumnAccessGrant = annotatorColumnAccessGrant,
+                AnnotatorColumnAccessRevoke = annotatorColumnAccessRevoke,
                 AnnotatorEvaluationContinuousTasks = annotatorEvaluationContinuousTasks,
                 AnnotatorEvaluationEnabled = annotatorEvaluationEnabled,
                 AnnotatorEvaluationMetric = annotatorEvaluationMetric,
@@ -743,6 +765,8 @@ namespace LabelStudio
                 RequireCommentOnSkip = requireCommentOnSkip,
                 RevealPreannotationsInteractively = revealPreannotationsInteractively,
                 ReviewSettings = reviewSettings,
+                ReviewerColumnAccessGrant = reviewerColumnAccessGrant,
+                ReviewerColumnAccessRevoke = reviewerColumnAccessRevoke,
                 Sampling = sampling,
                 ShowAnnotationHistory = showAnnotationHistory,
                 ShowCollabPredictions = showCollabPredictions,
