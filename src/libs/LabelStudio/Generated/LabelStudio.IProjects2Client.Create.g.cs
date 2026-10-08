@@ -36,6 +36,14 @@ namespace LabelStudio
         /// Create a project<br/>
         /// Create a project for a specific organization.
         /// </summary>
+        /// <param name="annotatorColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="annotatorColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="annotatorEvaluationEnabled">
         /// Enable annotator evaluation for the project
         /// </param>
@@ -100,6 +108,14 @@ namespace LabelStudio
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
         /// </param>
+        /// <param name="reviewerColumnAccessGrant">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="reviewerColumnAccessRevoke">
+        /// Bulk column ids to grant or revoke Annotator/Reviewer Data Manager access in one request. Omitted or empty arrays are no-ops. Unknown ids are ignored. Managers+ only.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="sampling"></param>
         /// <param name="showAnnotationHistory">
         /// Show annotation history to annotator
@@ -138,6 +154,8 @@ namespace LabelStudio
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectCreate> CreateAsync(
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessGrant = default,
+            global::System.Collections.Generic.IList<string>? annotatorColumnAccessRevoke = default,
             bool? annotatorEvaluationEnabled = default,
             global::LabelStudio.CollectionModeEnum? collectionMode = default,
             string? color = default,
@@ -164,6 +182,8 @@ namespace LabelStudio
             int? overlapCohortPercentage = default,
             global::System.DateTime? pinnedAt = default,
             bool? revealPreannotationsInteractively = default,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessGrant = default,
+            global::System.Collections.Generic.IList<string>? reviewerColumnAccessRevoke = default,
             global::LabelStudio.ProjectSamplingEnum? sampling = default,
             bool? showAnnotationHistory = default,
             bool? showCollabPredictions = default,
