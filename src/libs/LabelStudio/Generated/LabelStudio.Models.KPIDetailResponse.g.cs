@@ -22,6 +22,12 @@ namespace LabelStudio
         public global::LabelStudio.KPIUserSegment? ByUser { get; set; }
 
         /// <summary>
+        /// Sparse 2D segmentation (user × project)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("by_user_project")]
+        public global::LabelStudio.KPIUserProjectSegment? ByUserProject { get; set; }
+
+        /// <summary>
         /// KPI identifier
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("kpi_key")]
@@ -53,7 +59,8 @@ namespace LabelStudio
         /// * `user` - user<br/>
         /// * `project` - project<br/>
         /// * `matrix` - matrix<br/>
-        /// * `project_matrix` - project_matrix
+        /// * `project_matrix` - project_matrix<br/>
+        /// * `user_project` - user_project
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("segmentation")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.SegmentationEnumJsonConverter))]
@@ -98,7 +105,8 @@ namespace LabelStudio
         /// * `user` - user<br/>
         /// * `project` - project<br/>
         /// * `matrix` - matrix<br/>
-        /// * `project_matrix` - project_matrix
+        /// * `project_matrix` - project_matrix<br/>
+        /// * `user_project` - user_project
         /// </param>
         /// <param name="unit">
         /// Unit of measurement: seconds, minutes, hours, count, or ratio
@@ -108,6 +116,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="byUser">
         /// User-segmented data (compact format with parallel arrays)
+        /// </param>
+        /// <param name="byUserProject">
+        /// Sparse 2D segmentation (user × project)
         /// </param>
         /// <param name="kpiLabel">
         /// Human-readable KPI label
@@ -133,6 +144,7 @@ namespace LabelStudio
             string unit,
             global::LabelStudio.KPIProjectSegment? byProject,
             global::LabelStudio.KPIUserSegment? byUser,
+            global::LabelStudio.KPIUserProjectSegment? byUserProject,
             string? kpiLabel,
             global::LabelStudio.KPIMatrixSegment? matrix,
             global::LabelStudio.KPIProjectMatrixSegment? projectMatrix,
@@ -141,6 +153,7 @@ namespace LabelStudio
         {
             this.ByProject = byProject;
             this.ByUser = byUser;
+            this.ByUserProject = byUserProject;
             this.KpiKey = kpiKey ?? throw new global::System.ArgumentNullException(nameof(kpiKey));
             this.KpiLabel = kpiLabel;
             this.Matrix = matrix;
