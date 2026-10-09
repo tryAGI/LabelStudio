@@ -9,7 +9,8 @@ namespace LabelStudio
     /// * `user` - user<br/>
     /// * `project` - project<br/>
     /// * `matrix` - matrix<br/>
-    /// * `project_matrix` - project_matrix
+    /// * `project_matrix` - project_matrix<br/>
+    /// * `user_project` - user_project
     /// </summary>
     public enum SegmentationEnum
     {
@@ -37,6 +38,10 @@ namespace LabelStudio
         ///
         /// </summary>
         User,
+        /// <summary>
+        ///
+        /// </summary>
+        UserProject,
     }
 
     /// <summary>
@@ -57,6 +62,7 @@ namespace LabelStudio
                 SegmentationEnum.ProjectMatrix => "project_matrix",
                 SegmentationEnum.Time => "time",
                 SegmentationEnum.User => "user",
+                SegmentationEnum.UserProject => "user_project",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -73,6 +79,7 @@ namespace LabelStudio
                 "project_matrix" => SegmentationEnum.ProjectMatrix,
                 "time" => SegmentationEnum.Time,
                 "user" => SegmentationEnum.User,
+                "user_project" => SegmentationEnum.UserProject,
                 _ => null,
             };
         }
