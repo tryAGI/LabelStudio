@@ -23,6 +23,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -38,6 +39,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -61,6 +63,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -76,6 +79,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -99,6 +103,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -114,6 +119,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

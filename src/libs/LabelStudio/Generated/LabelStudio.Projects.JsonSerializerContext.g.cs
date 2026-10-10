@@ -129,6 +129,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskSimple))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.Annotation>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.Prediction>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator), TypeInfoPropertyName = "ApiProjectsMembersPaginatedListTagsOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome), TypeInfoPropertyName = "ApiProjectsSubsetTasksListAlignmentOutcome2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.UserSimple>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponse))]
@@ -162,6 +163,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RequeueRejectedTasksModeEnum?), TypeInfoPropertyName = "NullableRequeueRejectedTasksModeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ReviewCriteriaEnum?), TypeInfoPropertyName = "NullableReviewCriteriaEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ReviewSettingsSamplingEnum?), TypeInfoPropertyName = "NullableReviewSettingsSamplingEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator?), TypeInfoPropertyName = "NullableApiProjectsMembersPaginatedListTagsOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome?), TypeInfoPropertyName = "NullableApiProjectsSubsetTasksListAlignmentOutcome2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsAwsCustomFunctionRetrieveResponseStatus?), TypeInfoPropertyName = "NullableApiProjectsAwsCustomFunctionRetrieveResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsCustomFunctionRetrieveResponseStatus?), TypeInfoPropertyName = "NullableApiProjectsCustomFunctionRetrieveResponseStatus2")]
@@ -337,6 +339,10 @@ namespace LabelStudio
                     || typeToConvert == typeof(global::LabelStudio.TrialRoleEnum)
 
                     || typeToConvert == typeof(global::LabelStudio.TrialRoleEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator)
+
+                    || typeToConvert == typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator?)
 
                     || typeToConvert == typeof(global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome)
 
@@ -517,6 +523,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.TrialRoleEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.TrialRoleEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator))
+                {
+                    return new global::LabelStudio.JsonConverters.ApiProjectsMembersPaginatedListTagsOperatorJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator?))
+                {
+                    return new global::LabelStudio.JsonConverters.ApiProjectsMembersPaginatedListTagsOperatorNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::LabelStudio.ApiProjectsSubsetTasksListAlignmentOutcome))

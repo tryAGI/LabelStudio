@@ -36,6 +36,7 @@ namespace LabelStudio
             ref string? role,
             ref string? search,
             ref string? tags,
+            ref string? tagsOperator,
             ref string? userType,
             ref bool? withDeleted);
         partial void PrepareExportCsvRequest(
@@ -50,6 +51,7 @@ namespace LabelStudio
             string? role,
             string? search,
             string? tags,
+            string? tagsOperator,
             string? userType,
             bool? withDeleted);
         partial void ProcessExportCsvResponse(
@@ -80,6 +82,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -95,6 +98,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -110,6 +114,7 @@ namespace LabelStudio
                 role: role,
                 search: search,
                 tags: tags,
+                tagsOperator: tagsOperator,
                 userType: userType,
                 withDeleted: withDeleted,
                 requestOptions: requestOptions,
@@ -137,6 +142,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -152,6 +158,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -170,6 +177,7 @@ namespace LabelStudio
                 role: ref role,
                 search: ref search,
                 tags: ref tags,
+                tagsOperator: ref tagsOperator,
                 userType: ref userType,
                 withDeleted: ref withDeleted);
 
@@ -208,6 +216,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("tags_operator", tagsOperator)
                                 .AddOptionalParameter("user_type", userType)
                                 .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
                                 ;
@@ -260,6 +269,7 @@ namespace LabelStudio
                     role: role,
                     search: search,
                     tags: tags,
+                    tagsOperator: tagsOperator,
                     userType: userType,
                     withDeleted: withDeleted);
 
@@ -510,6 +520,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -525,6 +536,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -543,6 +555,7 @@ namespace LabelStudio
                 role: ref role,
                 search: ref search,
                 tags: ref tags,
+                tagsOperator: ref tagsOperator,
                 userType: ref userType,
                 withDeleted: ref withDeleted);
 
@@ -581,6 +594,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("tags_operator", tagsOperator)
                                 .AddOptionalParameter("user_type", userType)
                                 .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
                                 ;
@@ -633,6 +647,7 @@ namespace LabelStudio
                     role: role,
                     search: search,
                     tags: tags,
+                    tagsOperator: tagsOperator,
                     userType: userType,
                     withDeleted: withDeleted);
 
