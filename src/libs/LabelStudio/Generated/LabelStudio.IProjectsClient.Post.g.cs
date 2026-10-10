@@ -20,6 +20,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -34,6 +35,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -53,6 +55,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -67,6 +70,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -86,6 +90,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all project members
@@ -110,6 +115,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            string? tagsOperator = default,
             string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,

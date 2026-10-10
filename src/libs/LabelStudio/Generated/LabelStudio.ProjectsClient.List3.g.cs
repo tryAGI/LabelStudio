@@ -40,6 +40,7 @@ namespace LabelStudio
             ref string? role,
             ref string? search,
             ref string? tags,
+            ref global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator? tagsOperator,
             global::System.Collections.Generic.IList<string>? userType,
             ref bool? withDeleted);
         partial void PrepareList3Request(
@@ -58,6 +59,7 @@ namespace LabelStudio
             string? role,
             string? search,
             string? tags,
+            global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator? tagsOperator,
             global::System.Collections.Generic.IList<string>? userType,
             bool? withDeleted);
         partial void ProcessList3Response(
@@ -98,6 +100,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -117,6 +120,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator? tagsOperator = default,
             global::System.Collections.Generic.IList<string>? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -136,6 +140,7 @@ namespace LabelStudio
                 role: role,
                 search: search,
                 tags: tags,
+                tagsOperator: tagsOperator,
                 userType: userType,
                 withDeleted: withDeleted,
                 requestOptions: requestOptions,
@@ -173,6 +178,7 @@ namespace LabelStudio
         /// <param name="role"></param>
         /// <param name="search"></param>
         /// <param name="tags"></param>
+        /// <param name="tagsOperator"></param>
         /// <param name="userType"></param>
         /// <param name="withDeleted"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -192,6 +198,7 @@ namespace LabelStudio
             string? role = default,
             string? search = default,
             string? tags = default,
+            global::LabelStudio.ApiProjectsMembersPaginatedListTagsOperator? tagsOperator = default,
             global::System.Collections.Generic.IList<string>? userType = default,
             bool? withDeleted = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -214,6 +221,7 @@ namespace LabelStudio
                 role: ref role,
                 search: ref search,
                 tags: ref tags,
+                tagsOperator: ref tagsOperator,
                 userType: userType,
                 withDeleted: ref withDeleted);
 
@@ -256,6 +264,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("tags_operator", tagsOperator?.ToValueString())
                                 .AddOptionalParameter("user_type", userType, delimiter: ",", explode: false)
                                 .AddOptionalParameter("with_deleted", withDeleted?.ToString().ToLowerInvariant())
                                 ;
@@ -312,6 +321,7 @@ namespace LabelStudio
                     role: role,
                     search: search,
                     tags: tags,
+                    tagsOperator: tagsOperator,
                     userType: userType,
                     withDeleted: withDeleted);
 
