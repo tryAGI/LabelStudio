@@ -51,7 +51,7 @@ namespace LabelStudio
         public int? ModelProviderConnection { get; set; }
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
@@ -132,7 +132,9 @@ namespace LabelStudio
         /// Max number of few-shot examples to include in prompts. 0 = disabled.
         /// </param>
         /// <param name="modelProviderConnection"></param>
-        /// <param name="organization"></param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="parentModel">
         /// Parent model interface ID
         /// </param>
