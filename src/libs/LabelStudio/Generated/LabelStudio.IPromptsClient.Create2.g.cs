@@ -61,7 +61,6 @@ namespace LabelStudio
         /// Max number of few-shot examples to include in prompts. 0 = disabled.
         /// </param>
         /// <param name="modelProviderConnection"></param>
-        /// <param name="organization"></param>
         /// <param name="parentModel">
         /// Parent model interface ID
         /// </param>
@@ -94,7 +93,6 @@ namespace LabelStudio
             string title,
             int? maxFewShotExamples = default,
             int? modelProviderConnection = default,
-            int? organization = default,
             int? parentModel = default,
             global::LabelStudio.ProviderEnum? provider = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

@@ -21,12 +21,6 @@ namespace LabelStudio
         public int? ModelProviderConnection { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
-
-        /// <summary>
         /// Parent model interface ID
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_model")]
@@ -77,7 +71,6 @@ namespace LabelStudio
         /// Max number of few-shot examples to include in prompts. 0 = disabled.
         /// </param>
         /// <param name="modelProviderConnection"></param>
-        /// <param name="organization"></param>
         /// <param name="parentModel">
         /// Parent model interface ID
         /// </param>
@@ -106,7 +99,6 @@ namespace LabelStudio
         public PatchedThirdPartyModelVersionRequest(
             int? maxFewShotExamples,
             int? modelProviderConnection,
-            int? organization,
             int? parentModel,
             string? prompt,
             global::LabelStudio.ProviderEnum? provider,
@@ -115,7 +107,6 @@ namespace LabelStudio
         {
             this.MaxFewShotExamples = maxFewShotExamples;
             this.ModelProviderConnection = modelProviderConnection;
-            this.Organization = organization;
             this.ParentModel = parentModel;
             this.Prompt = prompt;
             this.Provider = provider;
