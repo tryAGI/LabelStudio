@@ -42,6 +42,12 @@ namespace LabelStudio
         public required string Permission { get; set; }
 
         /// <summary>
+        /// Permission a role must also hold for this permission to take effect.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requires")]
+        public string? Requires { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tooltip")]
@@ -61,6 +67,9 @@ namespace LabelStudio
         /// <param name="permission"></param>
         /// <param name="group"></param>
         /// <param name="label"></param>
+        /// <param name="requires">
+        /// Permission a role must also hold for this permission to take effect.
+        /// </param>
         /// <param name="tooltip"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -71,6 +80,7 @@ namespace LabelStudio
             string permission,
             string? group,
             string? label,
+            string? requires,
             string? tooltip)
         {
             this.Default = @default ?? throw new global::System.ArgumentNullException(nameof(@default));
@@ -78,6 +88,7 @@ namespace LabelStudio
             this.Label = label;
             this.Options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             this.Permission = permission ?? throw new global::System.ArgumentNullException(nameof(permission));
+            this.Requires = requires;
             this.Tooltip = tooltip;
         }
 
