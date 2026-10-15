@@ -29,6 +29,7 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             ref bool? archived,
             global::System.Collections.Generic.IList<int>? ids,
+            ref bool? isSkillAssessment,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
@@ -42,6 +43,7 @@ namespace LabelStudio
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? archived,
             global::System.Collections.Generic.IList<int>? ids,
+            bool? isSkillAssessment,
             string? ordering,
             int? page,
             int? pageSize,
@@ -65,6 +67,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="archived"></param>
         /// <param name="ids"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -81,6 +84,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedAllRolesProjectListList> CompatibleProjectsAsync(
             bool? archived = default,
             global::System.Collections.Generic.IList<int>? ids = default,
+            bool? isSkillAssessment = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -95,6 +99,7 @@ namespace LabelStudio
             var __response = await CompatibleProjectsAsResponseAsync(
                 archived: archived,
                 ids: ids,
+                isSkillAssessment: isSkillAssessment,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
@@ -115,6 +120,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="archived"></param>
         /// <param name="ids"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -131,6 +137,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedAllRolesProjectListList>> CompatibleProjectsAsResponseAsync(
             bool? archived = default,
             global::System.Collections.Generic.IList<int>? ids = default,
+            bool? isSkillAssessment = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -148,6 +155,7 @@ namespace LabelStudio
                 httpClient: HttpClient,
                 archived: ref archived,
                 ids: ids,
+                isSkillAssessment: ref isSkillAssessment,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
@@ -186,6 +194,7 @@ namespace LabelStudio
                             __pathBuilder
                                 .AddOptionalParameter("archived", archived?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ids", ids, selector: static x => x.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."), delimiter: ",", explode: false)
+                                .AddOptionalParameter("is_skill_assessment", isSkillAssessment?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
@@ -237,6 +246,7 @@ namespace LabelStudio
                     httpRequestMessage: __httpRequest,
                     archived: archived,
                     ids: ids,
+                    isSkillAssessment: isSkillAssessment,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,

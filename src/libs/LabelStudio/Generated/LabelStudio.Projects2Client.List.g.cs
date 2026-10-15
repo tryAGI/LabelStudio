@@ -31,6 +31,7 @@ namespace LabelStudio
             ref string? filter,
             ref string? ids,
             ref string? include,
+            ref bool? isSkillAssessment,
             ref int? membersLimit,
             ref string? ordering,
             ref int? page,
@@ -47,6 +48,7 @@ namespace LabelStudio
             string? filter,
             string? ids,
             string? include,
+            bool? isSkillAssessment,
             int? membersLimit,
             string? ordering,
             int? page,
@@ -78,6 +80,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="ids"></param>
         /// <param name="include"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="membersLimit">
         /// Default Value: 10
         /// </param>
@@ -97,6 +100,7 @@ namespace LabelStudio
             string? filter = default,
             string? ids = default,
             string? include = default,
+            bool? isSkillAssessment = default,
             int? membersLimit = default,
             string? ordering = default,
             int? page = default,
@@ -114,6 +118,7 @@ namespace LabelStudio
                 filter: filter,
                 ids: ids,
                 include: include,
+                isSkillAssessment: isSkillAssessment,
                 membersLimit: membersLimit,
                 ordering: ordering,
                 page: page,
@@ -142,6 +147,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="ids"></param>
         /// <param name="include"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="membersLimit">
         /// Default Value: 10
         /// </param>
@@ -161,6 +167,7 @@ namespace LabelStudio
             string? filter = default,
             string? ids = default,
             string? include = default,
+            bool? isSkillAssessment = default,
             int? membersLimit = default,
             string? ordering = default,
             int? page = default,
@@ -181,6 +188,7 @@ namespace LabelStudio
                 filter: ref filter,
                 ids: ref ids,
                 include: ref include,
+                isSkillAssessment: ref isSkillAssessment,
                 membersLimit: ref membersLimit,
                 ordering: ref ordering,
                 page: ref page,
@@ -222,6 +230,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("filter", filter)
                                 .AddOptionalParameter("ids", ids)
                                 .AddOptionalParameter("include", include)
+                                .AddOptionalParameter("is_skill_assessment", isSkillAssessment?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("members_limit", membersLimit?.ToString())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
@@ -276,6 +285,7 @@ namespace LabelStudio
                     filter: filter,
                     ids: ids,
                     include: include,
+                    isSkillAssessment: isSkillAssessment,
                     membersLimit: membersLimit,
                     ordering: ordering,
                     page: page,

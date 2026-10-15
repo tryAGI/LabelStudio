@@ -146,6 +146,9 @@ namespace LabelStudio
         /// <param name="isPublished">
         /// Whether or not the project is published to annotators
         /// </param>
+        /// <param name="isSkillAssessment">
+        /// Skill assessment: tests contributors instead of producing work
+        /// </param>
         /// <param name="labelConfig">
         /// Labeling Configuration
         /// </param>
@@ -269,6 +272,7 @@ namespace LabelStudio
             object? internalDescription = default,
             bool? isDraft = default,
             bool? isPublished = default,
+            bool? isSkillAssessment = default,
             string? labelConfig = default,
             int? maxAdditionalAnnotatorsAssignable = default,
             int? maximumAnnotations = default,

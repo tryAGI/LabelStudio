@@ -306,6 +306,12 @@ namespace LabelStudio
         public bool? IsPublished { get; set; }
 
         /// <summary>
+        /// Skill assessment: tests contributors instead of producing work
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_skill_assessment")]
+        public bool? IsSkillAssessment { get; set; }
+
+        /// <summary>
         /// Labeling Configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("label_config")]
@@ -741,6 +747,9 @@ namespace LabelStudio
         /// <param name="isPublished">
         /// Whether or not the project is published to annotators
         /// </param>
+        /// <param name="isSkillAssessment">
+        /// Skill assessment: tests contributors instead of producing work
+        /// </param>
         /// <param name="labelConfig">
         /// Labeling Configuration
         /// </param>
@@ -959,6 +968,7 @@ namespace LabelStudio
             string? internalDescriptionShort,
             bool? isDraft,
             bool? isPublished,
+            bool? isSkillAssessment,
             string? labelConfig,
             int? maxAdditionalAnnotatorsAssignable,
             int? maximumAnnotations,
@@ -1061,6 +1071,7 @@ namespace LabelStudio
             this.IsDimensionsEnabled = isDimensionsEnabled;
             this.IsDraft = isDraft;
             this.IsPublished = isPublished;
+            this.IsSkillAssessment = isSkillAssessment;
             this.LabelConfig = labelConfig;
             this.MaxAdditionalAnnotatorsAssignable = maxAdditionalAnnotatorsAssignable;
             this.MaximumAnnotations = maximumAnnotations;
