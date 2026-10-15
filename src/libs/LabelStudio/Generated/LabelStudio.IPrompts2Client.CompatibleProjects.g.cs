@@ -10,6 +10,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="archived"></param>
         /// <param name="ids"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -26,6 +27,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.PaginatedAllRolesProjectListList> CompatibleProjectsAsync(
             bool? archived = default,
             global::System.Collections.Generic.IList<int>? ids = default,
+            bool? isSkillAssessment = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
@@ -42,6 +44,7 @@ namespace LabelStudio
         /// </summary>
         /// <param name="archived"></param>
         /// <param name="ids"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
@@ -58,6 +61,7 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.PaginatedAllRolesProjectListList>> CompatibleProjectsAsResponseAsync(
             bool? archived = default,
             global::System.Collections.Generic.IList<int>? ids = default,
+            bool? isSkillAssessment = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,

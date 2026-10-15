@@ -17,6 +17,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="ids"></param>
         /// <param name="include"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="membersLimit">
         /// Default Value: 10
         /// </param>
@@ -36,6 +37,7 @@ namespace LabelStudio
             string? filter = default,
             string? ids = default,
             string? include = default,
+            bool? isSkillAssessment = default,
             int? membersLimit = default,
             string? ordering = default,
             int? page = default,
@@ -60,6 +62,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="ids"></param>
         /// <param name="include"></param>
+        /// <param name="isSkillAssessment"></param>
         /// <param name="membersLimit">
         /// Default Value: 10
         /// </param>
@@ -79,6 +82,7 @@ namespace LabelStudio
             string? filter = default,
             string? ids = default,
             string? include = default,
+            bool? isSkillAssessment = default,
             int? membersLimit = default,
             string? ordering = default,
             int? page = default,
