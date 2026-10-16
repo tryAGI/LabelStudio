@@ -99,6 +99,9 @@ namespace LabelStudio
         /// Included only in requests
         /// </param>
         /// <param name="token"></param>
+        /// <param name="tokenExpiresAt">
+        /// When the current invite link stops working; null works only while expiration is disabled
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -116,6 +119,7 @@ namespace LabelStudio
             object? reactCodeSettings = default,
             string? title = default,
             string? token = default,
+            global::System.DateTime? tokenExpiresAt = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
