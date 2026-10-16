@@ -45,6 +45,13 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
+        /// Saved interfaces in the workspace. A workspace with interfaces cannot be deleted.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("interfaces_count")]
+        public int? InterfacesCount { get; set; }
+
+        /// <summary>
         /// Workspace is archived
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_archived")]
@@ -97,6 +104,10 @@ namespace LabelStudio
         /// <param name="description">
         /// Workspace description
         /// </param>
+        /// <param name="interfacesCount">
+        /// Saved interfaces in the workspace. A workspace with interfaces cannot be deleted.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="isArchived">
         /// Workspace is archived
         /// </param>
@@ -123,6 +134,7 @@ namespace LabelStudio
             string? color,
             object? createdByUser,
             string? description,
+            int? interfacesCount,
             bool? isArchived,
             bool? isPersonal,
             object? membership,
@@ -135,6 +147,7 @@ namespace LabelStudio
             this.CreatedByUser = createdByUser;
             this.Description = description;
             this.Id = id;
+            this.InterfacesCount = interfacesCount;
             this.IsArchived = isArchived;
             this.IsPersonal = isPersonal;
             this.Membership = membership;
