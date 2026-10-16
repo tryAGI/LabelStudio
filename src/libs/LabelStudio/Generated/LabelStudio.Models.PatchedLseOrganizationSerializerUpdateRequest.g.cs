@@ -92,6 +92,12 @@ namespace LabelStudio
         public string? Token { get; set; }
 
         /// <summary>
+        /// When the current invite link stops working; null works only while expiration is disabled
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("token_expires_at")]
+        public global::System.DateTime? TokenExpiresAt { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -142,6 +148,9 @@ namespace LabelStudio
         /// Included only in requests
         /// </param>
         /// <param name="token"></param>
+        /// <param name="tokenExpiresAt">
+        /// When the current invite link stops working; null works only while expiration is disabled
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -157,7 +166,8 @@ namespace LabelStudio
             object? interfaceSettings,
             object? reactCodeSettings,
             string? title,
-            string? token)
+            string? token,
+            global::System.DateTime? tokenExpiresAt)
         {
             this.AllowUnsafeInstructionTags = allowUnsafeInstructionTags;
             this.ContactInfo = contactInfo;
@@ -171,6 +181,7 @@ namespace LabelStudio
             this.ReactCodeSettings = reactCodeSettings;
             this.Title = title;
             this.Token = token;
+            this.TokenExpiresAt = tokenExpiresAt;
         }
 
         /// <summary>
