@@ -15,6 +15,14 @@ namespace LabelStudio
         public object? Artifacts { get; set; }
 
         /// <summary>
+        /// Whether the current user can change this interface: edit, delete, publish versions or move it.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_edit")]
+        public bool CanEdit { get; set; } = default!;
+
+        /// <summary>
         /// JSX source code for the interface screen module
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("code")]
@@ -171,6 +179,10 @@ namespace LabelStudio
         /// Code version history
         /// </param>
         /// <param name="workspace"></param>
+        /// <param name="canEdit">
+        /// Whether the current user can change this interface: edit, delete, publish versions or move it.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -208,6 +220,7 @@ namespace LabelStudio
             string? scenarios,
             object? versions,
             int? workspace,
+            bool canEdit = default!,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
@@ -216,6 +229,7 @@ namespace LabelStudio
             global::System.DateTime updatedAt = default!)
         {
             this.Artifacts = artifacts;
+            this.CanEdit = canEdit;
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
             this.Compiled = compiled ?? throw new global::System.ArgumentNullException(nameof(compiled));
             this.CreatedAt = createdAt;

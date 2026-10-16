@@ -17,6 +17,14 @@ namespace LabelStudio
         public bool AcceptsSubmissions { get; set; } = default!;
 
         /// <summary>
+        /// Whether the current user can change this interface: edit, delete, publish versions or move it.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("can_edit")]
+        public bool CanEdit { get; set; } = default!;
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -137,6 +145,10 @@ namespace LabelStudio
         /// Whether this interface can receive an uploaded file as a submission.<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="canEdit">
+        /// Whether the current user can change this interface: edit, delete, publish versions or move it.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -175,6 +187,7 @@ namespace LabelStudio
             string? typeName,
             int? workspace,
             bool acceptsSubmissions = default!,
+            bool canEdit = default!,
             global::System.DateTime createdAt = default!,
             global::LabelStudio.UserSimple createdBy = default!,
             bool hasScenarios = default!,
@@ -185,6 +198,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<object> versions = default!)
         {
             this.AcceptsSubmissions = acceptsSubmissions;
+            this.CanEdit = canEdit;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.Description = description;
