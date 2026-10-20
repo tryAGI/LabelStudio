@@ -15,12 +15,6 @@ namespace LabelStudio
         public object? AssignmentSettings { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
-        public int? CreatedBy { get; set; }
-
-        /// <summary>
         /// custom script (Plugin) for projects created from this template
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_script")]
@@ -37,12 +31,6 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         public string? Name { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
 
         /// <summary>
         /// Included only in requests
@@ -92,13 +80,11 @@ namespace LabelStudio
         /// <param name="assignmentSettings">
         /// general dict serialized assignment settings
         /// </param>
-        /// <param name="createdBy"></param>
         /// <param name="customScript">
         /// custom script (Plugin) for projects created from this template
         /// </param>
         /// <param name="description"></param>
         /// <param name="name"></param>
-        /// <param name="organization"></param>
         /// <param name="projectId">
         /// Included only in requests
         /// </param>
@@ -118,11 +104,9 @@ namespace LabelStudio
 #endif
         public PatchedProjectTemplateRequest(
             object? assignmentSettings,
-            int? createdBy,
             string? customScript,
             string? description,
             string? name,
-            int? organization,
             int? projectId,
             object? projectSettings,
             bool? requireCommentOnSkip,
@@ -131,11 +115,9 @@ namespace LabelStudio
             object? tags)
         {
             this.AssignmentSettings = assignmentSettings;
-            this.CreatedBy = createdBy;
             this.CustomScript = customScript;
             this.Description = description;
             this.Name = name;
-            this.Organization = organization;
             this.ProjectId = projectId;
             this.ProjectSettings = projectSettings;
             this.RequireCommentOnSkip = requireCommentOnSkip;

@@ -32,11 +32,12 @@ namespace LabelStudio
         public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
-        /// User who made this label
+        /// User who made this label<br/>
+        /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int CreatedBy { get; set; }
+        public int CreatedBy { get; set; } = default!;
 
         /// <summary>
         /// Label description
@@ -59,11 +60,11 @@ namespace LabelStudio
         public global::System.Collections.Generic.IList<int> Links { get; set; } = default!;
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Organization { get; set; }
+        public int Organization { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -103,10 +104,6 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="Label" /> class.
         /// </summary>
-        /// <param name="createdBy">
-        /// User who made this label
-        /// </param>
-        /// <param name="organization"></param>
         /// <param name="title">
         /// Label title
         /// </param>
@@ -126,10 +123,17 @@ namespace LabelStudio
         /// Time of label creation<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="createdBy">
+        /// User who made this label<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
         /// <param name="links">
+        /// Included only in responses
+        /// </param>
+        /// <param name="organization">
         /// Included only in responses
         /// </param>
         /// <param name="projects">
@@ -143,16 +147,16 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Label(
-            int createdBy,
-            int organization,
             string title,
             object value,
             bool? approved,
             int? approvedBy,
             string? description,
             global::System.DateTime createdAt = default!,
+            int createdBy = default!,
             int id = default!,
             global::System.Collections.Generic.IList<int> links = default!,
+            int organization = default!,
             global::System.Collections.Generic.IList<int> projects = default!,
             global::System.DateTime updatedAt = default!)
         {

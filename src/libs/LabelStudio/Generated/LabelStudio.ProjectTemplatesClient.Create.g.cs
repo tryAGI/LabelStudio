@@ -458,13 +458,11 @@ namespace LabelStudio
         /// <param name="assignmentSettings">
         /// general dict serialized assignment settings
         /// </param>
-        /// <param name="createdBy"></param>
         /// <param name="customScript">
         /// custom script (Plugin) for projects created from this template
         /// </param>
         /// <param name="description"></param>
         /// <param name="name"></param>
-        /// <param name="organization"></param>
         /// <param name="projectId">
         /// Included only in requests
         /// </param>
@@ -485,10 +483,8 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectTemplate> CreateAsync(
             string name,
             object? assignmentSettings = default,
-            int? createdBy = default,
             string? customScript = default,
             string? description = default,
-            int? organization = default,
             int? projectId = default,
             object? projectSettings = default,
             bool? requireCommentOnSkip = default,
@@ -501,11 +497,9 @@ namespace LabelStudio
             var __request = new global::LabelStudio.ProjectTemplateRequest
             {
                 AssignmentSettings = assignmentSettings,
-                CreatedBy = createdBy,
                 CustomScript = customScript,
                 Description = description,
                 Name = name,
-                Organization = organization,
                 ProjectId = projectId,
                 ProjectSettings = projectSettings,
                 RequireCommentOnSkip = requireCommentOnSkip,

@@ -24,22 +24,10 @@ namespace LabelStudio
         public int? ApprovedBy { get; set; }
 
         /// <summary>
-        /// User who made this label
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
-        public int? CreatedBy { get; set; }
-
-        /// <summary>
         /// Label description
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
 
         /// <summary>
         /// Label title
@@ -68,13 +56,9 @@ namespace LabelStudio
         /// <param name="approvedBy">
         /// User who approved this label
         /// </param>
-        /// <param name="createdBy">
-        /// User who made this label
-        /// </param>
         /// <param name="description">
         /// Label description
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="title">
         /// Label title
         /// </param>
@@ -87,17 +71,13 @@ namespace LabelStudio
         public PatchedLabelRequest(
             bool? approved,
             int? approvedBy,
-            int? createdBy,
             string? description,
-            int? organization,
             string? title,
             object? value)
         {
             this.Approved = approved;
             this.ApprovedBy = approvedBy;
-            this.CreatedBy = createdBy;
             this.Description = description;
-            this.Organization = organization;
             this.Title = title;
             this.Value = value;
         }
