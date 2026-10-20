@@ -45,13 +45,9 @@ namespace LabelStudio
         /// <param name="approvedBy">
         /// User who approved this label
         /// </param>
-        /// <param name="createdBy">
-        /// User who made this label
-        /// </param>
         /// <param name="description">
         /// Label description
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="title">
         /// Label title
         /// </param>
@@ -65,9 +61,7 @@ namespace LabelStudio
             int id,
             bool? approved = default,
             int? approvedBy = default,
-            int? createdBy = default,
             string? description = default,
-            int? organization = default,
             string? title = default,
             object? value = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

@@ -22,7 +22,7 @@ namespace LabelStudio
         public global::System.DateTime CreatedAt { get; set; } = default!;
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_by")]
         public int? CreatedBy { get; set; }
@@ -54,7 +54,7 @@ namespace LabelStudio
         public required string Name { get; set; }
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
@@ -109,12 +109,16 @@ namespace LabelStudio
         /// <param name="assignmentSettings">
         /// general dict serialized assignment settings
         /// </param>
-        /// <param name="createdBy"></param>
+        /// <param name="createdBy">
+        /// Included only in responses
+        /// </param>
         /// <param name="customScript">
         /// custom script (Plugin) for projects created from this template
         /// </param>
         /// <param name="description"></param>
-        /// <param name="organization"></param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="projectSettings">
         /// general dict serialized project settings
         /// </param>
