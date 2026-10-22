@@ -300,6 +300,14 @@ namespace LabelStudio
         public bool? IsDraft { get; set; }
 
         /// <summary>
+        /// Onboarding project: contributors must pass it before identity verification<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_onboarding_project")]
+        public bool IsOnboardingProject { get; set; } = default!;
+
+        /// <summary>
         /// Whether or not the project is published to annotators
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_published")]
@@ -884,6 +892,10 @@ namespace LabelStudio
         /// <param name="isDimensionsEnabled">
         /// Included only in responses
         /// </param>
+        /// <param name="isOnboardingProject">
+        /// Onboarding project: contributors must pass it before identity verification<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="members">
         /// Included only in responses
         /// </param>
@@ -1013,6 +1025,7 @@ namespace LabelStudio
             int groundTruthNumber = default!,
             int id = default!,
             bool isDimensionsEnabled = default!,
+            bool isOnboardingProject = default!,
             global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
             object parsedLabelConfig = default!,
@@ -1070,6 +1083,7 @@ namespace LabelStudio
             this.InternalDescriptionShort = internalDescriptionShort;
             this.IsDimensionsEnabled = isDimensionsEnabled;
             this.IsDraft = isDraft;
+            this.IsOnboardingProject = isOnboardingProject;
             this.IsPublished = isPublished;
             this.IsSkillAssessment = isSkillAssessment;
             this.LabelConfig = labelConfig;
