@@ -28,11 +28,13 @@ namespace LabelStudio
         partial void PrepareSearchArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
+            ref bool? includeSkills,
             global::LabelStudio.OrganizationMemberFilterRequestRequest request);
         partial void PrepareSearchRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
+            bool? includeSkills,
             global::LabelStudio.OrganizationMemberFilterRequestRequest request);
         partial void ProcessSearchResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -48,6 +50,7 @@ namespace LabelStudio
         /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -56,6 +59,7 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.OrganizationMemberFilterRequestRequest request,
+            bool? includeSkills = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -63,6 +67,7 @@ namespace LabelStudio
                 id: id,
 
                 request: request,
+                includeSkills: includeSkills,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -74,6 +79,7 @@ namespace LabelStudio
         /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -82,6 +88,7 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.OrganizationMemberFilterRequestRequest request,
+            bool? includeSkills = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -92,6 +99,7 @@ namespace LabelStudio
             PrepareSearchArguments(
                 httpClient: HttpClient,
                 id: ref id,
+                includeSkills: ref includeSkills,
                 request: request);
 
 
@@ -120,6 +128,9 @@ namespace LabelStudio
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
                                 path: $"/api/organizations/{id}/memberships/search",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("include_skills", includeSkills?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -167,6 +178,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     id: id,
+                    includeSkills: includeSkills,
                     request: request);
 
                 return __httpRequest;
@@ -447,6 +459,7 @@ namespace LabelStudio
         /// POST transport for the versioned organization-member filter payload.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="filters"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -454,6 +467,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LseOrganizationMemberList> SearchAsync(
             int id,
             object filters,
+            bool? includeSkills = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -464,6 +478,7 @@ namespace LabelStudio
 
             return await SearchAsync(
                 id: id,
+                includeSkills: includeSkills,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

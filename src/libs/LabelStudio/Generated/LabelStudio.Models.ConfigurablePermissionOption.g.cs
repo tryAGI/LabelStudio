@@ -16,6 +16,12 @@ namespace LabelStudio
         public required global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> Default { get; set; }
 
         /// <summary>
+        /// Broader permission that supersedes this one; it only takes effect for roles without it.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("excluded_by")]
+        public string? ExcludedBy { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("group")]
@@ -65,6 +71,9 @@ namespace LabelStudio
         /// <param name="default"></param>
         /// <param name="options"></param>
         /// <param name="permission"></param>
+        /// <param name="excludedBy">
+        /// Broader permission that supersedes this one; it only takes effect for roles without it.
+        /// </param>
         /// <param name="group"></param>
         /// <param name="label"></param>
         /// <param name="requires">
@@ -78,12 +87,14 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> @default,
             global::System.Collections.Generic.IList<global::LabelStudio.AssignableOrganizationRoleEnum> options,
             string permission,
+            string? excludedBy,
             string? group,
             string? label,
             string? requires,
             string? tooltip)
         {
             this.Default = @default ?? throw new global::System.ArgumentNullException(nameof(@default));
+            this.ExcludedBy = excludedBy;
             this.Group = group;
             this.Label = label;
             this.Options = options ?? throw new global::System.ArgumentNullException(nameof(options));

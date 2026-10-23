@@ -17,6 +17,7 @@ namespace LabelStudio
         /// <param name="all"></param>
         /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -32,6 +33,7 @@ namespace LabelStudio
             int id,
             bool? all = default,
             string? excluded = default,
+            string? ids = default,
             string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
@@ -55,6 +57,7 @@ namespace LabelStudio
         /// <param name="all"></param>
         /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -70,6 +73,7 @@ namespace LabelStudio
             int id,
             bool? all = default,
             string? excluded = default,
+            string? ids = default,
             string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,

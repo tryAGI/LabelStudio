@@ -6,7 +6,7 @@ namespace LabelStudio
     {
         /// <summary>
         /// List organization member Skills filter options<br/>
-        /// Return self-reported Skills values with Contributor Setup display metadata.
+        /// Return Skills values held by members, self-reported or set by a skill assessment, with Contributor Setup display metadata. Owners, Administrators and Managers only.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="search"></param>
@@ -20,7 +20,7 @@ namespace LabelStudio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List organization member Skills filter options<br/>
-        /// Return self-reported Skills values with Contributor Setup display metadata.
+        /// Return Skills values held by members, self-reported or set by a skill assessment, with Contributor Setup display metadata. Owners, Administrators and Managers only.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="search"></param>

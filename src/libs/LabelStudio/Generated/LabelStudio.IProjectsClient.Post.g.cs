@@ -14,6 +14,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -21,6 +22,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -30,12 +33,15 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.ProjectMemberBulkAssignRequest request,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -49,6 +55,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -56,6 +63,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -65,12 +74,15 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.ProjectMemberBulkAssignRequest request,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -84,6 +96,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -91,6 +104,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all project members
@@ -110,12 +125,15 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.ProjectMemberBulkAssignResponse> PostAsync(
             int id,
             bool all,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,

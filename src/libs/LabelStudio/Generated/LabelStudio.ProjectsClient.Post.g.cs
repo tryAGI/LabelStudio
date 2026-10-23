@@ -27,6 +27,7 @@ namespace LabelStudio
             };
         partial void PreparePostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? filters,
             ref int id,
             ref string? lastActivityGte,
             ref string? lastActivityLte,
@@ -34,11 +35,14 @@ namespace LabelStudio
             ref string? search,
             ref string? tags,
             ref string? tagsOperator,
+            ref string? userLastActivityGte,
+            ref string? userLastActivityLte,
             ref string? userType,
             global::LabelStudio.ProjectMemberBulkAssignRequest request);
         partial void PreparePostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? filters,
             int id,
             string? lastActivityGte,
             string? lastActivityLte,
@@ -46,6 +50,8 @@ namespace LabelStudio
             string? search,
             string? tags,
             string? tagsOperator,
+            string? userLastActivityGte,
+            string? userLastActivityLte,
             string? userType,
             global::LabelStudio.ProjectMemberBulkAssignRequest request);
         partial void ProcessPostResponse(
@@ -67,6 +73,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -74,6 +81,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -83,12 +92,15 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.ProjectMemberBulkAssignRequest request,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -97,12 +109,15 @@ namespace LabelStudio
                 id: id,
 
                 request: request,
+                filters: filters,
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
                 role: role,
                 search: search,
                 tags: tags,
                 tagsOperator: tagsOperator,
+                userLastActivityGte: userLastActivityGte,
+                userLastActivityLte: userLastActivityLte,
                 userType: userType,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -120,6 +135,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -127,6 +143,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -136,12 +154,15 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.ProjectMemberBulkAssignRequest request,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -152,6 +173,7 @@ namespace LabelStudio
                 client: HttpClient);
             PreparePostArguments(
                 httpClient: HttpClient,
+                filters: ref filters,
                 id: ref id,
                 lastActivityGte: ref lastActivityGte,
                 lastActivityLte: ref lastActivityLte,
@@ -159,6 +181,8 @@ namespace LabelStudio
                 search: ref search,
                 tags: ref tags,
                 tagsOperator: ref tagsOperator,
+                userLastActivityGte: ref userLastActivityGte,
+                userLastActivityLte: ref userLastActivityLte,
                 userType: ref userType,
                 request: request);
 
@@ -189,12 +213,15 @@ namespace LabelStudio
                                 path: $"/api/projects/{id}/members/bulk/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("filters", filters)
                                 .AddOptionalParameter("last_activity__gte", lastActivityGte)
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte)
                                 .AddOptionalParameter("role", role)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("tags", tags)
                                 .AddOptionalParameter("tags_operator", tagsOperator)
+                                .AddOptionalParameter("user__last_activity__gte", userLastActivityGte)
+                                .AddOptionalParameter("user__last_activity__lte", userLastActivityLte)
                                 .AddOptionalParameter("user_type", userType)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -243,6 +270,7 @@ namespace LabelStudio
                 PreparePostRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    filters: filters,
                     id: id,
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,
@@ -250,6 +278,8 @@ namespace LabelStudio
                     search: search,
                     tags: tags,
                     tagsOperator: tagsOperator,
+                    userLastActivityGte: userLastActivityGte,
+                    userLastActivityLte: userLastActivityLte,
                     userType: userType,
                     request: request);
 
@@ -536,6 +566,7 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign project members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -543,6 +574,8 @@ namespace LabelStudio
         /// <param name="search"></param>
         /// <param name="tags"></param>
         /// <param name="tagsOperator"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
         /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all project members
@@ -562,12 +595,15 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectMemberBulkAssignResponse> PostAsync(
             int id,
             bool all,
+            string? filters = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
             string? role = default,
             string? search = default,
             string? tags = default,
             string? tagsOperator = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
             string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,
@@ -584,6 +620,7 @@ namespace LabelStudio
             };
 
             return await PostAsync(
+                filters: filters,
                 id: id,
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
@@ -591,6 +628,8 @@ namespace LabelStudio
                 search: search,
                 tags: tags,
                 tagsOperator: tagsOperator,
+                userLastActivityGte: userLastActivityGte,
+                userLastActivityLte: userLastActivityLte,
                 userType: userType,
                 request: __request,
                 requestOptions: requestOptions,
