@@ -27,12 +27,26 @@ namespace LabelStudio
             };
         partial void PreparePostArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string? filters,
             ref int id,
+            ref string? role,
+            ref string? search,
+            ref string? tags,
+            ref string? userLastActivityGte,
+            ref string? userLastActivityLte,
+            ref string? userType,
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request);
         partial void PreparePostRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? filters,
             int id,
+            string? role,
+            string? search,
+            string? tags,
+            string? userLastActivityGte,
+            string? userLastActivityLte,
+            string? userType,
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request);
         partial void ProcessPostResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -53,7 +67,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -62,6 +83,13 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -69,6 +97,13 @@ namespace LabelStudio
                 id: id,
 
                 request: request,
+                filters: filters,
+                role: role,
+                search: search,
+                tags: tags,
+                userLastActivityGte: userLastActivityGte,
+                userLastActivityLte: userLastActivityLte,
+                userType: userType,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,7 +120,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -94,6 +136,13 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -103,7 +152,14 @@ namespace LabelStudio
                 client: HttpClient);
             PreparePostArguments(
                 httpClient: HttpClient,
+                filters: ref filters,
                 id: ref id,
+                role: ref role,
+                search: ref search,
+                tags: ref tags,
+                userLastActivityGte: ref userLastActivityGte,
+                userLastActivityLte: ref userLastActivityLte,
+                userType: ref userType,
                 request: request);
 
 
@@ -132,6 +188,15 @@ namespace LabelStudio
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
                                 path: $"/api/workspaces/{id}/memberships/bulk/",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("filters", filters)
+                                .AddOptionalParameter("role", role)
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("tags", tags)
+                                .AddOptionalParameter("user__last_activity__gte", userLastActivityGte)
+                                .AddOptionalParameter("user__last_activity__lte", userLastActivityLte)
+                                .AddOptionalParameter("user_type", userType)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -178,7 +243,14 @@ namespace LabelStudio
                 PreparePostRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    filters: filters,
                     id: id,
+                    role: role,
+                    search: search,
+                    tags: tags,
+                    userLastActivityGte: userLastActivityGte,
+                    userLastActivityLte: userLastActivityLte,
+                    userType: userType,
                     request: request);
 
                 return __httpRequest;
@@ -464,7 +536,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all workspace members
         /// </param>
@@ -480,6 +559,13 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiWorkspacesMembershipsBulkCreateResponse> PostAsync(
             int id,
             bool all,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -493,7 +579,14 @@ namespace LabelStudio
             };
 
             return await PostAsync(
+                filters: filters,
                 id: id,
+                role: role,
+                search: search,
+                tags: tags,
+                userLastActivityGte: userLastActivityGte,
+                userLastActivityLte: userLastActivityLte,
+                userType: userType,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

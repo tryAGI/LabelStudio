@@ -64,6 +64,12 @@ namespace LabelStudio
         public global::LabelStudio.RoleSourceEnum? RoleSource { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("skills")]
+        public global::System.Collections.Generic.IList<global::LabelStudio.MemberSkill>? Skills { get; set; }
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -120,6 +126,7 @@ namespace LabelStudio
         /// <param name="roleSource">
         /// Included only in responses
         /// </param>
+        /// <param name="skills"></param>
         /// <param name="userType">
         /// Included only in responses
         /// </param>
@@ -143,6 +150,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.LseOrganizationMemberListCreatedProject>? createdProjects,
             object? flex,
             global::LabelStudio.RoleSourceEnum? roleSource,
+            global::System.Collections.Generic.IList<global::LabelStudio.MemberSkill>? skills,
             string? userType,
             int id = default!,
             global::LabelStudio.OrganizationRoleEnum role = default!,
@@ -156,6 +164,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.Role = role;
             this.RoleSource = roleSource;
+            this.Skills = skills;
             this.Tags = tags;
             this.User = user ?? throw new global::System.ArgumentNullException(nameof(user));
             this.UserType = userType;

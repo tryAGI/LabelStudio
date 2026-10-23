@@ -23,6 +23,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="implicit"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
@@ -43,6 +44,7 @@ namespace LabelStudio
             int id,
             string? ids = default,
             bool? @implicit = default,
+            bool? includeSkills = default,
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,
@@ -77,6 +79,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="implicit"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
@@ -97,6 +100,7 @@ namespace LabelStudio
             int id,
             string? ids = default,
             bool? @implicit = default,
+            bool? includeSkills = default,
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,

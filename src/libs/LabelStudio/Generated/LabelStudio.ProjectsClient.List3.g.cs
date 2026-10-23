@@ -30,6 +30,7 @@ namespace LabelStudio
             ref int id,
             ref string? ids,
             ref bool? @implicit,
+            ref bool? includeSkills,
             ref global::System.DateTime? lastActivityGte,
             ref global::System.DateTime? lastActivityLte,
             ref bool? noAnnotators,
@@ -49,6 +50,7 @@ namespace LabelStudio
             int id,
             string? ids,
             bool? @implicit,
+            bool? includeSkills,
             global::System.DateTime? lastActivityGte,
             global::System.DateTime? lastActivityLte,
             bool? noAnnotators,
@@ -90,6 +92,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="implicit"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
@@ -110,6 +113,7 @@ namespace LabelStudio
             int id,
             string? ids = default,
             bool? @implicit = default,
+            bool? includeSkills = default,
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,
@@ -130,6 +134,7 @@ namespace LabelStudio
                 id: id,
                 ids: ids,
                 @implicit: @implicit,
+                includeSkills: includeSkills,
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
                 noAnnotators: noAnnotators,
@@ -168,6 +173,7 @@ namespace LabelStudio
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="implicit"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
         /// <param name="noAnnotators"></param>
@@ -188,6 +194,7 @@ namespace LabelStudio
             int id,
             string? ids = default,
             bool? @implicit = default,
+            bool? includeSkills = default,
             global::System.DateTime? lastActivityGte = default,
             global::System.DateTime? lastActivityLte = default,
             bool? noAnnotators = default,
@@ -211,6 +218,7 @@ namespace LabelStudio
                 id: ref id,
                 ids: ref ids,
                 @implicit: ref @implicit,
+                includeSkills: ref includeSkills,
                 lastActivityGte: ref lastActivityGte,
                 lastActivityLte: ref lastActivityLte,
                 noAnnotators: ref noAnnotators,
@@ -254,6 +262,7 @@ namespace LabelStudio
                             __pathBuilder
                                 .AddOptionalParameter("ids", ids)
                                 .AddOptionalParameter("implicit", @implicit?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("include_skills", includeSkills?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("last_activity__gte", lastActivityGte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("no_annotators", noAnnotators?.ToString().ToLowerInvariant())
@@ -311,6 +320,7 @@ namespace LabelStudio
                     id: id,
                     ids: ids,
                     @implicit: @implicit,
+                    includeSkills: includeSkills,
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,
                     noAnnotators: noAnnotators,

@@ -12,6 +12,7 @@ namespace LabelStudio
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -30,6 +31,7 @@ namespace LabelStudio
             double? excludeProjectId = default,
             double? excludeWorkspaceId = default,
             string? filters = default,
+            bool? includeSkills = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
@@ -50,6 +52,7 @@ namespace LabelStudio
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -68,6 +71,7 @@ namespace LabelStudio
             double? excludeProjectId = default,
             double? excludeWorkspaceId = default,
             string? filters = default,
+            bool? includeSkills = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,

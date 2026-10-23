@@ -30,6 +30,7 @@ namespace LabelStudio
             ref bool? all,
             ref string? excluded,
             ref int id,
+            ref string? ids,
             ref string? included,
             ref string? lastActivityGte,
             ref string? lastActivityLte,
@@ -44,6 +45,7 @@ namespace LabelStudio
             bool? all,
             string? excluded,
             int id,
+            string? ids,
             string? included,
             string? lastActivityGte,
             string? lastActivityLte,
@@ -74,6 +76,7 @@ namespace LabelStudio
         /// <param name="all"></param>
         /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -89,6 +92,7 @@ namespace LabelStudio
             int id,
             bool? all = default,
             string? excluded = default,
+            string? ids = default,
             string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
@@ -104,6 +108,7 @@ namespace LabelStudio
                 id: id,
                 all: all,
                 excluded: excluded,
+                ids: ids,
                 included: included,
                 lastActivityGte: lastActivityGte,
                 lastActivityLte: lastActivityLte,
@@ -131,6 +136,7 @@ namespace LabelStudio
         /// <param name="all"></param>
         /// <param name="excluded"></param>
         /// <param name="id"></param>
+        /// <param name="ids"></param>
         /// <param name="included"></param>
         /// <param name="lastActivityGte"></param>
         /// <param name="lastActivityLte"></param>
@@ -146,6 +152,7 @@ namespace LabelStudio
             int id,
             bool? all = default,
             string? excluded = default,
+            string? ids = default,
             string? included = default,
             string? lastActivityGte = default,
             string? lastActivityLte = default,
@@ -164,6 +171,7 @@ namespace LabelStudio
                 all: ref all,
                 excluded: ref excluded,
                 id: ref id,
+                ids: ref ids,
                 included: ref included,
                 lastActivityGte: ref lastActivityGte,
                 lastActivityLte: ref lastActivityLte,
@@ -202,6 +210,7 @@ namespace LabelStudio
                             __pathBuilder
                                 .AddOptionalParameter("all", all?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("excluded", excluded)
+                                .AddOptionalParameter("ids", ids)
                                 .AddOptionalParameter("included", included)
                                 .AddOptionalParameter("last_activity__gte", lastActivityGte)
                                 .AddOptionalParameter("last_activity__lte", lastActivityLte)
@@ -254,6 +263,7 @@ namespace LabelStudio
                     all: all,
                     excluded: excluded,
                     id: id,
+                    ids: ids,
                     included: included,
                     lastActivityGte: lastActivityGte,
                     lastActivityLte: lastActivityLte,

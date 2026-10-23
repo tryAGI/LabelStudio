@@ -31,6 +31,7 @@ namespace LabelStudio
             ref double? excludeWorkspaceId,
             ref string? filters,
             ref int id,
+            ref bool? includeSkills,
             ref bool? isDeleted,
             ref string? ordering,
             ref int? page,
@@ -48,6 +49,7 @@ namespace LabelStudio
             double? excludeWorkspaceId,
             string? filters,
             int id,
+            bool? includeSkills,
             bool? isDeleted,
             string? ordering,
             int? page,
@@ -75,6 +77,7 @@ namespace LabelStudio
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -93,6 +96,7 @@ namespace LabelStudio
             double? excludeProjectId = default,
             double? excludeWorkspaceId = default,
             string? filters = default,
+            bool? includeSkills = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
@@ -111,6 +115,7 @@ namespace LabelStudio
                 excludeProjectId: excludeProjectId,
                 excludeWorkspaceId: excludeWorkspaceId,
                 filters: filters,
+                includeSkills: includeSkills,
                 isDeleted: isDeleted,
                 ordering: ordering,
                 page: page,
@@ -135,6 +140,7 @@ namespace LabelStudio
         /// <param name="excludeWorkspaceId"></param>
         /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="includeSkills"></param>
         /// <param name="isDeleted"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
@@ -153,6 +159,7 @@ namespace LabelStudio
             double? excludeProjectId = default,
             double? excludeWorkspaceId = default,
             string? filters = default,
+            bool? includeSkills = default,
             bool? isDeleted = default,
             string? ordering = default,
             int? page = default,
@@ -174,6 +181,7 @@ namespace LabelStudio
                 excludeWorkspaceId: ref excludeWorkspaceId,
                 filters: ref filters,
                 id: ref id,
+                includeSkills: ref includeSkills,
                 isDeleted: ref isDeleted,
                 ordering: ref ordering,
                 page: ref page,
@@ -215,6 +223,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("exclude_project_id", excludeProjectId?.ToString())
                                 .AddOptionalParameter("exclude_workspace_id", excludeWorkspaceId?.ToString())
                                 .AddOptionalParameter("filters", filters)
+                                .AddOptionalParameter("include_skills", includeSkills?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("is_deleted", isDeleted?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
@@ -270,6 +279,7 @@ namespace LabelStudio
                     excludeWorkspaceId: excludeWorkspaceId,
                     filters: filters,
                     id: id,
+                    includeSkills: includeSkills,
                     isDeleted: isDeleted,
                     ordering: ordering,
                     page: page,

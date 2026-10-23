@@ -14,7 +14,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -23,6 +30,13 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +49,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -44,6 +65,13 @@ namespace LabelStudio
             int id,
 
             global::LabelStudio.WorkspaceMemberBulkAssignRequest request,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -56,7 +84,14 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Assign workspace members in bulk.
         /// </summary>
+        /// <param name="filters"></param>
         /// <param name="id"></param>
+        /// <param name="role"></param>
+        /// <param name="search"></param>
+        /// <param name="tags"></param>
+        /// <param name="userLastActivityGte"></param>
+        /// <param name="userLastActivityLte"></param>
+        /// <param name="userType"></param>
         /// <param name="all">
         /// Apply to all workspace members
         /// </param>
@@ -72,6 +107,13 @@ namespace LabelStudio
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiWorkspacesMembershipsBulkCreateResponse> PostAsync(
             int id,
             bool all,
+            string? filters = default,
+            string? role = default,
+            string? search = default,
+            string? tags = default,
+            string? userLastActivityGte = default,
+            string? userLastActivityLte = default,
+            string? userType = default,
             global::System.Collections.Generic.IList<int>? excluded = default,
             global::System.Collections.Generic.IList<int>? included = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
