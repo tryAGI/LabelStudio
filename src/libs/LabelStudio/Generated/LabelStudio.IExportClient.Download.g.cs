@@ -58,6 +58,28 @@ namespace LabelStudio
         /// <param name="exportType"></param>
         /// <param name="exportPk"></param>
         /// <param name="id"></param>
+        /// <returns>The response metadata and an unbuffered body stream. The caller must dispose Body to release the HTTP response.</returns>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.IO.Stream>> DownloadAsStreamAsResponseAsync(
+            int exportPk,
+            int id,
+            string? exportType = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Download export snapshot as file in specified format<br/>
+        ///         Download an export file in the specified format for a specific project. Specify the project ID with the `id`<br/>
+        ///         parameter in the path and the ID of the export file you want to download using the `export_pk` parameter<br/>
+        ///         in the path.<br/>
+        ///         Get the `export_pk` from the response of the request to [Create new export](api:POST/api/projects/{id}/exports/)<br/>
+        ///         or after [listing export files](api:GET/api/projects/{id}/exports/).<br/>
+        ///
+        /// </summary>
+        /// <param name="exportType"></param>
+        /// <param name="exportPk"></param>
+        /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
