@@ -71,6 +71,33 @@ namespace LabelStudio
         /// <param name="ordering"></param>
         /// <param name="search"></param>
         /// <param name="status"></param>
+        /// <returns>The response metadata and an unbuffered body stream. The caller must dispose Body to release the HTTP response.</returns>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::LabelStudio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.IO.Stream>> ExportUserProgressCsvAsStreamAsResponseAsync(
+            int id,
+            string? columns = default,
+            string? ordering = default,
+            string? search = default,
+            string? status = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// ✨ Export user progress for a learning resource<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Export filtered course learner progress as CSV.
+        /// </summary>
+        /// <param name="columns"></param>
+        /// <param name="id"></param>
+        /// <param name="ordering"></param>
+        /// <param name="search"></param>
+        /// <param name="status"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
