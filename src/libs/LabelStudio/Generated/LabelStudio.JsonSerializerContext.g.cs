@@ -665,6 +665,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectMemberBulkAssignRolesRequest>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum), TypeInfoPropertyName = "ProjectMemberBulkAssignRolesRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberIdentityVerificationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectReimport))]
@@ -1024,7 +1025,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsFiltersRequestItemFilter?), TypeInfoPropertyName = "NullablePrepareParamsFiltersRequestItemFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsFiltersRequestItemOperator?), TypeInfoPropertyName = "NullablePrepareParamsFiltersRequestItemOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsOrderingRequestItem?), TypeInfoPropertyName = "NullablePrepareParamsOrderingRequestItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllFalse, global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "NullableOneOfPrepareParamsRequestRequestSelectedItemsAllFalsePrepareParamsRequestRequestSelectedItemsAllTrue2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1046,8 +1046,10 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<double?>>), TypeInfoPropertyName = "ListListDouble_System_Collections_Generic_List_global_System_Collections_Generic_List_double")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<double?>), TypeInfoPropertyName = "ListDouble_System_Collections_Generic_List_double_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::System.Collections.Generic.List<double>>), TypeInfoPropertyName = "ListListDouble_System_Collections_Generic_List_global_System_Collections_Generic_List_double_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OneOf<global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllFalse, global::LabelStudio.PrepareParamsRequestRequestSelectedItemsAllTrue>?), TypeInfoPropertyName = "NullableOneOfPrepareParamsRequestRequestSelectedItemsAllFalsePrepareParamsRequestRequestSelectedItemsAllTrue2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectDuplicateModeEnum?), TypeInfoPropertyName = "NullableProjectDuplicateModeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectGroupRoleEnum?), TypeInfoPropertyName = "NullableProjectGroupRoleEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum?), TypeInfoPropertyName = "NullableProjectMemberBulkAssignRolesRoleEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeScopeEnum?), TypeInfoPropertyName = "NullableRetakeScopeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ReEvaluateModeEnum?), TypeInfoPropertyName = "NullableReEvaluateModeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RequeueRejectedTasksModeEnum?), TypeInfoPropertyName = "NullableRequeueRejectedTasksModeEnum2")]
@@ -1517,6 +1519,10 @@ namespace LabelStudio
                     || typeToConvert == typeof(global::LabelStudio.ProjectImportStatusEnum)
 
                     || typeToConvert == typeof(global::LabelStudio.ProjectImportStatusEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum?)
 
                     || typeToConvert == typeof(global::LabelStudio.ProjectSamplingEnum)
 
@@ -2139,6 +2145,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.ProjectImportStatusEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.ProjectImportStatusEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.ProjectMemberBulkAssignRolesRoleEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.ProjectMemberBulkAssignRolesRoleEnumNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::LabelStudio.ProjectSamplingEnum))

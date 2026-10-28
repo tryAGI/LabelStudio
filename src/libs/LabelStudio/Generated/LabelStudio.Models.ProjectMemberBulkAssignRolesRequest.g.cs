@@ -10,18 +10,13 @@ namespace LabelStudio
     {
         /// <summary>
         /// Role<br/>
-        /// * `OW` - Owner<br/>
-        /// * `AD` - Administrator<br/>
-        /// * `MA` - Manager<br/>
         /// * `RE` - Reviewer<br/>
-        /// * `AN` - Annotator<br/>
-        /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated
+        /// * `AN` - Annotator
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.AssignableOrganizationRoleEnumJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.ProjectMemberBulkAssignRolesRoleEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::LabelStudio.AssignableOrganizationRoleEnum Role { get; set; }
+        public required global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum Role { get; set; }
 
         /// <summary>
         /// User ID
@@ -41,13 +36,8 @@ namespace LabelStudio
         /// </summary>
         /// <param name="role">
         /// Role<br/>
-        /// * `OW` - Owner<br/>
-        /// * `AD` - Administrator<br/>
-        /// * `MA` - Manager<br/>
         /// * `RE` - Reviewer<br/>
-        /// * `AN` - Annotator<br/>
-        /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated
+        /// * `AN` - Annotator
         /// </param>
         /// <param name="userId">
         /// User ID
@@ -56,7 +46,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ProjectMemberBulkAssignRolesRequest(
-            global::LabelStudio.AssignableOrganizationRoleEnum role,
+            global::LabelStudio.ProjectMemberBulkAssignRolesRoleEnum role,
             int userId)
         {
             this.Role = role;
