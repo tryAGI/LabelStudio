@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Get3SecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_Get2SecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,47 +21,58 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Get3SecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_Get2SecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_Get3SecurityRequirement0,
+            {                s_Get2SecurityRequirement0,
             };
-        partial void PrepareGet3Arguments(
+        partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
-        partial void PrepareGet3Request(
+            ref int id,
+            ref int importPk);
+        partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
-        partial void ProcessGet3Response(
+            int id,
+            int importPk);
+        partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet3ResponseContent(
+        partial void ProcessGet2ResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Get project metrics configuration<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Get the current metrics configuration for a project.
+        /// Get project import status<br/>
+        ///             Poll the status of an asynchronous project import operation.<br/>
+        ///             *Note*: this endpoint is also accessible as `client.tasks.create_many_status`, its historical location.<br/>
+        ///             <br/>
+        ///             **Usage:**<br/>
+        ///             1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{"import": &lt;import_id&gt;}`<br/>
+        ///             2. Use that `import_id` with this GET endpoint to check the import status<br/>
+        ///             3. Poll this endpoint to see if the import has completed, is still processing, or has failed<br/>
+        ///             4. **Import errors and failures will only be visible in this GET response**, not in the original POST request<br/>
+        ///             <br/>
+        ///             This endpoint returns detailed information about the import including task counts, status, and any error messages.<br/>
+        ///             While an import is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
+        ///
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="importPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.MetricParam> Get3Async(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectImport> Get2Async(
             int id,
+            int importPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Get3AsResponseAsync(
+            var __response = await Get2AsResponseAsync(
                 id: id,
+                importPk: importPk,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -69,35 +80,44 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Get project metrics configuration<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Get the current metrics configuration for a project.
+        /// Get project import status<br/>
+        ///             Poll the status of an asynchronous project import operation.<br/>
+        ///             *Note*: this endpoint is also accessible as `client.tasks.create_many_status`, its historical location.<br/>
+        ///             <br/>
+        ///             **Usage:**<br/>
+        ///             1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{"import": &lt;import_id&gt;}`<br/>
+        ///             2. Use that `import_id` with this GET endpoint to check the import status<br/>
+        ///             3. Poll this endpoint to see if the import has completed, is still processing, or has failed<br/>
+        ///             4. **Import errors and failures will only be visible in this GET response**, not in the original POST request<br/>
+        ///             <br/>
+        ///             This endpoint returns detailed information about the import including task counts, status, and any error messages.<br/>
+        ///             While an import is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
+        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
+        ///
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="importPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>> Get3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectImport>> Get2AsResponseAsync(
             int id,
+            int importPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGet3Arguments(
+            PrepareGet2Arguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                importPk: ref importPk);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_Get3SecurityRequirements,
-                operationName: "Get3Async");
+                securityRequirements: s_Get2SecurityRequirements,
+                operationName: "Get2Async");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -117,7 +137,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/metricparam/",
+                                path: $"/api/projects/{id}/imports/{importPk}/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -156,10 +176,11 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGet3Request(
+                PrepareGet2Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id);
+                    id: id,
+                    importPk: importPk);
 
                 return __httpRequest;
             }
@@ -176,9 +197,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
+                                operationId: "Get2",
+                                methodName: "Get2Async",
+                                pathTemplate: "$\"/api/projects/{id}/imports/{importPk}/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -210,9 +231,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
+                                operationId: "Get2",
+                                methodName: "Get2Async",
+                                pathTemplate: "$\"/api/projects/{id}/imports/{importPk}/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -251,9 +272,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
+                                operationId: "Get2",
+                                methodName: "Get2Async",
+                                pathTemplate: "$\"/api/projects/{id}/imports/{importPk}/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +312,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGet3Response(
+                ProcessGet2Response(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -299,9 +320,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
+                                operationId: "Get2",
+                                methodName: "Get2Async",
+                                pathTemplate: "$\"/api/projects/{id}/imports/{importPk}/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,9 +342,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Get3",
-                                methodName: "Get3Async",
-                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
+                                operationId: "Get2",
+                                methodName: "Get2Async",
+                                pathTemplate: "$\"/api/projects/{id}/imports/{importPk}/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -351,7 +372,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGet3ResponseContent(
+                                ProcessGet2ResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -360,9 +381,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.MetricParam.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.ProjectImport.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectImport>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -392,9 +413,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.MetricParam.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.ProjectImport.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectImport>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

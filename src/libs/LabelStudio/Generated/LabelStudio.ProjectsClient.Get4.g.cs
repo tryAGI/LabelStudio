@@ -42,20 +42,20 @@ namespace LabelStudio
             ref string content);
 
         /// <summary>
-        /// ✨ Get annotator weights<br/>
+        /// ✨ Get project metrics configuration<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
+        /// Get the current metrics configuration for a project.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectParams> Get4Async(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.MetricParam> Get4Async(
             int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -69,20 +69,20 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Get annotator weights<br/>
+        /// ✨ Get project metrics configuration<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
+        /// Get the current metrics configuration for a project.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>> Get4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>> Get4AsResponseAsync(
             int id,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -117,7 +117,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/project-extra-params/",
+                                path: $"/api/projects/{id}/metricparam/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -178,7 +178,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
+                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -212,7 +212,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
+                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -253,7 +253,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
+                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -301,7 +301,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
+                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -323,7 +323,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get4",
                                 methodName: "Get4Async",
-                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
+                                pathTemplate: "$\"/api/projects/{id}/metricparam/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -360,9 +360,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.LseProjectParams.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.MetricParam.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -392,9 +392,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.LseProjectParams.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.MetricParam.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.MetricParam>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
