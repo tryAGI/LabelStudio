@@ -15,6 +15,7 @@ namespace LabelStudio
         /// List all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces).
         /// </summary>
         /// <param name="includeAllWorkspaces"></param>
+        /// <param name="interfaceTargets"></param>
         /// <param name="isArchived"></param>
         /// <param name="isPersonal"></param>
         /// <param name="ordering"></param>
@@ -23,6 +24,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.Workspace>> ListAsync(
             bool? includeAllWorkspaces = default,
+            bool? interfaceTargets = default,
             bool? isArchived = default,
             bool? isPersonal = default,
             string? ordering = default,
@@ -39,6 +41,7 @@ namespace LabelStudio
         /// List all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces).
         /// </summary>
         /// <param name="includeAllWorkspaces"></param>
+        /// <param name="interfaceTargets"></param>
         /// <param name="isArchived"></param>
         /// <param name="isPersonal"></param>
         /// <param name="ordering"></param>
@@ -47,6 +50,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.Workspace>>> ListAsResponseAsync(
             bool? includeAllWorkspaces = default,
+            bool? interfaceTargets = default,
             bool? isArchived = default,
             bool? isPersonal = default,
             string? ordering = default,
