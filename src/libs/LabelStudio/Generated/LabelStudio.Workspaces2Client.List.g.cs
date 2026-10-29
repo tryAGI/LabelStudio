@@ -28,6 +28,7 @@ namespace LabelStudio
         partial void PrepareListArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref bool? includeAllWorkspaces,
+            ref bool? interfaceTargets,
             ref bool? isArchived,
             ref bool? isPersonal,
             ref string? ordering);
@@ -35,6 +36,7 @@ namespace LabelStudio
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             bool? includeAllWorkspaces,
+            bool? interfaceTargets,
             bool? isArchived,
             bool? isPersonal,
             string? ordering);
@@ -58,6 +60,7 @@ namespace LabelStudio
         /// List all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces).
         /// </summary>
         /// <param name="includeAllWorkspaces"></param>
+        /// <param name="interfaceTargets"></param>
         /// <param name="isArchived"></param>
         /// <param name="isPersonal"></param>
         /// <param name="ordering"></param>
@@ -66,6 +69,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::LabelStudio.Workspace>> ListAsync(
             bool? includeAllWorkspaces = default,
+            bool? interfaceTargets = default,
             bool? isArchived = default,
             bool? isPersonal = default,
             string? ordering = default,
@@ -74,6 +78,7 @@ namespace LabelStudio
         {
             var __response = await ListAsResponseAsync(
                 includeAllWorkspaces: includeAllWorkspaces,
+                interfaceTargets: interfaceTargets,
                 isArchived: isArchived,
                 isPersonal: isPersonal,
                 ordering: ordering,
@@ -94,6 +99,7 @@ namespace LabelStudio
         /// List all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces).
         /// </summary>
         /// <param name="includeAllWorkspaces"></param>
+        /// <param name="interfaceTargets"></param>
         /// <param name="isArchived"></param>
         /// <param name="isPersonal"></param>
         /// <param name="ordering"></param>
@@ -102,6 +108,7 @@ namespace LabelStudio
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::LabelStudio.Workspace>>> ListAsResponseAsync(
             bool? includeAllWorkspaces = default,
+            bool? interfaceTargets = default,
             bool? isArchived = default,
             bool? isPersonal = default,
             string? ordering = default,
@@ -113,6 +120,7 @@ namespace LabelStudio
             PrepareListArguments(
                 httpClient: HttpClient,
                 includeAllWorkspaces: ref includeAllWorkspaces,
+                interfaceTargets: ref interfaceTargets,
                 isArchived: ref isArchived,
                 isPersonal: ref isPersonal,
                 ordering: ref ordering);
@@ -145,6 +153,7 @@ namespace LabelStudio
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("include_all_workspaces", includeAllWorkspaces?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("interface_targets", interfaceTargets?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("is_archived", isArchived?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("is_personal", isPersonal?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("ordering", ordering)
@@ -190,6 +199,7 @@ namespace LabelStudio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     includeAllWorkspaces: includeAllWorkspaces,
+                    interfaceTargets: interfaceTargets,
                     isArchived: isArchived,
                     isPersonal: isPersonal,
                     ordering: ordering);
