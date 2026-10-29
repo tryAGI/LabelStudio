@@ -2,11 +2,12 @@
 
 namespace LabelStudio
 {
-    public partial interface ITasks2Client
+    public partial interface IProjectsClient
     {
         /// <summary>
         /// Get project import status<br/>
         ///             Poll the status of an asynchronous project import operation.<br/>
+        ///             *Note*: this endpoint is also accessible as `client.tasks.create_many_status`, its historical location.<br/>
         ///             <br/>
         ///             **Usage:**<br/>
         ///             1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{"import": &lt;import_id&gt;}`<br/>
@@ -24,7 +25,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ProjectImport> CreateManyStatusAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.ProjectImport> Get2Async(
             int id,
             int importPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -32,6 +33,7 @@ namespace LabelStudio
         /// <summary>
         /// Get project import status<br/>
         ///             Poll the status of an asynchronous project import operation.<br/>
+        ///             *Note*: this endpoint is also accessible as `client.tasks.create_many_status`, its historical location.<br/>
         ///             <br/>
         ///             **Usage:**<br/>
         ///             1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{"import": &lt;import_id&gt;}`<br/>
@@ -49,7 +51,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectImport>> CreateManyStatusAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectImport>> Get2AsResponseAsync(
             int id,
             int importPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,

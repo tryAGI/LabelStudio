@@ -5,53 +5,39 @@ namespace LabelStudio
     public partial interface IProjectsClient
     {
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
-        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
-        ///
+        /// ✨ Get annotator weights<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ProjectReimport> Get5Async(
+        global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectParams> Get5Async(
             int id,
-            int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
-        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
-        ///
+        /// ✨ Get annotator weights<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>> Get5AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>> Get5AsResponseAsync(
             int id,
-            int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

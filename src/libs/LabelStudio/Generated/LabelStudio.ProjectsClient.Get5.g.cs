@@ -27,13 +27,11 @@ namespace LabelStudio
             };
         partial void PrepareGet5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id,
-            ref int reimportPk);
+            ref int id);
         partial void PrepareGet5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id,
-            int reimportPk);
+            int id);
         partial void ProcessGet5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,34 +42,26 @@ namespace LabelStudio
             ref string content);
 
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
-        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
-        ///
+        /// ✨ Get annotator weights<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ProjectReimport> Get5Async(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseProjectParams> Get5Async(
             int id,
-            int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get5AsResponseAsync(
                 id: id,
-                reimportPk: reimportPk,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,28 +69,21 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Get project reimport status<br/>
-        ///             Poll the status of an asynchronous project reimport operation.<br/>
-        ///             <br/>
-        ///             **Usage:**<br/>
-        ///             1. When you POST to reimport tasks, you'll receive a response with a reimport ID<br/>
-        ///             2. Use that `reimport_id` with this GET endpoint to check the reimport status<br/>
-        ///             3. Poll this endpoint to see if the reimport has completed, is still processing, or has failed<br/>
-        ///             4. **Reimport errors and failures will only be visible in this GET response**, not in the original POST request<br/>
-        ///             <br/>
-        ///             This endpoint returns detailed information about the reimport including task counts, status, and any error messages.<br/>
-        ///             While a reimport is running, `task_count` / annotation / prediction counts update as batches commit.<br/>
-        ///             Counts are cumulative so far; there is no expected total, so percent-complete / ETA is not available from this API.<br/>
-        ///
+        /// ✨ Get annotator weights<br/>
+        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
+        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
+        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
+        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
+        ///         &lt;/p&gt;<br/>
+        ///     &lt;/Card&gt;<br/>
+        /// Retrieve the annotator weights for statistics and Cohen's Kappa for a specific project. Affects dashboard-members stats, but old and unused.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="reimportPk"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>> Get5AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>> Get5AsResponseAsync(
             int id,
-            int reimportPk,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -108,8 +91,7 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareGet5Arguments(
                 httpClient: HttpClient,
-                id: ref id,
-                reimportPk: ref reimportPk);
+                id: ref id);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -135,7 +117,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: $"/api/projects/{id}/reimports/{reimportPk}/",
+                                path: $"/api/projects/{id}/project-extra-params/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -177,8 +159,7 @@ namespace LabelStudio
                 PrepareGet5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id,
-                    reimportPk: reimportPk);
+                    id: id);
 
                 return __httpRequest;
             }
@@ -197,7 +178,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -231,7 +212,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -272,7 +253,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -320,7 +301,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -342,7 +323,7 @@ namespace LabelStudio
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get5",
                                 methodName: "Get5Async",
-                                pathTemplate: "$\"/api/projects/{id}/reimports/{reimportPk}/\"",
+                                pathTemplate: "$\"/api/projects/{id}/project-extra-params/\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -379,9 +360,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ProjectReimport.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.LseProjectParams.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -411,9 +392,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ProjectReimport.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.LseProjectParams.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ProjectReimport>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseProjectParams>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
