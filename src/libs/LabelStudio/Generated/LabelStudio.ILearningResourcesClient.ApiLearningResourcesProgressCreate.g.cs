@@ -12,7 +12,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the current user's progress on a learning resource.
+        /// Update the current user's progress on a learning resource. Learners can only update a published course they were given (404 otherwise). `page_id` is recorded only for a page the course has. `time_spent_seconds` adds at most 3600 seconds per request. `mark_complete` is ignored until every page has been visited, and completes the course only when every required quiz has also been passed.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -33,7 +33,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the current user's progress on a learning resource.
+        /// Update the current user's progress on a learning resource. Learners can only update a published course they were given (404 otherwise). `page_id` is recorded only for a page the course has. `time_spent_seconds` adds at most 3600 seconds per request. `mark_complete` is ignored until every page has been visited, and completes the course only when every required quiz has also been passed.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -54,7 +54,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Update the current user's progress on a learning resource.
+        /// Update the current user's progress on a learning resource. Learners can only update a published course they were given (404 otherwise). `page_id` is recorded only for a page the course has. `time_spent_seconds` adds at most 3600 seconds per request. `mark_complete` is ignored until every page has been visited, and completes the course only when every required quiz has also been passed.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="answers"></param>
