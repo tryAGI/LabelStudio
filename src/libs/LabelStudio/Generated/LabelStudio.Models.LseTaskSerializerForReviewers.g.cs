@@ -36,8 +36,7 @@ namespace LabelStudio
 
         /// <summary>
         /// Return annotations for the task.<br/>
-        /// If annotations_stub=True is in context (via feature flag<br/>
-        /// fflag_fix_all_fit_720_lazy_load_annotations), returns lightweight<br/>
+        /// If annotations_stub=True is in context, returns lightweight<br/>
         /// annotation stubs without result data for improved performance.<br/>
         /// Included only in responses
         /// </summary>
@@ -424,8 +423,7 @@ namespace LabelStudio
         /// </param>
         /// <param name="annotations">
         /// Return annotations for the task.<br/>
-        /// If annotations_stub=True is in context (via feature flag<br/>
-        /// fflag_fix_all_fit_720_lazy_load_annotations), returns lightweight<br/>
+        /// If annotations_stub=True is in context, returns lightweight<br/>
         /// annotation stubs without result data for improved performance.<br/>
         /// Included only in responses
         /// </param>
