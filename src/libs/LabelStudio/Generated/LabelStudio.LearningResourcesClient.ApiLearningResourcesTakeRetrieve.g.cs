@@ -27,11 +27,13 @@ namespace LabelStudio
             };
         partial void PrepareApiLearningResourcesTakeRetrieveArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
+            ref int id,
+            ref string? omit);
         partial void PrepareApiLearningResourcesTakeRetrieveRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
+            int id,
+            string? omit);
         partial void ProcessApiLearningResourcesTakeRetrieveResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -52,16 +54,19 @@ namespace LabelStudio
         /// Get a published learning resource available for standalone access.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="omit"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResourceDetail> ApiLearningResourcesTakeRetrieveAsync(
             int id,
+            string? omit = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ApiLearningResourcesTakeRetrieveAsResponseAsync(
                 id: id,
+                omit: omit,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,11 +84,13 @@ namespace LabelStudio
         /// Get a published learning resource available for standalone access.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="omit"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LearningResourceDetail>> ApiLearningResourcesTakeRetrieveAsResponseAsync(
             int id,
+            string? omit = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -91,7 +98,8 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareApiLearningResourcesTakeRetrieveArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                omit: ref omit);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -119,6 +127,9 @@ namespace LabelStudio
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
                                 path: $"/api/learning-resources/{id}/take/",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("omit", omit)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -159,7 +170,8 @@ namespace LabelStudio
                 PrepareApiLearningResourcesTakeRetrieveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id);
+                    id: id,
+                    omit: omit);
 
                 return __httpRequest;
             }
