@@ -6,10 +6,7 @@ namespace LabelStudio
     /// <summary>
     /// TaskAssignment Serializer with FSM state support.<br/>
     /// Note: The 'state' field will be populated from the queryset annotation<br/>
-    /// if present, preventing N+1 queries. Use .with_state() on your queryset.<br/>
-    /// The state field display is controlled by both:<br/>
-    /// - fflag_feat_fit_568_finite_state_management (FSM background calculations)<br/>
-    /// - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)
+    /// if present, preventing N+1 queries. Use .with_state() on your queryset.
     /// </summary>
     public sealed partial class TaskAssignment
     {

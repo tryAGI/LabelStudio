@@ -4,7 +4,8 @@
 namespace LabelStudio
 {
     /// <summary>
-    ///
+    /// Full course payload. `content`, `learner_content` and `modules` each carry the whole course, so clients pass<br/>
+    /// `omit` for the ones they do not read: an omitted field is never computed.
     /// </summary>
     public sealed partial class LearningResourceDetail
     {

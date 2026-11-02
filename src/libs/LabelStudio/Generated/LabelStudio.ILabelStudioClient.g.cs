@@ -118,32 +118,7 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        public DataExplorerClient DataExplorer { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
         public DataManagerClient DataManager { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public DatasetStorageAzureClient DatasetStorageAzure { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public DatasetStorageGcsClient DatasetStorageGcs { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public DatasetStorageS3Client DatasetStorageS3 { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public DatasetsClient Datasets { get; }
 
         /// <summary>
         ///
