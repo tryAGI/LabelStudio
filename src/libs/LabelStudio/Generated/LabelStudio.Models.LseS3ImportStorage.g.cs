@@ -53,7 +53,8 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
-        /// AWS ExternalId
+        /// AWS ExternalId. Set by the server; read-only.<br/>
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
         public string? ExternalId { get; set; }
@@ -229,7 +230,8 @@ namespace LabelStudio
         /// Cloud storage description
         /// </param>
         /// <param name="externalId">
-        /// AWS ExternalId
+        /// AWS ExternalId. Set by the server; read-only.<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="lastSync">
         /// Last sync finished time

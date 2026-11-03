@@ -453,9 +453,6 @@ namespace LabelStudio
         /// <param name="description">
         /// Cloud storage description
         /// </param>
-        /// <param name="externalId">
-        /// AWS ExternalId
-        /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
         /// </param>
@@ -520,7 +517,6 @@ namespace LabelStudio
             string? bucket = default,
             bool? canDeleteObjects = default,
             string? description = default,
-            string? externalId = default,
             global::System.DateTime? lastSync = default,
             int? lastSyncCount = default,
             string? lastSyncJob = default,
@@ -547,7 +543,6 @@ namespace LabelStudio
                 Bucket = bucket,
                 CanDeleteObjects = canDeleteObjects,
                 Description = description,
-                ExternalId = externalId,
                 LastSync = lastSync,
                 LastSyncCount = lastSyncCount,
                 LastSyncJob = lastSyncJob,
