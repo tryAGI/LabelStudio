@@ -51,12 +51,6 @@ namespace LabelStudio
         public string? Description { get; set; }
 
         /// <summary>
-        /// AWS ExternalId
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
-        public string? ExternalId { get; set; }
-
-        /// <summary>
         /// Last sync finished time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("last_sync")]
@@ -188,9 +182,6 @@ namespace LabelStudio
         /// <param name="description">
         /// Cloud storage description
         /// </param>
-        /// <param name="externalId">
-        /// AWS ExternalId
-        /// </param>
         /// <param name="lastSync">
         /// Last sync finished time
         /// </param>
@@ -253,7 +244,6 @@ namespace LabelStudio
             string? bucket,
             bool? canDeleteObjects,
             string? description,
-            string? externalId,
             global::System.DateTime? lastSync,
             int? lastSyncCount,
             string? lastSyncJob,
@@ -278,7 +268,6 @@ namespace LabelStudio
             this.Bucket = bucket;
             this.CanDeleteObjects = canDeleteObjects;
             this.Description = description;
-            this.ExternalId = externalId;
             this.LastSync = lastSync;
             this.LastSyncCount = lastSyncCount;
             this.LastSyncJob = lastSyncJob;
