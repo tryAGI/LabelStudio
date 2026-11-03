@@ -78,12 +78,6 @@ namespace LabelStudio
         public string? Phone { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("username")]
-        public string? Username { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -115,7 +109,6 @@ namespace LabelStudio
         /// Included only in requests
         /// </param>
         /// <param name="phone"></param>
-        /// <param name="username"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -130,8 +123,7 @@ namespace LabelStudio
             string? lastName,
             string? onboardingState,
             string? password,
-            string? phone,
-            string? username)
+            string? phone)
         {
             this.ActiveOrganization = activeOrganization;
             this.AllowNewsletters = allowNewsletters;
@@ -144,7 +136,6 @@ namespace LabelStudio
             this.OnboardingState = onboardingState;
             this.Password = password;
             this.Phone = phone;
-            this.Username = username;
         }
 
         /// <summary>
