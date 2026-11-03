@@ -573,6 +573,28 @@ namespace LabelStudio
         public string State { get; set; } = default!;
 
         /// <summary>
+        /// When the project was marked as Done. Null unless state_source is "manual". Managers+ only.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_marked_done_at")]
+        public global::System.DateTime? StateMarkedDoneAt { get; set; }
+
+        /// <summary>
+        /// User who marked the project as Done. Null unless state_source is "manual". Managers+ only.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_marked_done_by")]
+        public global::LabelStudio.UserSimple? StateMarkedDoneBy { get; set; }
+
+        /// <summary>
+        /// "manual" while a Manager+ has marked the project as Done, "auto" while the state is calculated from tasks. Null when project states are not available.<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_source")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.StateSourceEnumJsonConverter))]
+        public global::LabelStudio.StateSourceEnum? StateSource { get; set; }
+
+        /// <summary>
         /// Enforce strict overlap limit<br/>
         /// Default Value: true
         /// </summary>
@@ -831,6 +853,18 @@ namespace LabelStudio
         /// <param name="sourceInterfaceVersion">
         /// Stable version ID of the saved interface snapshot used by this project.
         /// </param>
+        /// <param name="stateMarkedDoneAt">
+        /// When the project was marked as Done. Null unless state_source is "manual". Managers+ only.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="stateMarkedDoneBy">
+        /// User who marked the project as Done. Null unless state_source is "manual". Managers+ only.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="stateSource">
+        /// "manual" while a Manager+ has marked the project as Done, "auto" while the state is calculated from tasks. Null when project states are not available.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="strictTaskOverlap">
         /// Enforce strict overlap limit<br/>
         /// Default Value: true
@@ -1006,6 +1040,9 @@ namespace LabelStudio
             global::LabelStudio.SkipQueueEnum? skipQueue,
             int? sourceInterfaceId,
             int? sourceInterfaceVersion,
+            global::System.DateTime? stateMarkedDoneAt,
+            global::LabelStudio.UserSimple? stateMarkedDoneBy,
+            global::LabelStudio.StateSourceEnum? stateSource,
             bool? strictTaskOverlap,
             string? taskDataLogin,
             string? taskDataPassword,
@@ -1122,6 +1159,9 @@ namespace LabelStudio
             this.SourceInterfaceVersion = sourceInterfaceVersion;
             this.StartTrainingOnAnnotationUpdate = startTrainingOnAnnotationUpdate;
             this.State = state;
+            this.StateMarkedDoneAt = stateMarkedDoneAt;
+            this.StateMarkedDoneBy = stateMarkedDoneBy;
+            this.StateSource = stateSource;
             this.StrictTaskOverlap = strictTaskOverlap;
             this.TaskDataLogin = taskDataLogin;
             this.TaskDataPassword = taskDataPassword;

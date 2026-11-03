@@ -31,6 +31,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ReviewSettings))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectSamplingEnum), TypeInfoPropertyName = "ProjectSamplingEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SkipQueueEnum), TypeInfoPropertyName = "SkipQueueEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateSourceEnum), TypeInfoPropertyName = "StateSourceEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RejectActionEnum), TypeInfoPropertyName = "RejectActionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LabelStreamTaskDistributionEnum), TypeInfoPropertyName = "LabelStreamTaskDistributionEnum2")]
@@ -55,6 +56,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.AnnotatorEvaluationMetricEnum?), TypeInfoPropertyName = "NullableAnnotatorEvaluationMetricEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectSamplingEnum?), TypeInfoPropertyName = "NullableProjectSamplingEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.SkipQueueEnum?), TypeInfoPropertyName = "NullableSkipQueueEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateSourceEnum?), TypeInfoPropertyName = "NullableStateSourceEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RejectActionEnum?), TypeInfoPropertyName = "NullableRejectActionEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LabelStreamTaskDistributionEnum?), TypeInfoPropertyName = "NullableLabelStreamTaskDistributionEnum2")]
@@ -186,7 +188,11 @@ namespace LabelStudio
 
                     || typeToConvert == typeof(global::LabelStudio.SkipQueueEnum)
 
-                    || typeToConvert == typeof(global::LabelStudio.SkipQueueEnum?);
+                    || typeToConvert == typeof(global::LabelStudio.SkipQueueEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.StateSourceEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.StateSourceEnum?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -281,6 +287,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.SkipQueueEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.SkipQueueEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.StateSourceEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.StateSourceEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.StateSourceEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.StateSourceEnumNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }
