@@ -51,7 +51,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates.
+        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -83,7 +83,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates.
+        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -462,21 +462,36 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates.
+        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="expectedCount">
+        /// Only with `select_all`. If the filters now match a different number of learners, respond 409.
+        /// </param>
+        /// <param name="filters">
+        /// Learners-tab filters; only with `select_all`. Omit for all learners.
+        /// </param>
+        /// <param name="selectAll">
+        /// Reset every learner matching `filters` (boolean true only).
+        /// </param>
         /// <param name="userIds"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse> ApiLearningResourcesUserProgressBulkResetCreateAsync(
             int id,
-            global::System.Collections.Generic.IList<int> userIds,
+            int? expectedCount = default,
+            global::LabelStudio.BulkResetCourseProgressFiltersRequest? filters = default,
+            bool? selectAll = default,
+            global::System.Collections.Generic.IList<int>? userIds = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::LabelStudio.BulkResetCourseProgressRequest
             {
+                ExpectedCount = expectedCount,
+                Filters = filters,
+                SelectAll = selectAll,
                 UserIds = userIds,
             };
 
