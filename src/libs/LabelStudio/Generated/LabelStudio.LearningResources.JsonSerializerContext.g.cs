@@ -25,6 +25,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.BulkProjectLearningAssignmentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.BulkResetCourseProgressFiltersRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.BulkResetCourseProgressRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.Certificate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseEditingSession))]
