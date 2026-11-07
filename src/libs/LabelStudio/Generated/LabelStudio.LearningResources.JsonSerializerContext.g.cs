@@ -32,6 +32,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseEditingSessionHeartbeatRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseEditingSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.CourseEditingSession>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseExportPayload))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseImportResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum), TypeInfoPropertyName = "EstimatedDurationUnitEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseModule))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseOutline))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.CourseOutlineModule>))]
@@ -45,7 +48,6 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseStructureOpResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.CourseModule>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DuplicateLearningResourceRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum), TypeInfoPropertyName = "EstimatedDurationUnitEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningProgressResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningProgressUpdateRequest))]
@@ -62,6 +64,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceUploadResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum), TypeInfoPropertyName = "LearningResourceUploadResponseStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PaginatedCertificateList))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.Certificate>))]
@@ -89,6 +92,8 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.QuizLegacyResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeReasonEnum), TypeInfoPropertyName = "RetakeReasonEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RevokeCertificateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesImportCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUploadCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>))]
@@ -96,8 +101,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OpEnum?), TypeInfoPropertyName = "NullableOpEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum?), TypeInfoPropertyName = "NullableEstimatedDurationUnitEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OpEnum?), TypeInfoPropertyName = "NullableOpEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum?), TypeInfoPropertyName = "NullableLearningResourceUploadResponseStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeScopeEnum?), TypeInfoPropertyName = "NullableRetakeScopeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeReasonEnum?), TypeInfoPropertyName = "NullableRetakeReasonEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -205,6 +211,10 @@ namespace LabelStudio
 
                     || typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum?)
 
+                    || typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum?)
+
                     || typeToConvert == typeof(global::LabelStudio.OpEnum)
 
                     || typeToConvert == typeof(global::LabelStudio.OpEnum?)
@@ -230,6 +240,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.EstimatedDurationUnitEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.LearningResourceUploadResponseStatusEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.LearningResourceUploadResponseStatusEnumNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::LabelStudio.OpEnum))

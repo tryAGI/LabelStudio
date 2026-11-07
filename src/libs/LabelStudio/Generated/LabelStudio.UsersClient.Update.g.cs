@@ -454,6 +454,10 @@ namespace LabelStudio
         /// <param name="allowNewsletters">
         /// Allow sending newsletters to user
         /// </param>
+        /// <param name="currentPassword">
+        /// Your current password. Required when you change your own password.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="customHotkeys">
         /// Custom keyboard shortcuts configuration for the user interface
         /// </param>
@@ -480,6 +484,7 @@ namespace LabelStudio
             int id,
             int? activeOrganization = default,
             bool? allowNewsletters = default,
+            string? currentPassword = default,
             object? customHotkeys = default,
             global::System.DateTime? dateJoined = default,
             object? emailNotificationSettings = default,
@@ -496,6 +501,7 @@ namespace LabelStudio
             {
                 ActiveOrganization = activeOrganization,
                 AllowNewsletters = allowNewsletters,
+                CurrentPassword = currentPassword,
                 CustomHotkeys = customHotkeys,
                 DateJoined = dateJoined,
                 EmailNotificationSettings = emailNotificationSettings,
