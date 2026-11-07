@@ -28,12 +28,12 @@ namespace LabelStudio
         partial void PrepareApiLearningResourcesUploadCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int id,
-            global::LabelStudio.LearningResourceRequest request);
+            global::LabelStudio.ApiLearningResourcesUploadCreateRequest request);
         partial void PrepareApiLearningResourcesUploadCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             int id,
-            global::LabelStudio.LearningResourceRequest request);
+            global::LabelStudio.ApiLearningResourcesUploadCreateRequest request);
         partial void ProcessApiLearningResourcesUploadCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,14 +44,14 @@ namespace LabelStudio
             ref string content);
 
         /// <summary>
-        /// ✨ Upload a file for a learning resource<br/>
+        /// ✨ Upload or import a file for a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Upload a file asset for use in a learning resource.
+        /// Upload a new file, or import media already reachable elsewhere (an asset from another course, a project upload, or — with `allow_external` — any http(s) URL) as a CourseAsset served from this origin. Exactly one of `file`/`url` is required; `allow_external` and `dry_run` are only valid with `url`. `dry_run` classifies the URL without creating anything. A source that does not exist and one you may not read both answer 403.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -61,7 +61,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResourceUploadResponse> ApiLearningResourcesUploadCreateAsync(
             int id,
 
-            global::LabelStudio.LearningResourceRequest request,
+            global::LabelStudio.ApiLearningResourcesUploadCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -76,14 +76,14 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Upload a file for a learning resource<br/>
+        /// ✨ Upload or import a file for a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Upload a file asset for use in a learning resource.
+        /// Upload a new file, or import media already reachable elsewhere (an asset from another course, a project upload, or — with `allow_external` — any http(s) URL) as a CourseAsset served from this origin. Exactly one of `file`/`url` is required; `allow_external` and `dry_run` are only valid with `url`. `dry_run` classifies the URL without creating anything. A source that does not exist and one you may not read both answer 403.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -93,7 +93,7 @@ namespace LabelStudio
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LearningResourceUploadResponse>> ApiLearningResourcesUploadCreateAsResponseAsync(
             int id,
 
-            global::LabelStudio.LearningResourceRequest request,
+            global::LabelStudio.ApiLearningResourcesUploadCreateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -124,7 +124,7 @@ namespace LabelStudio
             var __maxAttempts = global::LabelStudio.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
@@ -161,12 +161,77 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
+
+                            var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
+                            if (request.AllowExternal != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.AllowExternal, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"allow_external\"");
+
+                            }
+                            if (request.DryRun != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((global::System.Convert.ToString(request.DryRun, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty).ToLowerInvariant()),
+                                    name: "\"dry_run\"");
+
+                            }
+                            if (request.File != default)
+                            {
+
+                                var __contentFile = new global::System.Net.Http.ByteArrayContent(request.File ?? global::System.Array.Empty<byte>());
+                                __contentFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
+                                    request.Filename is null
+                                        ? "application/octet-stream"
+                                        : (global::System.IO.Path.GetExtension(request.Filename) ?? string.Empty).ToLowerInvariant() switch
+                                        {
+                                            ".aac" => "audio/aac",
+                                            ".flac" => "audio/flac",
+                                            ".gif" => "image/gif",
+                                            ".jpeg" => "image/jpeg",
+                                            ".jpg" => "image/jpeg",
+                                            ".json" => "application/json",
+                                            ".m4a" => "audio/mp4",
+                                            ".mp3" => "audio/mpeg",
+                                            ".mp4" => "video/mp4",
+                                            ".mpeg" => "audio/mpeg",
+                                            ".mpga" => "audio/mpeg",
+                                            ".oga" => "audio/ogg",
+                                            ".ogg" => "audio/ogg",
+                                            ".opus" => "audio/ogg",
+                                            ".pdf" => "application/pdf",
+                                            ".png" => "image/png",
+                                            ".txt" => "text/plain",
+                                            ".wav" => "audio/wav",
+                                            ".weba" => "audio/webm",
+                                            ".webm" => "video/webm",
+                                            ".webp" => "image/webp",
+                                            _ => "application/octet-stream",
+                                        });
+                                __httpRequestContent.Add(
+                                    content: __contentFile,
+                                    name: "\"file\"",
+                                    fileName: request.Filename != null ? $"\"{request.Filename}\"" : string.Empty);
+                                if (__contentFile.Headers.ContentDisposition != null)
+                                {
+                                    __contentFile.Headers.ContentDisposition.FileNameStar = null;
+                                }
+
+                            }
+                            if (request.Url != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.Url ?? string.Empty),
+                                    name: "\"url\"");
+
+                            }
+
                             __httpRequest.Content = __httpRequestContent;
+
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -455,82 +520,41 @@ namespace LabelStudio
             }
         }
         /// <summary>
-        /// ✨ Upload a file for a learning resource<br/>
+        /// ✨ Upload or import a file for a learning resource<br/>
         /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
         ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
         ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Upload a file asset for use in a learning resource.
+        /// Upload a new file, or import media already reachable elsewhere (an asset from another course, a project upload, or — with `allow_external` — any http(s) URL) as a CourseAsset served from this origin. Exactly one of `file`/`url` is required; `allow_external` and `dry_run` are only valid with `url`. `dry_run` classifies the URL without creating anything. A source that does not exist and one you may not read both answer 403.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="allowStandalone"></param>
-        /// <param name="color"></param>
-        /// <param name="coverImageUrl"></param>
-        /// <param name="defaultAllowManualAccess"></param>
-        /// <param name="defaultGateAnnotatorDataManager"></param>
-        /// <param name="defaultGateAnnotatorLabelStream"></param>
-        /// <param name="defaultGateReviewerDataManager"></param>
-        /// <param name="defaultGateReviewerLabelStream"></param>
-        /// <param name="defaultGateReviewerReviewStream"></param>
-        /// <param name="estimatedDurationUnit">
-        /// * `minutes` - Minutes<br/>
-        /// * `hours` - Hours<br/>
-        /// * `days` - Days<br/>
-        /// * `weeks` - Weeks
-        /// </param>
-        /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
-        /// <param name="hideCompletedQuizzes"></param>
-        /// <param name="singlePageReview"></param>
-        /// <param name="summary"></param>
-        /// <param name="title"></param>
-        /// <param name="workspace"></param>
+        /// <param name="allowExternal"></param>
+        /// <param name="dryRun"></param>
+        /// <param name="file"></param>
+        /// <param name="filename"></param>
+        /// <param name="url"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.LearningResourceUploadResponse> ApiLearningResourcesUploadCreateAsync(
             int id,
-            bool? allowStandalone = default,
-            string? color = default,
-            string? coverImageUrl = default,
-            bool? defaultAllowManualAccess = default,
-            bool? defaultGateAnnotatorDataManager = default,
-            bool? defaultGateAnnotatorLabelStream = default,
-            bool? defaultGateReviewerDataManager = default,
-            bool? defaultGateReviewerLabelStream = default,
-            bool? defaultGateReviewerReviewStream = default,
-            global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit = default,
-            int? estimatedDurationValue = default,
-            bool? generateCertificateOnCompletion = default,
-            bool? hideCompletedQuizzes = default,
-            bool? singlePageReview = default,
-            string? summary = default,
-            string? title = default,
-            int? workspace = default,
+            bool? allowExternal = default,
+            bool? dryRun = default,
+            byte[]? file = default,
+            string? filename = default,
+            string? url = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::LabelStudio.LearningResourceRequest
+            var __request = new global::LabelStudio.ApiLearningResourcesUploadCreateRequest
             {
-                AllowStandalone = allowStandalone,
-                Color = color,
-                CoverImageUrl = coverImageUrl,
-                DefaultAllowManualAccess = defaultAllowManualAccess,
-                DefaultGateAnnotatorDataManager = defaultGateAnnotatorDataManager,
-                DefaultGateAnnotatorLabelStream = defaultGateAnnotatorLabelStream,
-                DefaultGateReviewerDataManager = defaultGateReviewerDataManager,
-                DefaultGateReviewerLabelStream = defaultGateReviewerLabelStream,
-                DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream,
-                EstimatedDurationUnit = estimatedDurationUnit,
-                EstimatedDurationValue = estimatedDurationValue,
-                GenerateCertificateOnCompletion = generateCertificateOnCompletion,
-                HideCompletedQuizzes = hideCompletedQuizzes,
-                SinglePageReview = singlePageReview,
-                Summary = summary,
-                Title = title,
-                Workspace = workspace,
+                AllowExternal = allowExternal,
+                DryRun = dryRun,
+                File = file,
+                Filename = filename,
+                Url = url,
             };
 
             return await ApiLearningResourcesUploadCreateAsync(

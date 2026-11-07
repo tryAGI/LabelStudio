@@ -24,6 +24,13 @@ namespace LabelStudio
         public bool? AllowNewsletters { get; set; }
 
         /// <summary>
+        /// Your current password. Required when you change your own password.<br/>
+        /// Included only in requests
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("current_password")]
+        public string? CurrentPassword { get; set; }
+
+        /// <summary>
         /// Custom keyboard shortcuts configuration for the user interface
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_hotkeys")]
@@ -90,6 +97,10 @@ namespace LabelStudio
         /// <param name="allowNewsletters">
         /// Allow sending newsletters to user
         /// </param>
+        /// <param name="currentPassword">
+        /// Your current password. Required when you change your own password.<br/>
+        /// Included only in requests
+        /// </param>
         /// <param name="customHotkeys">
         /// Custom keyboard shortcuts configuration for the user interface
         /// </param>
@@ -115,6 +126,7 @@ namespace LabelStudio
         public PatchedLseUserSerializerUpdateRequest(
             int? activeOrganization,
             bool? allowNewsletters,
+            string? currentPassword,
             object? customHotkeys,
             global::System.DateTime? dateJoined,
             object? emailNotificationSettings,
@@ -127,6 +139,7 @@ namespace LabelStudio
         {
             this.ActiveOrganization = activeOrganization;
             this.AllowNewsletters = allowNewsletters;
+            this.CurrentPassword = currentPassword;
             this.CustomHotkeys = customHotkeys;
             this.DateJoined = dateJoined;
             this.EmailNotificationSettings = emailNotificationSettings;
