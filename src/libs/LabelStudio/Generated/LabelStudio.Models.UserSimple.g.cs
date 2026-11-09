@@ -46,8 +46,7 @@ namespace LabelStudio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("username")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Username { get; set; }
+        public string? Username { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -58,13 +57,13 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="UserSimple" /> class.
         /// </summary>
-        /// <param name="username"></param>
         /// <param name="avatar">
         /// Included only in responses
         /// </param>
         /// <param name="email"></param>
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
+        /// <param name="username"></param>
         /// <param name="id">
         /// Included only in responses
         /// </param>
@@ -72,11 +71,11 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UserSimple(
-            string username,
             string? avatar,
             string? email,
             string? firstName,
             string? lastName,
+            string? username,
             int id = default!)
         {
             this.Avatar = avatar;
@@ -84,7 +83,7 @@ namespace LabelStudio
             this.FirstName = firstName;
             this.Id = id;
             this.LastName = lastName;
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
+            this.Username = username;
         }
 
         /// <summary>
@@ -92,18 +91,6 @@ namespace LabelStudio
         /// </summary>
         public UserSimple()
         {
-        }
-
-        /// <summary>
-        /// Creates a new <see cref="UserSimple"/> from its single non-const required field,
-        /// hardcoding any const discriminator fields.
-        /// </summary>
-        public static UserSimple FromUsername(string username)
-        {
-            return new UserSimple
-            {
-                Username = username,
-            };
         }
 
     }

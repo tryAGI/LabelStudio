@@ -127,17 +127,15 @@ namespace LabelStudio
         /// Finished tasks<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("finished_task_number")]
-        public int FinishedTaskNumber { get; set; } = default!;
+        public int? FinishedTaskNumber { get; set; }
 
         /// <summary>
         /// Honeypot annotation number in project<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("ground_truth_number")]
-        public int GroundTruthNumber { get; set; } = default!;
+        public int? GroundTruthNumber { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -198,9 +196,8 @@ namespace LabelStudio
         /// Tasks with annotations count<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("num_tasks_with_annotations")]
-        public int NumTasksWithAnnotations { get; set; } = default!;
+        public int? NumTasksWithAnnotations { get; set; }
 
         /// <summary>
         ///
@@ -237,16 +234,14 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_done")]
-        public int QueueDone { get; set; } = default!;
+        public int? QueueDone { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("queue_total")]
-        public int QueueTotal { get; set; } = default!;
+        public int? QueueTotal { get; set; }
 
         /// <summary>
         /// Reveal pre-annotations interactively
@@ -309,9 +304,8 @@ namespace LabelStudio
         /// Skipped by collaborators annotation number in project<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("skipped_annotations_number")]
-        public int SkippedAnnotationsNumber { get; set; } = default!;
+        public int? SkippedAnnotationsNumber { get; set; }
 
         /// <summary>
         ///
@@ -356,9 +350,8 @@ namespace LabelStudio
         /// Total task number in project<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("task_number")]
-        public int TaskNumber { get; set; } = default!;
+        public int? TaskNumber { get; set; }
 
         /// <summary>
         /// Project Title
@@ -370,17 +363,15 @@ namespace LabelStudio
         /// Total annotations number in project including skipped_annotations_number and ground_truth_number.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_annotations_number")]
-        public int TotalAnnotationsNumber { get; set; } = default!;
+        public int? TotalAnnotationsNumber { get; set; }
 
         /// <summary>
         /// Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("total_predictions_number")]
-        public int TotalPredictionsNumber { get; set; } = default!;
+        public int? TotalPredictionsNumber { get; set; }
 
         /// <summary>
         /// Default Value: false
@@ -392,9 +383,8 @@ namespace LabelStudio
         /// Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number<br/>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("useful_annotation_number")]
-        public int UsefulAnnotationNumber { get; set; } = default!;
+        public int? UsefulAnnotationNumber { get; set; }
 
         /// <summary>
         /// In Workspace
@@ -444,6 +434,14 @@ namespace LabelStudio
         /// <param name="expertInstruction">
         /// Labeling instructions in HTML format
         /// </param>
+        /// <param name="finishedTaskNumber">
+        /// Finished tasks<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="groundTruthNumber">
+        /// Honeypot annotation number in project<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="inputSchema"></param>
         /// <param name="internalDescription">
         /// Description (Internal)
@@ -466,11 +464,21 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
+        /// <param name="numTasksWithAnnotations">
+        /// Tasks with annotations count<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="organization"></param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage"></param>
         /// <param name="pinnedAt">
         /// Pinned date and time
+        /// </param>
+        /// <param name="queueDone">
+        /// Included only in responses
+        /// </param>
+        /// <param name="queueTotal">
+        /// Included only in responses
         /// </param>
         /// <param name="revealPreannotationsInteractively">
         /// Reveal pre-annotations interactively
@@ -490,6 +498,10 @@ namespace LabelStudio
         /// Show a skip button in interface and allow annotators to skip the task
         /// </param>
         /// <param name="skipQueue"></param>
+        /// <param name="skippedAnnotationsNumber">
+        /// Skipped by collaborators annotation number in project<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="sourceInterfaceId"></param>
         /// <param name="sourceInterfaceVersion">
         /// Stable version ID of the saved interface used to create this project.
@@ -500,11 +512,27 @@ namespace LabelStudio
         /// <param name="taskDataPassword">
         /// Task data credentials: password
         /// </param>
+        /// <param name="taskNumber">
+        /// Total task number in project<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="title">
         /// Project Title
         /// </param>
+        /// <param name="totalAnnotationsNumber">
+        /// Total annotations number in project including skipped_annotations_number and ground_truth_number.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="totalPredictionsNumber">
+        /// Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="useCustomInterface">
         /// Default Value: false
+        /// </param>
+        /// <param name="usefulAnnotationNumber">
+        /// Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number<br/>
+        /// Included only in responses
         /// </param>
         /// <param name="workspace">
         /// In Workspace
@@ -524,33 +552,11 @@ namespace LabelStudio
         /// Effective Annotator/Reviewer column deny lists. Managers+ see both roles.<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="finishedTaskNumber">
-        /// Finished tasks<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="groundTruthNumber">
-        /// Honeypot annotation number in project<br/>
-        /// Included only in responses
-        /// </param>
         /// <param name="id">
-        /// Included only in responses
-        /// </param>
-        /// <param name="numTasksWithAnnotations">
-        /// Tasks with annotations count<br/>
         /// Included only in responses
         /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueDone">
-        /// Included only in responses
-        /// </param>
-        /// <param name="queueTotal">
-        /// Included only in responses
-        /// </param>
-        /// <param name="skippedAnnotationsNumber">
-        /// Skipped by collaborators annotation number in project<br/>
         /// Included only in responses
         /// </param>
         /// <param name="startTrainingOnAnnotationUpdate">
@@ -558,22 +564,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="state">
-        /// Included only in responses
-        /// </param>
-        /// <param name="taskNumber">
-        /// Total task number in project<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="totalAnnotationsNumber">
-        /// Total annotations number in project including skipped_annotations_number and ground_truth_number.<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="totalPredictionsNumber">
-        /// Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.<br/>
-        /// Included only in responses
-        /// </param>
-        /// <param name="usefulAnnotationNumber">
-        /// Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number<br/>
         /// Included only in responses
         /// </param>
 #if NET7_0_OR_GREATER
@@ -593,6 +583,8 @@ namespace LabelStudio
             bool? enableEmptyAnnotation,
             bool? evaluatePredictionsAutomatically,
             string? expertInstruction,
+            int? finishedTaskNumber,
+            int? groundTruthNumber,
             object? inputSchema,
             object? internalDescription,
             bool? isDraft,
@@ -601,10 +593,13 @@ namespace LabelStudio
             int? maximumAnnotations,
             int? minAnnotationsToStartTraining,
             string? modelVersion,
+            int? numTasksWithAnnotations,
             int? organization,
             object? outputSchema,
             int? overlapCohortPercentage,
             global::System.DateTime? pinnedAt,
+            int? queueDone,
+            int? queueTotal,
             bool? revealPreannotationsInteractively,
             global::LabelStudio.ProjectSamplingEnum? sampling,
             bool? showAnnotationHistory,
@@ -613,31 +608,26 @@ namespace LabelStudio
             bool? showOverlapFirst,
             bool? showSkipButton,
             global::LabelStudio.SkipQueueEnum? skipQueue,
+            int? skippedAnnotationsNumber,
             int? sourceInterfaceId,
             int? sourceInterfaceVersion,
             string? taskDataLogin,
             string? taskDataPassword,
+            int? taskNumber,
             string? title,
+            int? totalAnnotationsNumber,
+            int? totalPredictionsNumber,
             bool? useCustomInterface,
+            int? usefulAnnotationNumber,
             int? workspace,
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
             global::System.DateTime createdAt = default!,
             object dmColumnAccess = default!,
-            int finishedTaskNumber = default!,
-            int groundTruthNumber = default!,
             int id = default!,
-            int numTasksWithAnnotations = default!,
             object parsedLabelConfig = default!,
-            int queueDone = default!,
-            int queueTotal = default!,
-            int skippedAnnotationsNumber = default!,
             bool startTrainingOnAnnotationUpdate = default!,
-            string state = default!,
-            int taskNumber = default!,
-            int totalAnnotationsNumber = default!,
-            int totalPredictionsNumber = default!,
-            int usefulAnnotationNumber = default!)
+            string state = default!)
         {
             this.AnnotatorEvaluationEnabled = annotatorEvaluationEnabled;
             this.CollectionMode = collectionMode;

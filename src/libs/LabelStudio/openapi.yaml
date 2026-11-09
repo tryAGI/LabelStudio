@@ -10653,7 +10653,7 @@ paths:
   /api/projects/{id}/export/formats:
     get:
       deprecated: true
-      description: |-
+      description: |2-
 
         This endpoint is deprecated in Enterprise. Use the async export API instead:
         POST /api/projects/{{id}}/exports/ (see [Create new export](api:POST/api/projects/{id}/exports/)).
@@ -33735,10 +33735,12 @@ components:
           description: Finished tasks
           readOnly: true
           type: integer
+          nullable: true
         ground_truth_number:
           description: Honeypot annotation number in project
           readOnly: true
           type: integer
+          nullable: true
         id:
           readOnly: true
           type: integer
@@ -33777,6 +33779,7 @@ components:
           description: Tasks with annotations count
           readOnly: true
           type: integer
+          nullable: true
         organization:
           nullable: true
           type: integer
@@ -33799,9 +33802,11 @@ components:
         queue_done:
           readOnly: true
           type: integer
+          nullable: true
         queue_total:
           readOnly: true
           type: integer
+          nullable: true
         reveal_preannotations_interactively:
           description: Reveal pre-annotations interactively
           type: boolean
@@ -33836,6 +33841,7 @@ components:
           description: Skipped by collaborators annotation number in project
           readOnly: true
           type: integer
+          nullable: true
         source_interface_id:
           nullable: true
           type: integer
@@ -33864,6 +33870,7 @@ components:
           description: Total task number in project
           readOnly: true
           type: integer
+          nullable: true
         title:
           description: Project Title
           maxLength: 50
@@ -33874,10 +33881,12 @@ components:
           description: Total annotations number in project including skipped_annotations_number and ground_truth_number.
           readOnly: true
           type: integer
+          nullable: true
         total_predictions_number:
           description: Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.
           readOnly: true
           type: integer
+          nullable: true
         use_custom_interface:
           default: false
           type: boolean
@@ -33885,6 +33894,7 @@ components:
           description: Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number
           readOnly: true
           type: integer
+          nullable: true
         workspace:
           description: In Workspace
           type: integer
@@ -45858,7 +45868,6 @@ components:
       required:
         - avatar
         - id
-        - username
       type: object
     UserSimpleRequest:
       description: |-
