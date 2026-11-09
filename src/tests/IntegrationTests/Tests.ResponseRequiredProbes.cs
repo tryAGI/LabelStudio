@@ -28,6 +28,16 @@ public partial class Tests
     }
 
     [TestMethod]
+    public async Task PredictionsResponseDeserializes()
+    {
+        // Prediction.created_ago - an empty list still proves the element type deserializes when
+        // the instance has predictions, and a non-empty one proves it outright.
+        var predictions = await Client.Predictions2.ListAsync();
+
+        predictions.Should().NotBeNull();
+    }
+
+    [TestMethod]
     public async Task WhoAmIResponseDeserializes()
     {
         // WhoAmIUser.initials
