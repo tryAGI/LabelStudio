@@ -48,7 +48,7 @@ namespace LabelStudio
         public required int Project { get; set; }
 
         /// <summary>
-        /// base64 encoded id<br/>
+        /// Public identifier used in share links (the random share token).<br/>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -109,7 +109,7 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="shareId">
-        /// base64 encoded id<br/>
+        /// Public identifier used in share links (the random share token).<br/>
         /// Included only in responses
         /// </param>
         /// <param name="shortUrl">
