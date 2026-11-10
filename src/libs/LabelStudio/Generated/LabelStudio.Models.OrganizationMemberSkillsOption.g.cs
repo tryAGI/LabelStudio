@@ -42,6 +42,12 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("levels")]
+        public global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? Levels { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("parent_code")]
         public string? ParentCode { get; set; }
 
@@ -74,6 +80,7 @@ namespace LabelStudio
         /// <param name="label"></param>
         /// <param name="sectionKey"></param>
         /// <param name="sectionTitle"></param>
+        /// <param name="levels"></param>
         /// <param name="parentCode"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -85,12 +92,14 @@ namespace LabelStudio
             string label,
             string sectionKey,
             string sectionTitle,
+            global::System.Collections.Generic.IList<global::System.Collections.Generic.Dictionary<string, string>>? levels,
             string? parentCode)
         {
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
             this.FieldKey = fieldKey ?? throw new global::System.ArgumentNullException(nameof(fieldKey));
             this.FieldLabel = fieldLabel ?? throw new global::System.ArgumentNullException(nameof(fieldLabel));
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
+            this.Levels = levels;
             this.ParentCode = parentCode;
             this.SectionKey = sectionKey ?? throw new global::System.ArgumentNullException(nameof(sectionKey));
             this.SectionTitle = sectionTitle ?? throw new global::System.ArgumentNullException(nameof(sectionTitle));

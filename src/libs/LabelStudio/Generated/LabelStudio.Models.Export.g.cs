@@ -38,6 +38,13 @@ namespace LabelStudio
         public global::LabelStudio.UserSimple? CreatedBy { get; set; }
 
         /// <summary>
+        /// When true, the export is omitted from list endpoints. Detail and download by id still work. TTL deletion (EPHEMERAL_EXPORT_TTL_HOURS, default 24) runs via the RQ cron scheduler when enabled (SaaS; on-prem `rqcron.enabled`); otherwise delete explicitly.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ephemeral")]
+        public bool? Ephemeral { get; set; }
+
+        /// <summary>
         /// Complete or fail time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finished_at")]
@@ -57,6 +64,12 @@ namespace LabelStudio
         public string? Md5 { get; set; }
 
         /// <summary>
+        /// Inclusive lower bound on Task.updated_at for an incremental snapshot. Omit for a full export. Pair with until for a half-open window [since, until).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("since")]
+        public global::System.DateTime? Since { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
@@ -68,6 +81,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
+
+        /// <summary>
+        /// Exclusive upper bound on Task.updated_at. If omitted, or later than create/request time minus INCREMENTAL_EXPORT_UNTIL_LAG_SECONDS, the server uses that time instead. Use the returned value as since on the next incremental create.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("until")]
+        public global::System.DateTime? Until { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -86,12 +105,22 @@ namespace LabelStudio
         /// control which fields are displayed, and whether to replace simple<br/>
         /// values with complex, nested serializations
         /// </param>
+        /// <param name="ephemeral">
+        /// When true, the export is omitted from list endpoints. Detail and download by id still work. TTL deletion (EPHEMERAL_EXPORT_TTL_HOURS, default 24) runs via the RQ cron scheduler when enabled (SaaS; on-prem `rqcron.enabled`); otherwise delete explicitly.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="finishedAt">
         /// Complete or fail time
         /// </param>
         /// <param name="md5"></param>
+        /// <param name="since">
+        /// Inclusive lower bound on Task.updated_at for an incremental snapshot. Omit for a full export. Pair with until for a half-open window [since, until).
+        /// </param>
         /// <param name="status"></param>
         /// <param name="title"></param>
+        /// <param name="until">
+        /// Exclusive upper bound on Task.updated_at. If omitted, or later than create/request time minus INCREMENTAL_EXPORT_UNTIL_LAG_SECONDS, the server uses that time instead. Use the returned value as since on the next incremental create.
+        /// </param>
         /// <param name="createdAt">
         /// Creation time<br/>
         /// Included only in responses
@@ -106,10 +135,13 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.ConvertedFormat>? convertedFormats,
             object? counters,
             global::LabelStudio.UserSimple? createdBy,
+            bool? ephemeral,
             global::System.DateTime? finishedAt,
             string? md5,
+            global::System.DateTime? since,
             global::LabelStudio.ProjectImportStatusEnum? status,
             string? title,
+            global::System.DateTime? until,
             global::System.DateTime createdAt = default!,
             int id = default!)
         {
@@ -117,11 +149,14 @@ namespace LabelStudio
             this.Counters = counters;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
+            this.Ephemeral = ephemeral;
             this.FinishedAt = finishedAt;
             this.Id = id;
             this.Md5 = md5;
+            this.Since = since;
             this.Status = status;
             this.Title = title;
+            this.Until = until;
         }
 
         /// <summary>
