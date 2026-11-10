@@ -36,6 +36,13 @@ namespace LabelStudio
         public global::LabelStudio.UserSimpleRequest? CreatedBy { get; set; }
 
         /// <summary>
+        /// When true, the export is omitted from list endpoints. Detail and download by id still work. TTL deletion (EPHEMERAL_EXPORT_TTL_HOURS, default 24) runs via the RQ cron scheduler when enabled (SaaS; on-prem `rqcron.enabled`); otherwise delete explicitly.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("ephemeral")]
+        public bool? Ephemeral { get; set; }
+
+        /// <summary>
         /// Complete or fail time
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("finished_at")]
@@ -52,6 +59,12 @@ namespace LabelStudio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("serialization_options")]
         public global::LabelStudio.SerializationOptionsRequest? SerializationOptions { get; set; }
+
+        /// <summary>
+        /// Inclusive lower bound on Task.updated_at for an incremental snapshot. Omit for a full export. Pair with until for a half-open window [since, until).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("since")]
+        public global::System.DateTime? Since { get; set; }
 
         /// <summary>
         ///
@@ -73,6 +86,12 @@ namespace LabelStudio
         public string? Title { get; set; }
 
         /// <summary>
+        /// Exclusive upper bound on Task.updated_at. If omitted, or later than create/request time minus INCREMENTAL_EXPORT_UNTIL_LAG_SECONDS, the server uses that time instead. Use the returned value as since on the next incremental create.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("until")]
+        public global::System.DateTime? Until { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,14 +109,24 @@ namespace LabelStudio
         /// control which fields are displayed, and whether to replace simple<br/>
         /// values with complex, nested serializations
         /// </param>
+        /// <param name="ephemeral">
+        /// When true, the export is omitted from list endpoints. Detail and download by id still work. TTL deletion (EPHEMERAL_EXPORT_TTL_HOURS, default 24) runs via the RQ cron scheduler when enabled (SaaS; on-prem `rqcron.enabled`); otherwise delete explicitly.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="finishedAt">
         /// Complete or fail time
         /// </param>
         /// <param name="md5"></param>
         /// <param name="serializationOptions"></param>
+        /// <param name="since">
+        /// Inclusive lower bound on Task.updated_at for an incremental snapshot. Omit for a full export. Pair with until for a half-open window [since, until).
+        /// </param>
         /// <param name="status"></param>
         /// <param name="taskFilterOptions"></param>
         /// <param name="title"></param>
+        /// <param name="until">
+        /// Exclusive upper bound on Task.updated_at. If omitted, or later than create/request time minus INCREMENTAL_EXPORT_UNTIL_LAG_SECONDS, the server uses that time instead. Use the returned value as since on the next incremental create.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -106,23 +135,29 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.ConvertedFormatRequest>? convertedFormats,
             object? counters,
             global::LabelStudio.UserSimpleRequest? createdBy,
+            bool? ephemeral,
             global::System.DateTime? finishedAt,
             string? md5,
             global::LabelStudio.SerializationOptionsRequest? serializationOptions,
+            global::System.DateTime? since,
             global::LabelStudio.ProjectImportStatusEnum? status,
             global::LabelStudio.LseTaskFilterOptionsRequest? taskFilterOptions,
-            string? title)
+            string? title,
+            global::System.DateTime? until)
         {
             this.AnnotationFilterOptions = annotationFilterOptions;
             this.ConvertedFormats = convertedFormats;
             this.Counters = counters;
             this.CreatedBy = createdBy;
+            this.Ephemeral = ephemeral;
             this.FinishedAt = finishedAt;
             this.Md5 = md5;
             this.SerializationOptions = serializationOptions;
+            this.Since = since;
             this.Status = status;
             this.TaskFilterOptions = taskFilterOptions;
             this.Title = title;
+            this.Until = until;
         }
 
         /// <summary>
