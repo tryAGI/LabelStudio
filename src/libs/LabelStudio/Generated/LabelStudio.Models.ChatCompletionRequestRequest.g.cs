@@ -27,6 +27,13 @@ namespace LabelStudio
         public required string Model { get; set; }
 
         /// <summary>
+        /// ID of a project the caller can access whose labeling config contains a Chat tag
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("project")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int Project { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -41,15 +48,20 @@ namespace LabelStudio
         /// <param name="model">
         /// Model identifier in format "provider/model-name" (e.g., "openai/gpt-4")
         /// </param>
+        /// <param name="project">
+        /// ID of a project the caller can access whose labeling config contains a Chat tag
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ChatCompletionRequestRequest(
             global::System.Collections.Generic.IList<global::LabelStudio.ChatMessageRequest> messages,
-            string model)
+            string model,
+            int project)
         {
             this.Messages = messages ?? throw new global::System.ArgumentNullException(nameof(messages));
             this.Model = model ?? throw new global::System.ArgumentNullException(nameof(model));
+            this.Project = project;
         }
 
         /// <summary>

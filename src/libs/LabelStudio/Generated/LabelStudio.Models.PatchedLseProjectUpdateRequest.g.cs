@@ -251,12 +251,6 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public object? OutputSchema { get; set; }
 
@@ -539,7 +533,6 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
@@ -651,7 +644,6 @@ namespace LabelStudio
             int? maximumAnnotations,
             int? minAnnotationsToStartTraining,
             string? modelVersion,
-            int? organization,
             object? outputSchema,
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
@@ -715,7 +707,6 @@ namespace LabelStudio
             this.MaximumAnnotations = maximumAnnotations;
             this.MinAnnotationsToStartTraining = minAnnotationsToStartTraining;
             this.ModelVersion = modelVersion;
-            this.Organization = organization;
             this.OutputSchema = outputSchema;
             this.OverlapCohortPercentage = overlapCohortPercentage;
             this.PauseOnFailedAnnotatorEvaluation = pauseOnFailedAnnotatorEvaluation;

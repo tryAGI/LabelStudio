@@ -343,10 +343,11 @@ namespace LabelStudio
         public int? NumTasksWithAnnotations { get; set; }
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
+        public int Organization { get; set; } = default!;
 
         /// <summary>
         ///
@@ -765,7 +766,6 @@ namespace LabelStudio
         /// <param name="numTasksWithAnnotations">
         /// Included only in responses
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
@@ -877,6 +877,9 @@ namespace LabelStudio
         /// <param name="membersCount">
         /// Included only in responses
         /// </param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
         /// Included only in responses
@@ -975,7 +978,6 @@ namespace LabelStudio
             int? minAnnotationsToStartTraining,
             string? modelVersion,
             int? numTasksWithAnnotations,
-            int? organization,
             object? outputSchema,
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
@@ -1012,6 +1014,7 @@ namespace LabelStudio
             bool isDimensionsEnabled = default!,
             global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
+            int organization = default!,
             object parsedLabelConfig = default!,
             global::System.Collections.Generic.IList<string> permissions = default!,
             int queueDone = default!,

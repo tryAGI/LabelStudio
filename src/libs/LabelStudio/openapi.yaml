@@ -24123,7 +24123,7 @@ components:
           readOnly: true
           type: integer
         organization:
-          nullable: true
+          readOnly: true
           type: integer
         output_schema:
           nullable: true
@@ -24320,6 +24320,7 @@ components:
         - members
         - members_count
         - num_tasks_with_annotations
+        - organization
         - parsed_label_config
         - prompts
         - queue_done
@@ -26518,9 +26519,13 @@ components:
           description: Model identifier in format "provider/model-name" (e.g., "openai/gpt-4")
           minLength: 1
           type: string
+        project:
+          description: ID of a project the caller can access whose labeling config contains a Chat tag
+          type: integer
       required:
         - messages
         - model
+        - project
       type: object
     ChatMessageRequest:
       description: |-
@@ -33368,7 +33373,7 @@ components:
           readOnly: true
           type: integer
         organization:
-          nullable: true
+          readOnly: true
           type: integer
         output_schema:
           nullable: true
@@ -33559,6 +33564,7 @@ components:
         - members
         - members_count
         - num_tasks_with_annotations
+        - organization
         - parsed_label_config
         - permissions
         - prompts
@@ -33823,8 +33829,9 @@ components:
           type: integer
           nullable: true
         organization:
-          nullable: true
+          readOnly: true
           type: integer
+          nullable: true
         output_schema:
           nullable: true
         overlap_cohort_percentage:
@@ -33949,6 +33956,7 @@ components:
         - ground_truth_number
         - id
         - num_tasks_with_annotations
+        - organization
         - parsed_label_config
         - queue_done
         - queue_total
@@ -34098,9 +34106,6 @@ components:
           description: Machine learning model version
           nullable: true
           type: string
-        organization:
-          nullable: true
-          type: integer
         output_schema:
           nullable: true
         overlap_cohort_percentage:
@@ -34477,7 +34482,7 @@ components:
           readOnly: true
           type: integer
         organization:
-          nullable: true
+          readOnly: true
           type: integer
         output_schema:
           nullable: true
@@ -34686,6 +34691,7 @@ components:
         - members
         - members_count
         - num_tasks_with_annotations
+        - organization
         - parsed_label_config
         - permissions
         - prompts
@@ -40108,9 +40114,6 @@ components:
           description: Machine learning model version
           nullable: true
           type: string
-        organization:
-          nullable: true
-          type: integer
         output_schema:
           nullable: true
         overlap_cohort_percentage:
@@ -41781,7 +41784,7 @@ components:
           readOnly: true
           type: integer
         organization:
-          nullable: true
+          readOnly: true
           type: integer
         overlap_cohort_percentage:
           maximum: 2147483647
@@ -41884,6 +41887,7 @@ components:
         - ground_truth_number
         - id
         - num_tasks_with_annotations
+        - organization
         - parsed_label_config
         - queue_done
         - queue_total
