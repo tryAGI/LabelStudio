@@ -109,6 +109,13 @@ namespace LabelStudio
         public global::System.DateTime? ReadOnlyQuickViewEnabledAt { get; set; }
 
         /// <summary>
+        /// DNS-safe organization slug used to build the default primary domain (&lt;slug&gt;.&lt;ORG_DOMAIN_BASE&gt;). Nullable until the org domains backfill runs (FIT-2959).<br/>
+        /// Included only in responses
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("slug")]
+        public string? Slug { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -168,6 +175,10 @@ namespace LabelStudio
         /// <param name="readOnlyQuickViewEnabledAt">
         /// Set to current time to prevent creating or editing annotations in quick view.
         /// </param>
+        /// <param name="slug">
+        /// DNS-safe organization slug used to build the default primary domain (&lt;slug&gt;.&lt;ORG_DOMAIN_BASE&gt;). Nullable until the org domains backfill runs (FIT-2959).<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -186,7 +197,8 @@ namespace LabelStudio
             object? interfaceSettings,
             global::System.DateTime? labelStreamNavigationDisabledAt,
             object? reactCodeSettings,
-            global::System.DateTime? readOnlyQuickViewEnabledAt)
+            global::System.DateTime? readOnlyQuickViewEnabledAt,
+            string? slug)
         {
             this.AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt;
             this.CustomInterfacesEnabled = customInterfacesEnabled;
@@ -203,6 +215,7 @@ namespace LabelStudio
             this.Organization = organization;
             this.ReactCodeSettings = reactCodeSettings;
             this.ReadOnlyQuickViewEnabledAt = readOnlyQuickViewEnabledAt;
+            this.Slug = slug;
         }
 
         /// <summary>
