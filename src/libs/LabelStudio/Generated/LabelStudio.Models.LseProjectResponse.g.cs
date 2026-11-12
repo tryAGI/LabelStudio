@@ -351,10 +351,11 @@ namespace LabelStudio
         public int NumTasksWithAnnotations { get; set; } = default!;
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
+        public int Organization { get; set; } = default!;
 
         /// <summary>
         ///
@@ -791,7 +792,6 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
@@ -932,6 +932,9 @@ namespace LabelStudio
         /// Tasks with at least one annotation. For annotators, counts only tasks this user annotated; for other roles, counts project-wide. For analytics, use annotated_tasks or related KPIs with explicit project/member filters.<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
         /// Included only in responses
@@ -1018,7 +1021,6 @@ namespace LabelStudio
             int? maximumAnnotations,
             int? minAnnotationsToStartTraining,
             string? modelVersion,
-            int? organization,
             object? outputSchema,
             int? overlapCohortPercentage,
             bool? pauseOnFailedAnnotatorEvaluation,
@@ -1063,6 +1065,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<object> members = default!,
             int membersCount = default!,
             int numTasksWithAnnotations = default!,
+            int organization = default!,
             object parsedLabelConfig = default!,
             global::System.Collections.Generic.IList<string> permissions = default!,
             int queueDone = default!,

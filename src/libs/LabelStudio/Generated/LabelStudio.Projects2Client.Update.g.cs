@@ -580,7 +580,6 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage">
         /// Annotations per task coverage
@@ -694,7 +693,6 @@ namespace LabelStudio
             int? maximumAnnotations = default,
             int? minAnnotationsToStartTraining = default,
             string? modelVersion = default,
-            int? organization = default,
             object? outputSchema = default,
             int? overlapCohortPercentage = default,
             bool? pauseOnFailedAnnotatorEvaluation = default,
@@ -762,7 +760,6 @@ namespace LabelStudio
                 MaximumAnnotations = maximumAnnotations,
                 MinAnnotationsToStartTraining = minAnnotationsToStartTraining,
                 ModelVersion = modelVersion,
-                Organization = organization,
                 OutputSchema = outputSchema,
                 OverlapCohortPercentage = overlapCohortPercentage,
                 PauseOnFailedAnnotatorEvaluation = pauseOnFailedAnnotatorEvaluation,

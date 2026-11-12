@@ -150,10 +150,11 @@ namespace LabelStudio
         public int NumTasksWithAnnotations { get; set; } = default!;
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
+        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
-        public int? Organization { get; set; }
+        public int Organization { get; set; } = default!;
 
         /// <summary>
         ///
@@ -368,7 +369,6 @@ namespace LabelStudio
         /// <param name="modelVersion">
         /// Machine learning model version
         /// </param>
-        /// <param name="organization"></param>
         /// <param name="overlapCohortPercentage"></param>
         /// <param name="pinnedAt">
         /// Pinned date and time
@@ -426,6 +426,9 @@ namespace LabelStudio
         /// Tasks with annotations count<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="parsedLabelConfig">
         /// JSON-formatted labeling configuration<br/>
         /// Included only in responses
@@ -481,7 +484,6 @@ namespace LabelStudio
             int? maximumAnnotations,
             int? minAnnotationsToStartTraining,
             string? modelVersion,
-            int? organization,
             int? overlapCohortPercentage,
             global::System.DateTime? pinnedAt,
             bool? revealPreannotationsInteractively,
@@ -502,6 +504,7 @@ namespace LabelStudio
             int groundTruthNumber = default!,
             int id = default!,
             int numTasksWithAnnotations = default!,
+            int organization = default!,
             object parsedLabelConfig = default!,
             int queueDone = default!,
             int queueTotal = default!,

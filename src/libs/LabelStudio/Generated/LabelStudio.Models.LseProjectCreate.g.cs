@@ -200,7 +200,7 @@ namespace LabelStudio
         public int? NumTasksWithAnnotations { get; set; }
 
         /// <summary>
-        ///
+        /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
         public int? Organization { get; set; }
@@ -468,7 +468,9 @@ namespace LabelStudio
         /// Tasks with annotations count<br/>
         /// Included only in responses
         /// </param>
-        /// <param name="organization"></param>
+        /// <param name="organization">
+        /// Included only in responses
+        /// </param>
         /// <param name="outputSchema"></param>
         /// <param name="overlapCohortPercentage"></param>
         /// <param name="pinnedAt">

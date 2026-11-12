@@ -480,12 +480,16 @@ namespace LabelStudio
         /// <param name="model">
         /// Model identifier in format "provider/model-name" (e.g., "openai/gpt-4")
         /// </param>
+        /// <param name="project">
+        /// ID of a project the caller can access whose labeling config contains a Chat tag
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiLlmOpenaiChatCompletionsCreateResponse> ApiLlmOpenaiChatCompletionsCreateAsync(
             global::System.Collections.Generic.IList<global::LabelStudio.ChatMessageRequest> messages,
             string model,
+            int project,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -493,6 +497,7 @@ namespace LabelStudio
             {
                 Messages = messages,
                 Model = model,
+                Project = project,
             };
 
             return await ApiLlmOpenaiChatCompletionsCreateAsync(
