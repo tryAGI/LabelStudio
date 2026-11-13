@@ -10653,14 +10653,14 @@ paths:
   /api/projects/{id}/export/formats:
     get:
       deprecated: true
-      description: |-
+      description: |2-
 
-        This endpoint is deprecated in Enterprise. Use the async export API instead:
-        POST /api/projects/{{id}}/exports/ (see [Create new export](api:POST/api/projects/{id}/exports/)).
+                This endpoint is deprecated in Enterprise. Use the async export API instead:
+                POST /api/projects/{{id}}/exports/ (see [Create new export](api:POST/api/projects/{id}/exports/)).
 
-        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.
+                In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.
 
-        Retrieve the available export formats for the current project by ID.
+                Retrieve the available export formats for the current project by ID.
       operationId: api_projects_export_formats_retrieve
       parameters:
         - description: A unique integer value identifying this project.
