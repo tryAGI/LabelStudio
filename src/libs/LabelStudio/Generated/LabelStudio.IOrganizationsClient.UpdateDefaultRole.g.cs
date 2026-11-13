@@ -57,77 +57,20 @@ namespace LabelStudio
         /// Update the default role for members of a specific organization.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="annotatorReviewerFirewallEnabledAt">
-        /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
-        /// </param>
-        /// <param name="customInterfacesEnabled">
-        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
-        /// </param>
-        /// <param name="customScriptsEnabledAt">
-        /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
-        /// </param>
         /// <param name="defaultRole">
         /// Default membership role for invited users<br/>
-        /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
         /// * `RE` - Reviewer<br/>
         /// * `AN` - Annotator<br/>
-        /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated<br/>
-        /// * `VO` - View Only
-        /// </param>
-        /// <param name="emailNotificationSettings">
-        /// Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}
-        /// </param>
-        /// <param name="embedDomains">
-        /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
-        /// </param>
-        /// <param name="embedEnabled">
-        /// Enable embed functionality for this organization
-        /// </param>
-        /// <param name="embedSettings">
-        /// Embed settings for this organization
-        /// </param>
-        /// <param name="externalId">
-        /// External ID to uniquely identify this organization
-        /// </param>
-        /// <param name="extraDataOnActivityLogs"></param>
-        /// <param name="interfaceSettings">
-        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
-        /// </param>
-        /// <param name="labelStreamNavigationDisabledAt">
-        /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
-        /// </param>
-        /// <param name="organization">
-        /// A unique integer value identifying this organization.
-        /// </param>
-        /// <param name="reactCodeSettings">
-        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
-        /// </param>
-        /// <param name="readOnlyQuickViewEnabledAt">
-        /// Set to current time to prevent creating or editing annotations in quick view.
+        /// * `NO` - Not Activated
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.DefaultRole> UpdateDefaultRoleAsync(
             int id,
-            global::System.DateTime? annotatorReviewerFirewallEnabledAt = default,
-            bool? customInterfacesEnabled = default,
-            global::System.DateTime? customScriptsEnabledAt = default,
-            global::LabelStudio.OrganizationRoleEnum? defaultRole = default,
-            object? emailNotificationSettings = default,
-            object? embedDomains = default,
-            bool? embedEnabled = default,
-            object? embedSettings = default,
-            string? externalId = default,
-            bool? extraDataOnActivityLogs = default,
-            object? interfaceSettings = default,
-            global::System.DateTime? labelStreamNavigationDisabledAt = default,
-            int? organization = default,
-            object? reactCodeSettings = default,
-            global::System.DateTime? readOnlyQuickViewEnabledAt = default,
+            global::LabelStudio.DefaultRoleDefaultRoleEnum? defaultRole = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
