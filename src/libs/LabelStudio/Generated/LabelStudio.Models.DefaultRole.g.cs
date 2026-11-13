@@ -9,111 +9,17 @@ namespace LabelStudio
     public sealed partial class DefaultRole
     {
         /// <summary>
-        /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("annotator_reviewer_firewall_enabled_at")]
-        public global::System.DateTime? AnnotatorReviewerFirewallEnabledAt { get; set; }
-
-        /// <summary>
-        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("custom_interfaces_enabled")]
-        public bool? CustomInterfacesEnabled { get; set; }
-
-        /// <summary>
-        /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("custom_scripts_enabled_at")]
-        public global::System.DateTime? CustomScriptsEnabledAt { get; set; }
-
-        /// <summary>
         /// Default membership role for invited users<br/>
-        /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
         /// * `RE` - Reviewer<br/>
         /// * `AN` - Annotator<br/>
-        /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated<br/>
-        /// * `VO` - View Only
+        /// * `NO` - Not Activated
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_role")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.OrganizationRoleEnumJsonConverter))]
-        public global::LabelStudio.OrganizationRoleEnum? DefaultRole1 { get; set; }
-
-        /// <summary>
-        /// Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("email_notification_settings")]
-        public object? EmailNotificationSettings { get; set; }
-
-        /// <summary>
-        /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("embed_domains")]
-        public object? EmbedDomains { get; set; }
-
-        /// <summary>
-        /// Enable embed functionality for this organization
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("embed_enabled")]
-        public bool? EmbedEnabled { get; set; }
-
-        /// <summary>
-        /// Embed settings for this organization
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("embed_settings")]
-        public object? EmbedSettings { get; set; }
-
-        /// <summary>
-        /// External ID to uniquely identify this organization
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("external_id")]
-        public string? ExternalId { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("extra_data_on_activity_logs")]
-        public bool? ExtraDataOnActivityLogs { get; set; }
-
-        /// <summary>
-        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("interface_settings")]
-        public object? InterfaceSettings { get; set; }
-
-        /// <summary>
-        /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("label_stream_navigation_disabled_at")]
-        public global::System.DateTime? LabelStreamNavigationDisabledAt { get; set; }
-
-        /// <summary>
-        /// A unique integer value identifying this organization.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("organization")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::LabelStudio.JsonConverters.DefaultRoleDefaultRoleEnumJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required int Organization { get; set; }
-
-        /// <summary>
-        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("react_code_settings")]
-        public object? ReactCodeSettings { get; set; }
-
-        /// <summary>
-        /// Set to current time to prevent creating or editing annotations in quick view.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("read_only_quick_view_enabled_at")]
-        public global::System.DateTime? ReadOnlyQuickViewEnabledAt { get; set; }
-
-        /// <summary>
-        /// DNS-safe organization slug used to build the default primary domain (&lt;slug&gt;.&lt;ORG_DOMAIN_BASE&gt;). Nullable until the org domains backfill runs (FIT-2959).<br/>
-        /// Included only in responses
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("slug")]
-        public string? Slug { get; set; }
+        public required global::LabelStudio.DefaultRoleDefaultRoleEnum DefaultRole1 { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -124,98 +30,21 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRole" /> class.
         /// </summary>
-        /// <param name="organization">
-        /// A unique integer value identifying this organization.
-        /// </param>
-        /// <param name="annotatorReviewerFirewallEnabledAt">
-        /// Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
-        /// </param>
-        /// <param name="customInterfacesEnabled">
-        /// Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
-        /// </param>
-        /// <param name="customScriptsEnabledAt">
-        /// Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
-        /// </param>
         /// <param name="defaultRole1">
         /// Default membership role for invited users<br/>
-        /// * `OW` - Owner<br/>
         /// * `AD` - Administrator<br/>
         /// * `MA` - Manager<br/>
         /// * `RE` - Reviewer<br/>
         /// * `AN` - Annotator<br/>
-        /// * `DI` - Deactivated<br/>
-        /// * `NO` - Not Activated<br/>
-        /// * `VO` - View Only
-        /// </param>
-        /// <param name="emailNotificationSettings">
-        /// Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}
-        /// </param>
-        /// <param name="embedDomains">
-        /// List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.
-        /// </param>
-        /// <param name="embedEnabled">
-        /// Enable embed functionality for this organization
-        /// </param>
-        /// <param name="embedSettings">
-        /// Embed settings for this organization
-        /// </param>
-        /// <param name="externalId">
-        /// External ID to uniquely identify this organization
-        /// </param>
-        /// <param name="extraDataOnActivityLogs"></param>
-        /// <param name="interfaceSettings">
-        /// Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.
-        /// </param>
-        /// <param name="labelStreamNavigationDisabledAt">
-        /// Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
-        /// </param>
-        /// <param name="reactCodeSettings">
-        /// ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}
-        /// </param>
-        /// <param name="readOnlyQuickViewEnabledAt">
-        /// Set to current time to prevent creating or editing annotations in quick view.
-        /// </param>
-        /// <param name="slug">
-        /// DNS-safe organization slug used to build the default primary domain (&lt;slug&gt;.&lt;ORG_DOMAIN_BASE&gt;). Nullable until the org domains backfill runs (FIT-2959).<br/>
-        /// Included only in responses
+        /// * `NO` - Not Activated
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public DefaultRole(
-            int organization,
-            global::System.DateTime? annotatorReviewerFirewallEnabledAt,
-            bool? customInterfacesEnabled,
-            global::System.DateTime? customScriptsEnabledAt,
-            global::LabelStudio.OrganizationRoleEnum? defaultRole1,
-            object? emailNotificationSettings,
-            object? embedDomains,
-            bool? embedEnabled,
-            object? embedSettings,
-            string? externalId,
-            bool? extraDataOnActivityLogs,
-            object? interfaceSettings,
-            global::System.DateTime? labelStreamNavigationDisabledAt,
-            object? reactCodeSettings,
-            global::System.DateTime? readOnlyQuickViewEnabledAt,
-            string? slug)
+            global::LabelStudio.DefaultRoleDefaultRoleEnum defaultRole1)
         {
-            this.AnnotatorReviewerFirewallEnabledAt = annotatorReviewerFirewallEnabledAt;
-            this.CustomInterfacesEnabled = customInterfacesEnabled;
-            this.CustomScriptsEnabledAt = customScriptsEnabledAt;
             this.DefaultRole1 = defaultRole1;
-            this.EmailNotificationSettings = emailNotificationSettings;
-            this.EmbedDomains = embedDomains;
-            this.EmbedEnabled = embedEnabled;
-            this.EmbedSettings = embedSettings;
-            this.ExternalId = externalId;
-            this.ExtraDataOnActivityLogs = extraDataOnActivityLogs;
-            this.InterfaceSettings = interfaceSettings;
-            this.LabelStreamNavigationDisabledAt = labelStreamNavigationDisabledAt;
-            this.Organization = organization;
-            this.ReactCodeSettings = reactCodeSettings;
-            this.ReadOnlyQuickViewEnabledAt = readOnlyQuickViewEnabledAt;
-            this.Slug = slug;
         }
 
         /// <summary>
