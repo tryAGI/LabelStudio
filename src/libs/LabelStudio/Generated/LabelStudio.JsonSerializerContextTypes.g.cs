@@ -2710,7 +2710,7 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        public global::LabelStudio.TriggeredBy2? Type668 { get; set; }
+        public global::LabelStudio.TriggeredBy? Type668 { get; set; }
         /// <summary>
         ///
         /// </summary>

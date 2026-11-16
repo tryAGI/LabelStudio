@@ -720,7 +720,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.StateBackfillJobItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StateBackfillStatusResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TriggeredBy2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TriggeredBy))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskAgreementMatrixResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskAssigneesMutationRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskAssignment))]
