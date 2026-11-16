@@ -9,7 +9,7 @@ namespace LabelStudio
     /// control which fields are displayed, and whether to replace simple<br/>
     /// values with complex, nested serializations
     /// </summary>
-    public sealed partial class TriggeredBy2
+    public sealed partial class TriggeredBy
     {
         /// <summary>
         ///
@@ -31,7 +31,7 @@ namespace LabelStudio
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TriggeredBy2" /> class.
+        /// Initializes a new instance of the <see cref="TriggeredBy" /> class.
         /// </summary>
         /// <param name="email"></param>
         /// <param name="id">
@@ -40,7 +40,7 @@ namespace LabelStudio
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public TriggeredBy2(
+        public TriggeredBy(
             string? email,
             int id = default!)
         {
@@ -49,9 +49,9 @@ namespace LabelStudio
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TriggeredBy2" /> class.
+        /// Initializes a new instance of the <see cref="TriggeredBy" /> class.
         /// </summary>
-        public TriggeredBy2()
+        public TriggeredBy()
         {
         }
 
