@@ -63,6 +63,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsFiltersRequestItemOperator), TypeInfoPropertyName = "PrepareParamsFiltersRequestItemOperator2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskAssigneesMutationRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskAssignment))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskDataColumnRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskDataColumnValueTypeEnum), TypeInfoPropertyName = "TaskDataColumnValueTypeEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskDataColumnResult))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType), TypeInfoPropertyName = "ApiProjectsTasksAssigneesDestroyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiTasksListFields), TypeInfoPropertyName = "ApiTasksListFields2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesBulkCreateResponse))]
@@ -82,6 +85,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(float?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsFiltersRequestItemFilter?), TypeInfoPropertyName = "NullablePrepareParamsFiltersRequestItemFilter2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PrepareParamsFiltersRequestItemOperator?), TypeInfoPropertyName = "NullablePrepareParamsFiltersRequestItemOperator2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.TaskDataColumnValueTypeEnum?), TypeInfoPropertyName = "NullableTaskDataColumnValueTypeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType?), TypeInfoPropertyName = "NullableApiProjectsTasksAssigneesDestroyType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiTasksListFields?), TypeInfoPropertyName = "NullableApiTasksListFields2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
@@ -208,6 +212,10 @@ namespace LabelStudio
 
                     || typeToConvert == typeof(global::LabelStudio.PrepareParamsFiltersRequestItemOperator?)
 
+                    || typeToConvert == typeof(global::LabelStudio.TaskDataColumnValueTypeEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.TaskDataColumnValueTypeEnum?)
+
                     || typeToConvert == typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType)
 
                     || typeToConvert == typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType?)
@@ -279,6 +287,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.PrepareParamsFiltersRequestItemOperator?))
                 {
                     return new global::LabelStudio.JsonConverters.PrepareParamsFiltersRequestItemOperatorNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.TaskDataColumnValueTypeEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.TaskDataColumnValueTypeEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.TaskDataColumnValueTypeEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.TaskDataColumnValueTypeEnumNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::LabelStudio.ApiProjectsTasksAssigneesDestroyType))

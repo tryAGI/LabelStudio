@@ -57,6 +57,12 @@ namespace LabelStudio
         public bool? GroundTruth { get; set; }
 
         /// <summary>
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("import_id")]
+        public long? ImportId { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inner_id")]
@@ -169,6 +175,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="draftExists"></param>
         /// <param name="groundTruth"></param>
+        /// <param name="importId">
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </param>
         /// <param name="innerId"></param>
         /// <param name="isLabeled">
         /// True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
@@ -210,6 +219,7 @@ namespace LabelStudio
             object? data,
             bool? draftExists,
             bool? groundTruth,
+            long? importId,
             int? innerId,
             bool? isLabeled,
             global::System.DateTime? lastCommentUpdatedAt,
@@ -234,6 +244,7 @@ namespace LabelStudio
             this.Data = data;
             this.DraftExists = draftExists;
             this.GroundTruth = groundTruth;
+            this.ImportId = importId;
             this.InnerId = innerId;
             this.IsLabeled = isLabeled;
             this.LastCommentUpdatedAt = lastCommentUpdatedAt;

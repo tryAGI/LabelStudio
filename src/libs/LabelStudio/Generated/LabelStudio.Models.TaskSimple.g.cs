@@ -66,6 +66,12 @@ namespace LabelStudio
         public int Id { get; set; } = default!;
 
         /// <summary>
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("import_id")]
+        public long? ImportId { get; set; }
+
+        /// <summary>
         /// Internal task ID in the project, starts with 1
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("inner_id")]
@@ -165,6 +171,9 @@ namespace LabelStudio
         /// <param name="fileUpload">
         /// Uploaded file used as data source for this task
         /// </param>
+        /// <param name="importId">
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </param>
         /// <param name="innerId">
         /// Internal task ID in the project, starts with 1
         /// </param>
@@ -223,6 +232,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int>? commentAuthors,
             int? commentCount,
             int? fileUpload,
+            long? importId,
             long? innerId,
             bool? isLabeled,
             global::System.DateTime? lastCommentUpdatedAt,
@@ -247,6 +257,7 @@ namespace LabelStudio
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.FileUpload = fileUpload;
             this.Id = id;
+            this.ImportId = importId;
             this.InnerId = innerId;
             this.IsLabeled = isLabeled;
             this.LastCommentUpdatedAt = lastCommentUpdatedAt;
