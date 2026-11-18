@@ -33,6 +33,7 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseEditingSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.CourseEditingSession>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseExportPayload))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseHistoryScopeEnum), TypeInfoPropertyName = "CourseHistoryScopeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseImportResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum), TypeInfoPropertyName = "EstimatedDurationUnitEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseModule))]
@@ -48,6 +49,29 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseStructureOpResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.CourseModule>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.DuplicateLearningResourceRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryAnchorUnavailable))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryCurrent))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryUser))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryDeletedPage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryError))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryListResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistoryDeletedPage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistoryPin>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryPin))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistorySession>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistorySession))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryPinKindEnum), TypeInfoPropertyName = "HistoryPinKindEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryRestoredFrom))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistorySave))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistoryUser>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistorySessionPage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistorySessionPage))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistorySessionSavesResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistorySave>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryStateModule))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryStateResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.HistoryStateModule>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryViewingResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningProgressResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningProgressUpdateRequest))]
@@ -77,7 +101,9 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedCoursePageUpdateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedLearningResourceRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedLearningResourceUpdateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedPinRenameRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PatchedProjectLearningAssignmentRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PinCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectLearningAssignment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ProjectLearningAssignmentCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.PublishLearningResourceRequest))]
@@ -90,28 +116,43 @@ namespace LabelStudio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.QuizAttemptHistoryQuiz))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.QuizAttempt>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.QuizLegacyResult))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RestorePreviewResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RestoreRequestRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RestoreResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeReasonEnum), TypeInfoPropertyName = "RetakeReasonEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RevokeCertificateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.StructureVersionConflict))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesImportCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUploadCreateRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUserProgressImportCreateRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope), TypeInfoPropertyName = "ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesUserProgressBulkResetCreateResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::LabelStudio.ProjectLearningAssignment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.CourseHistoryScopeEnum?), TypeInfoPropertyName = "NullableCourseHistoryScopeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.EstimatedDurationUnitEnum?), TypeInfoPropertyName = "NullableEstimatedDurationUnitEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.OpEnum?), TypeInfoPropertyName = "NullableOpEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.HistoryPinKindEnum?), TypeInfoPropertyName = "NullableHistoryPinKindEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum?), TypeInfoPropertyName = "NullableLearningResourceUploadResponseStatusEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeScopeEnum?), TypeInfoPropertyName = "NullableRetakeScopeEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.RetakeReasonEnum?), TypeInfoPropertyName = "NullableRetakeReasonEnum2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope?), TypeInfoPropertyName = "NullableApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.CourseEditingSession>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.CourseOutlineModule>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.CourseOutlinePage>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.CourseModule>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistoryDeletedPage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistoryPin>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistorySession>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistoryUser>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistorySessionPage>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistorySave>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.HistoryStateModule>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LearningResourceCountsItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.Certificate>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::LabelStudio.LearningResourceList>))]
@@ -207,9 +248,17 @@ namespace LabelStudio
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum)
+                    typeToConvert == typeof(global::LabelStudio.CourseHistoryScopeEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.CourseHistoryScopeEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum)
 
                     || typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.HistoryPinKindEnum)
+
+                    || typeToConvert == typeof(global::LabelStudio.HistoryPinKindEnum?)
 
                     || typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum)
 
@@ -225,13 +274,27 @@ namespace LabelStudio
 
                     || typeToConvert == typeof(global::LabelStudio.RetakeScopeEnum)
 
-                    || typeToConvert == typeof(global::LabelStudio.RetakeScopeEnum?);
+                    || typeToConvert == typeof(global::LabelStudio.RetakeScopeEnum?)
+
+                    || typeToConvert == typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope)
+
+                    || typeToConvert == typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::LabelStudio.CourseHistoryScopeEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.CourseHistoryScopeEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.CourseHistoryScopeEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.CourseHistoryScopeEnumNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum))
                 {
                     return new global::LabelStudio.JsonConverters.EstimatedDurationUnitEnumJsonConverter();
@@ -240,6 +303,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.EstimatedDurationUnitEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.EstimatedDurationUnitEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.HistoryPinKindEnum))
+                {
+                    return new global::LabelStudio.JsonConverters.HistoryPinKindEnumJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.HistoryPinKindEnum?))
+                {
+                    return new global::LabelStudio.JsonConverters.HistoryPinKindEnumNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::LabelStudio.LearningResourceUploadResponseStatusEnum))
@@ -280,6 +353,16 @@ namespace LabelStudio
                 if (typeToConvert == typeof(global::LabelStudio.RetakeScopeEnum?))
                 {
                     return new global::LabelStudio.JsonConverters.RetakeScopeEnumNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope))
+                {
+                    return new global::LabelStudio.JsonConverters.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScopeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::LabelStudio.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScope?))
+                {
+                    return new global::LabelStudio.JsonConverters.ApiLearningResourcesHistoryStatesRestorePreviewRetrieveScopeNullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }
