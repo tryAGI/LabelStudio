@@ -53,6 +53,9 @@ namespace LabelStudio
         /// </param>
         /// <param name="draftExists"></param>
         /// <param name="groundTruth"></param>
+        /// <param name="importId">
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </param>
         /// <param name="innerId"></param>
         /// <param name="isLabeled">
         /// True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
@@ -95,6 +98,7 @@ namespace LabelStudio
             object? data = default,
             bool? draftExists = default,
             bool? groundTruth = default,
+            long? importId = default,
             int? innerId = default,
             bool? isLabeled = default,
             global::System.DateTime? lastCommentUpdatedAt = default,

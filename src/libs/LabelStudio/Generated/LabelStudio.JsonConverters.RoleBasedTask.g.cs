@@ -51,6 +51,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("file_upload")) __score0++;
             if (__jsonProps.Contains("ground_truth")) __score0++;
             if (__jsonProps.Contains("id")) __score0++;
+            if (__jsonProps.Contains("import_id")) __score0++;
             if (__jsonProps.Contains("inner_id")) __score0++;
             if (__jsonProps.Contains("is_labeled")) __score0++;
             if (__jsonProps.Contains("last_comment_updated_at")) __score0++;
@@ -101,6 +102,7 @@ namespace LabelStudio.JsonConverters
             if (__jsonProps.Contains("file_upload")) __score1++;
             if (__jsonProps.Contains("ground_truth")) __score1++;
             if (__jsonProps.Contains("id")) __score1++;
+            if (__jsonProps.Contains("import_id")) __score1++;
             if (__jsonProps.Contains("inner_id")) __score1++;
             if (__jsonProps.Contains("is_labeled")) __score1++;
             if (__jsonProps.Contains("last_comment_updated_at")) __score1++;

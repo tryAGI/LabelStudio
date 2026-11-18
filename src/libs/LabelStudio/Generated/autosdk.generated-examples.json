@@ -277,6 +277,17 @@
     },
     {
       "Order": 26,
+      "Title": "Set a data column on tasks",
+      "Slug": "api-projects-tasks-data-column-create",
+      "Description": "Set one \u0060task.data\u0060 key to a different value for each listed task of the project, in one synchronous request. Only that key of the listed tasks is written: other keys and other tasks are not touched, and a new column is created on the listed tasks only (the \u0022Add or Update Columns\u0022 Data Manager action, in contrast, writes \u0060null\u0060 into every other task when it adds a column). The column then appears in the Data Manager. All values are validated first; if any is invalid, nothing is written. The response lists the tasks that were updated and the requested IDs that are not tasks of this project. Requires the same permission and feature flag as the \u0022Add or Update Columns\u0022 action. Values are not checked against the labeling configuration or a custom interface input schema. If an \u0022Add or Update Columns\u0022 action that adds the same column is still running in the background, it can overwrite the values with \u0060null\u0060.",
+      "Language": "http",
+      "Code": "### Set a data column on tasks\n# @name api_projects_tasks_data_column_create\nPOST {{host}}/api/projects/{{id}}/tasks/data-column/\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022column_name\u0022: \u0022customer_feedback\u0022,\n  \u0022value_type\u0022: \u0022String\u0022,\n  \u0022values\u0022: {\n    \u0022101\u0022: \u0022Box 3 is missing\u0022,\n    \u0022102\u0022: \u0022OK\u0022,\n    \u0022999\u0022: \u0022Unknown task\u0022\n  }\n}\n\n## Responses\n# 200\n# Description: Values set\n# Content-Type: application/json\n# 400\n# Description: Invalid column name or values; nothing was written\n# 403\n# Description: No permission, or \u0022Add or Update Columns\u0022 is disabled\n# 404\n# Description: Project not found",
+      "Format": "http",
+      "OperationId": "api_projects_tasks_data_column_create",
+      "Setup": null
+    },
+    {
+      "Order": 27,
       "Title": "\u2728 Bulk unassign workspace members",
       "Slug": "api-workspaces-memberships-bulk-destroy",
       "Description": "\u003CCard href=\u0022https://humansignal.com/goenterprise\u0022\u003E\n        \u003Cimg style=\u0022pointer-events: none; margin-left: 0px; margin-right: 0px;\u0022 src=\u0022https://docs.humansignal.com/images/badge.svg\u0022 alt=\u0022Label Studio Enterprise badge\u0022/\u003E\n        \u003Cp style=\u0022margin-top: 10px; font-size: 14px;\u0022\u003E\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        \u003C/p\u003E\n    \u003C/Card\u003E\nUnassign workspace members in bulk. Pass selector fields via query parameters (\u0060all\u0060, \u0060included\u0060, \u0060excluded\u0060) and optional paginated-list filters (\u0060search\u0060, \u0060ids\u0060). For backward compatibility, a JSON body with bulk fields is still accepted.",

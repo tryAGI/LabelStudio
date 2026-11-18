@@ -52,6 +52,9 @@ namespace LabelStudio
         /// <param name="fileUpload">
         /// Uploaded file used as data source for this task
         /// </param>
+        /// <param name="importId">
+        /// Original task ID that was at the import step (the "id" of the task in the imported data, or the source task when tasks are copied between projects), or NULL if there was none. It points one step back, so for a copy of a copy it is the ID of the intermediate copy, not of the first task
+        /// </param>
         /// <param name="innerId">
         /// Internal task ID in the project, starts with 1
         /// </param>
@@ -92,6 +95,7 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<int>? commentAuthors = default,
             int? commentCount = default,
             int? fileUpload = default,
+            long? importId = default,
             long? innerId = default,
             bool? isLabeled = default,
             global::System.DateTime? lastCommentUpdatedAt = default,
