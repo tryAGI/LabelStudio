@@ -73,7 +73,6 @@ namespace LabelStudio
         /// * `weeks` - Weeks
         /// </param>
         /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hideCompletedQuizzes"></param>
         /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
@@ -95,7 +94,6 @@ namespace LabelStudio
             bool? defaultGateReviewerReviewStream = default,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit = default,
             int? estimatedDurationValue = default,
-            bool? generateCertificateOnCompletion = default,
             bool? hideCompletedQuizzes = default,
             bool? singlePageReview = default,
             string? summary = default,

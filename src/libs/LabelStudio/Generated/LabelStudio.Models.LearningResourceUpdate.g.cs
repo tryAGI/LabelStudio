@@ -81,12 +81,6 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generate_certificate_on_completion")]
-        public bool? GenerateCertificateOnCompletion { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hide_completed_quizzes")]
         public bool? HideCompletedQuizzes { get; set; }
 
@@ -139,7 +133,6 @@ namespace LabelStudio
         /// * `weeks` - Weeks
         /// </param>
         /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hideCompletedQuizzes"></param>
         /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
@@ -160,7 +153,6 @@ namespace LabelStudio
             bool? defaultGateReviewerReviewStream,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit,
             int? estimatedDurationValue,
-            bool? generateCertificateOnCompletion,
             bool? hideCompletedQuizzes,
             bool? singlePageReview,
             string? summary,
@@ -178,7 +170,6 @@ namespace LabelStudio
             this.DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream;
             this.EstimatedDurationUnit = estimatedDurationUnit;
             this.EstimatedDurationValue = estimatedDurationValue;
-            this.GenerateCertificateOnCompletion = generateCertificateOnCompletion;
             this.HideCompletedQuizzes = hideCompletedQuizzes;
             this.SinglePageReview = singlePageReview;
             this.Summary = summary;
