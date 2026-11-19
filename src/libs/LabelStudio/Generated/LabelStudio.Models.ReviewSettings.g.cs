@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace LabelStudio
@@ -77,6 +79,7 @@ namespace LabelStudio
         /// </summary>
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("requeue_rejected_tasks_to_annotator")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool RequeueRejectedTasksToAnnotator { get; set; } = default!;
 
         /// <summary>
@@ -169,12 +172,6 @@ namespace LabelStudio
         /// Show only finished tasks in the review stream
         /// </param>
         /// <param name="project"></param>
-        /// <param name="requeueRejectedTasksMode">
-        /// Deprecated. Prefer allowed_reject_actions. Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
-        /// * `requeue` - Requeue<br/>
-        /// * `remove` - Remove<br/>
-        /// * `flexible` - Flexible
-        /// </param>
         /// <param name="requireCommentOnReject">
         /// Reviewers must leave a comment on reject
         /// </param>
@@ -210,10 +207,6 @@ namespace LabelStudio
         /// <param name="id">
         /// Included only in responses
         /// </param>
-        /// <param name="requeueRejectedTasksToAnnotator">
-        /// Deprecated. Prefer allowed_reject_actions. If set, the rejected task is requeued to the annotator<br/>
-        /// Included only in responses
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -225,7 +218,6 @@ namespace LabelStudio
             string? instruction,
             bool? onlyFinishedTasks,
             int? project,
-            global::LabelStudio.RequeueRejectedTasksModeEnum? requeueRejectedTasksMode,
             bool? requireCommentOnReject,
             global::LabelStudio.ReviewCriteriaEnum? reviewCriteria,
             bool? reviewOnlyManualAssignments,
@@ -235,8 +227,7 @@ namespace LabelStudio
             bool? showDataManagerToReviewers,
             bool? showInstruction,
             bool? showUnusedDataColumnsToReviewers,
-            int id = default!,
-            bool requeueRejectedTasksToAnnotator = default!)
+            int id = default!)
         {
             this.AllowedRejectActions = allowedRejectActions;
             this.AnnotatorBatchPercent = annotatorBatchPercent;
@@ -246,8 +237,6 @@ namespace LabelStudio
             this.Instruction = instruction;
             this.OnlyFinishedTasks = onlyFinishedTasks;
             this.Project = project;
-            this.RequeueRejectedTasksMode = requeueRejectedTasksMode;
-            this.RequeueRejectedTasksToAnnotator = requeueRejectedTasksToAnnotator;
             this.RequireCommentOnReject = requireCommentOnReject;
             this.ReviewCriteria = reviewCriteria;
             this.ReviewOnlyManualAssignments = reviewOnlyManualAssignments;
