@@ -154,12 +154,6 @@ namespace LabelStudio
         /// Show only finished tasks in the review stream
         /// </param>
         /// <param name="project"></param>
-        /// <param name="requeueRejectedTasksMode">
-        /// Deprecated. Prefer allowed_reject_actions. Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue<br/>
-        /// * `requeue` - Requeue<br/>
-        /// * `remove` - Remove<br/>
-        /// * `flexible` - Flexible
-        /// </param>
         /// <param name="requireCommentOnReject">
         /// Reviewers must leave a comment on reject
         /// </param>
@@ -203,7 +197,6 @@ namespace LabelStudio
             string? instruction,
             bool? onlyFinishedTasks,
             int? project,
-            global::LabelStudio.RequeueRejectedTasksModeEnum? requeueRejectedTasksMode,
             bool? requireCommentOnReject,
             global::LabelStudio.ReviewCriteriaEnum? reviewCriteria,
             bool? reviewOnlyManualAssignments,
@@ -221,7 +214,6 @@ namespace LabelStudio
             this.Instruction = instruction;
             this.OnlyFinishedTasks = onlyFinishedTasks;
             this.Project = project;
-            this.RequeueRejectedTasksMode = requeueRejectedTasksMode;
             this.RequireCommentOnReject = requireCommentOnReject;
             this.ReviewCriteria = reviewCriteria;
             this.ReviewOnlyManualAssignments = reviewOnlyManualAssignments;
