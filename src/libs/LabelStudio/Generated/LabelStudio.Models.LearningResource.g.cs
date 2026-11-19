@@ -107,12 +107,6 @@ namespace LabelStudio
         public int? EstimatedDurationValue { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generate_certificate_on_completion")]
-        public bool? GenerateCertificateOnCompletion { get; set; }
-
-        /// <summary>
         /// Included only in responses
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("has_unpublished_changes")]
@@ -257,7 +251,6 @@ namespace LabelStudio
         /// * `weeks` - Weeks
         /// </param>
         /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hasUnpublishedChanges">
         /// Included only in responses
         /// </param>
@@ -329,7 +322,6 @@ namespace LabelStudio
             bool? defaultGateReviewerReviewStream,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit,
             int? estimatedDurationValue,
-            bool? generateCertificateOnCompletion,
             bool? hasUnpublishedChanges,
             bool? hideCompletedQuizzes,
             bool? singlePageReview,
@@ -368,7 +360,6 @@ namespace LabelStudio
             this.DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream;
             this.EstimatedDurationUnit = estimatedDurationUnit;
             this.EstimatedDurationValue = estimatedDurationValue;
-            this.GenerateCertificateOnCompletion = generateCertificateOnCompletion;
             this.HasUnpublishedChanges = hasUnpublishedChanges;
             this.HideCompletedQuizzes = hideCompletedQuizzes;
             this.Id = id;

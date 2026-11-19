@@ -51,7 +51,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
+        /// Delete multiple learners' progress on this course. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -83,7 +83,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
+        /// Delete multiple learners' progress on this course. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="request"></param>
@@ -462,7 +462,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete multiple learners' progress on this course and revoke their certificates. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
+        /// Delete multiple learners' progress on this course. Pass `user_ids`, or `select_all` with the Learners tab `filters` to reset every matching learner. Responds 409 when `expected_count` no longer matches the filtered learners.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="expectedCount">

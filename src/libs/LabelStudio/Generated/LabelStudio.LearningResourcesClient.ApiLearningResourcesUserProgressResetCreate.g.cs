@@ -48,7 +48,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete a learner's progress on this course so they must retake it.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="userId"></param>
@@ -81,7 +81,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete a learner's progress on this course so they must retake it.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="userId"></param>
@@ -448,7 +448,7 @@ namespace LabelStudio
         ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
         ///         &lt;/p&gt;<br/>
         ///     &lt;/Card&gt;<br/>
-        /// Delete a learner's progress on this course and revoke their certificate so they must retake it.
+        /// Delete a learner's progress on this course so they must retake it.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="userId"></param>
@@ -468,7 +468,6 @@ namespace LabelStudio
         /// * `weeks` - Weeks
         /// </param>
         /// <param name="estimatedDurationValue"></param>
-        /// <param name="generateCertificateOnCompletion"></param>
         /// <param name="hideCompletedQuizzes"></param>
         /// <param name="singlePageReview"></param>
         /// <param name="summary"></param>
@@ -491,7 +490,6 @@ namespace LabelStudio
             bool? defaultGateReviewerReviewStream = default,
             global::LabelStudio.EstimatedDurationUnitEnum? estimatedDurationUnit = default,
             int? estimatedDurationValue = default,
-            bool? generateCertificateOnCompletion = default,
             bool? hideCompletedQuizzes = default,
             bool? singlePageReview = default,
             string? summary = default,
@@ -513,7 +511,6 @@ namespace LabelStudio
                 DefaultGateReviewerReviewStream = defaultGateReviewerReviewStream,
                 EstimatedDurationUnit = estimatedDurationUnit,
                 EstimatedDurationValue = estimatedDurationValue,
-                GenerateCertificateOnCompletion = generateCertificateOnCompletion,
                 HideCompletedQuizzes = hideCompletedQuizzes,
                 SinglePageReview = singlePageReview,
                 Summary = summary,
