@@ -33,7 +33,8 @@ namespace LabelStudio
             ref int? pageSize,
             ref string? scope,
             ref string? search,
-            ref int? workspace);
+            ref int? workspace,
+            ref int? workspaceOrShared);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -43,7 +44,8 @@ namespace LabelStudio
             int? pageSize,
             string? scope,
             string? search,
-            int? workspace);
+            int? workspace,
+            int? workspaceOrShared);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -70,6 +72,7 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="workspace"></param>
+        /// <param name="workspaceOrShared"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -81,6 +84,7 @@ namespace LabelStudio
             string? scope = default,
             string? search = default,
             int? workspace = default,
+            int? workspaceOrShared = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -92,6 +96,7 @@ namespace LabelStudio
                 scope: scope,
                 search: search,
                 workspace: workspace,
+                workspaceOrShared: workspaceOrShared,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -115,6 +120,7 @@ namespace LabelStudio
         /// <param name="scope"></param>
         /// <param name="search"></param>
         /// <param name="workspace"></param>
+        /// <param name="workspaceOrShared"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
@@ -126,6 +132,7 @@ namespace LabelStudio
             string? scope = default,
             string? search = default,
             int? workspace = default,
+            int? workspaceOrShared = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -139,7 +146,8 @@ namespace LabelStudio
                 pageSize: ref pageSize,
                 scope: ref scope,
                 search: ref search,
-                workspace: ref workspace);
+                workspace: ref workspace,
+                workspaceOrShared: ref workspaceOrShared);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -175,6 +183,7 @@ namespace LabelStudio
                                 .AddOptionalParameter("scope", scope)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("workspace", workspace?.ToString())
+                                .AddOptionalParameter("workspace_or_shared", workspaceOrShared?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -222,7 +231,8 @@ namespace LabelStudio
                     pageSize: pageSize,
                     scope: scope,
                     search: search,
-                    workspace: workspace);
+                    workspace: workspace,
+                    workspaceOrShared: workspaceOrShared);
 
                 return __httpRequest;
             }
