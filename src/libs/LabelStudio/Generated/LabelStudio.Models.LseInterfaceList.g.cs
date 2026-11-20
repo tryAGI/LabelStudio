@@ -68,6 +68,12 @@ namespace LabelStudio
         public bool IsSystem { get; set; } = default!;
 
         /// <summary>
+        /// Stable id of the latest published version, for pickers that show "vN" without loading the versions JSON (derived from versions JSON; 0 for an interface without a versions array)
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("latest_published_version")]
+        public int? LatestPublishedVersion { get; set; }
+
+        /// <summary>
         /// Arbitrary metadata for this interface
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
@@ -131,6 +137,9 @@ namespace LabelStudio
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>
+        /// <param name="latestPublishedVersion">
+        /// Stable id of the latest published version, for pickers that show "vN" without loading the versions JSON (derived from versions JSON; 0 for an interface without a versions array)
+        /// </param>
         /// <param name="metadata">
         /// Arbitrary metadata for this interface
         /// </param>
@@ -182,6 +191,7 @@ namespace LabelStudio
         public LseInterfaceList(
             string title,
             string? description,
+            int? latestPublishedVersion,
             object? metadata,
             int? publishedVersionsCount,
             string? typeName,
@@ -205,6 +215,7 @@ namespace LabelStudio
             this.HasScenarios = hasScenarios;
             this.Id = id;
             this.IsSystem = isSystem;
+            this.LatestPublishedVersion = latestPublishedVersion;
             this.Metadata = metadata;
             this.ProjectsCount = projectsCount;
             this.PublishedVersionsCount = publishedVersionsCount;
