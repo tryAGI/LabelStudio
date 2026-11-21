@@ -3,7 +3,7 @@
 
 namespace LabelStudio
 {
-    public partial class UsersClient
+    public partial class Users2Client
     {
 
 

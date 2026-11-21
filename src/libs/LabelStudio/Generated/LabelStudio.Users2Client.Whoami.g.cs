@@ -3,11 +3,11 @@
 
 namespace LabelStudio
 {
-    public partial class UsersClient
+    public partial class Users2Client
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_GetTokenSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_WhoamiSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,36 +21,36 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetTokenSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_WhoamiSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_GetTokenSecurityRequirement0,
+            {                s_WhoamiSecurityRequirement0,
             };
-        partial void PrepareGetTokenArguments(
+        partial void PrepareWhoamiArguments(
             global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetTokenRequest(
+        partial void PrepareWhoamiRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetTokenResponse(
+        partial void ProcessWhoamiResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetTokenResponseContent(
+        partial void ProcessWhoamiResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get user token<br/>
-        /// Get a user token to authenticate to the API as the current user.
+        /// Retrieve my user<br/>
+        /// Retrieve details of the account that you are using to access the API.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse> GetTokenAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.WhoAmIUser> WhoamiAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetTokenAsResponseAsync(
+            var __response = await WhoamiAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +58,26 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Get user token<br/>
-        /// Get a user token to authenticate to the API as the current user.
+        /// Retrieve my user<br/>
+        /// Retrieve details of the account that you are using to access the API.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse>> GetTokenAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>> WhoamiAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetTokenArguments(
+            PrepareWhoamiArguments(
                 httpClient: HttpClient);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetTokenSecurityRequirements,
-                operationName: "GetTokenAsync");
+                securityRequirements: s_WhoamiSecurityRequirements,
+                operationName: "WhoamiAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,7 +97,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: "/api/current-user/token",
+                                path: "/api/current-user/whoami",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -136,7 +136,7 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetTokenRequest(
+                PrepareWhoamiRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest);
 
@@ -155,9 +155,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetToken",
-                                methodName: "GetTokenAsync",
-                                pathTemplate: "\"/api/current-user/token\"",
+                                operationId: "Whoami",
+                                methodName: "WhoamiAsync",
+                                pathTemplate: "\"/api/current-user/whoami\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -189,9 +189,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetToken",
-                                methodName: "GetTokenAsync",
-                                pathTemplate: "\"/api/current-user/token\"",
+                                operationId: "Whoami",
+                                methodName: "WhoamiAsync",
+                                pathTemplate: "\"/api/current-user/whoami\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -230,9 +230,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetToken",
-                                methodName: "GetTokenAsync",
-                                pathTemplate: "\"/api/current-user/token\"",
+                                operationId: "Whoami",
+                                methodName: "WhoamiAsync",
+                                pathTemplate: "\"/api/current-user/whoami\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -270,7 +270,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetTokenResponse(
+                ProcessWhoamiResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,9 +278,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetToken",
-                                methodName: "GetTokenAsync",
-                                pathTemplate: "\"/api/current-user/token\"",
+                                operationId: "Whoami",
+                                methodName: "WhoamiAsync",
+                                pathTemplate: "\"/api/current-user/whoami\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,9 +300,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetToken",
-                                methodName: "GetTokenAsync",
-                                pathTemplate: "\"/api/current-user/token\"",
+                                operationId: "Whoami",
+                                methodName: "WhoamiAsync",
+                                pathTemplate: "\"/api/current-user/whoami\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -330,7 +330,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetTokenResponseContent(
+                                ProcessWhoamiResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -339,9 +339,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ApiCurrentUserTokenRetrieveResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.WhoAmIUser.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -371,9 +371,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ApiCurrentUserTokenRetrieveResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.WhoAmIUser.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

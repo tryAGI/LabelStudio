@@ -3,11 +3,11 @@
 
 namespace LabelStudio
 {
-    public partial class UsersClient
+    public partial class Users2Client
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_DeleteSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UpdateSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,66 +21,86 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_DeleteSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UpdateSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_DeleteSecurityRequirement0,
+            {                s_UpdateSecurityRequirement0,
             };
-        partial void PrepareDeleteArguments(
+        partial void PrepareUpdateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int id);
-        partial void PrepareDeleteRequest(
+            ref int id,
+            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request);
+        partial void PrepareUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int id);
-        partial void ProcessDeleteResponse(
+            int id,
+            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request);
+        partial void ProcessUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessUpdateResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete user<br/>
-        /// Delete a specific Label Studio user. Only available in community edition.<br/>
-        /// &lt;Warning&gt;Use caution when deleting a user, as this can cause issues such as breaking the "Annotated by" filter or leaving orphaned records.&lt;/Warning&gt;
+        /// Update user details<br/>
+        ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
+        ///
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task DeleteAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> UpdateAsync(
             int id,
+
+            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await DeleteAsResponseAsync(
+            var __response = await UpdateAsResponseAsync(
                 id: id,
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Delete user<br/>
-        /// Delete a specific Label Studio user. Only available in community edition.<br/>
-        /// &lt;Warning&gt;Use caution when deleting a user, as this can cause issues such as breaking the "Annotated by" filter or leaving orphaned records.&lt;/Warning&gt;
+        /// Update user details<br/>
+        ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
+        ///
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> DeleteAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>> UpdateAsResponseAsync(
             int id,
+
+            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeleteArguments(
+            PrepareUpdateArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeleteSecurityRequirements,
-                operationName: "DeleteAsync");
+                securityRequirements: s_UpdateSecurityRequirements,
+                operationName: "UpdateAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -108,7 +128,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Delete,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -131,6 +151,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -139,10 +165,11 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeleteRequest(
+                PrepareUpdateRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id);
+                    id: id,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -159,10 +186,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Delete",
-                                methodName: "DeleteAsync",
+                                operationId: "Update",
+                                methodName: "UpdateAsync",
                                 pathTemplate: "$\"/api/users/{id}/\"",
-                                httpMethod: "DELETE",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -193,10 +220,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Delete",
-                                methodName: "DeleteAsync",
+                                operationId: "Update",
+                                methodName: "UpdateAsync",
                                 pathTemplate: "$\"/api/users/{id}/\"",
-                                httpMethod: "DELETE",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -234,10 +261,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Delete",
-                                methodName: "DeleteAsync",
+                                operationId: "Update",
+                                methodName: "UpdateAsync",
                                 pathTemplate: "$\"/api/users/{id}/\"",
-                                httpMethod: "DELETE",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -274,7 +301,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeleteResponse(
+                ProcessUpdateResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -282,10 +309,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Delete",
-                                methodName: "DeleteAsync",
+                                operationId: "Update",
+                                methodName: "UpdateAsync",
                                 pathTemplate: "$\"/api/users/{id}/\"",
-                                httpMethod: "DELETE",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -304,10 +331,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Delete",
-                                methodName: "DeleteAsync",
+                                operationId: "Update",
+                                methodName: "UpdateAsync",
                                 pathTemplate: "$\"/api/users/{id}/\"",
-                                httpMethod: "DELETE",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -334,15 +361,22 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessUpdateResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::LabelStudio.AutoSDKHttpResponse(
+                                    var __value = global::LabelStudio.LseUser.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -362,10 +396,19 @@ namespace LabelStudio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::LabelStudio.AutoSDKHttpResponse(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    var __value = await global::LabelStudio.LseUser.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -400,6 +443,81 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Update user details<br/>
+        ///         Update details for a specific user, such as their name or contact information, in Label Studio.<br/>
+        ///
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="activeOrganization"></param>
+        /// <param name="allowNewsletters">
+        /// Allow sending newsletters to user
+        /// </param>
+        /// <param name="currentPassword">
+        /// Your current password. Required when you change your own password.<br/>
+        /// Included only in requests
+        /// </param>
+        /// <param name="customHotkeys">
+        /// Custom keyboard shortcuts configuration for the user interface
+        /// </param>
+        /// <param name="dateJoined"></param>
+        /// <param name="emailNotificationSettings">
+        /// Included only in requests
+        /// </param>
+        /// <param name="firstName"></param>
+        /// <param name="isEmailVerified">
+        /// Included only in requests
+        /// </param>
+        /// <param name="lastName"></param>
+        /// <param name="onboardingState">
+        /// Included only in requests
+        /// </param>
+        /// <param name="password">
+        /// Included only in requests
+        /// </param>
+        /// <param name="phone"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> UpdateAsync(
+            int id,
+            int? activeOrganization = default,
+            bool? allowNewsletters = default,
+            string? currentPassword = default,
+            object? customHotkeys = default,
+            global::System.DateTime? dateJoined = default,
+            object? emailNotificationSettings = default,
+            string? firstName = default,
+            bool? isEmailVerified = default,
+            string? lastName = default,
+            string? onboardingState = default,
+            string? password = default,
+            string? phone = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.PatchedLseUserSerializerUpdateRequest
+            {
+                ActiveOrganization = activeOrganization,
+                AllowNewsletters = allowNewsletters,
+                CurrentPassword = currentPassword,
+                CustomHotkeys = customHotkeys,
+                DateJoined = dateJoined,
+                EmailNotificationSettings = emailNotificationSettings,
+                FirstName = firstName,
+                IsEmailVerified = isEmailVerified,
+                LastName = lastName,
+                OnboardingState = onboardingState,
+                Password = password,
+                Phone = phone,
+            };
+
+            return await UpdateAsync(
+                id: id,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

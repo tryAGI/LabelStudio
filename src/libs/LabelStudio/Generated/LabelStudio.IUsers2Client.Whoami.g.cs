@@ -2,26 +2,26 @@
 
 namespace LabelStudio
 {
-    public partial interface IUsersClient
+    public partial interface IUsers2Client
     {
         /// <summary>
-        /// Get user token<br/>
-        /// Get a user token to authenticate to the API as the current user.
+        /// Retrieve my user<br/>
+        /// Retrieve details of the account that you are using to access the API.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse> GetTokenAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.WhoAmIUser> WhoamiAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get user token<br/>
-        /// Get a user token to authenticate to the API as the current user.
+        /// Retrieve my user<br/>
+        /// Retrieve details of the account that you are using to access the API.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserTokenRetrieveResponse>> GetTokenAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>> WhoamiAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
