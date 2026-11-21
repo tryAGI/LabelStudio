@@ -3,11 +3,11 @@
 
 namespace LabelStudio
 {
-    public partial class UsersClient
+    public partial class Users2Client
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ResetTokenSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_CreateSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,36 +21,43 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ResetTokenSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_CreateSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_ResetTokenSecurityRequirement0,
+            {                s_CreateSecurityRequirement0,
             };
-        partial void PrepareResetTokenArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareResetTokenRequest(
+        partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessResetTokenResponse(
+            global::LabelStudio.LseUserRequest request);
+        partial void PrepareCreateRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::LabelStudio.LseUserRequest request);
+        partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessResetTokenResponseContent(
+        partial void ProcessCreateResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Reset user token<br/>
-        /// Reset the user token for the current user.
+        /// Create new user<br/>
+        /// Create a user in Label Studio.
         /// </summary>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiCurrentUserResetTokenCreateResponse> ResetTokenAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> CreateAsync(
+
+            global::LabelStudio.LseUserRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await ResetTokenAsResponseAsync(
+            var __response = await CreateAsResponseAsync(
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +65,32 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Reset user token<br/>
-        /// Reset the user token for the current user.
+        /// Create new user<br/>
+        /// Create a user in Label Studio.
         /// </summary>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserResetTokenCreateResponse>> ResetTokenAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>> CreateAsResponseAsync(
+
+            global::LabelStudio.LseUserRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareResetTokenArguments(
-                httpClient: HttpClient);
+            PrepareCreateArguments(
+                httpClient: HttpClient,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_ResetTokenSecurityRequirements,
-                operationName: "ResetTokenAsync");
+                securityRequirements: s_CreateSecurityRequirements,
+                operationName: "CreateAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,7 +110,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: "/api/current-user/reset-token/",
+                                path: "/api/users/",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -128,6 +141,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -136,9 +155,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareResetTokenRequest(
+                PrepareCreateRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -155,9 +175,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ResetToken",
-                                methodName: "ResetTokenAsync",
-                                pathTemplate: "\"/api/current-user/reset-token/\"",
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/api/users/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -189,9 +209,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ResetToken",
-                                methodName: "ResetTokenAsync",
-                                pathTemplate: "\"/api/current-user/reset-token/\"",
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/api/users/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -230,9 +250,9 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ResetToken",
-                                methodName: "ResetTokenAsync",
-                                pathTemplate: "\"/api/current-user/reset-token/\"",
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/api/users/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -270,7 +290,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessResetTokenResponse(
+                ProcessCreateResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,9 +298,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ResetToken",
-                                methodName: "ResetTokenAsync",
-                                pathTemplate: "\"/api/current-user/reset-token/\"",
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/api/users/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,9 +320,9 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "ResetToken",
-                                methodName: "ResetTokenAsync",
-                                pathTemplate: "\"/api/current-user/reset-token/\"",
+                                operationId: "Create",
+                                methodName: "CreateAsync",
+                                pathTemplate: "\"/api/users/\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -330,7 +350,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessResetTokenResponseContent(
+                                ProcessCreateResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -339,9 +359,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.ApiCurrentUserResetTokenCreateResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.LseUser.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserResetTokenCreateResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -371,9 +391,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.ApiCurrentUserResetTokenCreateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.LseUser.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiCurrentUserResetTokenCreateResponse>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUser>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -412,6 +432,62 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Create new user<br/>
+        /// Create a user in Label Studio.
+        /// </summary>
+        /// <param name="activeOrganization"></param>
+        /// <param name="allowNewsletters">
+        /// Allow sending newsletters to user
+        /// </param>
+        /// <param name="customHotkeys">
+        /// Custom keyboard shortcuts configuration for the user interface
+        /// </param>
+        /// <param name="dateJoined"></param>
+        /// <param name="email"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="password">
+        /// Included only in requests
+        /// </param>
+        /// <param name="phone"></param>
+        /// <param name="username"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUser> CreateAsync(
+            string username,
+            int? activeOrganization = default,
+            bool? allowNewsletters = default,
+            object? customHotkeys = default,
+            global::System.DateTime? dateJoined = default,
+            string? email = default,
+            string? firstName = default,
+            string? lastName = default,
+            string? password = default,
+            string? phone = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.LseUserRequest
+            {
+                ActiveOrganization = activeOrganization,
+                AllowNewsletters = allowNewsletters,
+                CustomHotkeys = customHotkeys,
+                DateJoined = dateJoined,
+                Email = email,
+                FirstName = firstName,
+                LastName = lastName,
+                Password = password,
+                Phone = phone,
+                Username = username,
+            };
+
+            return await CreateAsync(
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

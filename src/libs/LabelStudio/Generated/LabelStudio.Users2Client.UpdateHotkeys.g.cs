@@ -3,11 +3,11 @@
 
 namespace LabelStudio
 {
-    public partial class UsersClient
+    public partial class Users2Client
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_GetHotkeysSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UpdateHotkeysSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,40 +21,47 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_GetHotkeysSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UpdateHotkeysSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_GetHotkeysSecurityRequirement0,
+            {                s_UpdateHotkeysSecurityRequirement0,
             };
-        partial void PrepareGetHotkeysArguments(
+        partial void PrepareUpdateHotkeysArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref int? project);
-        partial void PrepareGetHotkeysRequest(
+            ref int? project,
+            global::LabelStudio.PatchedHotkeysRequest request);
+        partial void PrepareUpdateHotkeysRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? project);
-        partial void ProcessGetHotkeysResponse(
+            int? project,
+            global::LabelStudio.PatchedHotkeysRequest request);
+        partial void ProcessUpdateHotkeysResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetHotkeysResponseContent(
+        partial void ProcessUpdateHotkeysResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get user hotkeys<br/>
-        /// Retrieve the current user’s account hotkeys, or their stored personal override for the optional project scope.
+        /// Update user hotkeys<br/>
+        /// Update the current user’s account hotkeys, or their personal override for the optional project scope.
         /// </summary>
         /// <param name="project"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.Hotkeys> GetHotkeysAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.Hotkeys> UpdateHotkeysAsync(
+
+            global::LabelStudio.PatchedHotkeysRequest request,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetHotkeysAsResponseAsync(
+            var __response = await UpdateHotkeysAsResponseAsync(
+
+                request: request,
                 project: project,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -63,29 +70,35 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Get user hotkeys<br/>
-        /// Retrieve the current user’s account hotkeys, or their stored personal override for the optional project scope.
+        /// Update user hotkeys<br/>
+        /// Update the current user’s account hotkeys, or their personal override for the optional project scope.
         /// </summary>
         /// <param name="project"></param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Hotkeys>> GetHotkeysAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.Hotkeys>> UpdateHotkeysAsResponseAsync(
+
+            global::LabelStudio.PatchedHotkeysRequest request,
             int? project = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetHotkeysArguments(
+            PrepareUpdateHotkeysArguments(
                 httpClient: HttpClient,
-                project: ref project);
+                project: ref project,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetHotkeysSecurityRequirements,
-                operationName: "GetHotkeysAsync");
+                securityRequirements: s_UpdateHotkeysSecurityRequirements,
+                operationName: "UpdateHotkeysAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -116,7 +129,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -139,6 +152,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -147,10 +166,11 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetHotkeysRequest(
+                PrepareUpdateHotkeysRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    project: project);
+                    project: project,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -167,10 +187,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetHotkeys",
-                                methodName: "GetHotkeysAsync",
+                                operationId: "UpdateHotkeys",
+                                methodName: "UpdateHotkeysAsync",
                                 pathTemplate: "\"/api/current-user/hotkeys/\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -201,10 +221,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetHotkeys",
-                                methodName: "GetHotkeysAsync",
+                                operationId: "UpdateHotkeys",
+                                methodName: "UpdateHotkeysAsync",
                                 pathTemplate: "\"/api/current-user/hotkeys/\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -242,10 +262,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetHotkeys",
-                                methodName: "GetHotkeysAsync",
+                                operationId: "UpdateHotkeys",
+                                methodName: "UpdateHotkeysAsync",
                                 pathTemplate: "\"/api/current-user/hotkeys/\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -282,7 +302,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetHotkeysResponse(
+                ProcessUpdateHotkeysResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -290,10 +310,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetHotkeys",
-                                methodName: "GetHotkeysAsync",
+                                operationId: "UpdateHotkeys",
+                                methodName: "UpdateHotkeysAsync",
                                 pathTemplate: "\"/api/current-user/hotkeys/\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -312,10 +332,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetHotkeys",
-                                methodName: "GetHotkeysAsync",
+                                operationId: "UpdateHotkeys",
+                                methodName: "UpdateHotkeysAsync",
                                 pathTemplate: "\"/api/current-user/hotkeys/\"",
-                                httpMethod: "GET",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -502,7 +522,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetHotkeysResponseContent(
+                                ProcessUpdateHotkeysResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -584,6 +604,32 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Update user hotkeys<br/>
+        /// Update the current user’s account hotkeys, or their personal override for the optional project scope.
+        /// </summary>
+        /// <param name="project"></param>
+        /// <param name="customHotkeys"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.Hotkeys> UpdateHotkeysAsync(
+            int? project = default,
+            object? customHotkeys = default,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.PatchedHotkeysRequest
+            {
+                CustomHotkeys = customHotkeys,
+            };
+
+            return await UpdateHotkeysAsync(
+                project: project,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

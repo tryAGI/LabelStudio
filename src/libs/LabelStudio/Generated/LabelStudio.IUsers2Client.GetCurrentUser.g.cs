@@ -2,7 +2,7 @@
 
 namespace LabelStudio
 {
-    public partial interface IUsersClient
+    public partial interface IUsers2Client
     {
         /// <summary>
         /// ✨ Get current user info<br/>

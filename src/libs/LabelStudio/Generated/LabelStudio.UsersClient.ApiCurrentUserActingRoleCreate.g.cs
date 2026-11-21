@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_WhoamiSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiCurrentUserActingRoleCreateSecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,36 +21,43 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_WhoamiSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiCurrentUserActingRoleCreateSecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_WhoamiSecurityRequirement0,
+            {                s_ApiCurrentUserActingRoleCreateSecurityRequirement0,
             };
-        partial void PrepareWhoamiArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareWhoamiRequest(
+        partial void PrepareApiCurrentUserActingRoleCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessWhoamiResponse(
+            global::LabelStudio.ActingRoleStartRequest request);
+        partial void PrepareApiCurrentUserActingRoleCreateRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::LabelStudio.ActingRoleStartRequest request);
+        partial void ProcessApiCurrentUserActingRoleCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessWhoamiResponseContent(
+        partial void ProcessApiCurrentUserActingRoleCreateResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Retrieve my user<br/>
-        /// Retrieve details of the account that you are using to access the API.
+        /// Start acting as a role<br/>
+        /// Act as a lower role in your active organization. Replaces the role you act as now.
         /// </summary>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.WhoAmIUser> WhoamiAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ActingRole> ApiCurrentUserActingRoleCreateAsync(
+
+            global::LabelStudio.ActingRoleStartRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await WhoamiAsResponseAsync(
+            var __response = await ApiCurrentUserActingRoleCreateAsResponseAsync(
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +65,32 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// Retrieve my user<br/>
-        /// Retrieve details of the account that you are using to access the API.
+        /// Start acting as a role<br/>
+        /// Act as a lower role in your active organization. Replaces the role you act as now.
         /// </summary>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>> WhoamiAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>> ApiCurrentUserActingRoleCreateAsResponseAsync(
+
+            global::LabelStudio.ActingRoleStartRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareWhoamiArguments(
-                httpClient: HttpClient);
+            PrepareApiCurrentUserActingRoleCreateArguments(
+                httpClient: HttpClient,
+                request: request);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_WhoamiSecurityRequirements,
-                operationName: "WhoamiAsync");
+                securityRequirements: s_ApiCurrentUserActingRoleCreateSecurityRequirements,
+                operationName: "ApiCurrentUserActingRoleCreateAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,7 +110,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: "/api/current-user/whoami",
+                                path: "/api/current-user/acting-role",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -105,7 +118,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Get,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -128,6 +141,12 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -136,9 +155,10 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareWhoamiRequest(
+                PrepareApiCurrentUserActingRoleCreateRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -155,10 +175,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Whoami",
-                                methodName: "WhoamiAsync",
-                                pathTemplate: "\"/api/current-user/whoami\"",
-                                httpMethod: "GET",
+                                operationId: "ApiCurrentUserActingRoleCreate",
+                                methodName: "ApiCurrentUserActingRoleCreateAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -189,10 +209,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Whoami",
-                                methodName: "WhoamiAsync",
-                                pathTemplate: "\"/api/current-user/whoami\"",
-                                httpMethod: "GET",
+                                operationId: "ApiCurrentUserActingRoleCreate",
+                                methodName: "ApiCurrentUserActingRoleCreateAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -230,10 +250,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Whoami",
-                                methodName: "WhoamiAsync",
-                                pathTemplate: "\"/api/current-user/whoami\"",
-                                httpMethod: "GET",
+                                operationId: "ApiCurrentUserActingRoleCreate",
+                                methodName: "ApiCurrentUserActingRoleCreateAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -270,7 +290,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessWhoamiResponse(
+                ProcessApiCurrentUserActingRoleCreateResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,10 +298,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Whoami",
-                                methodName: "WhoamiAsync",
-                                pathTemplate: "\"/api/current-user/whoami\"",
-                                httpMethod: "GET",
+                                operationId: "ApiCurrentUserActingRoleCreate",
+                                methodName: "ApiCurrentUserActingRoleCreateAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -300,10 +320,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "Whoami",
-                                methodName: "WhoamiAsync",
-                                pathTemplate: "\"/api/current-user/whoami\"",
-                                httpMethod: "GET",
+                                operationId: "ApiCurrentUserActingRoleCreate",
+                                methodName: "ApiCurrentUserActingRoleCreateAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -330,7 +350,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessWhoamiResponseContent(
+                                ProcessApiCurrentUserActingRoleCreateResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -339,9 +359,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.WhoAmIUser.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.ActingRole.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -371,9 +391,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.WhoAmIUser.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.ActingRole.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.WhoAmIUser>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -412,6 +432,35 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Start acting as a role<br/>
+        /// Act as a lower role in your active organization. Replaces the role you act as now.
+        /// </summary>
+        /// <param name="role">
+        /// Role to act as<br/>
+        /// * `AD` - Administrator<br/>
+        /// * `MA` - Manager<br/>
+        /// * `RE` - Reviewer<br/>
+        /// * `AN` - Annotator
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ActingRole> ApiCurrentUserActingRoleCreateAsync(
+            global::LabelStudio.ActingRoleStartRoleEnum role,
+            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::LabelStudio.ActingRoleStartRequest
+            {
+                Role = role,
+            };
+
+            return await ApiCurrentUserActingRoleCreateAsync(
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

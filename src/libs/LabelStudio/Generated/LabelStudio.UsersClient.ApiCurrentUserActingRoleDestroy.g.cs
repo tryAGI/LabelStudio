@@ -7,7 +7,7 @@ namespace LabelStudio
     {
 
 
-        private static readonly global::LabelStudio.EndPointSecurityRequirement s_UpdateCurrentUserSecurityRequirement0 =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement s_ApiCurrentUserActingRoleDestroySecurityRequirement0 =
             new global::LabelStudio.EndPointSecurityRequirement
             {
                 Authorizations = new global::LabelStudio.EndPointAuthorizationRequirement[]
@@ -21,49 +21,36 @@ namespace LabelStudio
                     },
                 },
             };
-        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_UpdateCurrentUserSecurityRequirements =
+        private static readonly global::LabelStudio.EndPointSecurityRequirement[] s_ApiCurrentUserActingRoleDestroySecurityRequirements =
             new global::LabelStudio.EndPointSecurityRequirement[]
-            {                s_UpdateCurrentUserSecurityRequirement0,
+            {                s_ApiCurrentUserActingRoleDestroySecurityRequirement0,
             };
-        partial void PrepareUpdateCurrentUserArguments(
+        partial void PrepareApiCurrentUserActingRoleDestroyArguments(
+            global::System.Net.Http.HttpClient httpClient);
+        partial void PrepareApiCurrentUserActingRoleDestroyRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request);
-        partial void PrepareUpdateCurrentUserRequest(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request);
-        partial void ProcessUpdateCurrentUserResponse(
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+        partial void ProcessApiCurrentUserActingRoleDestroyResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessUpdateCurrentUserResponseContent(
+        partial void ProcessApiCurrentUserActingRoleDestroyResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// ✨ Update current user<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Update details for the currently authenticated user.
+        /// Stop acting as a role<br/>
+        /// Go back to your own role.
         /// </summary>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUserAPI> UpdateCurrentUserAsync(
-
-            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request,
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.ActingRole> ApiCurrentUserActingRoleDestroyAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await UpdateCurrentUserAsResponseAsync(
-
-                request: request,
+            var __response = await ApiCurrentUserActingRoleDestroyAsResponseAsync(
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,38 +58,26 @@ namespace LabelStudio
             return __response.Body;
         }
         /// <summary>
-        /// ✨ Update current user<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Update details for the currently authenticated user.
+        /// Stop acting as a role<br/>
+        /// Go back to your own role.
         /// </summary>
-        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUserAPI>> UpdateCurrentUserAsResponseAsync(
-
-            global::LabelStudio.PatchedLseUserSerializerUpdateRequest request,
+        public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>> ApiCurrentUserActingRoleDestroyAsResponseAsync(
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
-            PrepareUpdateCurrentUserArguments(
-                httpClient: HttpClient,
-                request: request);
+            PrepareApiCurrentUserActingRoleDestroyArguments(
+                httpClient: HttpClient);
 
 
             var __authorizations = global::LabelStudio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_UpdateCurrentUserSecurityRequirements,
-                operationName: "UpdateCurrentUserAsync");
+                securityRequirements: s_ApiCurrentUserActingRoleDestroySecurityRequirements,
+                operationName: "ApiCurrentUserActingRoleDestroyAsync");
 
             using var __timeoutCancellationTokenSource = global::LabelStudio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -122,7 +97,7 @@ namespace LabelStudio
             {
 
                             var __pathBuilder = new global::LabelStudio.PathBuilder(
-                                path: "/api/current-user",
+                                path: "/api/current-user/acting-role",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::LabelStudio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -130,7 +105,7 @@ namespace LabelStudio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Delete,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -153,12 +128,6 @@ namespace LabelStudio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
-                            var __httpRequestContent = new global::System.Net.Http.StringContent(
-                                content: __httpRequestContentBody,
-                                encoding: global::System.Text.Encoding.UTF8,
-                                mediaType: "application/json");
-                            __httpRequest.Content = __httpRequestContent;
                 global::LabelStudio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -167,10 +136,9 @@ namespace LabelStudio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareUpdateCurrentUserRequest(
+                PrepareApiCurrentUserActingRoleDestroyRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    request: request);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -187,10 +155,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateCurrentUser",
-                                methodName: "UpdateCurrentUserAsync",
-                                pathTemplate: "\"/api/current-user\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiCurrentUserActingRoleDestroy",
+                                methodName: "ApiCurrentUserActingRoleDestroyAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -221,10 +189,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateCurrentUser",
-                                methodName: "UpdateCurrentUserAsync",
-                                pathTemplate: "\"/api/current-user\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiCurrentUserActingRoleDestroy",
+                                methodName: "ApiCurrentUserActingRoleDestroyAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -262,10 +230,10 @@ namespace LabelStudio
                         await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateCurrentUser",
-                                methodName: "UpdateCurrentUserAsync",
-                                pathTemplate: "\"/api/current-user\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiCurrentUserActingRoleDestroy",
+                                methodName: "ApiCurrentUserActingRoleDestroyAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -302,7 +270,7 @@ namespace LabelStudio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessUpdateCurrentUserResponse(
+                ProcessApiCurrentUserActingRoleDestroyResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -310,10 +278,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateCurrentUser",
-                                methodName: "UpdateCurrentUserAsync",
-                                pathTemplate: "\"/api/current-user\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiCurrentUserActingRoleDestroy",
+                                methodName: "ApiCurrentUserActingRoleDestroyAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -332,10 +300,10 @@ namespace LabelStudio
                     await global::LabelStudio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::LabelStudio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "UpdateCurrentUser",
-                                methodName: "UpdateCurrentUserAsync",
-                                pathTemplate: "\"/api/current-user\"",
-                                httpMethod: "PATCH",
+                                operationId: "ApiCurrentUserActingRoleDestroy",
+                                methodName: "ApiCurrentUserActingRoleDestroyAsync",
+                                pathTemplate: "\"/api/current-user/acting-role\"",
+                                httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -362,7 +330,7 @@ namespace LabelStudio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessUpdateCurrentUserResponseContent(
+                                ProcessApiCurrentUserActingRoleDestroyResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -371,9 +339,9 @@ namespace LabelStudio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::LabelStudio.LseUserAPI.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::LabelStudio.ActingRole.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUserAPI>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -403,9 +371,9 @@ namespace LabelStudio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::LabelStudio.LseUserAPI.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::LabelStudio.ActingRole.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.LseUserAPI>(
+                                    return new global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ActingRole>(
                                         statusCode: __response.StatusCode,
                                         headers: global::LabelStudio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -444,83 +412,6 @@ namespace LabelStudio
             {
                 __httpRequest?.Dispose();
             }
-        }
-        /// <summary>
-        /// ✨ Update current user<br/>
-        /// &lt;Card href="https://humansignal.com/goenterprise"&gt;<br/>
-        ///         &lt;img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/&gt;<br/>
-        ///         &lt;p style="margin-top: 10px; font-size: 14px;"&gt;<br/>
-        ///             This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)<br/>
-        ///         &lt;/p&gt;<br/>
-        ///     &lt;/Card&gt;<br/>
-        /// Update details for the currently authenticated user.
-        /// </summary>
-        /// <param name="activeOrganization"></param>
-        /// <param name="allowNewsletters">
-        /// Allow sending newsletters to user
-        /// </param>
-        /// <param name="currentPassword">
-        /// Your current password. Required when you change your own password.<br/>
-        /// Included only in requests
-        /// </param>
-        /// <param name="customHotkeys">
-        /// Custom keyboard shortcuts configuration for the user interface
-        /// </param>
-        /// <param name="dateJoined"></param>
-        /// <param name="emailNotificationSettings">
-        /// Included only in requests
-        /// </param>
-        /// <param name="firstName"></param>
-        /// <param name="isEmailVerified">
-        /// Included only in requests
-        /// </param>
-        /// <param name="lastName"></param>
-        /// <param name="onboardingState">
-        /// Included only in requests
-        /// </param>
-        /// <param name="password">
-        /// Included only in requests
-        /// </param>
-        /// <param name="phone"></param>
-        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
-        /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::LabelStudio.LseUserAPI> UpdateCurrentUserAsync(
-            int? activeOrganization = default,
-            bool? allowNewsletters = default,
-            string? currentPassword = default,
-            object? customHotkeys = default,
-            global::System.DateTime? dateJoined = default,
-            object? emailNotificationSettings = default,
-            string? firstName = default,
-            bool? isEmailVerified = default,
-            string? lastName = default,
-            string? onboardingState = default,
-            string? password = default,
-            string? phone = default,
-            global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var __request = new global::LabelStudio.PatchedLseUserSerializerUpdateRequest
-            {
-                ActiveOrganization = activeOrganization,
-                AllowNewsletters = allowNewsletters,
-                CurrentPassword = currentPassword,
-                CustomHotkeys = customHotkeys,
-                DateJoined = dateJoined,
-                EmailNotificationSettings = emailNotificationSettings,
-                FirstName = firstName,
-                IsEmailVerified = isEmailVerified,
-                LastName = lastName,
-                OnboardingState = onboardingState,
-                Password = password,
-                Phone = phone,
-            };
-
-            return await UpdateCurrentUserAsync(
-                request: __request,
-                requestOptions: requestOptions,
-                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }
