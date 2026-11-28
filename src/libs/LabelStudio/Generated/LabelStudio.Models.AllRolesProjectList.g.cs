@@ -147,6 +147,14 @@ namespace LabelStudio
         public global::System.Collections.Generic.Dictionary<string, global::LabelStudio.ControlTagWeight>? ControlWeights { get; set; }
 
         /// <summary>
+        /// Courses replace Annotation and Reviewer Instructions on this project. Changed through the learning-assignments courses-enabled endpoint.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("courses_enabled")]
+        public bool CoursesEnabled { get; set; } = default!;
+
+        /// <summary>
         /// Included only in responses
         /// </summary>
         /// <default>default!</default>
@@ -259,6 +267,22 @@ namespace LabelStudio
         /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("ground_truth_number")]
         public int GroundTruthNumber { get; set; } = default!;
+
+        /// <summary>
+        /// Annotation Instructions hold readable content (not empty or only empty HTML)<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_annotation_instructions")]
+        public bool HasAnnotationInstructions { get; set; } = default!;
+
+        /// <summary>
+        /// Review Instructions hold readable content (not empty or only empty HTML)<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_review_instructions")]
+        public bool HasReviewInstructions { get; set; } = default!;
 
         /// <summary>
         /// Included only in responses
@@ -906,6 +930,10 @@ namespace LabelStudio
         /// Flag to detect is project ready for bulk annotation<br/>
         /// Included only in responses
         /// </param>
+        /// <param name="coursesEnabled">
+        /// Courses replace Annotation and Reviewer Instructions on this project. Changed through the learning-assignments courses-enabled endpoint.<br/>
+        /// Included only in responses
+        /// </param>
         /// <param name="createdAt">
         /// Included only in responses
         /// </param>
@@ -918,6 +946,14 @@ namespace LabelStudio
         /// </param>
         /// <param name="groundTruthNumber">
         /// Honeypot annotation number in project<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="hasAnnotationInstructions">
+        /// Annotation Instructions hold readable content (not empty or only empty HTML)<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="hasReviewInstructions">
+        /// Review Instructions hold readable content (not empty or only empty HTML)<br/>
         /// Included only in responses
         /// </param>
         /// <param name="id">
@@ -1058,10 +1094,13 @@ namespace LabelStudio
             global::System.Collections.Generic.IList<global::LabelStudio.BlueprintList> blueprints = default!,
             bool configHasControlTags = default!,
             bool configSuitableForBulkAnnotation = default!,
+            bool coursesEnabled = default!,
             global::System.DateTime createdAt = default!,
             string descriptionShort = default!,
             int finishedTaskNumber = default!,
             int groundTruthNumber = default!,
+            bool hasAnnotationInstructions = default!,
+            bool hasReviewInstructions = default!,
             int id = default!,
             bool isDimensionsEnabled = default!,
             bool isOnboardingProject = default!,
@@ -1099,6 +1138,7 @@ namespace LabelStudio
             this.ConfigHasControlTags = configHasControlTags;
             this.ConfigSuitableForBulkAnnotation = configSuitableForBulkAnnotation;
             this.ControlWeights = controlWeights;
+            this.CoursesEnabled = coursesEnabled;
             this.CreatedAt = createdAt;
             this.CreatedBy = createdBy;
             this.CustomInterfaceCode = customInterfaceCode;
@@ -1117,6 +1157,8 @@ namespace LabelStudio
             this.ExpertInstruction = expertInstruction;
             this.FinishedTaskNumber = finishedTaskNumber;
             this.GroundTruthNumber = groundTruthNumber;
+            this.HasAnnotationInstructions = hasAnnotationInstructions;
+            this.HasReviewInstructions = hasReviewInstructions;
             this.Id = id;
             this.InputSchema = inputSchema;
             this.InternalDescription = internalDescription;

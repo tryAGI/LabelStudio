@@ -343,6 +343,11 @@ namespace LabelStudio
         /// <summary>
         ///
         /// </summary>
+        public Users2Client Users2 { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
         public VersionsClient Versions { get; }
 
         /// <summary>

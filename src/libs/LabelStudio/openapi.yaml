@@ -1800,6 +1800,70 @@ paths:
         - public
       x-fern-sdk-group-name: users
       x-fern-sdk-method-name: update_current_user
+  /api/current-user/acting-role:
+    delete:
+      description: Go back to your own role.
+      operationId: api_current_user_acting_role_destroy
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActingRole'
+          description: ''
+      security:
+        - Token: []
+      summary: Stop acting as a role
+      tags:
+        - Users
+      x-fern-audiences:
+        - internal
+    get:
+      description: Your stored role, the role you act as, and the roles you may act as.
+      operationId: api_current_user_acting_role_retrieve
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActingRole'
+          description: ''
+      security:
+        - Token: []
+      summary: Get acting role
+      tags:
+        - Users
+      x-fern-audiences:
+        - internal
+    post:
+      description: Act as a lower role in your active organization. Replaces the role you act as now.
+      operationId: api_current_user_acting_role_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActingRoleStartRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ActingRoleStartRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ActingRoleStartRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActingRole'
+          description: ''
+      security:
+        - Token: []
+      summary: Start acting as a role
+      tags:
+        - Users
+      x-fern-audiences:
+        - internal
   /api/current-user/hotkeys/:
     get:
       description: Retrieve the current user’s account hotkeys, or their stored personal override for the optional project scope.
@@ -4440,7 +4504,11 @@ paths:
         required: true
       responses:
         '200':
-          description: Invite sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendInviteResponse'
+          description: Invite sent. skipped_user_ids lists invitees who were not added to the requested projects because they must verify their identity first.
         '403':
           description: Organization does not allow to invite people
       security:
@@ -6147,6 +6215,48 @@ paths:
       security:
         - Token: []
       summary: ✨ Update learner progress on a learning resource
+      tags:
+        - Learning Resources
+  /api/learning-resources/{id}/project-assignment-preview/:
+    post:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        Read-only. Returns one row per selected project (by title, capped; see total) and says whether assigning this course would turn Courses on there and so hide its written instructions (switch_with_instructions), turn Courses on with nothing to hide (switch_empty), or change nothing (already_on). Assigning a course always turns Courses on for the project. The preview lets the UI say what that costs; it changes nothing and the assignment endpoints never depend on it: assigning through the API or SDK is silent and turns Courses on for the project. Projects of other organizations or that the caller cannot access are left out.
+      operationId: api_learning_resources_project_assignment_preview_create
+      parameters:
+        - description: A unique integer value identifying this learning resource.
+          in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentPreviewRequestRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AssignmentPreviewRequestRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AssignmentPreviewRequestRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentPreviewResponse'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Preview what assigning a learning resource does to projects
       tags:
         - Learning Resources
   /api/learning-resources/{id}/project-assignments/:
@@ -13526,6 +13636,12 @@ paths:
         Paginated, sortable member performance rows for annotation/review tables.
       operationId: api_projects_stats_member_performance_rows_retrieve
       parameters:
+        - description: End of the date range (ISO 8601, inclusive). Pass together with <code>start</code>.
+          in: query
+          name: end
+          schema:
+            format: date-time
+            type: string
         - in: path
           name: id
           required: true
@@ -13551,6 +13667,12 @@ paths:
           name: page_size
           schema:
             type: integer
+        - description: 'Start of the date range (ISO 8601, inclusive). Pass together with <code>end</code>. Each metric is dated like Analytics &gt; Member Performance: annotation work by the last submit or update, review work by the review, time by when it was spent. Agreement and evaluation metrics are all-time.'
+          in: query
+          name: start
+          schema:
+            format: date-time
+            type: string
         - description: 'Which table to load: "annotations" or "reviews".'
           in: query
           name: table
@@ -13603,6 +13725,12 @@ paths:
         Footer / Total aggregates for annotation or review member tables. Use with paginated <code>member_performance_rows</code>.
       operationId: api_projects_stats_member_performance_summary_retrieve
       parameters:
+        - description: End of the date range (ISO 8601, inclusive). Pass together with <code>start</code>.
+          in: query
+          name: end
+          schema:
+            format: date-time
+            type: string
         - in: path
           name: id
           required: true
@@ -13612,6 +13740,12 @@ paths:
           in: query
           name: ids
           schema:
+            type: string
+        - description: 'Start of the date range (ISO 8601, inclusive). Pass together with <code>end</code>. Each metric is dated like Analytics &gt; Member Performance: annotation work by the last submit or update, review work by the review, time by when it was spent. Agreement and evaluation metrics are all-time.'
+          in: query
+          name: start
+          schema:
+            format: date-time
             type: string
         - description: 'Which table: "annotations" or "reviews".'
           in: query
@@ -14825,6 +14959,46 @@ paths:
       security:
         - Token: []
       summary: ✨ Assign a learning resource to a project
+      tags:
+        - Learning Resources
+  /api/projects/{project_pk}/learning-assignments/courses-enabled/:
+    patch:
+      description: |-
+        <Card href="https://humansignal.com/goenterprise">
+                <img style="pointer-events: none; margin-left: 0px; margin-right: 0px;" src="https://docs.humansignal.com/images/badge.svg" alt="Label Studio Enterprise badge"/>
+                <p style="margin-top: 10px; font-size: 14px;">
+                    This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)
+                </p>
+            </Card>
+        When Courses are on, Annotation and Reviewer Instructions are hidden from annotators and reviewers and published assigned courses are shown instead. The instruction content is never changed. Assigning a course to a project always turns Courses on automatically. When Courses are off, no assigned course gates or is offered on the project; the assignments are kept and apply again when Courses are turned back on.
+      operationId: api_projects_learning_assignments_courses_enabled_partial_update
+      parameters:
+        - in: path
+          name: project_pk
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectCoursesEnabledRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectCoursesEnabledRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProjectCoursesEnabledRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCoursesEnabled'
+          description: ''
+      security:
+        - Token: []
+      summary: ✨ Turn Courses on or off for a project
       tags:
         - Learning Resources
   /api/projects/{project_pk}/learning-assignments/reorder/:
@@ -23935,6 +24109,59 @@ components:
       required:
         - code
       type: object
+    ActingRole:
+      properties:
+        acting_role:
+          description: Role the user acts as, or null
+          nullable: true
+          type: string
+        allowed_roles:
+          description: Roles the user may act as; empty when they may not act
+          items:
+            type: string
+          type: array
+        real_role:
+          description: Stored organization role of the user
+          nullable: true
+          type: string
+        started_at:
+          description: When acting started, or null
+          format: date-time
+          nullable: true
+          type: string
+      required:
+        - acting_role
+        - allowed_roles
+        - real_role
+        - started_at
+      type: object
+    ActingRoleStartRequest:
+      properties:
+        role:
+          allOf:
+            - $ref: '#/components/schemas/ActingRoleStartRoleEnum'
+          description: |-
+            Role to act as
+
+            * `AD` - Administrator
+            * `MA` - Manager
+            * `RE` - Reviewer
+            * `AN` - Annotator
+      required:
+        - role
+      type: object
+    ActingRoleStartRoleEnum:
+      description: |-
+        * `AD` - Administrator
+        * `MA` - Manager
+        * `RE` - Reviewer
+        * `AN` - Annotator
+      enum:
+        - AD
+        - MA
+        - RE
+        - AN
+      type: string
     ActionsEnum:
       description: |-
         * `PROJECT_CREATED` - PROJECT_CREATED
@@ -24331,6 +24558,10 @@ components:
           description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
           nullable: true
           type: object
+        courses_enabled:
+          description: Courses replace Annotation and Reviewer Instructions on this project. Changed through the learning-assignments courses-enabled endpoint.
+          readOnly: true
+          type: boolean
         created_at:
           format: date-time
           readOnly: true
@@ -24431,6 +24662,14 @@ components:
           description: Honeypot annotation number in project
           readOnly: true
           type: integer
+        has_annotation_instructions:
+          description: Annotation Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
+        has_review_instructions:
+          description: Review Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
         id:
           readOnly: true
           type: integer
@@ -24685,11 +24924,14 @@ components:
         - collection_mode
         - config_has_control_tags
         - config_suitable_for_bulk_annotation
+        - courses_enabled
         - created_at
         - data_types
         - description_short
         - finished_task_number
         - ground_truth_number
+        - has_annotation_instructions
+        - has_review_instructions
         - id
         - internal_description
         - internal_description_short
@@ -25053,6 +25295,11 @@ components:
         control which fields are displayed, and whether to replace simple
         values with complex, nested serializations
       properties:
+        acting_role:
+          description: Role the user acted as when making this change; empty for normal work
+          maxLength: 2
+          nullable: true
+          type: string
         action:
           allOf:
             - $ref: '#/components/schemas/AnnotationHistoryActionEnum'
@@ -25386,6 +25633,73 @@ components:
         - flex
         - viewonly
       type: string
+    AssignmentPreviewCounts:
+      properties:
+        already_on:
+          type: integer
+        switch_empty:
+          type: integer
+        switch_with_instructions:
+          type: integer
+      required:
+        - already_on
+        - switch_empty
+        - switch_with_instructions
+      type: object
+    AssignmentPreviewProject:
+      properties:
+        has_annotation_instructions:
+          type: boolean
+        has_review_instructions:
+          type: boolean
+        id:
+          type: integer
+        state:
+          description: 'One of switch_with_instructions, switch_empty, already_on. switch_with_instructions: Courses off and written instructions (assigning turns Courses on and hides them). switch_empty: Courses off and no written instructions (assigning turns Courses on). already_on: Courses on (nothing changes).'
+          type: string
+        title:
+          type: string
+      required:
+        - has_annotation_instructions
+        - has_review_instructions
+        - id
+        - state
+        - title
+      type: object
+    AssignmentPreviewRequestRequest:
+      description: Same body as the bulk assignment, so the preview describes exactly what the assignment would do.
+      properties:
+        project_ids:
+          items:
+            minimum: 1
+            type: integer
+          type: array
+      required:
+        - project_ids
+      type: object
+    AssignmentPreviewResponse:
+      properties:
+        already_assigned:
+          description: Selected projects that already have this course
+          type: integer
+        counts:
+          allOf:
+            - $ref: '#/components/schemas/AssignmentPreviewCounts'
+          description: Projects per state, over every project, not just the rows
+        projects:
+          description: One row per project that would get the course, by title (capped; see total)
+          items:
+            $ref: '#/components/schemas/AssignmentPreviewProject'
+          type: array
+        total:
+          description: Projects that would get the course; more than len(projects) if capped
+          type: integer
+      required:
+        - already_assigned
+        - counts
+        - projects
+        - total
+      type: object
     AssignmentSettings:
       properties:
         id:
@@ -32201,12 +32515,15 @@ components:
           readOnly: true
           type: object
         learner_count:
+          nullable: true
           readOnly: true
           type: integer
         learners_completed_count:
+          nullable: true
           readOnly: true
           type: integer
         learners_started_count:
+          nullable: true
           readOnly: true
           type: integer
         module_count:
@@ -33865,6 +34182,10 @@ components:
           description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
           nullable: true
           type: object
+        courses_enabled:
+          description: Courses replace Annotation and Reviewer Instructions on this project. Changed through the learning-assignments courses-enabled endpoint.
+          readOnly: true
+          type: boolean
         created_at:
           format: date-time
           readOnly: true
@@ -33965,6 +34286,14 @@ components:
           description: Honeypot annotation number in project
           readOnly: true
           type: integer
+        has_annotation_instructions:
+          description: Annotation Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
+        has_review_instructions:
+          description: Review Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
         id:
           readOnly: true
           type: integer
@@ -34206,11 +34535,14 @@ components:
         - collection_mode
         - config_has_control_tags
         - config_suitable_for_bulk_annotation
+        - courses_enabled
         - created_at
         - data_types
         - dm_column_access
         - finished_task_number
         - ground_truth_number
+        - has_annotation_instructions
+        - has_review_instructions
         - id
         - internal_description
         - is_dimensions_enabled
@@ -34974,6 +35306,10 @@ components:
           description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
           nullable: true
           type: object
+        courses_enabled:
+          description: Courses replace Annotation and Reviewer Instructions on this project. Changed through the learning-assignments courses-enabled endpoint.
+          readOnly: true
+          type: boolean
         created_at:
           format: date-time
           readOnly: true
@@ -35074,6 +35410,14 @@ components:
           description: Honeypot annotation number in project
           readOnly: true
           type: integer
+        has_annotation_instructions:
+          description: Annotation Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
+        has_review_instructions:
+          description: Review Instructions hold readable content (not empty or only empty HTML)
+          readOnly: true
+          type: boolean
         id:
           readOnly: true
           type: integer
@@ -35333,11 +35677,14 @@ components:
         - collection_mode
         - config_has_control_tags
         - config_suitable_for_bulk_annotation
+        - courses_enabled
         - created_at
         - data_types
         - dm_column_access
         - finished_task_number
         - ground_truth_number
+        - has_annotation_instructions
+        - has_review_instructions
         - id
         - internal_description
         - is_dimensions_enabled
@@ -41391,6 +41738,12 @@ components:
         task:
           type: integer
       type: object
+    PatchedProjectCoursesEnabledRequest:
+      properties:
+        courses_enabled:
+          description: Courses replace Annotation and Reviewer Instructions on this project
+          type: boolean
+      type: object
     PatchedProjectLearningAssignmentRequest:
       properties:
         allow_manual_access:
@@ -42557,6 +42910,14 @@ components:
       required:
         - annotations
         - count
+      type: object
+    ProjectCoursesEnabled:
+      properties:
+        courses_enabled:
+          description: Courses replace Annotation and Reviewer Instructions on this project
+          type: boolean
+      required:
+        - courses_enabled
       type: object
     ProjectDuplicateModeEnum:
       description: |-
@@ -45524,6 +45885,15 @@ components:
           type: array
       required:
         - emails
+      type: object
+    SendInviteResponse:
+      properties:
+        skipped_user_ids:
+          items:
+            type: integer
+          type: array
+      required:
+        - skipped_user_ids
       type: object
     SerializationOption:
       properties:

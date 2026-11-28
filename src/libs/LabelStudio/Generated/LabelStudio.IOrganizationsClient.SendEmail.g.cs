@@ -18,7 +18,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task SendEmailAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.SendInviteResponse> SendEmailAsync(
 
             global::LabelStudio.SendInviteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -37,7 +37,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse> SendEmailAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.SendInviteResponse>> SendEmailAsResponseAsync(
 
             global::LabelStudio.SendInviteRequest request,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
@@ -81,7 +81,7 @@ namespace LabelStudio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task SendEmailAsync(
+        global::System.Threading.Tasks.Task<global::LabelStudio.SendInviteResponse> SendEmailAsync(
             global::System.Collections.Generic.IList<string> emails,
             global::System.Collections.Generic.IList<int>? projects = default,
             global::LabelStudio.AssignableOrganizationRoleEnum? role = default,
