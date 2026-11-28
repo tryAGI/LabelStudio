@@ -27,14 +27,18 @@ namespace LabelStudio
             };
         partial void PrepareMemberPerformanceSummaryArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref global::System.DateTime? end,
             ref int id,
             ref string? ids,
+            ref global::System.DateTime? start,
             ref global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
         partial void PrepareMemberPerformanceSummaryRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::System.DateTime? end,
             int id,
             string? ids,
+            global::System.DateTime? start,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table);
         partial void ProcessMemberPerformanceSummaryResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,22 +59,28 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse> MemberPerformanceSummaryAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await MemberPerformanceSummaryAsResponseAsync(
                 id: id,
+                end: end,
                 ids: ids,
+                start: start,
                 table: table,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -88,15 +98,19 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>> MemberPerformanceSummaryAsResponseAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -105,8 +119,10 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareMemberPerformanceSummaryArguments(
                 httpClient: HttpClient,
+                end: ref end,
                 id: ref id,
                 ids: ref ids,
+                start: ref start,
                 table: ref table);
 
 
@@ -136,7 +152,9 @@ namespace LabelStudio
                                 path: $"/api/projects/{id}/stats/member_performance_summary/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("ids", ids)
+                                .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("table", table?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -179,8 +197,10 @@ namespace LabelStudio
                 PrepareMemberPerformanceSummaryRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    end: end,
                     id: id,
                     ids: ids,
+                    start: start,
                     table: table);
 
                 return __httpRequest;

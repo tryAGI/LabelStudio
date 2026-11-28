@@ -14,21 +14,25 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Paginated, sortable member performance rows for annotation/review tables.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse> MemberPerformanceRowsAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -42,21 +46,25 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Paginated, sortable member performance rows for annotation/review tables.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse>> MemberPerformanceRowsAsResponseAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

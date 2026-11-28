@@ -27,20 +27,24 @@ namespace LabelStudio
             };
         partial void PrepareMemberPerformanceRowsArguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref global::System.DateTime? end,
             ref int id,
             ref string? ids,
             ref string? ordering,
             ref int? page,
             ref int? pageSize,
+            ref global::System.DateTime? start,
             ref global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table);
         partial void PrepareMemberPerformanceRowsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            global::System.DateTime? end,
             int id,
             string? ids,
             string? ordering,
             int? page,
             int? pageSize,
+            global::System.DateTime? start,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table);
         partial void ProcessMemberPerformanceRowsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -61,31 +65,37 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Paginated, sortable member performance rows for annotation/review tables.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse> MemberPerformanceRowsAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await MemberPerformanceRowsAsResponseAsync(
                 id: id,
+                end: end,
                 ids: ids,
                 ordering: ordering,
                 page: page,
                 pageSize: pageSize,
+                start: start,
                 table: table,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -103,21 +113,25 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Paginated, sortable member performance rows for annotation/review tables.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
         /// <param name="ordering"></param>
         /// <param name="page"></param>
         /// <param name="pageSize"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveResponse>> MemberPerformanceRowsAsResponseAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
             string? ordering = default,
             int? page = default,
             int? pageSize = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceRowsRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -126,11 +140,13 @@ namespace LabelStudio
                 client: HttpClient);
             PrepareMemberPerformanceRowsArguments(
                 httpClient: HttpClient,
+                end: ref end,
                 id: ref id,
                 ids: ref ids,
                 ordering: ref ordering,
                 page: ref page,
                 pageSize: ref pageSize,
+                start: ref start,
                 table: ref table);
 
 
@@ -160,10 +176,12 @@ namespace LabelStudio
                                 path: $"/api/projects/{id}/stats/member_performance_rows/",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("end", end?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("ids", ids)
                                 .AddOptionalParameter("ordering", ordering)
                                 .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("start", start?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                                 .AddOptionalParameter("table", table?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -206,11 +224,13 @@ namespace LabelStudio
                 PrepareMemberPerformanceRowsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    end: end,
                     id: id,
                     ids: ids,
                     ordering: ordering,
                     page: page,
                     pageSize: pageSize,
+                    start: start,
                     table: table);
 
                 return __httpRequest;

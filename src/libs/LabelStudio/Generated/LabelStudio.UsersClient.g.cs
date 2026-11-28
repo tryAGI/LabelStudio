@@ -41,7 +41,7 @@ namespace LabelStudio
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider?.Value ?? global::LabelStudio.SourceGenerationContext.Default;
+            get => JsonSerializerContextProvider?.Value ?? global::LabelStudio.UsersSourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 

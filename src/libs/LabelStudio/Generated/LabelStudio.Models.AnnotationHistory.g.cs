@@ -12,6 +12,12 @@ namespace LabelStudio
     public sealed partial class AnnotationHistory
     {
         /// <summary>
+        /// Role the user acted as when making this change; empty for normal work
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("acting_role")]
+        public string? ActingRole { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("action")]
@@ -113,6 +119,9 @@ namespace LabelStudio
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnotationHistory" /> class.
         /// </summary>
+        /// <param name="actingRole">
+        /// Role the user acted as when making this change; empty for normal work
+        /// </param>
         /// <param name="action"></param>
         /// <param name="annotationId">
         /// Corresponding annotation for this historical annotation
@@ -160,6 +169,7 @@ namespace LabelStudio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AnnotationHistory(
+            string? actingRole,
             global::LabelStudio.AnnotationHistoryActionEnum? action,
             int? annotationId,
             string? comment,
@@ -176,6 +186,7 @@ namespace LabelStudio
             global::System.DateTime createdAt = default!,
             int id = default!)
         {
+            this.ActingRole = actingRole;
             this.Action = action;
             this.AnnotationId = annotationId;
             this.Comment = comment;

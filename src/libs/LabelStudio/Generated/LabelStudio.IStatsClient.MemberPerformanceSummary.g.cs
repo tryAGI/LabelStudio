@@ -14,15 +14,19 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse> MemberPerformanceSummaryAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -36,15 +40,19 @@ namespace LabelStudio
         ///     &lt;/Card&gt;<br/>
         /// Footer / Total aggregates for annotation or review member tables. Use with paginated &lt;code&gt;member_performance_rows&lt;/code&gt;.
         /// </summary>
+        /// <param name="end"></param>
         /// <param name="id"></param>
         /// <param name="ids"></param>
+        /// <param name="start"></param>
         /// <param name="table"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::LabelStudio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::LabelStudio.AutoSDKHttpResponse<global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveResponse>> MemberPerformanceSummaryAsResponseAsync(
             int id,
+            global::System.DateTime? end = default,
             string? ids = default,
+            global::System.DateTime? start = default,
             global::LabelStudio.ApiProjectsStatsMemberPerformanceSummaryRetrieveTable? table = default,
             global::LabelStudio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

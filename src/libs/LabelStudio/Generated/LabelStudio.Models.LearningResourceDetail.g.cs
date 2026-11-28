@@ -142,23 +142,20 @@ namespace LabelStudio
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learner_count")]
-        public int LearnerCount { get; set; } = default!;
+        public int? LearnerCount { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_completed_count")]
-        public int LearnersCompletedCount { get; set; } = default!;
+        public int? LearnersCompletedCount { get; set; }
 
         /// <summary>
         /// Included only in responses
         /// </summary>
-        /// <default>default!</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("learners_started_count")]
-        public int LearnersStartedCount { get; set; } = default!;
+        public int? LearnersStartedCount { get; set; }
 
         /// <summary>
         /// Included only in responses
@@ -292,6 +289,15 @@ namespace LabelStudio
         /// <param name="learnerContent">
         /// Included only in responses
         /// </param>
+        /// <param name="learnerCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="learnersCompletedCount">
+        /// Included only in responses
+        /// </param>
+        /// <param name="learnersStartedCount">
+        /// Included only in responses
+        /// </param>
         /// <param name="progress">
         /// Included only in responses
         /// </param>
@@ -315,15 +321,6 @@ namespace LabelStudio
         /// Included only in responses
         /// </param>
         /// <param name="isPublished">
-        /// Included only in responses
-        /// </param>
-        /// <param name="learnerCount">
-        /// Included only in responses
-        /// </param>
-        /// <param name="learnersCompletedCount">
-        /// Included only in responses
-        /// </param>
-        /// <param name="learnersStartedCount">
         /// Included only in responses
         /// </param>
         /// <param name="moduleCount">
@@ -374,6 +371,9 @@ namespace LabelStudio
             bool? hasUnpublishedChanges,
             bool? hideCompletedQuizzes,
             object? learnerContent,
+            int? learnerCount,
+            int? learnersCompletedCount,
+            int? learnersStartedCount,
             object? progress,
             bool? singlePageReview,
             string? summary,
@@ -385,9 +385,6 @@ namespace LabelStudio
             global::LabelStudio.UserSimple createdBy = default!,
             int id = default!,
             bool isPublished = default!,
-            int learnerCount = default!,
-            int learnersCompletedCount = default!,
-            int learnersStartedCount = default!,
             int moduleCount = default!,
             global::System.Collections.Generic.IList<global::LabelStudio.CourseModule> modules = default!,
             int organization = default!,
